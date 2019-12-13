@@ -1,0 +1,36 @@
+{
+  "name": "4log",
+  "version": "1.0.0",
+  "description": "4log github page package",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hansanghyeon/4log.git"
+  },
+  "keywords": [],
+  "author": "Hansanghyeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hansanghyeon/4log/issues"
+  },
+  "homepage": "https://hansanghyeon.github.io/4log/",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^4.4.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
