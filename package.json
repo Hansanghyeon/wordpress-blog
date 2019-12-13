@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode development",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook",
+    "postinstall": "rm -rf node_modules/@types/react-native"
   },
   "repository": {
     "type": "git",
@@ -20,11 +23,21 @@
   "homepage": "https://hansanghyeon.github.io/4log/",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "@types/node": "^12.12.17",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "@types/styled-components": "^4.4.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.12.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",
     "ts-loader": "^6.2.1",
