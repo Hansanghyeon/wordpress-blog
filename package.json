@@ -8,7 +8,8 @@
     "start": "webpack-dev-server",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook",
-    "postinstall": "rm -rf node_modules/@types/react-native"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "@types/styled-components": "^4.4.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.12.0",
     "react-docgen-typescript-loader": "^3.6.0",
