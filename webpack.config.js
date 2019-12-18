@@ -1,6 +1,4 @@
 const path = require('path');
-const HtmlWepbackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -17,27 +15,12 @@ module.exports = {
         test: /\.tsx$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
-        }
-      }
-    ]
+          loader: 'ts-loader',
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.tsx']
+    extensions: ['.js', '.tsx'],
   },
-  // Dev Server
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './build',
-    noInfo: true,
-    open: true,
-    port: 30000,
-  },
-  plugins: [
-    new HtmlWepbackPlugin({
-      title: '4log',
-      template: './public/index.html'
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
-}
+};
