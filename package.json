@@ -4,12 +4,14 @@
   "description": "4log github page package",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
-    "start": "webpack-dev-server",
+    "postinstall": "rm -rf node_modules/@types/react-native",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook",
-    "predeploy": "webpack --mode production",
-    "deploy": "gh-pages -d build"
+    "type-check": "tsc --noEmit",
+    "deploy": "rm -rf public .cache && gatsby build && gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,12 @@
     "url": "https://github.com/Hansanghyeon/4log/issues"
   },
   "homepage": "https://4log.io/",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1",
+    "gatsby": "^2.18.13"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@commitlint/cli": "^8.2.0",
@@ -31,7 +38,7 @@
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
-    "@types/node": "^12.12.17",
+    "@types/node": "^12.12.20",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "@types/styled-components": "^4.4.1",
@@ -45,20 +52,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby-plugin-cname": "^1.0.0",
+    "gatsby-plugin-typescript": "^2.1.23",
     "gh-pages": "^2.1.1",
-    "html-webpack-plugin": "^3.2.0",
     "husky": "^4.0.0-beta.5",
     "lint-staged": "^9.5.0",
-    "react": "^16.12.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^4.4.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack": "^4.41.2"
   },
   "husky": {
     "hooks": {
