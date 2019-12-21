@@ -20,7 +20,8 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "@typescript-eslint/eslint-plugin"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
