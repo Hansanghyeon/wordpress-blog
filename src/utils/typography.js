@@ -13,5 +13,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default typography;
-export const { rhythm } = typography;
-export const { scale } = typography;
+export const { rhythm, scale } = typography;
