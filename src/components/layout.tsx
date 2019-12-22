@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
-
+import { BaseCSS, GridThemeProvider } from 'styled-bootstrap-grid';
+import { ThemeProvider } from 'styled-components';
 import { rhythm, scale } from '../utils/typography';
+import gridTheme from './config/gridTheme';
+
+interface styledTheme {
+  mainColor: string;
+}
+const styledTheme: styledTheme = {
+  mainColor: 'purple',
+};
 
 interface Props {
   location: Location;
@@ -57,23 +66,25 @@ const Layout = ({ location, title, children }: Props) => {
   }
 
   return (
-    <div
-      style={{
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        ©&nbsp;
-        {new Date().getFullYear()}
-        , Built with
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+    <>
+      <BaseCSS />
+      <ThemeProvider theme={styledTheme}>
+        <GridThemeProvider gridTheme={gridTheme}>
+          <>
+            <header>
+              {header}
+            </header>
+            <main>{children}</main>
+            <footer>
+              ©&nbsp;
+              {new Date().getFullYear()}
+              , Built with
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </footer>
+          </>
+        </GridThemeProvider>
+      </ThemeProvider>
+    </>
   );
 };
 
