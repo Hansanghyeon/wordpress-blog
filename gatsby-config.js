@@ -81,6 +81,13 @@ module.exports = {
         google: {
           families: ['Noto Sans KR', 'Noto Sans'],
         },
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
       },
     },
   ],
