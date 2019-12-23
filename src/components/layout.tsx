@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { BaseCSS, GridThemeProvider } from 'styled-bootstrap-grid';
+import { BaseCSS, GridThemeProvider, Container } from 'styled-bootstrap-grid';
 import { ThemeProvider } from 'styled-components';
 import { rhythm, scale } from '../utils/typography';
 import gridTheme from './config/gridTheme';
+import GNB from './organisms/GNB';
 
 interface styledTheme {
   mainColor: string;
@@ -71,16 +72,27 @@ const Layout = ({ location, title, children }: Props) => {
       <ThemeProvider theme={styledTheme}>
         <GridThemeProvider gridTheme={gridTheme}>
           <>
-            <header>
-              {header}
-            </header>
-            <main>{children}</main>
-            <footer>
-              ©&nbsp;
-              {new Date().getFullYear()}
-              , Built with
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
+            <GNB />
+            <div className="mainContainer">
+              <Container>
+                <header>
+                  {header}
+                </header>
+                <main>{children}</main>
+                <footer>
+                  © 2019 Hansanghyeon
+                  <br />
+                  Powered by
+                  <a href="https://www.gatsbyjs.org">Gatsby</a>
+                  .
+                </footer>
+              </Container>
+            </div>
+            <div className="side">
+              <Container>
+                side
+              </Container>
+            </div>
           </>
         </GridThemeProvider>
       </ThemeProvider>
