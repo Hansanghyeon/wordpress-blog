@@ -1,15 +1,22 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import Logo from '../../atoms/Logo';
+import Logo from '../../atoms/Logo/svg';
 
-const Wrap = styled.div`
+interface Props {
+  width?: number;
+}
+
+const Wrap = styled.div<Props>`
   height: 100%;
-  width: 100px;
+  width: ${(props) => `${props.width}px`};
   background: #0f4c81;
   position: fixed;
   color: #0e0448;
-  padding: .5rem;
+  padding: 20px;
+  box-shadow: 0px 0px 25px 3px rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
 `;
 
 const Inner = styled(Container)`
@@ -17,6 +24,7 @@ const Inner = styled(Container)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const LogoWrap = styled.div`
@@ -24,10 +32,11 @@ const LogoWrap = styled.div`
   top: 0;
   left: 0;
   padding: 1rem;
+  width: 100%;
 `;
 
-const GNB = () => (
-  <Wrap>
+const GNB = ({ width }:Props) => (
+  <Wrap width={width}>
     <Inner>
       <LogoWrap>
         <Logo />

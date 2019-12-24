@@ -1,10 +1,18 @@
 import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import { Link } from 'gatsby';
-import { BaseCSS, GridThemeProvider, Container } from 'styled-bootstrap-grid';
-import { ThemeProvider } from 'styled-components';
+import {
+  BaseCSS,
+  GridThemeProvider,
+  Container,
+  Row,
+  Col,
+} from 'styled-bootstrap-grid';
 import { rhythm, scale } from '../utils/typography';
+
 import gridTheme from './config/gridTheme';
 import GNB from './organisms/GNB';
+import SideLayout from './organisms/SideLayout';
 
 interface styledTheme {
   mainColor: string;
@@ -18,6 +26,7 @@ interface Props {
   title: string;
   children?: any;
 }
+
 
 const Layout = ({ location, title, children }: Props) => {
   const rootPath = '/';
@@ -66,18 +75,34 @@ const Layout = ({ location, title, children }: Props) => {
     );
   }
 
+  const gnbWidth: number = 100;
+
+  const mainBg = '#f2f4f7';
+  const MainContainer = styled.div`
+    margin-left: ${gnbWidth}px;
+    margin-right: ${gridTheme.breakpoints.xs}px;
+    background-color: ${mainBg};
+    padding: 40px;
+    height: 100%;
+    border-bottom-right-radius: 40px;
+  `;
+
   return (
     <>
       <BaseCSS />
       <ThemeProvider theme={styledTheme}>
         <GridThemeProvider gridTheme={gridTheme}>
           <>
-            <GNB />
-            <div className="mainContainer">
+            <GNB width={gnbWidth} />
+            <MainContainer>
               <Container>
-                <header>
-                  {header}
-                </header>
+                <Row>
+                  <Col col>
+                    <header>
+                      {header}
+                    </header>
+                  </Col>
+                </Row>
                 <main>{children}</main>
                 <footer>
                   © 2019 Hansanghyeon
@@ -87,12 +112,8 @@ const Layout = ({ location, title, children }: Props) => {
                   .
                 </footer>
               </Container>
-            </div>
-            <div className="side">
-              <Container>
-                side
-              </Container>
-            </div>
+            </MainContainer>
+            <SideLayout width={gridTheme.breakpoints.xs} bg={mainBg} />
           </>
         </GridThemeProvider>
       </ThemeProvider>
