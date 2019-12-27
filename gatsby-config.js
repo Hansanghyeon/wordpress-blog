@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: '4log',
     author: 'Han sanghyeon',
-    description: '매일매일 1%씩 성장하는 내가되자',
+    description: '매일매일 1%',
     siteUrl: 'https://4log.io/',
     social: {
       github: 'Hansanghyeon',
@@ -39,7 +39,12 @@ module.exports = {
               wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+            },
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
@@ -82,8 +87,12 @@ module.exports = {
         google: {
           families: ['Noto Sans KR', 'Noto Sans'],
         },
+        custom: {
+          families: ['D2 coding'],
+          urls: ['https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css']
+        },
       },
-    },
+    }
     {
       resolve: 'gatsby-plugin-use-dark-mode',
       options: {
