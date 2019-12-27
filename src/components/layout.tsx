@@ -1,4 +1,5 @@
 import React from 'react';
+import useDarkMode from 'use-dark-mode';
 import styled, { ThemeProvider } from 'styled-components';
 import { Link } from 'gatsby';
 import {
@@ -77,16 +78,24 @@ const Layout = ({ location, title, children }: Props) => {
 
   const gnbWidth: number = 100;
 
+  interface darkModeTypes {
+    darkMode?: boolean;
+  }
   const mainBg = '#f2f4f7';
-  const MainContainer = styled.div`
+  const darkMainBg = '#1c1c1c';
+  const MainLayout = styled.div`
     margin-left: ${gnbWidth}px;
     margin-right: ${gridTheme.breakpoints.xs}px;
-    background-color: ${mainBg};
-    padding: 40px;
     height: 100%;
-    border-bottom-right-radius: 40px;
+  `;
+  const Inner = styled.div<darkModeTypes>`
+    background-color: ${(props) => (props.darkMode ? darkMainBg : mainBg)};
+    height: 100%;
+    transition: all .5s;
+    padding: 40px;
   `;
 
+  const darkMode = useDarkMode();
   return (
     <>
       <BaseCSS />
@@ -94,26 +103,31 @@ const Layout = ({ location, title, children }: Props) => {
         <GridThemeProvider gridTheme={gridTheme}>
           <>
             <GNB width={gnbWidth} />
-            <MainContainer>
-              <Container>
-                <Row>
-                  <Col col>
-                    <header>
-                      {header}
-                    </header>
-                  </Col>
-                </Row>
-                <main>{children}</main>
-                <footer>
-                  © 2019 Hansanghyeon
-                  <br />
-                  Powered by
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
-                  .
-                </footer>
-              </Container>
-            </MainContainer>
-            <SideLayout width={gridTheme.breakpoints.xs} bg={mainBg} />
+            <MainLayout>
+              <Inner darkMode={darkMode.value}>
+                <Container>
+                  <Row>
+                    <Col col>
+                      <header>
+                        {header}
+                      </header>
+                    </Col>
+                  </Row>
+                  <main>{children}</main>
+                  <footer>
+                    © 2019 Hansanghyeon
+                    <br />
+                    Powered by
+                    <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    .
+                  </footer>
+                </Container>
+              </Inner>
+            </MainLayout>
+            <SideLayout
+              width={gridTheme.breakpoints.xs}
+              bg={darkMode.value ? darkMainBg : mainBg}
+            />
           </>
         </GridThemeProvider>
       </ThemeProvider>

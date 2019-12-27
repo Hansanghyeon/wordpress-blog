@@ -11,7 +11,7 @@ const Toggle = styled.div<Props>`
   position: relative;
   width: 90px;
   height: 50px;
-  background-color: ${(props):string => (props.checked ? '#749DD6' : '#83D8FF')};
+  background-color: ${(props):string => (props.checked ? '#3C4145' : '#83D8FF')};
   border-radius: calc(90px - 6px);
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 `;
@@ -42,21 +42,21 @@ const Crater1 = styled(Crater)<Props>`
   left: 10px;
   width: 4px;
   height: 4px;
-  opacity: ${(props):number => (props.checked ? 0 : 1)}
+  opacity: ${(props):number => (props.checked ? 1 : 0)}
 `;
 const Crater2 = styled(Crater)<Props>`
   top: 28px;
   left: 22px;
   width: 6px;
   height: 6px;
-  opacity: ${(props):number => (props.checked ? 0 : 1)}
+  opacity: ${(props):number => (props.checked ? 1 : 0)}
 `;
 const Crater3 = styled(Crater)<Props>`
   top: 10px;
   left: 25px;
   width: 8px;
   height: 8px;
-  opacity: ${(props):number => (props.checked ? 0 : 1)}
+  opacity: ${(props):number => (props.checked ? 1 : 0)}
 `;
 
 const Star = styled.div`
@@ -153,7 +153,7 @@ const Star6 = styled(Star)<Props>`
 `;
 
 const DarkModeToggle = () => {
-  const darkMode = useDarkMode(false);
+  const darkMode = useDarkMode();
   return (
     <div>
       <Toggle checked={darkMode.value} onClick={darkMode.toggle}>
