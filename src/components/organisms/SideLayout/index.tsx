@@ -9,18 +9,18 @@ interface Props {
 }
 const Wrap = styled.div<Props>`
 background: ${(props) => props.bg};
-height: 100%;
+height: calc(100% - 40px);
 width: ${(props) => `${props.width}px`};
 position: fixed;
-top: 0;
+top: 20px;
 right: 0;
 `;
 
 const Inner = styled(Container)`
 height: 100%;
-padding: 40px;
+padding: 20px;
 background: #fff;
-border-radius: 40px 0 0 40px;
+border-radius: 20px 0 0 20px;
 `;
 
 const SideLayout = ({ width, bg }:Props) => (

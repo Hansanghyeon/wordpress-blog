@@ -13,7 +13,6 @@ import { rhythm, scale } from '../utils/typography';
 
 import gridTheme from './config/gridTheme';
 import GNB from './organisms/GNB';
-import SideLayout from './organisms/SideLayout';
 
 interface styledTheme {
   mainColor: string;
@@ -85,14 +84,13 @@ const Layout = ({ location, title, children }: Props) => {
   const darkMainBg = '#1c1c1c';
   const MainLayout = styled.div`
     margin-left: ${gnbWidth}px;
-    margin-right: ${gridTheme.breakpoints.xs}px;
     height: 100%;
+    padding-top: 20px;
   `;
   const Inner = styled.div<darkModeTypes>`
     background-color: ${(props) => (props.darkMode ? darkMainBg : mainBg)};
     height: 100%;
     transition: all .5s;
-    padding: 40px;
   `;
 
   const darkMode = useDarkMode();
@@ -124,10 +122,6 @@ const Layout = ({ location, title, children }: Props) => {
                 </Container>
               </Inner>
             </MainLayout>
-            <SideLayout
-              width={gridTheme.breakpoints.xs}
-              bg={darkMode.value ? darkMainBg : mainBg}
-            />
           </>
         </GridThemeProvider>
       </ThemeProvider>
