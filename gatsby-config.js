@@ -71,6 +71,10 @@ module.exports = {
         icon: 'content/assets/gatsby-icon.png',
       },
     },
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -88,9 +92,15 @@ module.exports = {
           urls: ['https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css']
         },
       },
+    }
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
+      },
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-typescript',
   ],
 };
