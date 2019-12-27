@@ -1,22 +1,21 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import Logo from '../../atoms/Logo/svg';
+import Logo from '../../atoms/Logo';
 
 interface Props {
   width?: number;
 }
 
 const Wrap = styled.div<Props>`
-  height: 100%;
+  height: calc(100% - 40px);
   width: ${(props) => `${props.width}px`};
-  background: #0f4c81;
   position: fixed;
-  color: #0e0448;
-  padding: 20px;
-  box-shadow: 0px 0px 25px 3px rgba(0,0,0,0.5);
-  top: 0;
+  box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.3);
+  top: 20px;
   left: 0;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden
 `;
 
 const Inner = styled(Container)`
@@ -25,6 +24,9 @@ const Inner = styled(Container)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  color: #0e0448;
+  background: #0f4c81;
 `;
 
 const LogoWrap = styled.div`

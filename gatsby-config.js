@@ -89,10 +89,10 @@ module.exports = {
         },
         custom: {
           families: ['D2 coding'],
-          urls: ['https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css']
+          urls: ['https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css'],
         },
       },
-    }
+    },
     {
       resolve: 'gatsby-plugin-use-dark-mode',
       options: {
