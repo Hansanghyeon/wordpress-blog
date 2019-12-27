@@ -1,1 +1,3 @@
-import 'prism-themes/themes/prism-dracula.css';
+import './src/styles/main.scss';
+
+import(`prism-themes/themes/${window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'prism-dracula' : 'prism-material-light'}.css`);

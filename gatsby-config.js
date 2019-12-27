@@ -69,6 +69,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -81,6 +82,15 @@ module.exports = {
         google: {
           families: ['Noto Sans KR', 'Noto Sans'],
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
       },
     },
   ],
