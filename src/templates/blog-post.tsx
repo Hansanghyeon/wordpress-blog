@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -9,7 +10,7 @@ import { rhythm, scale } from '../utils/typography';
 
 interface Props {
   data: {
-    markdownRemark: any;
+    mdx: any;
     site: {
       siteMetadata: {
         title: string;
@@ -20,7 +21,7 @@ interface Props {
 }
 
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
@@ -47,7 +48,9 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       >
         {post.frontmatter.date}
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div>TEST thumbnail</div>
+      <img src={post.frontmatter.thumbnail.childImageSharp.original.src} alt="" />
+      <MDXRenderer>{post.body}</MDXRenderer>
       <hr
         style={{
           marginBottom: rhythm(1),
@@ -95,14 +98,21 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
       }
     }
   }

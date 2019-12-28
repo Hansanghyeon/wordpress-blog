@@ -9,7 +9,7 @@ import { rhythm } from '../utils/typography';
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       group: [
         {
           fieldValue: string,
@@ -27,7 +27,7 @@ interface Props {
 
 const TagsPage = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title;
-  const { group } = data.allMarkdownRemark;
+  const { group } = data.allMdx;
   return (
     <Layout location={window.location} title={siteTitle}>
       <SEO title="Tags" />
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 2000) {
+    allMdx(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

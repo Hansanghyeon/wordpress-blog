@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       totalCount: number,
       edges: [{
         node: {
@@ -31,7 +31,7 @@ interface Props {
 
 const Tags = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { edges, totalCount } = data.allMdx;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
