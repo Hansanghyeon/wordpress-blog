@@ -21,9 +21,15 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint/eslint-plugin",
+    "import"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

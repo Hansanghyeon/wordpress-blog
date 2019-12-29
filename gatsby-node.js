@@ -5,8 +5,8 @@ const _ = require('lodash');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve('./src/templates/blog-post.tsx');
-  const tagTemplate = path.resolve('./src/templates/tags.tsx');
+  const blogPostTemplate = path.resolve(__dirname, 'src/components/templates/blog-post.tsx');
+  const tagTemplate = path.resolve(__dirname, 'src/components/templates/tags.tsx');
   const result = await graphql(
     `
       {
@@ -77,4 +77,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     });
   }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@src': path.resolve(__dirname, 'src/'),
+        '@atom': path.resolve(__dirname, 'src/components/atoms'),
+        '@molecule': path.resolve(__dirname, 'src/components/molecules'),
+        '@organism': path.resolve(__dirname, 'src/components/organisms'),
+        '@template': path.resolve(__dirname, 'src/components/templates'),
+      },
+    },
+  });
 };

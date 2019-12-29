@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+      "name": "🔥4log",
+			"path": ".",
+		},
+		{
+      "name": "🗃content",
+			"path": "content"
+		}
+	],
+  "settings": {
+    "files.exclude": {
+      ".cache/": true,
+      ".github/": true,
+      "content/": true,
+      "public/": true
+    },
+    "explorer.sortOrder": "type"
+  }
+}

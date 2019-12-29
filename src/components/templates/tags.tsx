@@ -2,8 +2,8 @@ import React from 'react';
 
 // Components
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../layout';
+import SEO from '../seo';
 
 interface Props {
   data: {

@@ -1,5 +1,7 @@
 @import "./variables";
 @import "./base";
-@import "./reset";
+// @import "./reset";
 @import "./useDarkMode.scss";
-@import "./prism.scss";
+.prism-previewer {
+  @import "./prism.scss";
+}

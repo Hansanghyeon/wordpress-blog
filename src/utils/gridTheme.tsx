@@ -29,13 +29,13 @@ const gridTheme: gridTheme = {
     xs: 575,
   },
   row: {
-    padding: 10, // default 15
+    padding: 15, // default 15
   },
   col: {
-    padding: 5, // default 15
+    padding: 15, // default 15
   },
   container: {
-    padding: 0, // default 15
+    padding: 15, // default 15
     maxWidth: { // defaults below
       xl: 1140,
       lg: 960,

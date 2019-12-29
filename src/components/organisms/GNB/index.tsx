@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import Logo from '../../atoms/Logo';
+import Logo from '@atom/Logo';
 
 interface Props {
   width?: number;
@@ -15,7 +15,7 @@ const Wrap = styled.div<Props>`
   top: 20px;
   left: 0;
   border-radius: 0 20px 20px 0;
-  overflow: hidden
+  overflow: hidden;
 `;
 
 const Inner = styled(Container)`
