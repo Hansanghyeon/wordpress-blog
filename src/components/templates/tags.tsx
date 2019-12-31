@@ -2,8 +2,9 @@ import React from 'react';
 
 // Components
 import { Link, graphql } from 'gatsby';
-import Layout from '../layout';
-import SEO from '../seo';
+import { globalHistory } from '@reach/router';
+import Layout from '@src/components/layout';
+import SEO from '@src/components/seo';
 
 interface Props {
   data: {
@@ -36,8 +37,9 @@ const Tags = ({ pageContext, data }: Props) => {
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
   const siteTitle = data.site.siteMetadata.title;
+  const { location } = globalHistory;
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title={tag} />
       <h1>{tagHeader}</h1>
       <ul>

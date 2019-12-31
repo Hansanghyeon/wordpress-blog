@@ -6,3 +6,9 @@
 
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
+
+// types/mdx.d.ts
+declare module '*.mdx' {
+  const MDXComponent: (props: any) => JSX.Element;
+  export default MDXComponent;
+}

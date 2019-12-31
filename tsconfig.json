@@ -1,5 +1,5 @@
 {
-  "file": ["./node_modules/@types/mdx.d.ts"],
+  "file": ["@src/declaration.d.ts"],
   "include": ["./src/**/*.tsx"],
   "exclude": ["node_modules", "public", ".cache"],
   "compilerOptions": {
@@ -71,7 +71,7 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
-    
+
     /* Custom Options */
     "skipLibCheck": true
   }

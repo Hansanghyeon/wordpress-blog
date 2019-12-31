@@ -15,6 +15,10 @@ import Bio from '@src/components/bio';
 import Layout from '@src/components/layout';
 import SEO from '@src/components/seo';
 import { rhythm, scale } from '@src/utils/typography';
+import TOC from '@molecule/TOC';
+import { globalHistory } from '@reach/router';
+import { darkModeType } from '@src/utils/interface';
+import useDarkMode from 'use-dark-mode';
 
 interface Props {
   data: {
@@ -28,11 +32,12 @@ interface Props {
   pageContext: any;
 }
 
-const CardWrap = styled.div`
-  background: #fff;
+const CardWrap = styled.div<darkModeType>`
+  background: ${(props) => (props.darkMode ? '#303437' : '#fff')};
   border-radius: ${rhythm(1 / 4)};
   padding: ${rhythm(1)};
   margin-bottom: ${rhythm(1)};
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 `;
 
 const FeaturedImageWrap = styled.div`
@@ -55,9 +60,10 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       },
     },
   };
-
+  const { location } = globalHistory;
+  const darkMode = useDarkMode();
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -73,7 +79,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           </Row>
           <Row>
             <Col col>
-              <CardWrap className="prism-previewer">
+              <CardWrap className="prism-previewer" darkMode={darkMode.value}>
                 <h1
                   style={{
                     marginBottom: 0,
@@ -91,6 +97,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
                   {post.frontmatter.date}
                 </p>
                 <MDXRenderer>{post.body}</MDXRenderer>
+                <TOC />
               </CardWrap>
             </Col>
           </Row>

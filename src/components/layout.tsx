@@ -1,11 +1,10 @@
 import React from 'react';
-import useDarkMode from 'use-dark-mode';
 import styled, { ThemeProvider } from 'styled-components';
 import { Link } from 'gatsby';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-import { rhythm, scale } from '../utils/typography';
+import { rhythm, scale } from '@src/utils/typography';
 
-import gridTheme from '../utils/gridTheme';
+import gridTheme from '@src/utils/gridTheme';
 import GNB from './organisms/GNB';
 
 interface styledTheme {
@@ -51,22 +50,15 @@ const Layout = ({ location, title, children }: Props) => {
 
   const gnbWidth: number = 100;
 
-  interface darkModeTypes {
-    darkMode?: boolean;
-  }
-  const mainBg = '#f2f4f7';
-  const darkMainBg = '#1c1c1c';
   const MainLayout = styled.div`
     margin-left: ${gnbWidth}px;
     height: 100%;
   `;
-  const Inner = styled.div<darkModeTypes>`
-    background-color: ${(props) => (props.darkMode ? darkMainBg : mainBg)};
+  const Inner = styled.div`
     height: 100%;
     transition: all .5s;
   `;
 
-  const darkMode = useDarkMode();
   return (
     <>
       <ThemeProvider theme={styledTheme}>
@@ -74,7 +66,7 @@ const Layout = ({ location, title, children }: Props) => {
           <>
             <GNB width={gnbWidth} />
             <MainLayout>
-              <Inner darkMode={darkMode.value}>
+              <Inner>
                 {header}
                 {children}
                 <footer>
