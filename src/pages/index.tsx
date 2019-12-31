@@ -1,8 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { globalHistory } from '@reach/router';
 
-// import Bio from '../components/bio';
+// import Bio from '@src/components/bio';
 import Layout from '@src/components/layout';
 import SEO from '@src/components/seo';
 import { rhythm } from '@src/utils/typography';
@@ -36,9 +37,10 @@ interface Post {
 const BlogIndex = ({ data }: Props) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
+  const { location } = globalHistory;
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Container>
         <Row>

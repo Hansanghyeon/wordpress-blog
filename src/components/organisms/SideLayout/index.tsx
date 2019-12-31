@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import DarkModeButton from '../../atoms/DarkModeToggle';
+import DarkModeButton from '@atom/DarkModeToggle';
 
 interface Props {
   width?: number;

@@ -1,14 +1,14 @@
 {
-	"folders": [
-		{
-      "name": "🔥4log",
-			"path": ".",
-		},
-		{
+  "folders": [
+    {
       "name": "🗃content",
-			"path": "content"
-		}
-	],
+      "path": "content"
+    },
+    {
+      "name": "🔥4log",
+      "path": ".",
+    }
+  ],
   "settings": {
     "files.exclude": {
       ".cache/": true,
