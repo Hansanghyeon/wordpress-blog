@@ -1,7 +1,6 @@
 import * as React from 'react';
-// import styled from 'styled-components';
 
-export interface IButtonProps {
+interface IButtonProps {
   children?: React.ReactNode,
   onClick?: (e:any) => void,
   name?: string,
@@ -18,9 +17,9 @@ const styles = {
   margin: 10,
 };
 
-const Button: React.SFC<IButtonProps> = () => (
-  <button style={styles} type="button">
-    Button
+const Button: React.SFC<IButtonProps> = ({ onClick, children }:IButtonProps) => (
+  <button onClick={onClick} style={styles} type="button">
+    {children}
   </button>
 );
 Button.defaultProps = {
