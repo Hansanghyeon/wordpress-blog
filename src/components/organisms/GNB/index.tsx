@@ -1,51 +1,46 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import Logo from '@atom/Logo';
+import { rhythm } from '@src/utils/typography';
+import useDarkmode from 'use-dark-mode';
+import { darkModeType } from '@src/utils/interface';
+import colorTheme from '@src/utils/colorTheme';
+import { SmLogo } from '@atom/Logo';
+import SnsIcon from '@molecule/SNS';
 
-interface Props {
-  width?: number;
-}
-
-const Wrap = styled.div<Props>`
-  height: calc(100% - 40px);
-  width: ${(props) => `${props.width}px`};
+const Wrap = styled.div<darkModeType>`
+  width: 100%;
+  height: 45px;
   position: fixed;
-  box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.3);
-  top: 20px;
+  z-index: 999;
+  top: 0;
   left: 0;
-  border-radius: 0 20px 20px 0;
   overflow: hidden;
+  padding: 0 ${rhythm(1 / 2)};
+  background: ${(props) => (props.darkMode ? colorTheme.darkMode[0] : colorTheme.lightMode[0])};
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 `;
 
 const Inner = styled(Container)`
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  color: #0e0448;
-  background: #0f4c81;
+  padding: ${rhythm(1 / 4)};
 `;
 
-const LogoWrap = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1rem;
-  width: 100%;
-`;
-
-const GNB = ({ width }:Props) => (
-  <Wrap width={width}>
-    <Inner>
-      <LogoWrap>
-        <Logo />
-      </LogoWrap>
-      <div>menu</div>
-    </Inner>
-  </Wrap>
-);
+const GNB = () => {
+  const darkMode = useDarkmode();
+  return (
+    <Wrap darkMode={darkMode.value}>
+      <Inner fluid>
+        <SmLogo />
+        <div>
+          <SnsIcon />
+        </div>
+      </Inner>
+    </Wrap>
+  );
+};
 
 export default GNB;

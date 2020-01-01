@@ -1,22 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import useDarkMode from 'use-dark-mode';
+import { darkModeType } from '@src/utils/interface';
+import colorTheme from '@src/utils/colorTheme';
 
-const Wrap = styled(Link)`
-  fill: #fff;
+const Wrap = styled(Link)<darkModeType>`
+  text-decoration: none;
+  color: ${(props) => (!props.darkMode ? colorTheme.darkMode[0] : colorTheme.lightMode[0])};
+  fill: ${(props) => (!props.darkMode ? colorTheme.darkMode[0] : colorTheme.lightMode[0])};
 `;
 
-const LogoSvg = () => (
-  <Wrap to="/">
-    <svg viewBox="0 0 255 255">
-      <path d="M185.97,17.73v166.45l-22.27-21.06c3.78-11.19,5.7-22.86,5.7-34.73c0-62.86-54.1-114.01-120.59-114.01
-        c-8.68,0-17.35,0.88-25.76,2.61l-2.82,0.59v2.62c-0.65,9.31,4.05,17.23,13.62,22.91c6.89,4.09,13.9,5.57,14.2,5.63l0.38,0.08h0.39
-        c9.15,0,18.14,1.38,26.73,4.1c34.36,10.87,57.44,41.2,57.44,75.47c0,1.83-0.07,3.67-0.2,5.49L79.21,83.25
-        c-4.38-4.15-12.3-9.66-30.37-9.66h-3.59l-0.03,168.81h3.59c38.28,0,74.2-17.18,96.93-46.16l42.34,40.03H222V14L185.97,17.73z
-        M80.25,202.37l0.01-68.02l39.31,37.17C110.21,185.15,96.18,196.15,80.25,202.37z"
-      />
-    </svg>
-  </Wrap>
-);
+export const SmLogo = () => {
+  const darkMode = useDarkMode();
+  return (
+    <Wrap to="/" darkMode={darkMode.value}>
+      <span role="img" aria-label="">🌔</span>
+      4log
+    </Wrap>
+  );
+};
 
-export default LogoSvg;
+export const Logo = () => {
+  const darkMode = useDarkMode();
+  return (
+    <Wrap to="/" darkMode={darkMode.value}>
+      <svg height="100%" width="100%" viewBox="0 0 256 256">
+        <path d="M49.38,159L116,62.57V128h19c2.76,0,5-2.24,5-5V20h-21.38c-1.64,0-3.18,0.81-4.11,2.16L20.89,157.72
+          c-0.58,0.84-0.89,1.83-0.89,2.84V183h165c2.76,0,5-2.24,5-5v-19H49.38z"
+        />
+        <path d="M116,236v-19c0-2.76,2.24-5,5-5h115v19c0,2.76-2.24,5-5,5H116z" />
+        <path d="M165,128v-7c0-2.76,2.24-5,5-5h22v7c0,2.76-2.24,5-5,5H165z" />
+        <circle cx="191.75" cy="72.75" r="22.75" />
+        <image xlinkHref="/favicon.png" transform="matrix(0.2971 0 0 0.2971 167.9846 48.9846)" width="160" height="160" />
+      </svg>
+    </Wrap>
+  );
+};
