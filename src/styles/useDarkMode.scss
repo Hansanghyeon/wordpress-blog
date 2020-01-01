@@ -5,5 +5,12 @@ body.light-mode {
 }
 body.dark-mode {
   color: rgba(255, 255, 255, 0.9);
-  background-color: #1e1f21;
+  background-color: #292929;
+
+  a {
+    color: #fff;
+    &:hover {
+      color: #658DC6;
+    }
+  }
 }
