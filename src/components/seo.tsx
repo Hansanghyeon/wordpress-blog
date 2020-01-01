@@ -8,6 +8,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { globalHistory } from '@reach/router';
 
 interface Props {
   description?: string;
@@ -34,14 +35,17 @@ const SEO = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-
+  const { location } = globalHistory;
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={
+        location.pathname === '/'
+          ? `${site.siteMetadata.title} | %s` : `%s | ${site.siteMetadata.title}`
+      }
       meta={[
         {
           name: 'description',

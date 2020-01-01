@@ -41,7 +41,7 @@ const BlogIndex = ({ data }: Props) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="매일매일 1%씩 성장하기" />
       <Container>
         <Row>
           <Col col>
