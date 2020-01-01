@@ -3,7 +3,7 @@ import React from 'react';
 // Components
 import { Link, graphql } from 'gatsby';
 import { globalHistory } from '@reach/router';
-import Layout from '@src/components/layout';
+import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 
 interface Props {

@@ -4,7 +4,8 @@ import { GridThemeProvider } from 'styled-bootstrap-grid';
 
 import gridTheme from '@src/utils/gridTheme';
 import PageHeader from '@molecule/PageHeader';
-import GNB from './organisms/GNB';
+import GNB from '@organism/GNB';
+import FNB from '@organism/FNB';
 
 interface styledTheme {
   mainColor: string;
@@ -23,7 +24,7 @@ interface Props {
 const Layout = ({ location, children }: Props) => {
   const MainLayout = styled.div`
     margin-top: 45px;
-    height: 100%;
+    height: calc(100% - 45px);
   `;
 
   return (
@@ -35,13 +36,7 @@ const Layout = ({ location, children }: Props) => {
             <MainLayout>
               <PageHeader location={location} />
               {children}
-              <footer>
-                © 2019 Hansanghyeon
-                <br />
-                Powered by
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
-                .
-              </footer>
+              <FNB />
             </MainLayout>
           </>
         </GridThemeProvider>
