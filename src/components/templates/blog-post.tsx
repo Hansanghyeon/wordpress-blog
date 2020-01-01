@@ -12,10 +12,9 @@ import {
 import styled from 'styled-components';
 import gridTheme from '@src/utils/gridTheme';
 import Bio from '@src/components/bio';
-import Layout from '@src/components/layout';
+import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 import { rhythm, scale } from '@src/utils/typography';
-import TOC from '@molecule/TOC';
 import { globalHistory } from '@reach/router';
 import { darkModeType } from '@src/utils/interface';
 import useDarkMode from 'use-dark-mode';
@@ -34,15 +33,15 @@ interface Props {
 
 const CardWrap = styled.div<darkModeType>`
   background: ${(props) => (props.darkMode ? '#303437' : '#fff')};
-  border-radius: ${rhythm(1 / 4)};
+  border-radius: 3px;
   padding: ${rhythm(1)};
-  margin-bottom: ${rhythm(1)};
+  margin-bottom: ${rhythm(2)};
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
 `;
 
 const FeaturedImageWrap = styled.div`
-  border-bottom-left-radius: ${rhythm(1 / 4)};
-  border-bottom-right-radius: ${rhythm(1 / 4)};
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   overflow: hidden;
   font-size: 0;
   margin-bottom: ${rhythm(2)};
@@ -97,7 +96,6 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
                   {post.frontmatter.date}
                 </p>
                 <MDXRenderer>{post.body}</MDXRenderer>
-                <TOC />
               </CardWrap>
             </Col>
           </Row>

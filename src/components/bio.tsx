@@ -1,22 +1,34 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import { Container, Col, Row } from 'styled-bootstrap-grid';
+import styled from 'styled-components';
+import useDarkMode from 'use-dark-mode';
 
 import { rhythm } from '@src/utils/typography';
+import SnsIcon from '@molecule/SNS';
+import { darkModeType } from '@src/utils/interface';
+
+const Profile = styled(Image)<darkModeType>`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  min-width: 80;
+  border-radius: 100%;
+  border: 2px solid ${(props) => (props.darkMode ? '#fff' : '#000')};
+`;
+
+const Wrap = styled(Container)`
+  font-size: .9rem;
+  word-break: keep-all;
+`;
 
 const Bio = () => {
+  const darkMode = useDarkMode();
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50, quality: 100) {
+          fixed(width: 80, height: 80, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -24,44 +36,39 @@ const Bio = () => {
       site {
         siteMetadata {
           author
-          social {
-            github
-          }
         }
       }
     }
   `);
 
-  const { author, social } = data.site.siteMetadata;
+  const { author } = data.site.siteMetadata;
   return (
-    <div
-      style={{
-        display: 'flex',
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: '100%',
-        }}
-        imgStyle={{
-          borderRadius: '50%',
-        }}
-      />
-      <p>
-        Written by
-        <strong>{author}</strong>
-        who lives and works in San Francisco building useful things.&nbsp;
-        <a href={`https://github.com/${social.github}`}>
-          You should follow him on Github
-        </a>
-      </p>
-    </div>
+    <Wrap>
+      <Row>
+        <Profile
+          fixed={data.avatar.childImageSharp.fixed}
+          alt={author}
+          imgStyle={{
+            borderRadius: '50%',
+          }}
+          darkMode={darkMode.value}
+        />
+        <Col col>
+          <p>
+            Written by&nbsp;
+            <strong>{author}</strong>
+          </p>
+          <p>
+            웹의 자유로운 접근성에 매력을 느껴 현재 워드프레스, Front-end 분야에서 일을 하고있습니다.&nbsp;
+            프로그래밍 언어, 소프트웨어, 커뮤니티에 관심이 많습니다.
+            <br />
+            Happy hacking&nbsp;
+            <span role="img" aria-label="fire">🔥</span>
+          </p>
+          <SnsIcon />
+        </Col>
+      </Row>
+    </Wrap>
   );
 };
 
