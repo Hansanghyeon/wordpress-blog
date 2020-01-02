@@ -40,21 +40,21 @@ const Crater1 = styled(Crater)<darkModeType>`
   left: 10px;
   width: 4px;
   height: 4px;
-  opacity: ${(props):number => (props.darkMode ? 1 : 0)}
+  opacity: ${(props):number => (props.darkMode ? 1 : 0)};
 `;
 const Crater2 = styled(Crater)<darkModeType>`
   top: 28px;
   left: 22px;
   width: 6px;
   height: 6px;
-  opacity: ${(props):number => (props.darkMode ? 1 : 0)}
+  opacity: ${(props):number => (props.darkMode ? 1 : 0)};
 `;
 const Crater3 = styled(Crater)<darkModeType>`
   top: 10px;
   left: 25px;
   width: 8px;
   height: 8px;
-  opacity: ${(props):number => (props.darkMode ? 1 : 0)}
+  opacity: ${(props):number => (props.darkMode ? 1 : 0)};
 `;
 
 const Star = styled.div`
