@@ -27,12 +27,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
@@ -161,5 +155,25 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-PTM9Q7M',
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        // Defaults to null
+        defaultDataLayer: { platform: 'gatsby' },
+
+        // Specify optional GTM environment details.
+        // gtmAuth: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING',
+        // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME',
+        // dataLayerName: 'YOUR_DATA_LAYER_NAME',
+      },
+    },
   ],
 };
