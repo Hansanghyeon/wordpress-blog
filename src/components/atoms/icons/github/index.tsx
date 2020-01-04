@@ -2,17 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { darkModeType } from '@src/utils/interface';
-import useDarkMode from 'use-dark-mode';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const LinkWrap = styled.a<darkModeType>`
+const LinkWrap = styled.a`
   text-decoration: none;
-  color: ${(props) => (props.darkMode ? '#fff' : '#000')};
+  color: ${(props) => (props.theme.darkMode ? '#fff' : '#000')};
 `;
 
 const Github = () => {
-  const darkMode = useDarkMode();
   const data = useStaticQuery(graphql`
     query SocialQuery {
       site {
@@ -27,7 +24,7 @@ const Github = () => {
   const { social } = data.site.siteMetadata;
 
   return (
-    <LinkWrap href={`https://github.com/${social.github}`} darkMode={darkMode.value}>
+    <LinkWrap href={`https://github.com/${social.github}`}>
       <FontAwesomeIcon icon={faGithub} />
     </LinkWrap>
   );

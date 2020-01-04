@@ -3,18 +3,16 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import useDarkMode from 'use-dark-mode';
 
 import { rhythm } from '@src/utils/typography';
 import SnsIcon from '@molecule/SNS';
-import { darkModeType } from '@src/utils/interface';
 
-const Profile = styled(Image)<darkModeType>`
+const Profile = styled(Image)`
   margin-right: ${rhythm(1 / 2)};
   margin-bottom: 0;
   min-width: 80;
   border-radius: 100%;
-  border: 2px solid ${(props) => (props.darkMode ? '#fff' : '#000')};
+  border: 2px solid ${(props) => (props.theme.darkMode ? '#fff' : '#000')};
 `;
 
 const Wrap = styled(Container)`
@@ -23,7 +21,6 @@ const Wrap = styled(Container)`
 `;
 
 const Bio = () => {
-  const darkMode = useDarkMode();
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -51,7 +48,6 @@ const Bio = () => {
           imgStyle={{
             borderRadius: '50%',
           }}
-          darkMode={darkMode.value}
         />
         <Col col>
           <p>

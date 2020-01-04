@@ -16,8 +16,6 @@ import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 import { rhythm, scale } from '@src/utils/typography';
 import { globalHistory } from '@reach/router';
-import { darkModeType } from '@src/utils/interface';
-import useDarkMode from 'use-dark-mode';
 
 interface Props {
   data: {
@@ -31,8 +29,8 @@ interface Props {
   pageContext: any;
 }
 
-const CardWrap = styled.div<darkModeType>`
-  background: ${(props) => (props.darkMode ? '#303437' : '#fff')};
+const CardWrap = styled.div`
+  background: ${(props) => (props.theme.darkMode ? '#303437' : '#fff')};
   border-radius: 3px;
   padding: ${rhythm(1)};
   margin-bottom: ${rhythm(2)};
@@ -60,7 +58,6 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
     },
   };
   const { location } = globalHistory;
-  const darkMode = useDarkMode();
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -78,7 +75,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           </Row>
           <Row>
             <Col col>
-              <CardWrap className="prism-previewer" darkMode={darkMode.value}>
+              <CardWrap className="prism-previewer">
                 <h1
                   style={{
                     marginBottom: 0,
