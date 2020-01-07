@@ -4,6 +4,8 @@ import { Container } from 'styled-bootstrap-grid';
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@src/utils/typography';
 
+import DarkModeToggle from '@atom/DarkModeToggle';
+
 interface Props {
   location: Location;
   children?: any;
@@ -12,6 +14,9 @@ interface Props {
 const Wrap = styled(Container)`
   padding-top: ${rhythm(3)};
   margin-bottom: ${rhythm(3)};
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 `;
 
 const PageIcon = styled.div`
@@ -29,6 +34,7 @@ const PageHeader = ({ location }: Props) => {
         <PageIcon>
           <Logo />
         </PageIcon>
+        <DarkModeToggle />
       </Wrap>
     );
   } else {

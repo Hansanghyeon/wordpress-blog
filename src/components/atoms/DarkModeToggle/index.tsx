@@ -1,6 +1,6 @@
-import React from 'react';
-import useDarkMode from 'use-dark-mode';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 const Toggle = styled.div`
   cursor: pointer;
@@ -8,7 +8,7 @@ const Toggle = styled.div`
   position: relative;
   width: 90px;
   height: 50px;
-  background-color: ${(props) => (props.theme.darkMode ? '#3C4145' : '#83D8FF')};
+  background-color: ${(props) => (props.theme.isDark ? '#3C4145' : '#83D8FF')};
   border-radius: calc(90px - 6px);
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 `;
@@ -20,11 +20,11 @@ const ToggleHandler = styled.div`
   left: 3px;
   width: calc(50px - 6px);
   height: calc(50px - 6px);
-  background-color: ${(props) => (props.theme.darkMode ? '#FFE5B5' : '#FFCF96')} ;
+  background-color: ${(props) => (props.theme.isDark ? '#FFE5B5' : '#FFCF96')} ;
   border-radius: 50px;
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
   transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform:  ${(props) => (props.theme.darkMode ? 'translate3d(40px, 0, 0) rotate(0)' : 'rotate(-45deg)')};
+  transform:  ${(props) => (props.theme.isDark ? 'translate3d(40px, 0, 0) rotate(0)' : 'rotate(-45deg)')};
 `;
 
 const Crater = styled.div`
@@ -39,21 +39,21 @@ const Crater1 = styled(Crater)`
   left: 10px;
   width: 4px;
   height: 4px;
-  opacity: ${(props) => (props.theme.darkMode ? 1 : 0)};
+  opacity: ${(props) => (props.theme.isDark ? 1 : 0)};
 `;
 const Crater2 = styled(Crater)`
   top: 28px;
   left: 22px;
   width: 6px;
   height: 6px;
-  opacity: ${(props) => (props.theme.darkMode ? 1 : 0)};
+  opacity: ${(props) => (props.theme.isDark ? 1 : 0)};
 `;
 const Crater3 = styled(Crater)`
   top: 10px;
   left: 25px;
   width: 8px;
   height: 8px;
-  opacity: ${(props) => (props.theme.darkMode ? 1 : 0)};
+  opacity: ${(props) => (props.theme.isDark ? 1 : 0)};
 `;
 
 const Star = styled.div`
@@ -66,7 +66,7 @@ const Star1 = styled(Star)`
   top: 10px;
   left: 35px;
   z-index: 0;
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     width: 2px;
     height: 2px;
   ` : `
@@ -78,7 +78,7 @@ const Star2 = styled(Star)`
   top: 18px;
   left: 28px;
   z-index: 1;
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     width: 4px;
     height: 4px;
     transform: translate3d(-5px, 0, 0);
@@ -91,7 +91,7 @@ const Star3 = styled(Star)`
   top: 27px;
   left: 40px;
   z-index: 0;
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     width: 2px;
     height: 2px;
     transform: translate3d(-7px, 0, 0);
@@ -107,7 +107,7 @@ const Star4 = styled(Star)`
   width: 2px;
   height: 2px;
   transform: translate3d(3px,0,0);
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     opacity: 1;
     transform: translate3d(0,0,0);
     transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -123,7 +123,7 @@ const Star5 = styled(Star)`
   width: 3px;
   height: 3px;
   transform: translate3d(3px,0,0);
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     opacity: 1;
     transform: translate3d(0,0,0);
     transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -139,7 +139,7 @@ const Star6 = styled(Star)`
   width: 2px;
   height: 2px;
   transform: translate3d(3px,0,0);
-  ${(props) => (props.theme.darkMode ? `
+  ${(props) => (props.theme.isDark ? `
     opacity: 1;
     transform: translate3d(0,0,0);
     transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -150,10 +150,10 @@ const Star6 = styled(Star)`
 `;
 
 const DarkModeToggle = () => {
-  const darkMode = useDarkMode();
+  const themeContext = useContext(ThemeManagerContext);
   return (
     <div>
-      <Toggle onClick={darkMode.toggle}>
+      <Toggle onClick={() => themeContext.toggleDark()}>
         <ToggleHandler>
           <Crater1 />
           <Crater2 />

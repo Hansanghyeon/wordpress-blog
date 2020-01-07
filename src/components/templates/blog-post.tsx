@@ -30,7 +30,7 @@ interface Props {
 }
 
 const CardWrap = styled.div`
-  background: ${(props) => (props.theme.darkMode ? '#303437' : '#fff')};
+  background: ${(props) => (props.theme.backgroundElevated)};
   border-radius: 3px;
   padding: ${rhythm(1)};
   margin-bottom: ${rhythm(2)};

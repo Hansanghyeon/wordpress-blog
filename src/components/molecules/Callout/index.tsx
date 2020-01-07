@@ -4,10 +4,11 @@ import { Container, Row, Col } from 'styled-bootstrap-grid';
 import { rhythm, scale } from '@src/utils/typography';
 
 const Wrap = styled(Container)`
-  background-color: ${(props) => (props.theme.darkMode ? '#373b3d' : '#f8f8f9')};
+  background-color: ${(props) => (props.theme.isDark ? '#373b3d' : '#f8f8f9')};
   padding: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1)};
-  border-radius: 3px;
+  border-radius: px;
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
 `;
 
 const ColWrap = styled(Col)`
