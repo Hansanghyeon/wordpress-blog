@@ -6,7 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const LinkWrap = styled(Link)`
   text-decoration: none;
-  color: ${(props) => (props.theme.darkMode ? '#fff' : '#000')};
+  color: ${(props) => (props.theme.text)};
 `;
 
 const Github = () => (

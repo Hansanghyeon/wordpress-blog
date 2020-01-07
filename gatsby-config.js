@@ -111,15 +111,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-use-dark-mode',
-      options: {
-        classNameDark: 'dark-mode',
-        classNameLight: 'light-mode',
-        storageKey: 'darkMode',
-        minify: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         gatsbyRemarkPlugins: [
@@ -174,6 +165,9 @@ module.exports = {
         // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME',
         // dataLayerName: 'YOUR_DATA_LAYER_NAME',
       },
+    },
+    {
+      resolve: 'gatsby-styled-components-dark-mode',
     },
   ],
 };

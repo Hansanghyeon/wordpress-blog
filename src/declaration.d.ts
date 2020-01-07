@@ -12,3 +12,14 @@ declare module '*.mdx' {
   const MDXComponent: (props: any) => JSX.Element;
   export default MDXComponent;
 }
+
+export interface ThemeProperty {
+  background: string;
+  backgroundElevated: string;
+  color: string;
+  mdx: {
+    callOut: {
+      background: string;
+    }
+  }
+}

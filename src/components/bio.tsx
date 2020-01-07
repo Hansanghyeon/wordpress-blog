@@ -12,7 +12,6 @@ const Profile = styled(Image)`
   margin-bottom: 0;
   min-width: 80;
   border-radius: 100%;
-  border: 2px solid ${(props) => (props.theme.darkMode ? '#fff' : '#000')};
 `;
 
 const Wrap = styled(Container)`
