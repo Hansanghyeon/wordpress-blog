@@ -109,7 +109,7 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
+# react / gatsby
 public/
 
 # vuepress build output
@@ -155,5 +155,3 @@ sketch
 package-lock.json
 build
 dev
-content
-!content/assets
