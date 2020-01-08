@@ -83,7 +83,7 @@ module.exports = {
         short_name: '4log',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#663399',
+        theme_color: '#1f2430',
         display: 'minimal-ui',
         icon: 'content/assets/favicon.png',
       },
