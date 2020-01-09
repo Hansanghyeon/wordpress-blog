@@ -1,6 +1,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/hansanghyeon/4log/badge)](https://www.codefactor.io/repository/github/hansanghyeon/4log)
+[![Build Status](https://travis-ci.org/Hansanghyeon/4log.svg?branch=develop)](https://travis-ci.org/Hansanghyeon/4log)
+
 [![airbnb-typescript](https://img.shields.io/badge/code%20style-airbnb--typescript-blue)](https://github.com/iamturns/eslint-config-airbnb-typescript)
-[![Build Status](https://travis-ci.com/Hansanghyeon/4log.svg?branch=master)](https://travis-ci.com/Hansanghyeon/4log)
 
 ## 서론
 
