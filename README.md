@@ -1,7 +1,12 @@
+<a href="https://4log.io/">
+  <img width="125" src="content/assets/4log-logo.png">
+</a>
+
 [![CodeFactor](https://www.codefactor.io/repository/github/hansanghyeon/4log/badge)](https://www.codefactor.io/repository/github/hansanghyeon/4log)
 [![Build Status](https://travis-ci.org/Hansanghyeon/4log.svg?branch=develop)](https://travis-ci.org/Hansanghyeon/4log)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Hansanghyeon/4log.svg)](https://greenkeeper.io/)
 
-[![airbnb-typescript](https://img.shields.io/badge/code%20style-airbnb--typescript-blue)](https://github.com/iamturns/eslint-config-airbnb-typescript) [![Greenkeeper badge](https://badges.greenkeeper.io/Hansanghyeon/4log.svg)](https://greenkeeper.io/)
+[![airbnb-typescript](https://img.shields.io/badge/code%20style-airbnb--typescript-blue)](https://github.com/iamturns/eslint-config-airbnb-typescript)
 
 ## 서론
 
