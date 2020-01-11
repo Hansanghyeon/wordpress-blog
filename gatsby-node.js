@@ -88,6 +88,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '@molecule': path.resolve(__dirname, 'src/components/molecules'),
         '@organism': path.resolve(__dirname, 'src/components/organisms'),
         '@template': path.resolve(__dirname, 'src/components/templates'),
+        '@utile': path.resolve(__dirname, 'src/utils'),
       },
     },
   });

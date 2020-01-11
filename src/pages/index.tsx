@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby';
 // import Bio from '@src/components/bio';
 import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
-import { rhythm } from '@src/utils/typography';
+import { rhythm } from '@utile/typography';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
-import { rhythm, scale } from '@src/utils/typography';
+import { rhythm, scale } from '@utile/typography';
 
 const Wrap = styled(Container)`
   background-color: ${(props) => (props.theme.isDark ? '#373b3d' : '#f8f8f9')};

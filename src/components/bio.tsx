@@ -4,7 +4,7 @@ import Image from 'gatsby-image';
 import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 
-import { rhythm } from '@src/utils/typography';
+import { rhythm } from '@utile/typography';
 import SnsIcon from '@molecule/SNS';
 
 const Profile = styled(Image)`

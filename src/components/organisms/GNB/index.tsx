@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import { rhythm } from '@src/utils/typography';
+import { rhythm } from '@utile/typography';
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';
 

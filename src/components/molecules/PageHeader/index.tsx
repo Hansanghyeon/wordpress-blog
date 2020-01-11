@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from 'styled-bootstrap-grid';
 import { Logo } from '@atom/Logo';
-import { rhythm } from '@src/utils/typography';
+import { rhythm } from '@utile/typography';
 import { globalHistory } from '@reach/router';
 
 import DarkModeToggle from '@atom/DarkModeToggle';

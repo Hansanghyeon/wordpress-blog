@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
-import { rhythm } from '@src/utils/typography';
+import { rhythm } from '@utile/typography';
 
 const Footer = styled(Container)`
   padding-top: ${rhythm(1)};

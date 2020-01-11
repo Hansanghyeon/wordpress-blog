@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
-import gridTheme from '@src/utils/gridTheme';
+import gridTheme from '@utile/gridTheme';
 import PageHeader from '@molecule/PageHeader';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
