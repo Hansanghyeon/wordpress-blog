@@ -11,18 +11,12 @@ import FNB from '@organism/FNB';
 import darkModeTheme from '@src/styles/darkModeTheme';
 import lightModeTheme from '@src/styles/lightModeTheme';
 
-interface Props {
-  location: Location;
-  title: string;
-  children?: any;
-}
-
 const MainLayout = styled.div`
   margin-top: 45px;
   height: calc(100% - 45px);
 `;
 
-const Layout = ({ location, children }: Props) => {
+const Layout = ({ children }: any) => {
   const themeContext = useContext(ThemeManagerContext);
 
   return (
@@ -32,7 +26,7 @@ const Layout = ({ location, children }: Props) => {
           <>
             <GNB />
             <MainLayout>
-              <PageHeader location={location} />
+              <PageHeader />
               {children}
               <FNB />
             </MainLayout>

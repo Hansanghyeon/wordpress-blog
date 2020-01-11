@@ -3,13 +3,9 @@ import styled from 'styled-components';
 import { Container } from 'styled-bootstrap-grid';
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@src/utils/typography';
+import { globalHistory } from '@reach/router';
 
 import DarkModeToggle from '@atom/DarkModeToggle';
-
-interface Props {
-  location: Location;
-  children?: any;
-}
 
 const Wrap = styled(Container)`
   padding-top: ${rhythm(3)};
@@ -25,8 +21,9 @@ const PageIcon = styled.div`
   border-radius: 5px;
 `;
 
-const PageHeader = ({ location }: Props) => {
+const PageHeader = () => {
   const rootPath = '/';
+  const { location } = globalHistory;
   let header;
   if (location.pathname === rootPath) {
     header = (

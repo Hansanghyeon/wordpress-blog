@@ -1,12 +1,12 @@
 {
   "folders": [
     {
-      "name": "🗃content",
-      "path": "content"
+      "name": "🔥4log",
+      "path": "."
     },
     {
-      "name": "🔥4log",
-      "path": ".",
+      "name": "🗃content",
+      "path": "content"
     }
   ],
   "settings": {

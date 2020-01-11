@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import { globalHistory } from '@reach/router';
 
 // import Bio from '@src/components/bio';
 import Layout from '@src/components/templates/layout';
@@ -12,11 +11,6 @@ import { Container, Row, Col } from 'styled-bootstrap-grid';
 interface Props {
   data: {
     allMdx: any;
-    site: {
-      siteMetadata: {
-        title: string;
-      };
-    };
   };
 }
 
@@ -35,12 +29,10 @@ interface Post {
 }
 
 const BlogIndex = ({ data }: Props) => {
-  const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
-  const { location } = globalHistory;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO title="매일매일 1%씩 성장하기" />
       <Container>
         <Row>
@@ -78,11 +70,6 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

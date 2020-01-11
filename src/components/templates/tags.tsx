@@ -2,7 +2,6 @@ import React from 'react';
 
 // Components
 import { Link, graphql } from 'gatsby';
-import { globalHistory } from '@reach/router';
 import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 
@@ -36,10 +35,8 @@ const Tags = ({ pageContext, data }: Props) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
-  const siteTitle = data.site.siteMetadata.title;
-  const { location } = globalHistory;
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO title={tag} />
       <h1>{tagHeader}</h1>
       <ul>
@@ -61,11 +58,6 @@ const Tags = ({ pageContext, data }: Props) => {
 export default Tags;
 export const pageQuery = graphql`
   query($tag: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
