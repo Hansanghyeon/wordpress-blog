@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Link from 'gatsby-link';
 
 // import Bio from '@src/components/bio';
 import Layout from '@src/components/templates/layout';

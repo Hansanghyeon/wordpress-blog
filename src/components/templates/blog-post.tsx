@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Link from 'gatsby-link';
 
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
