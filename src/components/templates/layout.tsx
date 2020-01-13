@@ -13,7 +13,6 @@ import lightModeTheme from '@src/styles/lightModeTheme';
 
 const MainLayout = styled.div`
   margin-top: 45px;
-  height: calc(100% - 45px);
 `;
 
 const Layout = ({ children }: any) => {

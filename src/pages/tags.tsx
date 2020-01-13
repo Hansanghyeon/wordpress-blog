@@ -2,7 +2,8 @@ import React from 'react';
 // Utilities
 import kebabCase from 'lodash/kebabCase';
 // Components
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Link from 'gatsby-link';
 import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 import { rhythm } from '@utile/typography';

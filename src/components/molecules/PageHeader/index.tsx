@@ -25,7 +25,7 @@ const PageHeader = () => {
   const rootPath = '/';
   const { location } = globalHistory;
   let header;
-  if (location.pathname === rootPath) {
+  if (location.pathname === rootPath || location.pathname === '/about') {
     header = (
       <Wrap>
         <PageIcon>

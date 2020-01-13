@@ -1,8 +1,8 @@
 import React from 'react';
-import DayNightBtn from './index';
+import DayNightBtn from '@atom/DarkModeToggle';
 
 export default {
-  title: 'components|basic/DayNightBtn',
+  title: 'atoms|/DayNightBtn',
   component: DayNightBtn,
 };
 export const standard = () => <DayNightBtn />;

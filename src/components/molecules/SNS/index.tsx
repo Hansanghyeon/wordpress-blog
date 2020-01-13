@@ -1,5 +1,5 @@
 import React from 'react';
-import Github from '@src/components/atoms/icons/github';
+import Github from '@atom/icons/Github';
 // import styled from 'styled-components';
 
 const SnsIcon = () => (
