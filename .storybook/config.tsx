@@ -1,5 +1,9 @@
-import { configure } from '@storybook/react';
-import { action } from "@storybook/addon-actions"
+import React from 'react';
+import { configure, addDecorator } from '@storybook/react';
+import { action } from "@storybook/addon-actions";
+import { ThemeProvider } from 'styled-components';
+// TODO "notion://www.notion.so/4log/gatsby-Provider-state-7845ea0820b44f998f7ba316c69ed0fd"
+import darkModeTheme from '../src/styles/darkModeTheme';
 
 configure(require.context('../src/components', true, /\.stories\.tsx$/), module);
 // Gatsby's Link overrides:
@@ -14,3 +18,8 @@ global.__PATH_PREFIX__ = ""
 window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
+addDecorator((story) => (
+  <ThemeProvider theme={darkModeTheme}>
+    {story()}
+  </ThemeProvider>
+));
