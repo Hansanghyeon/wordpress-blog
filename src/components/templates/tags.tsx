@@ -9,23 +9,25 @@ import SEO from '@src/components/seo';
 interface Props {
   data: {
     allMdx: {
-      totalCount: number,
-      edges: [{
-        node: {
-          frontmatter: {
-            title: string
-          },
-          fields: {
-            slug: string
-          }
-        }
-      }]
-    },
+      totalCount: number;
+      edges: [
+        {
+          node: {
+            frontmatter: {
+              title: string;
+            };
+            fields: {
+              slug: string;
+            };
+          };
+        },
+      ];
+    };
     site: {
       siteMetadata: {
-        title: string
-      },
-    },
+        title: string;
+      };
+    };
   };
   pageContext: any;
 }

@@ -20,7 +20,9 @@ const Layout = ({ children }: any) => {
 
   return (
     <>
-      <ThemeProvider theme={themeContext.isDark ? darkModeTheme : lightModeTheme}>
+      <ThemeProvider
+        theme={themeContext.isDark ? darkModeTheme : lightModeTheme}
+      >
         <GridThemeProvider gridTheme={gridTheme}>
           <>
             <GNB />

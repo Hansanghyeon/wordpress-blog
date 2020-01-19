@@ -20,13 +20,13 @@ interface Post {
     excerpt: string;
     fields: {
       slug: string;
-    }
+    };
     frontmatter: {
       date: string;
       title: string;
       description: string;
-    }
-  }
+    };
+  };
 }
 
 const BlogIndex = ({ data }: Props) => {
@@ -38,7 +38,7 @@ const BlogIndex = ({ data }: Props) => {
       <Container>
         <Row>
           <Col col>
-            {posts.map(({ node }:Post) => {
+            {posts.map(({ node }: Post) => {
               const title = node.frontmatter.title || node.fields.slug;
               return (
                 <div key={node.fields.slug}>

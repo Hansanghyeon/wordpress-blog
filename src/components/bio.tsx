@@ -15,7 +15,7 @@ const Profile = styled(Image)`
 `;
 
 const Wrap = styled(Container)`
-  font-size: .9rem;
+  font-size: 0.9rem;
   word-break: keep-all;
 `;
 
@@ -54,11 +54,14 @@ const Bio = () => {
             <strong>{author}</strong>
           </p>
           <p>
-            웹의 자유로운 접근성에 매력을 느껴 현재 워드프레스, Front-end 분야에서 일을 하고있습니다.&nbsp;
-            프로그래밍 언어, 소프트웨어, 커뮤니티에 관심이 많습니다.
+            웹의 자유로운 접근성에 매력을 느껴 현재 워드프레스, Front-end
+            분야에서 일을 하고있습니다.&nbsp; 프로그래밍 언어, 소프트웨어,
+            커뮤니티에 관심이 많습니다.
             <br />
             Happy hacking&nbsp;
-            <span role="img" aria-label="fire">🔥</span>
+            <span role="img" aria-label="fire">
+              🔥
+            </span>
           </p>
           <SnsIcon />
         </Col>

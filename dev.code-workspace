@@ -16,6 +16,9 @@
       ".cache/": true,
       ".github/": true,
       "public/": true
-    }
+    },
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "editor.formatOnSave": true
   }
 }

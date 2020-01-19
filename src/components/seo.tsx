@@ -18,9 +18,7 @@ interface Props {
   title: string;
 }
 
-const SEO = ({
-  description, lang = 'ko', meta, title,
-}: Props) => {
+const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
   const themeContext = useContext(ThemeManagerContext);
   const { site } = useStaticQuery(
     graphql`
@@ -43,11 +41,14 @@ const SEO = ({
       htmlAttributes={{
         lang,
       }}
-      bodyAttributes={{ class: themeContext.isDark ? 'dark-mode' : 'light-mode' }}
+      bodyAttributes={{
+        class: themeContext.isDark ? 'dark-mode' : 'light-mode',
+      }}
       title={title}
       titleTemplate={
         location.pathname === '/'
-          ? `${site.siteMetadata.title} | %s` : `%s | ${site.siteMetadata.title}`
+          ? `${site.siteMetadata.title} | %s`
+          : `%s | ${site.siteMetadata.title}`
       }
       meta={[
         {
