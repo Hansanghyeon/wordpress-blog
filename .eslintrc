@@ -5,7 +5,10 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb-typescript"
+    "airbnb-typescript",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -22,10 +25,24 @@
     "react",
     "@typescript-eslint",
     "@typescript-eslint/eslint-plugin",
-    "import"
+    "import",
+    "prettier"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off"
   },
   "settings": {
     "import/resolver": {
