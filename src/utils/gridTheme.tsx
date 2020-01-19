@@ -10,18 +10,19 @@ interface gridTheme {
   breakpoints: breakpoint;
   row: {
     padding: number;
-  },
+  };
   col: {
     padding: number;
-  },
+  };
   container: {
     padding: number;
     maxWidth: breakpoint;
-  }
+  };
 }
 
 const gridTheme: gridTheme = {
-  breakpoints: { // defaults below
+  breakpoints: {
+    // defaults below
     xl: 1200,
     lg: 992,
     md: 768,
@@ -36,7 +37,8 @@ const gridTheme: gridTheme = {
   },
   container: {
     padding: 15, // default 15
-    maxWidth: { // defaults below
+    maxWidth: {
+      // defaults below
       xl: 1140,
       lg: 960,
       md: 720,

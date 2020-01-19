@@ -6,7 +6,7 @@ import { rhythm } from '@utile/typography';
 const Footer = styled(Container)`
   padding-top: ${rhythm(1)};
   padding-bottom: ${rhythm(1)};
-  font-size: .8rem;
+  font-size: 0.8rem;
 `;
 
 const FNB = () => (
@@ -17,8 +17,7 @@ const FNB = () => (
           © 2019 Hansanghyeon
           <br />
           Powered by&nbsp;
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-          .
+          <a href="https://www.gatsbyjs.org">Gatsby</a>.
         </footer>
       </Col>
     </Row>

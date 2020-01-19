@@ -20,6 +20,6 @@ export interface ThemeProperty {
   mdx: {
     callOut: {
       background: string;
-    }
-  }
+    };
+  };
 }

@@ -4,12 +4,7 @@ import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  GridThemeProvider,
-  Container,
-  Row,
-  Col,
-} from 'styled-bootstrap-grid';
+import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import gridTheme from '@utile/gridTheme';
 import Bio from '@src/components/bio';
@@ -30,11 +25,11 @@ interface Props {
 }
 
 const CardWrap = styled.div`
-  background: ${(props) => (props.theme.backgroundElevated)};
+  background: ${props => props.theme.backgroundElevated};
   border-radius: 3px;
   padding: ${rhythm(1)};
   margin-bottom: ${rhythm(2)};
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const FeaturedImageWrap = styled.div`
@@ -67,7 +62,13 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           <Row>
             <Col col>
               <FeaturedImageWrap>
-                <img src={post.frontmatter.featuredImage?.childImageSharp.original.src} alt="" style={{ marginBottom: 0 }} />
+                <img
+                  src={
+                    post.frontmatter.featuredImage?.childImageSharp.original.src
+                  }
+                  alt=""
+                  style={{ marginBottom: 0 }}
+                />
               </FeaturedImageWrap>
             </Col>
           </Row>

@@ -13,12 +13,12 @@ interface Props {
     allMdx: {
       group: [
         {
-          fieldValue: string,
-          totalCount: number
-        }
-      ]
-    },
-  },
+          fieldValue: string;
+          totalCount: number;
+        },
+      ];
+    };
+  };
 }
 
 const TagsPage = ({ data }: Props) => {
@@ -29,14 +29,10 @@ const TagsPage = ({ data }: Props) => {
       <div>
         <h1 style={{ marginBottom: rhythm(1 / 4) }}>Tags</h1>
         <ul>
-          {group.map((tag) => (
+          {group.map(tag => (
             <li key={tag.fieldValue}>
               <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                {tag.fieldValue}
-                {' '}
-                (
-                {tag.totalCount}
-                )
+                {tag.fieldValue}({tag.totalCount})
               </Link>
             </li>
           ))}
