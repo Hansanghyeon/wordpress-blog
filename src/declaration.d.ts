@@ -14,12 +14,10 @@ declare module '*.mdx' {
 }
 
 export interface ThemeProperty {
-  background: string;
-  backgroundElevated: string;
+  bgColor: string;
+  bgColor1: string;
   color: string;
   mdx: {
-    callOut: {
-      background: string;
-    };
+    callout: string;
   };
 }

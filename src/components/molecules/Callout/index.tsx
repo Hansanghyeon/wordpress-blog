@@ -2,13 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import { rhythm, scale } from '@utile/typography';
+import { darken, lighten } from 'polished';
 
-const Wrap = styled(Container)`
-  background-color: ${props => (props.theme.isDark ? '#373b3d' : '#f8f8f9')};
+interface StyledProps {
+  bgColor?: string;
+}
+
+const Wrap = styled(Container)<StyledProps>`
+  background-color: ${props =>
+    props.bgColor
+      ? `${
+          props.theme.isDark
+            ? darken(0.2, props.bgColor)
+            : lighten(0.2, props.bgColor)
+        }`
+      : props.theme.mdx.callout};
   padding: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1)};
-  border-radius: px;
-  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  word-break: keep-all;
 `;
 
 const ColWrap = styled(Col)`
@@ -16,13 +28,13 @@ const ColWrap = styled(Col)`
   align-items: center;
 `;
 
-interface Props {
+interface Props extends StyledProps {
   icon: string;
-  children: any;
+  children: React.ReactNode;
 }
 
-const Callout = ({ icon, children }: Props) => (
-  <Wrap>
+const Callout = ({ icon, children, bgColor }: Props) => (
+  <Wrap bgColor={bgColor}>
     <Row style={{ margin: 0 }}>
       <span
         role="img"

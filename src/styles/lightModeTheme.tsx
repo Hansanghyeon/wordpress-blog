@@ -1,13 +1,11 @@
 import { ThemeProperty } from '@src/declaration';
 
 const lightModeTheme: ThemeProperty = {
-  background: '#fff',
-  backgroundElevated: '#fff',
+  bgColor: '#fff',
+  bgColor1: '#fff',
   color: '#333',
   mdx: {
-    callOut: {
-      background: '#f8f8f9',
-    },
+    callout: '#fff',
   },
 };
 

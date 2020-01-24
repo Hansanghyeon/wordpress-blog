@@ -43,14 +43,15 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => allMdx.edges.map((edge) => ({
-              ...edge.node.frontmatter,
-              description: edge.node.excerpt,
-              date: edge.node.frontmatter.date,
-              url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-              guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-              custom_elements: [{ 'content:encoded': edge.node.html }],
-            })),
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map(edge => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              })),
             query: `
               {
                 allMdx(
@@ -106,7 +107,9 @@ module.exports = {
         },
         custom: {
           families: ['D2 coding'],
-          urls: ['https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css'],
+          urls: [
+            'https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css',
+          ],
         },
       },
     },
