@@ -12,6 +12,8 @@ import Layout from '@src/components/templates/layout';
 import SEO from '@src/components/seo';
 import { rhythm, scale } from '@utile/typography';
 
+import Utterance from '@atom/Utterances';
+
 interface Props {
   data: {
     mdx: any;
@@ -25,11 +27,15 @@ interface Props {
 }
 
 const CardWrap = styled.div`
-  background: ${props => props.theme.backgroundElevated};
+  background: ${props => props.theme.bgColor1};
   border-radius: 3px;
   padding: ${rhythm(1)};
-  margin-bottom: ${rhythm(2)};
+  margin-bottom: ${rhythm(1)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+`;
+
+const CommentsRow = styled(Row)`
+  margin-bottom: ${rhythm(2)};
 `;
 
 const FeaturedImageWrap = styled.div`
@@ -74,6 +80,11 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           </Row>
           <Row>
             <Col col>
+              <Bio />
+            </Col>
+          </Row>
+          <Row>
+            <Col col>
               <CardWrap className="prism-previewer">
                 <h1
                   style={{
@@ -95,11 +106,11 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
               </CardWrap>
             </Col>
           </Row>
-          <Row>
+          <CommentsRow>
             <Col col>
-              <Bio />
+              <Utterance />
             </Col>
-          </Row>
+          </CommentsRow>
           <Row>
             <Col col>
               <ul

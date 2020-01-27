@@ -3,20 +3,22 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 import { rhythm } from '@utile/typography';
-import SnsIcon from '@molecule/SNS';
 
 const Profile = styled(Image)`
   margin-right: ${rhythm(1 / 2)};
   margin-bottom: 0;
-  min-width: 80;
+  min-width: 44;
   border-radius: 100%;
 `;
 
 const Wrap = styled(Container)`
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   word-break: keep-all;
+  margin-bottom: 8px;
+  color: ${props => darken(0.5, props.theme.color)};
 `;
 
 const Bio = () => {
@@ -24,7 +26,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 80, height: 80, quality: 100) {
+          fixed(width: 44, height: 44, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -49,21 +51,13 @@ const Bio = () => {
           }}
         />
         <Col col>
-          <p>
-            Written by&nbsp;
-            <strong>{author}</strong>
-          </p>
-          <p>
-            웹의 자유로운 접근성에 매력을 느껴 현재 워드프레스, Front-end
-            분야에서 일을 하고있습니다.&nbsp; 프로그래밍 언어, 소프트웨어,
-            커뮤니티에 관심이 많습니다.
-            <br />
-            Happy hacking&nbsp;
-            <span role="img" aria-label="fire">
-              🔥
-            </span>
-          </p>
-          <SnsIcon />
+          Written by&nbsp;
+          <strong>{author}</strong>
+          <br />
+          웹의 자유로운 접근성에 매력을 느껴 현재 워드프레스, Front-end 분야에서
+          일을 하고있습니다.
+          <br />
+          프로그래밍 언어, 소프트웨어, 커뮤니티에 관심이 많습니다.
         </Col>
       </Row>
     </Wrap>
