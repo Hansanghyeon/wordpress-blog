@@ -6,10 +6,15 @@ import { ThemeProvider } from 'styled-components';
 import darkModeTheme from '../src/styles/darkModeTheme';
 import gridTheme from '../src/utils/gridTheme';
 
-configure(
-  require.context('../src/components', true, /\.stories\.tsx$/),
-  module,
-);
+addParameters({
+  backgrounds: [
+    { name: 'dark', value: '#232326', default: true },
+    { name: 'light', value: '#fff' },
+  ],
+  viewport: {
+    defaultViewport: 'someDefualt',
+  },
+});
 // Gatsby's Link overrides:
 // Gatsby defines a global called ___loader to prevent its method calls from creating console errors you override it here
 global.___loader = {
@@ -25,8 +30,7 @@ window.___navigate = pathname => {
 addDecorator(story => (
   <ThemeProvider theme={darkModeTheme}>{story()}</ThemeProvider>
 ));
-addParameters({
-  viewport: {
-    defaultViewport: 'someDefualt',
-  },
-});
+configure(
+  require.context('../src/components', true, /\.stories\.tsx$/),
+  module,
+);
