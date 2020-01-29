@@ -26,26 +26,6 @@ interface Props {
   pageContext: any;
 }
 
-const CardWrap = styled.div`
-  background: ${props => props.theme.bgColor1};
-  border-radius: 3px;
-  padding: ${rhythm(1)};
-  margin-bottom: ${rhythm(1)};
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-`;
-
-const CommentsRow = styled(Row)`
-  margin-bottom: ${rhythm(2)};
-`;
-
-const FeaturedImageWrap = styled.div`
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  overflow: hidden;
-  font-size: 0;
-  margin-bottom: ${rhythm(2)};
-`;
-
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.mdx;
   const { previous, next } = pageContext;
@@ -78,12 +58,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
               </FeaturedImageWrap>
             </Col>
           </Row>
-          <Row>
-            <Col col>
-              <Bio />
-            </Col>
-          </Row>
-          <Row>
+          <StyledRow>
             <Col col>
               <CardWrap className="prism-previewer">
                 <h1
@@ -105,7 +80,12 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
                 <MDXRenderer>{post.body}</MDXRenderer>
               </CardWrap>
             </Col>
-          </Row>
+          </StyledRow>
+          <BioRow>
+            <Col col>
+              <Bio />
+            </Col>
+          </BioRow>
           <CommentsRow>
             <Col col>
               <Utterance />
@@ -169,4 +149,31 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const CardWrap = styled.div`
+  background: ${props => props.theme.bgColor1};
+  border-radius: 3px;
+  padding: ${rhythm(1)};
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+`;
+
+const CommentsRow = styled(Row)`
+  margin-bottom: ${rhythm(2)};
+`;
+
+const FeaturedImageWrap = styled.div`
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+  font-size: 0;
+  margin-bottom: ${rhythm(2)};
+`;
+
+const StyledRow = styled(Row)`
+  margin-bottom: ${rhythm(1)};
+`;
+
+const BioRow = styled(StyledRow)`
+  padding: 0 ${rhythm(1)};
 `;

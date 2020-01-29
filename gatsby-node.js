@@ -5,8 +5,14 @@ const _ = require('lodash');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(__dirname, 'src/components/templates/blog-post.tsx');
-  const tagTemplate = path.resolve(__dirname, 'src/components/templates/tags.tsx');
+  const blogPostTemplate = path.resolve(
+    __dirname,
+    'src/components/templates/blog-post.tsx',
+  );
+  const tagTemplate = path.resolve(
+    __dirname,
+    'src/components/templates/tags.tsx',
+  );
   const result = await graphql(
     `
       {
@@ -55,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Extract tag data from query
   const tags = result.data.tagsGroup.group;
-  tags.forEach((tag) => {
+  tags.forEach(tag => {
     createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}`,
       component: tagTemplate,

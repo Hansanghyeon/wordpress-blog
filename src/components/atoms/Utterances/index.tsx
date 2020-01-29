@@ -9,4 +9,6 @@ const Utterances = () => {
   return themeContext.isDark ? <Dark /> : <Light />;
 };
 
+Utterances.displayName = 'Utterances';
+
 export default Utterances;

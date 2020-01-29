@@ -18,9 +18,7 @@ const Wrap = styled(Container)<StyledProps>`
             ? darken(0.2, props.bgColor)
             : lighten(0.2, props.bgColor)
         }`
-      : `${
-          props.theme.isDark ? darken(0.2, '#2c2c2f') : lighten(0.2, '#fff')
-        }`};
+      : `${props.theme.isDark ? '#2c2c2f' : '#fff'}`};
   padding: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1)};
   border-radius: 4px;
