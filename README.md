@@ -1,4 +1,4 @@
-<a href="https://4log.io/">
+<a href="https://4log.hapas.io/">
   <img width="125" src="content/assets/4log-logo.png">
 </a>
 

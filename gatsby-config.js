@@ -3,7 +3,7 @@ module.exports = {
     title: '4log',
     author: 'Han sanghyeon',
     description: '매일매일 1%',
-    siteUrl: 'https://4log.io/',
+    siteUrl: 'https://4log.hapas.io/',
     social: {
       github: 'Hansanghyeon',
     },
