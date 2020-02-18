@@ -1,5 +1,5 @@
 import React from 'react';
-import Github from '@atom/icons/Github';
+import Github from '.';
 
 export default {
   title: 'atoms|icons/Github',

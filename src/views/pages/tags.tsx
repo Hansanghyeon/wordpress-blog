@@ -4,8 +4,8 @@ import kebabCase from 'lodash/kebabCase';
 // Components
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
-import Layout from '@src/components/templates/layout';
-import SEO from '@src/components/seo';
+import Layout from '@template/layout';
+import SEO from '@src/views/components/seo';
 import { rhythm } from '@utile/typography';
 
 interface Props {

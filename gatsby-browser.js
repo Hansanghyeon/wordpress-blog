@@ -1,4 +1,4 @@
-import './src/styles/main.scss';
+import './src/views/styles/main.scss';
 
 import('prismjs/plugins/line-numbers/prism-line-numbers.css');
 import('prismjs/plugins/command-line/prism-command-line.css');

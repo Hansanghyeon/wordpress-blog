@@ -35,11 +35,12 @@ module.exports = ({ config }) => {
   config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.alias = {
     '@src': path.resolve(__dirname, '../src/'),
-    '@atom': path.resolve(__dirname, '../src/components/atoms'),
-    '@molecule': path.resolve(__dirname, '../src/components/molecules'),
-    '@organism': path.resolve(__dirname, '../src/components/organisms'),
-    '@template': path.resolve(__dirname, '../src/components/templates'),
-    '@utile': path.resolve(__dirname, '../src/utils'),
+    '@atom': path.resolve(__dirname, '../src/views/components/atoms'),
+    '@molecule': path.resolve(__dirname, '../src/views/components/molecules'),
+    '@organism': path.resolve(__dirname, '../src/views/components/organisms'),
+    '@template': path.resolve(__dirname, '../src/views/components/templates'),
+    '@style': path.resolve(__dirname, '../src/views/styles'),
+    '@utile': path.resolve(__dirname, '../src/views/utils'),
   };
   return config;
 };

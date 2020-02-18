@@ -96,7 +96,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography',
+        pathToConfigModule: 'src/views/utils/typography',
       },
     },
     {
@@ -171,6 +171,12 @@ module.exports = {
     },
     {
       resolve: 'gatsby-styled-components-dark-mode',
+    },
+    {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: `${__dirname}/src/views/pages`,
+      },
     },
   ],
 };
