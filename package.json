@@ -129,8 +129,7 @@
   },
   "lint-staged": {
     "*.tsx": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "greenkeeper": {

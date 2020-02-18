@@ -56,6 +56,9 @@
       "@src/*": [
         "src/*"
       ],
+      "@view/*": [
+        "src/views/*"
+      ],
       "@atom/*": [
         "src/views/components/atoms/*"
       ],
