@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 import Layout from '@template/layout';
-import SEO from '@src/views/components/seo';
+import SEO from '@view/components/seo';
 import { rhythm } from '@utile/typography';
 
 interface Props {

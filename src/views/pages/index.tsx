@@ -4,8 +4,8 @@ import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
 // import Bio from '@src/components/bio';
-import Layout from '@src/components/templates/layout';
-import SEO from '@src/components/seo';
+import Layout from '@template/layout';
+import SEO from '@view/components/seo';
 import { rhythm } from '@utile/typography';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
