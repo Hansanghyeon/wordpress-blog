@@ -1,11 +1,16 @@
 import React from 'react';
 import Github from '@atom/icons/github';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const SnsIcon = () => (
-  <div>
+  <Wrap>
     <Github />
-  </div>
+  </Wrap>
 );
 
 export default SnsIcon;

@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 const Toggle = styled.div`
   cursor: pointer;
@@ -170,25 +169,22 @@ const Star6 = styled(Star)`
   `}
 `;
 
-const DarkModeToggle = () => {
-  const themeContext = useContext(ThemeManagerContext);
+const DayAndNightToggle = () => {
   return (
-    <div>
-      <Toggle onClick={() => themeContext.toggleDark()}>
-        <ToggleHandler>
-          <Crater1 />
-          <Crater2 />
-          <Crater3 />
-        </ToggleHandler>
-        <Star1 />
-        <Star2 />
-        <Star3 />
-        <Star4 />
-        <Star5 />
-        <Star6 />
-      </Toggle>
-    </div>
+    <Toggle>
+      <ToggleHandler>
+        <Crater1 />
+        <Crater2 />
+        <Crater3 />
+      </ToggleHandler>
+      <Star1 />
+      <Star2 />
+      <Star3 />
+      <Star4 />
+      <Star5 />
+      <Star6 />
+    </Toggle>
   );
 };
 
-export default DarkModeToggle;
+export default DayAndNightToggle;

@@ -4,15 +4,19 @@ import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 import gridTheme from '@utile/gridTheme';
-import PageHeader from '@molecule/PageHeader';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
+import DSB from '@organism/DSB';
 
-import darkModeTheme from '@src/styles/darkModeTheme';
-import lightModeTheme from '@src/styles/lightModeTheme';
+import darkModeTheme from '@style/darkModeTheme';
+import lightModeTheme from '@style/lightModeTheme';
 
 const MainLayout = styled.div`
   margin-top: 45px;
+`;
+const MainInnerLayout = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
 `;
 
 const Layout = ({ children }: any) => {
@@ -27,9 +31,13 @@ const Layout = ({ children }: any) => {
           <>
             <GNB />
             <MainLayout>
-              <PageHeader />
-              {children}
-              <FNB />
+              <MainInnerLayout>
+                <div>
+                  {children}
+                  <FNB />
+                </div>
+                <DSB />
+              </MainInnerLayout>
             </MainLayout>
           </>
         </GridThemeProvider>

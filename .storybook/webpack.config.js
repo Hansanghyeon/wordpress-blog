@@ -32,6 +32,10 @@ module.exports = ({ config }) => {
       ],
     },
   });
+  config.module.rules.push({
+    test: /\.(css|scss)$/,
+    use: ['style-loader', 'css-loader', 'sass-loader'],
+  });
   config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.alias = {
     '@src': path.resolve(__dirname, '../src/'),

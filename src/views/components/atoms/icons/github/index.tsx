@@ -7,6 +7,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 const LinkWrap = styled.a`
   text-decoration: none;
   color: ${props => props.theme.color};
+  display: flex;
+  align-items: center;
 `;
 
 const Github = () => {

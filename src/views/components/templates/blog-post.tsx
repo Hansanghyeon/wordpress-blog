@@ -7,12 +7,12 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import gridTheme from '@utile/gridTheme';
-import Bio from '@src/components/bio';
-import Layout from '@src/components/templates/layout';
-import SEO from '@src/components/seo';
+import Bio from '@view/components/bio';
+import Layout from '@template/layout';
+import SEO from '@view/components/seo';
 import { rhythm, scale } from '@utile/typography';
 
-import Utterance from '@atom/Utterances';
+import Utterance from '@molecule/Utterances';
 
 interface Props {
   data: {

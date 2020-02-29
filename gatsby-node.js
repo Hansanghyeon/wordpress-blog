@@ -90,7 +90,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         '@src': path.resolve(__dirname, 'src/'),
-        '@views': path.resolve(__dirname, 'src/views/'),
+        '@view': path.resolve(__dirname, 'src/views/'),
         '@atom': path.resolve(__dirname, 'src/views/components/atoms'),
         '@molecule': path.resolve(__dirname, 'src/views/components/molecules'),
         '@organism': path.resolve(__dirname, 'src/views/components/organisms'),

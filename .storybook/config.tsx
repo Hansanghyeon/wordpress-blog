@@ -2,7 +2,7 @@
 import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 // NOTE  "notion://www.notion.so/4log/gatsby-Provider-state-7845ea0820b44f998f7ba316c69ed0fd"
 import darkModeTheme from '../src/views/styles/darkModeTheme';
 import gridTheme from '../src/views/utils/gridTheme';
@@ -28,8 +28,24 @@ global.__PATH_PREFIX__ = '';
 window.___navigate = pathname => {
   action('NavigateTo:')(pathname);
 };
+
+const GlobalStyle = createGlobalStyle`
+  html, body, #root {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+      box-sizing: border-box;
+    }
+  }
+`;
+
 addDecorator(story => (
-  <ThemeProvider theme={darkModeTheme}>{story()}</ThemeProvider>
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={darkModeTheme}>{story()}</ThemeProvider>
+  </>
 ));
 configure(
   require.context('../src/views/components', true, /\.stories\.tsx$/),
