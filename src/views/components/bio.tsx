@@ -5,6 +5,22 @@ import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 
+const Profile = styled(Image)`
+  margin-bottom: 0;
+  min-width: 44;
+  border-radius: 100%;
+`;
+
+const Wrap = styled(Container)`
+  font-size: 0.7rem;
+  word-break: keep-all;
+  margin-bottom: 8px;
+  color: ${props =>
+    props.theme.isDark
+      ? darken(0.5, props.theme.color.text[0])
+      : lighten(0.5, props.theme.color.text[0])};
+`;
+
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
@@ -46,19 +62,3 @@ const Bio = () => {
 };
 
 export default Bio;
-
-const Profile = styled(Image)`
-  margin-bottom: 0;
-  min-width: 44;
-  border-radius: 100%;
-`;
-
-const Wrap = styled(Container)`
-  font-size: 0.7rem;
-  word-break: keep-all;
-  margin-bottom: 8px;
-  color: ${props =>
-    props.theme.isDark
-      ? darken(0.5, props.theme.color)
-      : lighten(0.5, props.theme.color)};
-`;

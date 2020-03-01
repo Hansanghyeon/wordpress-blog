@@ -12,12 +12,3 @@ declare module '*.mdx' {
   const MDXComponent: (props: any) => JSX.Element;
   export default MDXComponent;
 }
-
-export interface ThemeProperty {
-  bgColor: string;
-  bgColor1: string;
-  color: string;
-  mdx: {
-    callout: string;
-  };
-}

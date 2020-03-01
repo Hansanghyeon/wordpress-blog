@@ -1,3 +1,4 @@
+import Alias from '../config/Alias';
 const path = require('path');
 const SRC_PATH = path.join(__dirname, '../src');
 //dont need stories path if you have your stories inside your //components folder
@@ -38,14 +39,17 @@ module.exports = ({ config }) => {
   });
   config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.alias = {
-    '@src': path.resolve(__dirname, '../src/'),
-    '@view': path.resolve(__dirname, '../src/views/'),
-    '@atom': path.resolve(__dirname, '../src/views/components/atoms'),
-    '@molecule': path.resolve(__dirname, '../src/views/components/molecules'),
-    '@organism': path.resolve(__dirname, '../src/views/components/organisms'),
-    '@template': path.resolve(__dirname, '../src/views/components/templates'),
-    '@style': path.resolve(__dirname, '../src/views/styles'),
-    '@utile': path.resolve(__dirname, '../src/views/utils'),
+    '@src': path.resolve(__dirname, 'src/'),
+    // Views
+    '@view': path.resolve(__dirname, 'src/views/'),
+    '@atom': path.resolve(__dirname, 'src/views/components/atoms'),
+    '@molecule': path.resolve(__dirname, 'src/views/components/molecules'),
+    '@organism': path.resolve(__dirname, 'src/views/components/organisms'),
+    '@template': path.resolve(__dirname, 'src/views/components/templates'),
+    '@style': path.resolve(__dirname, 'src/views/styles'),
+    '@utile': path.resolve(__dirname, 'src/views/utils'),
+    // Models
+    '@model': path.resolve(__dirname, 'src/models/'),
   };
   return config;
 };

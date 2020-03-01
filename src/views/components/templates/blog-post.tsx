@@ -152,7 +152,7 @@ export const pageQuery = graphql`
 `;
 
 const CardWrap = styled.div`
-  background: ${props => props.theme.bgColor1};
+  background: ${props => props.theme.color.bg[0]};
   border-radius: 3px;
   padding: ${rhythm(1)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);

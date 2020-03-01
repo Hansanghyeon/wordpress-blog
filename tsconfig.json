@@ -3,7 +3,9 @@
     "@src/declaration.d.ts"
   ],
   "include": [
-    "./src/**/*.tsx"
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./config/**/*.js "
   ],
   "exclude": [
     "node_modules",
@@ -56,6 +58,7 @@
       "@src/*": [
         "src/*"
       ],
+      // Views
       "@view/*": [
         "src/views/*"
       ],
@@ -76,6 +79,10 @@
       ],
       "@utile/*": [
         "src/views/utils/*"
+      ],
+      // Models
+      "@model/*": [
+        "src/models/*"
       ]
     }, /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

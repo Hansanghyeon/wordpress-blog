@@ -90,6 +90,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         '@src': path.resolve(__dirname, 'src/'),
+        // Views
         '@view': path.resolve(__dirname, 'src/views/'),
         '@atom': path.resolve(__dirname, 'src/views/components/atoms'),
         '@molecule': path.resolve(__dirname, 'src/views/components/molecules'),
@@ -97,6 +98,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '@template': path.resolve(__dirname, 'src/views/components/templates'),
         '@style': path.resolve(__dirname, 'src/views/styles'),
         '@utile': path.resolve(__dirname, 'src/views/utils'),
+        // Models
+        '@model': path.resolve(__dirname, 'src/models/'),
       },
     },
   });

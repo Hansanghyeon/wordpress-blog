@@ -4,8 +4,8 @@ import Link from 'gatsby-link';
 
 const Wrap = styled(Link)`
   text-decoration: none;
-  color: ${props => props.theme.color};
-  fill: ${props => props.theme.color};
+  color: ${props => props.theme.color.text[0]};
+  fill: ${props => props.theme.color.text[0]};
 `;
 
 export const SmLogo = () => (

@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const LinkWrap = styled.a`
   text-decoration: none;
-  color: ${props => props.theme.color};
+  color: ${props => props.theme.color.text[0]};
   display: flex;
   align-items: center;
 `;

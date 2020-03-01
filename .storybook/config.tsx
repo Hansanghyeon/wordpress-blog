@@ -4,7 +4,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 // NOTE  "notion://www.notion.so/4log/gatsby-Provider-state-7845ea0820b44f998f7ba316c69ed0fd"
-import darkModeTheme from '../src/views/styles/darkModeTheme';
+import DarkTheme from '../src/views/styles/Theme';
 import gridTheme from '../src/views/utils/gridTheme';
 
 addParameters({
@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
 addDecorator(story => (
   <>
     <GlobalStyle />
-    <ThemeProvider theme={darkModeTheme}>{story()}</ThemeProvider>
+    <ThemeProvider theme={DarkTheme}>{story()}</ThemeProvider>
   </>
 ));
 configure(

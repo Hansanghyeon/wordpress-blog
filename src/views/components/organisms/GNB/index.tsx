@@ -14,7 +14,7 @@ const Wrap = styled.div`
   left: 0;
   overflow: hidden;
   padding: 0 ${rhythm(1 / 2)};
-  background: ${props => props.theme.bgColor};
+  background: ${props => props.theme.color.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
