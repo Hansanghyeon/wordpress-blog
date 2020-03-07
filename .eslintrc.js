@@ -45,7 +45,7 @@ module.exports = {
     'object-shorthand': 'off',
     'class-methods-use-this': 'off',
     'react/jsx-props-no-spreading': [0],
-    'no-underscore-dangle': 'allow',
+    'no-underscore-dangle': [0],
   },
   settings: {
     'import/resolver': {

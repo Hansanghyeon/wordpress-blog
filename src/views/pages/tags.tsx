@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 import Layout from '@template/layout';
 import SEO from '@view/components/seo';
-import { rhythm } from '@utile/typography';
+import { rhythm } from '@style/typography';
 
 interface Props {
   data: {
