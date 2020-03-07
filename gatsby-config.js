@@ -178,5 +178,16 @@ module.exports = {
         path: `${__dirname}/src/views/pages`,
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: 'WPGraphQL',
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: 'wpgql',
+        // Url to query from
+        url: 'https://wp.hapas.io/graphql',
+      },
+    },
   ],
 };

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      // Views
+      "@view/*": [
+        "src/views/*"
+      ],
+      "@atom/*": [
+        "src/views/components/atoms/*"
+      ],
+      "@molecule/*": [
+        "src/views/components/molecules/*"
+      ],
+      "@organism/*": [
+        "src/views/components/organisms/*"
+      ],
+      "@template/*": [
+        "src/views/components/templates/*"
+      ],
+      "@style/*": [
+        "src/views/styles/*"
+      ],
+      "@utile/*": [
+        "src/views/utils/*"
+      ],
+      // Models
+      "@model/*": [
+        "src/models/*"
+      ]
+    }
+  }
+}

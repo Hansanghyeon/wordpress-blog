@@ -156,3 +156,4 @@ package-lock.json
 build
 dev
 *.framerx
+.env*
