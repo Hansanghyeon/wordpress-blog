@@ -30,11 +30,15 @@ const FeaturedImageWrap = styled.div`
   border-bottom-right-radius: 3px;
   overflow: hidden;
   font-size: 0;
-  margin-bottom: ${rhythm(2)};
+  margin-bottom: ${rhythm(1)};
+  img {
+    margin-bottom: 0;
+  }
 `;
 
 const StyledRow = styled(Row)`
   margin-bottom: ${rhythm(1)};
+  margin-top: ${rhythm(1)};
 `;
 
 const BioRow = styled(StyledRow)`
@@ -72,19 +76,21 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
       />
       <GridThemeProvider gridTheme={_Grid}>
         <Container>
-          <Row>
-            <Col col>
-              <FeaturedImageWrap>
-                <img
-                  src={
-                    post.frontmatter.featuredImage?.childImageSharp.original.src
-                  }
-                  alt=""
-                  style={{ marginBottom: 0 }}
-                />
-              </FeaturedImageWrap>
-            </Col>
-          </Row>
+          {post.frontmatter.featuredImage?.childImageSharp.original.src && (
+            <Row>
+              <Col col>
+                <FeaturedImageWrap>
+                  <img
+                    src={
+                      post.frontmatter.featuredImage?.childImageSharp.original
+                        .src
+                    }
+                    alt=""
+                  />
+                </FeaturedImageWrap>
+              </Col>
+            </Row>
+          )}
           <StyledRow>
             <Col col>
               <CardWrap className="prism-previewer">

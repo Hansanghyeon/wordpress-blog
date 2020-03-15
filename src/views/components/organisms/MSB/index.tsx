@@ -29,7 +29,7 @@ const SideBar = styled.div`
 
 const Main = styled.div`
   height: 100%;
-  padding: ${rhythm(1 / 2)} 0;
+  padding: ${rhythm(1)} 0;
 `;
 
 const LogoLayout = styled.div`

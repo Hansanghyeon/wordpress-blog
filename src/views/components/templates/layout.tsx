@@ -4,7 +4,6 @@ import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 import Grid from '@style/Grid';
-import { rhythm } from '@style/typography';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
 import MSB from '@organism/MSB';
@@ -24,7 +23,6 @@ const PageWrap = styled.div`
 `;
 const Main = styled.div`
   width: 100%;
-  padding: ${rhythm(1 / 2)} 0;
 `;
 
 const Layout = ({ children }: any) => {

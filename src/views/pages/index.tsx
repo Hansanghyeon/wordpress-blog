@@ -30,7 +30,9 @@ interface Post {
   };
 }
 
-const StyledContainer = styled(Container)``;
+const StyledContainer = styled(Container)`
+  padding: ${rhythm(1)} 0;
+`;
 
 const IndexPage = ({ data }: Props) => {
   const posts = data.allMdx.edges;
