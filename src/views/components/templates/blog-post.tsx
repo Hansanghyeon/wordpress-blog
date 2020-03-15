@@ -14,6 +14,33 @@ import { rhythm, scale } from '@style/typography';
 
 import Utterance from '@molecule/Utterances';
 
+const CardWrap = styled.div`
+  background: ${props => props.theme.color.bg[0]};
+  border-radius: 3px;
+  padding: ${rhythm(1)};
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+`;
+
+const CommentsRow = styled(Row)`
+  margin-bottom: ${rhythm(2)};
+`;
+
+const FeaturedImageWrap = styled.div`
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+  font-size: 0;
+  margin-bottom: ${rhythm(2)};
+`;
+
+const StyledRow = styled(Row)`
+  margin-bottom: ${rhythm(1)};
+`;
+
+const BioRow = styled(StyledRow)`
+  padding: 0 ${rhythm(1)};
+`;
+
 interface Props {
   data: {
     mdx: any;
@@ -152,22 +179,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-const CardWrap = styled.div`
-  background: ${props => props.theme.color.bg[0]};
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-`;
-
-const CommentsRow = styled(Row)``;
-
-const FeaturedImageWrap = styled.div`
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  overflow: hidden;
-  font-size: 0;
-`;
-
-const StyledRow = styled(Row)``;
-
-const BioRow = styled(StyledRow)``;
