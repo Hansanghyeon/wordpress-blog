@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Components
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
-import CategoriesNav from '@molecule/nav/Categories';
+import CategoryList from '@molecule/list/Category';
 import respondTo from '@style/_respondTo';
 
 const SideBar = styled.div`
@@ -13,7 +13,7 @@ const SideBar = styled.div`
   position: sticky;
   top: -45px;
   margin-top: -45px;
-  padding: 0 16px;
+  padding: 0 ${rhythm(1 / 2)};
   font-family: 'Fira Code';
   display: none;
   ${respondTo.hg`
@@ -51,7 +51,7 @@ const MSB = () => (
       <Container>
         <Row>
           <Col col>
-            <CategoriesNav />
+            <CategoryList />
           </Col>
         </Row>
       </Container>

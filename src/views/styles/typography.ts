@@ -2,8 +2,8 @@ import Typography from 'typography';
 
 const typography = new Typography({
   baseFontSize: '16px',
-  baseLineHeight: 2,
-  headerFontFamily: ['Noto Sans KR', 'Noto Sans', 'serif'],
+  baseLineHeight: 1.6,
+  headerFontFamily: ['Nanum Gothic', 'Noto Sans', 'serif'],
   bodyFontFamily: ['Noto Sans KR', 'Noto Sans', 'serif'],
 });
 
