@@ -3,6 +3,7 @@ import GridSystem from '@model/GridSystem';
 const Grid: GridSystem = {
   breakpoints: {
     // defaults below
+    hg: 1440,
     xl: 1200,
     lg: 992,
     md: 768,
