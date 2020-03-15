@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// components
 import NotionStyleList from '@atom/listItem/NotionStyle';
 import Link from '@atom/Link';
 
