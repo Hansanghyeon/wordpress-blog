@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    ".cache/": true,
+    ".github/": true,
+    "public/": true
+  },
+  "explorer.sortOrder": "type",
+  "workspace.exclude": {
+    ".cache/": true,
+    ".github/": true,
+    "public/": true
+  },
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#2ea1b5",
+    "statusBarItem.hoverBackground": "#247d8c",
+    "statusBar.foreground": "#15202b"
+  }
+}
