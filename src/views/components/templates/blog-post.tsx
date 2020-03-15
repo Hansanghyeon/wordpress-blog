@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
-import Link from 'gatsby-link';
 
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
@@ -45,6 +44,9 @@ const BioRow = styled(StyledRow)`
   padding: 0 ${rhythm(1)};
 `;
 
+const StyledContainer = styled(Container)`
+  margin-bottom: ${rhythm(2)};
+`;
 interface Props {
   data: {
     mdx: any;
@@ -57,9 +59,8 @@ interface Props {
   pageContext: any;
 }
 
-const BlogPostTemplate = ({ data, pageContext }: Props) => {
+const BlogPostTemplate = ({ data }: Props) => {
   const post = data.mdx;
-  const { previous, next } = pageContext;
   const _Grid = {
     ...Grid,
     container: {
@@ -75,7 +76,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <GridThemeProvider gridTheme={_Grid}>
-        <Container>
+        <StyledContainer>
           {post.frontmatter.featuredImage?.childImageSharp.original.src && (
             <Row>
               <Col col>
@@ -126,37 +127,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
               </Col>
             </CommentsRow>
           )}
-          <Row>
-            <Col col>
-              <ul
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  listStyle: 'none',
-                  padding: 0,
-                }}
-              >
-                <li>
-                  {previous && (
-                    <Link to={previous.fields.slug} rel="prev">
-                      ←&nbsp;
-                      {previous.frontmatter.title}
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  {next && (
-                    <Link to={next.fields.slug} rel="next">
-                      {next.frontmatter.title}
-                      &nbsp;→
-                    </Link>
-                  )}
-                </li>
-              </ul>
-            </Col>
-          </Row>
-        </Container>
+        </StyledContainer>
       </GridThemeProvider>
     </Layout>
   );
