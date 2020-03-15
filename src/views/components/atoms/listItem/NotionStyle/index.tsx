@@ -6,7 +6,7 @@ const Wrap = styled.div`
   grid-template-columns: 16px auto;
   grid-template-rows: 16px;
   align-items: center;
-  column-gap: 8px;
+  column-gap: 4px;
   font-size: 14px;
   height: 16px;
   color: ${({ theme }) => theme.color.text[1]};
@@ -25,14 +25,20 @@ const ImgWrap = styled.div`
 `;
 
 interface Props {
-  imgSrc: string;
+  imgSrc?: string;
   children: React.ReactNode;
 }
 
 const NotionStyleList = ({ imgSrc, children }: Props) => (
   <Wrap>
     <ImgWrap>
-      <img src={imgSrc} alt="" />
+      {imgSrc ? (
+        <img src={imgSrc} alt="" />
+      ) : (
+        <span role="img" aria-label="page">
+          📄
+        </span>
+      )}
     </ImgWrap>
     <span>{children}</span>
   </Wrap>

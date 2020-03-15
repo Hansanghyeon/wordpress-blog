@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 // Components
 import Link from '@atom/Link';
-import NotionStyleList from '@atom/list/NotionStyle';
+import NotionStyleList from '@atom/listItem/NotionStyle';
 
 const StyleUl = styled.ul`
   list-style: none;
@@ -11,7 +11,7 @@ const StyleUl = styled.ul`
   margin: 0;
 `;
 
-const CategoriesNav = () => (
+const CategoryList = () => (
   <StaticQuery
     query={graphql`
       query GET_CATEGOERIES {
@@ -51,4 +51,4 @@ const CategoriesNav = () => (
     }}
   />
 );
-export default CategoriesNav;
+export default CategoryList;
