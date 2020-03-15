@@ -19,9 +19,8 @@ const MainWrapper = styled.div`
   overflow-y: scroll;
 `;
 const PageWrap = styled.div`
-  --mt: ${mt}px;
   display: flex;
-  min-height: calc(100% - var(--mt));
+  min-height: 100%;
 `;
 const Main = styled.div`
   width: 100%;
@@ -38,8 +37,8 @@ const Layout = ({ children }: any) => {
           <>
             <GNB />
             <MainWrapper>
-              <MSB />
               <PageWrap>
+                <MSB />
                 <Main>{children}</Main>
               </PageWrap>
               <FNB />

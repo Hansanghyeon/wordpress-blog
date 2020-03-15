@@ -5,15 +5,26 @@ import styled from 'styled-components';
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
 import CategoriesNav from '@molecule/nav/Categories';
+import respondTo from '@style/_respondTo';
 
 const SideBar = styled.div`
   width: 200px;
   height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
+  position: sticky;
+  top: -45px;
+  margin-top: -45px;
   padding: 0 16px;
   font-family: 'Fira Code';
+  display: none;
+  ${respondTo.hg`
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+  `};
+  ${respondTo.md`
+    display: block;
+  `};
 `;
 
 const Main = styled.div`
@@ -23,10 +34,10 @@ const Main = styled.div`
 
 const LogoLayout = styled.div`
   height: 45px;
-  display: flex;
   width: 100%;
   padding: ${rhythm(1 / 4)} 16px;
-  svg {
+  * {
+    height: 100%;
     width: auto;
   }
 `;

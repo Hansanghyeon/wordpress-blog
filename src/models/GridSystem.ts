@@ -1,4 +1,5 @@
 interface breakpoint {
+  hg?: number;
   xl: number;
   lg: number;
   md: number;
