@@ -103,7 +103,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Noto Sans KR', 'Noto Sans'],
+          families: ['Noto Sans KR', 'Noto Sans', 'Fira Code'],
         },
         custom: {
           families: ['D2 coding'],
