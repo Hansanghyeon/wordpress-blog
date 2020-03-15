@@ -25,7 +25,7 @@ const CategoriesNav = () => (
                   }
                 }
                 name
-                uri
+                slug
                 id
               }
             }
@@ -40,7 +40,7 @@ const CategoriesNav = () => (
       return (
         <StyleUl>
           {categories.map(({ node }: any) => (
-            <Link key={node.id} to={`/${node.uri}`} activeClassName="active">
+            <Link key={node.id} to={node.slug} activeClassName="active">
               <NotionStyleList imgSrc={node._acf_taxonomy.icon.mediaItemUrl}>
                 {node.name}
               </NotionStyleList>

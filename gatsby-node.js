@@ -88,6 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               name
               uri
+              slug
               _acf_taxonomy {
                 icon {
                   mediaItemUrl
@@ -103,13 +104,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   wpCategory.data.wpgql.categories.edges.forEach(({ node }) => {
     createPage({
-      path: node.uri,
+      path: node.slug,
       component: path.resolve(
         __dirname,
         'src/views/components/templates/category.tsx',
       ),
       context: {
-        uri: node.uri,
         categoryId: node.id,
       },
     });
