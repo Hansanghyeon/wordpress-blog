@@ -1,48 +1,34 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const _ = require('lodash');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(
-    __dirname,
-    'src/views/components/templates/blog-post.tsx',
-  );
-  const tagTemplate = path.resolve(
-    __dirname,
-    'src/views/components/templates/tags.tsx',
-  );
-  const result = await graphql(
-    `
-      {
-        allMdx {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+  /**
+   * Create Post Pages
+   */
+  const postResults = await graphql(`
+    query GET_POST {
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
-        tagsGroup: allMdx(limit: 2000) {
-          group(field: frontmatter___tags) {
-            fieldValue
-          }
-        }
       }
-    `,
-  );
-
-  if (result.errors) {
-    throw result.errors;
-  }
+    }
+  `);
+  if (postResults.errors) throw postResults.errors;
 
   // Create blog posts pages.
-  const posts = result.data.allMdx.edges;
+  const posts = postResults.data.allMdx.edges;
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -50,7 +36,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: blogPostTemplate,
+      component: path.resolve(
+        __dirname,
+        'src/views/components/templates/blog-post.tsx',
+      ),
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -59,14 +48,69 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  /**
+   * Create Tag Pages
+   */
+  const tagPageResults = await graphql(`
+    query GET_TAGS {
+      tagsGroup: allMdx(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+    }
+  `);
+  if (tagPageResults.error) throw tagPageResults.error;
   // Extract tag data from query
-  const tags = result.data.tagsGroup.group;
+  const tags = tagPageResults.data.tagsGroup.group;
   tags.forEach(tag => {
     createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}`,
-      component: tagTemplate,
+      component: path.resolve(
+        __dirname,
+        'src/views/components/templates/tags.tsx',
+      ),
       context: {
         tag: tag.fieldValue,
+      },
+    });
+  });
+
+  /**
+   * Create Wp Category Pages
+   */
+  const wpCategory = await graphql(`
+    query GET_WP {
+      wpgql {
+        categories {
+          edges {
+            node {
+              id
+              name
+              uri
+              _acf_taxonomy {
+                icon {
+                  mediaItemUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  if (wpCategory.error) throw wpCategory.error;
+
+  wpCategory.data.wpgql.categories.edges.forEach(({ node }) => {
+    createPage({
+      path: node.uri,
+      component: path.resolve(
+        __dirname,
+        'src/views/components/templates/category.tsx',
+      ),
+      context: {
+        uri: node.uri,
+        categoryId: node.id,
       },
     });
   });
@@ -88,19 +132,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      alias: {
-        '@src': path.resolve(__dirname, 'src/'),
-        // Views
-        '@view': path.resolve(__dirname, 'src/views/'),
-        '@atom': path.resolve(__dirname, 'src/views/components/atoms'),
-        '@molecule': path.resolve(__dirname, 'src/views/components/molecules'),
-        '@organism': path.resolve(__dirname, 'src/views/components/organisms'),
-        '@template': path.resolve(__dirname, 'src/views/components/templates'),
-        '@style': path.resolve(__dirname, 'src/views/styles'),
-        '@utile': path.resolve(__dirname, 'src/views/utils'),
-        // Models
-        '@model': path.resolve(__dirname, 'src/models/'),
-      },
+      plugins: [new TsconfigPathsPlugin()],
     },
   });
 };
