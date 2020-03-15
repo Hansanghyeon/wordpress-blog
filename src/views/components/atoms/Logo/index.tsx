@@ -8,6 +8,7 @@ const Wrap = styled(Link)`
   fill: ${props => props.theme.color.text[0]};
   display: flex;
   align-items: center;
+  font-family: 'Fira Code';
   img {
     height: 1em;
     margin-bottom: 0;
