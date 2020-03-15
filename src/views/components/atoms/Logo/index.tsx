@@ -6,14 +6,19 @@ const Wrap = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.color.text[0]};
   fill: ${props => props.theme.color.text[0]};
+  display: flex;
+  align-items: center;
+  img {
+    height: 1em;
+    margin-bottom: 0;
+    margin-right: 8px;
+  }
 `;
 
 export const SmLogo = () => (
   <Wrap to="/">
-    <span role="img" aria-label="">
-      🌔
-    </span>
-    4log
+    <img src="/favicon.png" alt="" />
+    4Log
   </Wrap>
 );
 

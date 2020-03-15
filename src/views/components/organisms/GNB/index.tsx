@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container } from 'styled-bootstrap-grid';
+import { Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import { rhythm } from '@utile/typography';
+import { rhythm } from '@style/typography';
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';
 
@@ -18,31 +18,41 @@ const Wrap = styled.div`
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const Left = styled.div``;
-const Right = styled.div`
+const LeftCol = styled(Col)`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: auto;
+  }
+`;
+const RightCol = styled(Col)`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const Inner = styled(Container)`
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: ${rhythm(1 / 4)};
-  > ${Left}, > ${Right} {
+  > ${Row} {
     height: 100%;
+    > ${Col} {
+      height: 100%;
+    }
   }
 `;
 
 const GNB = () => (
   <Wrap>
     <Inner fluid>
-      <Left>
-        <SmLogo />
-      </Left>
-      <Right>
-        <SnsIcon />
-      </Right>
+      <Row>
+        <LeftCol auto>
+          <SmLogo />
+        </LeftCol>
+        <Col col />
+        <RightCol auto>
+          <SnsIcon />
+        </RightCol>
+      </Row>
     </Inner>
   </Wrap>
 );
