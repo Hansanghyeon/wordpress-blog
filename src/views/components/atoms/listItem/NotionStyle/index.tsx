@@ -4,20 +4,17 @@ import styled from 'styled-components';
 const Wrap = styled.div`
   display: grid;
   grid-template-columns: 16px auto;
-  grid-template-rows: 16px;
-  align-items: center;
   column-gap: 4px;
   font-size: 14px;
-  height: 16px;
   color: ${({ theme }) => theme.color.text[1]};
   margin-bottom: 4px;
 `;
 const ImgWrap = styled.div`
-  width: 16px;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   border-radius: 3px;
-  font-size: 0;
   img {
     width: 100%;
     margin-bottom: 0;
