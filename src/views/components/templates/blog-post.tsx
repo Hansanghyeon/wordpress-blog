@@ -6,11 +6,11 @@ import Link from 'gatsby-link';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import gridTheme from '@utile/gridTheme';
+import Grid from '@style/Grid';
 import Bio from '@view/components/bio';
 import Layout from '@template/layout';
 import SEO from '@view/components/seo';
-import { rhythm, scale } from '@utile/typography';
+import { rhythm, scale } from '@style/typography';
 
 import Utterance from '@molecule/Utterances';
 
@@ -29,8 +29,8 @@ interface Props {
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.mdx;
   const { previous, next } = pageContext;
-  const GridTheme = {
-    ...gridTheme,
+  const _Grid = {
+    ...Grid,
     container: {
       maxWidth: {
         xl: 960,
@@ -43,7 +43,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <GridThemeProvider gridTheme={GridTheme}>
+      <GridThemeProvider gridTheme={_Grid}>
         <Container>
           <Row>
             <Col col>
@@ -86,11 +86,13 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
               <Bio />
             </Col>
           </BioRow>
-          <CommentsRow>
-            <Col col>
-              <Utterance />
-            </Col>
-          </CommentsRow>
+          {process.env.NODE_ENV === 'production' && (
+            <CommentsRow>
+              <Col col>
+                <Utterance />
+              </Col>
+            </CommentsRow>
+          )}
           <Row>
             <Col col>
               <ul
@@ -154,26 +156,18 @@ export const pageQuery = graphql`
 const CardWrap = styled.div`
   background: ${props => props.theme.color.bg[0]};
   border-radius: 3px;
-  padding: ${rhythm(1)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const CommentsRow = styled(Row)`
-  margin-bottom: ${rhythm(2)};
-`;
+const CommentsRow = styled(Row)``;
 
 const FeaturedImageWrap = styled.div`
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   overflow: hidden;
   font-size: 0;
-  margin-bottom: ${rhythm(2)};
 `;
 
-const StyledRow = styled(Row)`
-  margin-bottom: ${rhythm(1)};
-`;
+const StyledRow = styled(Row)``;
 
-const BioRow = styled(StyledRow)`
-  padding: 0 ${rhythm(1)};
-`;
+const BioRow = styled(StyledRow)``;

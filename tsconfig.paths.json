@@ -24,13 +24,14 @@
       "@style/*": [
         "src/views/styles/*"
       ],
-      "@utile/*": [
-        "src/views/utils/*"
-      ],
       // Models
       "@model/*": [
         "src/models/*"
-      ]
+      ],
+      // Utilities
+      "@utile/*": [
+        "src/utilities/*"
+      ],
     }
   }
 }

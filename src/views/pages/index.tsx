@@ -2,11 +2,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
 
 // import Bio from '@src/components/bio';
 import Layout from '@template/layout';
 import SEO from '@view/components/seo';
-import { rhythm } from '@utile/typography';
+import { rhythm } from '@style/typography';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
 interface Props {
@@ -29,13 +30,15 @@ interface Post {
   };
 }
 
-const BlogIndex = ({ data }: Props) => {
+const StyledContainer = styled(Container)``;
+
+const IndexPage = ({ data }: Props) => {
   const posts = data.allMdx.edges;
 
   return (
     <Layout>
       <SEO title="매일매일 1%씩 성장하기" />
-      <Container>
+      <StyledContainer>
         <Row>
           <Col col>
             {posts.map(({ node }: Post) => {
@@ -62,12 +65,12 @@ const BlogIndex = ({ data }: Props) => {
             })}
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </Layout>
   );
 };
 
-export default BlogIndex;
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
