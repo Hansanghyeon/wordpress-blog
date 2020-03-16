@@ -30,12 +30,12 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = postResults.data.allMdx.edges;
 
-  posts.forEach((post, index) => {
+  posts.forEach(post => {
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(
         __dirname,
-        'src/views/components/templates/blog-post.tsx',
+        'src/views/components/templates/post/Mdx/index.tsx',
       ),
       context: {
         slug: post.node.fields.slug,
