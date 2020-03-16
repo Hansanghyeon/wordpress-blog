@@ -27,7 +27,9 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
   if (postResults.errors) throw postResults.errors;
   // postResults white list
+  // Create blog posts pages.
   const posts = postResults.data.allMdx.edges;
+
   posts.forEach(post => {
     createPage({
       path: post.node.fields.slug,
@@ -85,11 +87,11 @@ exports.createPages = async ({ graphql, actions }) => {
               _acf_taxonomy {
                 icon {
                   mediaItemUrl
-                }
-              }
             }
           }
         }
+      }
+    }
       }
     }
   `);
@@ -107,10 +109,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  /**
-   * Create Wp Category Pages
-   */
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
