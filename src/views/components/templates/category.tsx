@@ -58,7 +58,7 @@ const Categories = ({ data }: any) => {
 
 export default Categories;
 export const pageQuery = graphql`
-  query GET_CATEGORY($categoryId: ID!) {
+  query GET_WP_CATEGORY_POST($categoryId: ID!) {
     wpgql {
       category(id: $categoryId) {
         id

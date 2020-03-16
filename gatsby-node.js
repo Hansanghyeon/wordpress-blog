@@ -26,10 +26,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (postResults.errors) throw postResults.errors;
-
-  // Create blog posts pages.
+  // postResults white list
   const posts = postResults.data.allMdx.edges;
-
   posts.forEach(post => {
     createPage({
       path: post.node.fields.slug,
@@ -75,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
    * Create Wp Category Pages
    */
   const wpCategory = await graphql(`
-    query GET_WP {
+    query GET_WP_CATEGORIES {
       wpgql {
         categories {
           edges {
@@ -96,7 +94,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (wpCategory.error) throw wpCategory.error;
-
+  // wpCategory white list
   wpCategory.data.wpgql.categories.edges.forEach(({ node }) => {
     createPage({
       path: node.slug,
@@ -109,6 +107,10 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  /**
+   * Create Wp Category Pages
+   */
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
