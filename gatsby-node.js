@@ -27,16 +27,15 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
   if (postResults.errors) throw postResults.errors;
   // postResults white list
-  const posts = postResults.data.allMdx.edges;
-  posts.forEach(post => {
+  postResults.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: post.node.fields.slug,
+      path: node.fields.slug,
       component: path.resolve(
         __dirname,
         'src/views/components/templates/post/Mdx/index.tsx',
       ),
       context: {
-        slug: post.node.fields.slug,
+        slug: node.fields.slug,
       },
     });
   });
@@ -110,6 +109,7 @@ exports.createPages = async ({ graphql, actions }) => {
         posts {
           edges {
             node {
+              databaseId
               id
               slug
             }

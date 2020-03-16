@@ -1,15 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 // Components
 import Link from '@atom/Link';
 import NotionStyleList from '@atom/listItem/NotionStyle';
-
-const StyleUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
 
 const CategoryList = () => (
   <StaticQuery
@@ -26,6 +19,7 @@ const CategoryList = () => (
                 }
                 name
                 slug
+                databaseId
                 id
               }
             }
@@ -38,15 +32,18 @@ const CategoryList = () => (
         ({ node }: any) => node.id !== 'Y2F0ZWdvcnk6MQ==',
       );
       return (
-        <StyleUl>
+        <>
           {categories.map(({ node }: any) => (
-            <Link key={node.id} to={`/${node.slug}`} activeClassName="active">
-              <NotionStyleList imgSrc={node._acf_taxonomy.icon.mediaItemUrl}>
+            <NotionStyleList
+              key={node.id}
+              imgSrc={node._acf_taxonomy.icon.mediaItemUrl}
+            >
+              <Link to={`/${node.slug}`} activeClassName="active">
                 {node.name}
-              </NotionStyleList>
-            </Link>
+              </Link>
+            </NotionStyleList>
           ))}
-        </StyleUl>
+        </>
       );
     }}
   />
