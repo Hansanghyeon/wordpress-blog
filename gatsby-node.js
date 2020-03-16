@@ -27,9 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
   if (postResults.errors) throw postResults.errors;
   // postResults white list
-  // Create blog posts pages.
   const posts = postResults.data.allMdx.edges;
-
   posts.forEach(post => {
     createPage({
       path: post.node.fields.slug,
@@ -81,17 +79,10 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
-              name
-              uri
               slug
-              _acf_taxonomy {
-                icon {
-                  mediaItemUrl
             }
           }
         }
-      }
-    }
       }
     }
   `);
@@ -106,6 +97,38 @@ exports.createPages = async ({ graphql, actions }) => {
       ),
       context: {
         categoryId: node.id,
+      },
+    });
+  });
+
+  /**
+   * Create Wp Post page
+   */
+  const wpPost = await graphql(`
+    query GET_WP_POSTS {
+      wpgql {
+        posts {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  if (!wpPost) throw wpPost.error;
+
+  wpPost.data.wpgql.posts.edges.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(
+        __dirname,
+        'src/views/components/templates/post/Wp/index.tsx',
+      ),
+      context: {
+        postId: node.id,
       },
     });
   });
