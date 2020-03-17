@@ -1,8 +1,5 @@
 import './src/views/styles/main.scss';
 
-import('prismjs/plugins/line-numbers/prism-line-numbers.css');
-import('prismjs/plugins/command-line/prism-command-line.css');
-
-import('prism-themes/themes/prism-atom-dark.css');
+import('prism-themes/themes/prism-dracula.css');
 import wrapWithProvider from '@src/stores/rootProvider';
 export const wrapRootElement = wrapWithProvider;
