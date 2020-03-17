@@ -21,7 +21,7 @@ const StyledContainer = styled(Container)`
   padding-top: ${rhythm(1)};
 `;
 
-const Categories = ({ data }: any) => {
+const Category = ({ data }: any) => {
   const { category } = data.wpgql;
   const { mediaItemUrl } = category?._acf_taxonomy.icon;
   const { name, description } = category;
@@ -56,12 +56,11 @@ const Categories = ({ data }: any) => {
   );
 };
 
-export default Categories;
+export default Category;
 export const pageQuery = graphql`
-  query GET_CATEGORY($categoryId: ID!) {
+  query GET_WP_CATEGORY_POST($categoryId: ID!) {
     wpgql {
       category(id: $categoryId) {
-        id
         name
         description
         _acf_taxonomy {
@@ -72,11 +71,10 @@ export const pageQuery = graphql`
         posts {
           edges {
             node {
+              databaseId
               id
               title
               slug
-              date
-              content
             }
           }
         }

@@ -19,9 +19,9 @@ const InboxList = ({ data }: any) => {
       </TitleWrap>
       {data.edges.map(({ node }: any) => {
         return (
-          <Link to={node.slug}>
-            <NotionStyleList key={node.id}>{node.title}</NotionStyleList>
-          </Link>
+          <NotionStyleList key={node.id}>
+            <Link to={node.slug}>{node.title}</Link>
+          </NotionStyleList>
         );
       })}
     </Wrap>

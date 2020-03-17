@@ -1,6 +1,6 @@
 {
   "file": [
-    "@src/declaration.d.ts"
+    "@src/models/declaration.d.ts"
   ],
   "include": [
     "./src/**/*.tsx",

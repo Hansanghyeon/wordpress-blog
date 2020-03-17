@@ -26,24 +26,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (postResults.errors) throw postResults.errors;
-
-  // Create blog posts pages.
-  const posts = postResults.data.allMdx.edges;
-
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
-
+  // postResults white list
+  postResults.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: post.node.fields.slug,
+      path: node.fields.slug,
       component: path.resolve(
         __dirname,
-        'src/views/components/templates/blog-post.tsx',
+        'src/views/components/templates/post/Mdx/index.tsx',
       ),
       context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
+        slug: node.fields.slug,
       },
     });
   });
@@ -80,20 +72,13 @@ exports.createPages = async ({ graphql, actions }) => {
    * Create Wp Category Pages
    */
   const wpCategory = await graphql(`
-    query GET_WP {
+    query GET_WP_CATEGORIES {
       wpgql {
         categories {
           edges {
             node {
               id
-              name
-              uri
               slug
-              _acf_taxonomy {
-                icon {
-                  mediaItemUrl
-                }
-              }
             }
           }
         }
@@ -101,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (wpCategory.error) throw wpCategory.error;
-
+  // wpCategory white list
   wpCategory.data.wpgql.categories.edges.forEach(({ node }) => {
     createPage({
       path: node.slug,
@@ -111,6 +96,39 @@ exports.createPages = async ({ graphql, actions }) => {
       ),
       context: {
         categoryId: node.id,
+      },
+    });
+  });
+
+  /**
+   * Create Wp Post page
+   */
+  const wpPost = await graphql(`
+    query GET_WP_POSTS {
+      wpgql {
+        posts {
+          edges {
+            node {
+              databaseId
+              id
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  if (!wpPost) throw wpPost.error;
+
+  wpPost.data.wpgql.posts.edges.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(
+        __dirname,
+        'src/views/components/templates/post/Wp/index.tsx',
+      ),
+      context: {
+        postId: node.id,
       },
     });
   });
