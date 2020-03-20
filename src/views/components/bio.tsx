@@ -15,10 +15,10 @@ const Wrap = styled(Container)`
   font-size: 0.7rem;
   word-break: keep-all;
   margin-bottom: 8px;
-  color: ${props =>
-    props.theme.isDark
-      ? darken(0.5, props.theme.color.text[0])
-      : lighten(0.5, props.theme.color.text[0])};
+  color: ${({ theme }) =>
+    theme.isDark
+      ? lighten(0.5, theme.color.text[0])
+      : darken(0.5, theme.color.text[0])};
 `;
 
 const Bio = () => {

@@ -7,7 +7,7 @@ const Footer = styled(Container)`
   padding-top: ${rhythm(1)};
   padding-bottom: ${rhythm(1)};
   font-size: 0.8rem;
-  background-color: ${({ theme }) => theme.color.bg[0]};
+  background-color: ${({ theme }) => theme.color.bg[1]};
   color: ${({ theme }) => theme.color.text[0]};
 `;
 
