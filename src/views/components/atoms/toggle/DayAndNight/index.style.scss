@@ -9,6 +9,8 @@
   height: 50px;
   border: none;
   border-radius: calc(90px - 6px);
+  outline: none;
+  box-shadow: none;
   .toggleHandler {
     display: inline-block;
     position: relative;

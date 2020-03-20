@@ -5,6 +5,9 @@ import DayAndNightToggle from '@atom/toggle/DayAndNight';
 
 const Button = styled.button`
   all: unset;
+  outline: none;
+  border: none;
+  box-shadow: none;
 `;
 
 const PCSC = () => {
