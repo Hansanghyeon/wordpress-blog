@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
 import SEO from '@view/components/seo';
-import Layout from '@template/layout';
 import { rhythm } from '@style/typography';
 import InboxList from '@molecule/list/Inbox';
 
@@ -27,7 +26,7 @@ const Category = ({ data }: any) => {
   const { name, description } = category;
   const { posts } = category;
   return (
-    <Layout>
+    <>
       <SEO title={name} />
       <StyledContainer>
         <Row>
@@ -52,7 +51,7 @@ const Category = ({ data }: any) => {
           </Col>
         </Row>
       </StyledContainer>
-    </Layout>
+    </>
   );
 };
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
 import Grid from '@style/Grid';
 import Bio from '@view/components/bio';
-import Layout from '@template/layout';
 import { rhythm } from '@style/typography';
 // components
 import Utterance from '@molecule/Utterances';
@@ -58,7 +57,7 @@ const PostTemplate = ({ children, imgSrc }: props) => {
     },
   };
   return (
-    <Layout>
+    <>
       <GridThemeProvider gridTheme={_Grid}>
         <StyledContainer>
           {imgSrc && (
@@ -89,7 +88,7 @@ const PostTemplate = ({ children, imgSrc }: props) => {
           )}
         </StyledContainer>
       </GridThemeProvider>
-    </Layout>
+    </>
   );
 };
 

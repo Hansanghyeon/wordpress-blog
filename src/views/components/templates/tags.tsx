@@ -3,7 +3,6 @@ import React from 'react';
 // Components
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
-import Layout from '@template/layout';
 import SEO from '@view/components/seo';
 
 interface Props {
@@ -39,7 +38,7 @@ const Tags = ({ pageContext, data }: Props) => {
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
   return (
-    <Layout>
+    <>
       <SEO title={tag} />
       <h1>{tagHeader}</h1>
       <ul>
@@ -54,7 +53,7 @@ const Tags = ({ pageContext, data }: Props) => {
         })}
       </ul>
       <Link to="/tags">All tags</Link>
-    </Layout>
+    </>
   );
 };
 
