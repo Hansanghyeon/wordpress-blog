@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Prism from 'prismjs';
 
 // prettier-ignore
@@ -13,17 +13,14 @@ const CodeHighlight = ({ code }: Props) => {
   const result = CodeBlockRegExp.exec(code);
   const lang = result && result[1];
   const codeString = result && result[2];
-  const __html = Prism.highlight(codeString, Prism.languages[lang], lang);
-  if (__html) {
-    return (
-      <pre className={`language-${lang}`}>
-        <code className={`language-${lang}`}>
-          <div dangerouslySetInnerHTML={{ __html: __html }} />
-        </code>
-      </pre>
-    );
-  }
-  return <div>test</div>;
+  useEffect(() => {
+    setTimeout(() => Prism.highlightAll(), 0);
+  });
+  return (
+    <pre className={`language-${lang}`}>
+      <code className={`language-${lang}`}>{codeString}</code>
+    </pre>
+  );
 };
 
 export default CodeHighlight;
