@@ -5,7 +5,6 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 // import Bio from '@src/components/bio';
-import Layout from '@template/layout';
 import SEO from '@view/components/seo';
 import { rhythm } from '@style/typography';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
@@ -38,7 +37,7 @@ const IndexPage = ({ data }: Props) => {
   const posts = data.allMdx.edges;
 
   return (
-    <Layout>
+    <>
       <SEO title="매일매일 1%씩 성장하기" />
       <StyledContainer>
         <Row>
@@ -68,7 +67,7 @@ const IndexPage = ({ data }: Props) => {
           </Col>
         </Row>
       </StyledContainer>
-    </Layout>
+    </>
   );
 };
 

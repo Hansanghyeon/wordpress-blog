@@ -174,5 +174,13 @@ module.exports = {
         url: 'https://wp.hapas.io/graphql',
       },
     },
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(
+          `${__dirname}/src/views/components/templates/layout.tsx`,
+        ),
+      },
+    },
   ],
 };

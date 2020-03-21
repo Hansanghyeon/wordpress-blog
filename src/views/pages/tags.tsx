@@ -4,7 +4,6 @@ import kebabCase from 'lodash/kebabCase';
 // Components
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
-import Layout from '@template/layout';
 import SEO from '@view/components/seo';
 import { rhythm } from '@style/typography';
 
@@ -24,7 +23,7 @@ interface Props {
 const TagsPage = ({ data }: Props) => {
   const { group } = data.allMdx;
   return (
-    <Layout>
+    <>
       <SEO title="Tags" />
       <div>
         <h1 style={{ marginBottom: rhythm(1 / 4) }}>Tags</h1>
@@ -38,7 +37,7 @@ const TagsPage = ({ data }: Props) => {
           ))}
         </ul>
       </div>
-    </Layout>
+    </>
   );
 };
 

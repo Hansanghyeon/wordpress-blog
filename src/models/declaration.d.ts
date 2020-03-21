@@ -13,3 +13,5 @@ declare module '*.mdx' {
   export default MDXComponent;
 }
 declare module 'prism';
+declare module 'gatsby-plugin-transition-link/AniLink';
+declare module 'gatsby-plugin-transition-link';
