@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrap = styled.div`
   display: grid;
   grid-template-columns: 16px auto;
-  column-gap: 4px;
+  column-gap: 8px;
   font-size: 14px;
   color: ${({ theme }) => theme.color.text[1]};
   margin-bottom: 4px;

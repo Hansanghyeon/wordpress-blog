@@ -1,19 +1,40 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
+import moment from 'moment';
 
 import SEO from '@view/components/seo';
+import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
 import CodeHighlight from '@utile/CodeHighlight';
 
 const WpPostLayout = ({ data }: any) => {
-  const { title, excerpt, content } = data.wpgql.post;
+  const { title, excerpt, date, content } = data.wpgql.post;
   const wpContentArray = content.split('\n\n\n\n');
   return (
     <>
       <SEO title={title} description={excerpt} />
       <PostTemplate>
+        <h1
+          style={{
+            marginBottom: 0,
+          }}
+        >
+          {title}
+        </h1>
+        <p
+          style={{
+            ...scale(-1 / 5),
+            display: 'block',
+            marginBottom: rhythm(1),
+          }}
+        >
+          <span className="date">
+            {moment(date).format('YYYY년 MM월 DD일')}
+          </span>
+          <span className="time">{moment(date).format('HH:MM:SS')}</span>
+        </p>
         {wpContentArray.map((block: string) => {
           let __html = block;
           if (__html.indexOf('<pre') !== -1) {
