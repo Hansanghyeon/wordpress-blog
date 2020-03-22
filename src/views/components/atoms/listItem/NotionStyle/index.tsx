@@ -8,6 +8,9 @@ const Wrap = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.color.text[1]};
   margin-bottom: 4px;
+  > div {
+    align-self: center;
+  }
 `;
 const ImgWrap = styled.div`
   display: flex;
@@ -26,7 +29,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const NotionStyleList = ({ imgSrc, children }: Props) => (
+const NotionStyleListItem = ({ imgSrc, children }: Props) => (
   <Wrap>
     <ImgWrap>
       {imgSrc ? (
@@ -37,8 +40,10 @@ const NotionStyleList = ({ imgSrc, children }: Props) => (
         </span>
       )}
     </ImgWrap>
-    <span>{children}</span>
+    <div>
+      <span>{children}</span>
+    </div>
   </Wrap>
 );
 
-export default NotionStyleList;
+export default NotionStyleListItem;
