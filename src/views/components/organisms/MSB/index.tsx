@@ -6,6 +6,7 @@ import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
 import CategoryList from '@molecule/list/Category';
 import respondTo from '@style/_respondTo';
+import PCSC from '@molecule/PCSC';
 
 const SideBar = styled.div`
   width: 200px;
@@ -21,6 +22,7 @@ const SideBar = styled.div`
     left: 0;
     top: 0;
     margin-top: 0;
+    z-index: 200;
   `};
   ${respondTo.md`
     display: block;
@@ -49,6 +51,11 @@ const MSB = () => (
     </LogoLayout>
     <Main>
       <Container>
+        <Row style={{ marginBottom: rhythm(1) }}>
+          <Col col>
+            <PCSC />
+          </Col>
+        </Row>
         <Row>
           <Col col>
             <CategoryList />
