@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 // Components
 import Link from '@atom/Link';
-import NotionStyleList from '@atom/listItem/NotionStyle';
+import NotionStyleListItem from '@atom/listItem/NotionStyle';
 
 const CategoryList = () => (
   <StaticQuery
@@ -27,21 +27,21 @@ const CategoryList = () => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       const categories = data.wpgql.categories.edges.filter(
         ({ node }: any) => node.id !== 'Y2F0ZWdvcnk6MQ==',
       );
       return (
         <>
           {categories.map(({ node }: any) => (
-            <NotionStyleList
+            <NotionStyleListItem
               key={node.id}
               imgSrc={node._acf_taxonomy.icon.mediaItemUrl}
             >
               <Link to={`/${node.slug}`} activeClassName="active">
                 {node.name}
               </Link>
-            </NotionStyleList>
+            </NotionStyleListItem>
           ))}
         </>
       );

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // components
-import NotionStyleList from '@atom/listItem/NotionStyle';
+import NotionStyleListItem from '@atom/listItem/NotionStyle';
 import Link from '@atom/Link';
 
 const Wrap = styled.div``;
@@ -19,9 +19,9 @@ const InboxList = ({ data }: any) => {
       </TitleWrap>
       {data.edges.map(({ node }: any) => {
         return (
-          <NotionStyleList key={node.id}>
+          <NotionStyleListItem key={node.id}>
             <Link to={`/${node.slug}`}>{node.title}</Link>
-          </NotionStyleList>
+          </NotionStyleListItem>
         );
       })}
     </Wrap>
