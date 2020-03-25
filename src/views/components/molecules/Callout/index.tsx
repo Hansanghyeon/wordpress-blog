@@ -11,18 +11,19 @@ interface StyledProps {
 // NOTE
 // "Callout은 MDX에서 사용하기때문에 렌더링할때 props에서 theme 값을 가져올 수 없다."
 const Wrap = styled(Container)<StyledProps>`
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.bgColor
       ? `${
           props.theme.isDark
             ? darken(0.2, props.bgColor)
             : lighten(0.2, props.bgColor)
         }`
-      : `${props.theme.isDark ? '#2c2c2f' : '#fff'}`};
+      : `${props.theme.isDark ? '#2c2c2f' : '#f6f8ff'}`};
   padding: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1)};
   border-radius: 4px;
   word-break: keep-all;
+  box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const ColWrap = styled(Col)`
