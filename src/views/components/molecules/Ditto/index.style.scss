@@ -1,0 +1,129 @@
+.ditto {
+  &-root {
+    padding: 1rem;
+    min-height: 48px;
+    position: relative;
+  }
+  ._main {
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.45s ease-in-out;
+    will-change: box-shadow, transform;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+  }
+}
+
+.ditto {
+  ._thumnail {
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    transition: all 0.45s ease-in-out;
+    will-change: width, background-color, margin-right, background-size, height;
+    border-radius: 8px;
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  ._mainInner {
+    position: relative;
+    z-index: 200;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    margin-left: calc(80px - 1rem);
+
+    ._body {
+      padding: 0.5rem 1rem;
+    }
+    ._title {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    ._content {
+      max-width: 280px;
+      height: 3.8rem;
+      overflow: hidden;
+      font-size: 0.875rem;
+    }
+    ._cat {
+      border-radius: 8px;
+      padding: 0.25rem 8px;
+    }
+    ._date {
+      font-size: 0.75rem;
+    }
+    ._footer {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      > div {
+        margin-right: 16px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.ditto-list {
+  ._main {
+    &:hover {
+      box-shadow: none;
+      ._thumnail {
+        width: 120px;
+        background-color: transparent;
+        margin-right: 0;
+        z-index: 200;
+        box-shadow: 2px 0 22px -8px rgba(0, 0, 0, 0.4);
+      }
+      ._mainInner {
+        padding-left: 1rem;
+        margin-left: calc(120px - 1rem);
+        z-index: 100;
+        transform: scale(0.96);
+        box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+.ditto-grid {
+  ._main {
+    box-shadow: none;
+    transition: transform 0.45s ease-in-out;
+    &:hover {
+      transform: translateY(-8px);
+      ._thumnail {
+        background-size: 104%;
+      }
+      ._mainInner {
+        box-shadow: 0 22px 48px -28px rgba(0, 0, 0, 0.2);
+      }
+    }
+    ._thumnail {
+      width: 100%;
+      height: 54%;
+      transition: all 0.2s ease-in-out;
+      transition-delay: 0.2s;
+      background-color: transparent;
+      border: {
+        bottom-left-radius: 0;
+        bottom-right-radius: 0;
+      }
+    }
+    ._mainInner {
+      box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+      border-top: {
+        left-radius: 0;
+        right-radius: 0;
+      }
+    }
+  }
+}
