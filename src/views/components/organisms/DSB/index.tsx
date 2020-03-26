@@ -11,7 +11,7 @@ const Wrap = styled.div`
   width: 400px;
   height: 100%;
   padding: 10px;
-  background-color: ${props => props.theme.color.bg[1]};
+  background-color: ${({ theme }) => theme.color.bg[1]};
 `;
 
 const DSB = () => (

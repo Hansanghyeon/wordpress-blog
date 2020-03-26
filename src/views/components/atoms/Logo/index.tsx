@@ -4,8 +4,8 @@ import Link from 'gatsby-link';
 
 const Wrap = styled(Link)`
   text-decoration: none;
-  color: ${props => props.theme.color.text[0]};
-  fill: ${props => props.theme.color.text[0]};
+  color: ${({ theme }) => theme.color.text[0]};
+  fill: ${({ theme }) => theme.color.text[0]};
   display: flex;
   align-items: center;
   font-family: 'Fira Code';

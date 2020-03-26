@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
   if (tagPageResults.error) throw tagPageResults.error;
   // Extract tag data from query
   const tags = tagPageResults.data.tagsGroup.group;
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}`,
       component: path.resolve(
@@ -72,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
    * Create Wp Category Pages
    */
   const wpCategory = await graphql(`
-    query GET_WP_CATEGORIES {
+    query GET_NODE_WP_CATEGORIES {
       wpgql {
         categories {
           edges {
@@ -104,7 +104,7 @@ exports.createPages = async ({ graphql, actions }) => {
    * Create Wp Post page
    */
   const wpPost = await graphql(`
-    query GET_WP_POSTS {
+    query GET_NODE_WP_POSTS {
       wpgql {
         posts {
           edges {

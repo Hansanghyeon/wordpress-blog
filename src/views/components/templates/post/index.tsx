@@ -8,7 +8,7 @@ import { rhythm } from '@style/typography';
 import Utterance from '@molecule/Utterances';
 
 const CardWrap = styled.div`
-  background: ${props => props.theme.color.bg[1]};
+  background: ${({ theme }) => theme.color.bg[1]};
   border-radius: 3px;
   padding: ${rhythm(1)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);

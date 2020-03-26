@@ -32,6 +32,10 @@
       "@utile/*": [
         "src/utilities/*"
       ],
+      // Containers
+      "#/*": [
+        "src/views/containers/*"
+      ]
     }
   }
 }
