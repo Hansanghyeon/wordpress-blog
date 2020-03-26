@@ -4,9 +4,10 @@ import styled from 'styled-components';
 // Components
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
-import CategoryList from '@molecule/list/Category';
 import respondTo from '@style/_respondTo';
 import PCSC from '@molecule/PCSC';
+// Containers
+import PostTypeAllCat from '#/PostTypeAllCat';
 
 const SideBar = styled.div`
   width: 200px;
@@ -58,7 +59,7 @@ const MSB = () => (
         </Row>
         <Row>
           <Col col>
-            <CategoryList />
+            <PostTypeAllCat />
           </Col>
         </Row>
       </Container>
