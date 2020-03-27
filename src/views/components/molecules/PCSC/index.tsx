@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 import DayAndNightToggle from '@atom/toggle/DayAndNight';
 
-const Button = styled.button`
+const ButtonWrap = styled.div`
   all: unset;
   outline: none;
   border: none;
@@ -13,9 +13,9 @@ const Button = styled.button`
 const PCSC = () => {
   const themeContext = useContext(ThemeManagerContext);
   return (
-    <Button type="button" onClick={() => themeContext.toggleDark()}>
+    <ButtonWrap onClick={() => themeContext.toggleDark()}>
       <DayAndNightToggle />
-    </Button>
+    </ButtonWrap>
   );
 };
 
