@@ -1,4 +1,4 @@
-import './src/views/styles/main.scss';
+import './src/views/styles/style.scss';
 
 import('prism-themes/themes/prism-dracula.css');
 import wrapWithProvider from '@src/stores/rootProvider';
