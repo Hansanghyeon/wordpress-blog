@@ -9,6 +9,7 @@ import { rhythm } from '@style/typography';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import CategoryList from '@molecule/list/Category';
 import Ditto from '@molecule/Ditto';
+import Link from '@atom/Link';
 
 const StyledContainer = styled(Container)`
   padding: ${rhythm(1)} 0;
@@ -33,8 +34,9 @@ const IndexPage = ({ data }: any) => {
                   excerpt: node.excerpt,
                   date: node.date,
                   footer: () => <CategoryList data={node.categories} />,
-                  title: node.title,
+                  title: () => <Link to={`/${node.slug}`}>{node.title}</Link>,
                   isGrid: false,
+                  key: node.id,
                 };
                 return <Ditto {...props} />;
               })}
