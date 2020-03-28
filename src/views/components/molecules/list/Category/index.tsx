@@ -1,7 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 // Components
 import Link from '@atom/Link';
 import NotionStyleListItem from '@atom/listItem/NotionStyle';
+
+const NotionStyleListItemStyled = styled(NotionStyleListItem)`
+  margin-bottom: 4px;
+`;
 
 const CategoryList = ({ data }: any) => {
   const categories = data.edges.filter(
@@ -10,14 +15,13 @@ const CategoryList = ({ data }: any) => {
   return (
     <>
       {categories.map(({ node }: any) => (
-        <NotionStyleListItem
-          key={node.id}
-          imgSrc={node._acf_taxonomy.icon.mediaItemUrl}
-        >
-          <Link to={`/${node.slug}`} activeClassName="active">
+        <Link key={node.id} to={`/${node.slug}`} activeClassName="active">
+          <NotionStyleListItemStyled
+            imgSrc={node._acf_taxonomy.icon.mediaItemUrl}
+          >
             {node.name}
-          </Link>
-        </NotionStyleListItem>
+          </NotionStyleListItemStyled>
+        </Link>
       ))}
     </>
   );

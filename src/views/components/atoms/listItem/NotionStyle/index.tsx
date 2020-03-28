@@ -6,8 +6,8 @@ const Wrap = styled.div`
   grid-template-columns: 16px auto;
   column-gap: 8px;
   font-size: 14px;
+  font-family: 'Fira Code';
   color: ${({ theme }) => theme.color.text[1]};
-  margin-bottom: 4px;
   > div {
     align-self: center;
   }
