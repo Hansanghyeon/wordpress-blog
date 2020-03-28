@@ -1,5 +1,4 @@
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
 const _ = require('lodash');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
