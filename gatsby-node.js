@@ -7,68 +7,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   /**
-   * Create Post Pages
-   */
-  const postResults = await graphql(`
-    query GET_POST {
-      allMdx {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
-    }
-  `);
-  if (postResults.errors) throw postResults.errors;
-  // postResults white list
-  postResults.data.allMdx.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(
-        __dirname,
-        'src/views/components/templates/post/Mdx/index.tsx',
-      ),
-      context: {
-        slug: node.fields.slug,
-      },
-    });
-  });
-
-  /**
-   * Create Tag Pages
-   */
-  const tagPageResults = await graphql(`
-    query GET_TAGS {
-      tagsGroup: allMdx(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
-      }
-    }
-  `);
-  if (tagPageResults.error) throw tagPageResults.error;
-  // Extract tag data from query
-  const tags = tagPageResults.data.tagsGroup.group;
-  tags.forEach((tag) => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
-      component: path.resolve(
-        __dirname,
-        'src/views/components/templates/tags.tsx',
-      ),
-      context: {
-        tag: tag.fieldValue,
-      },
-    });
-  });
-
-  /**
    * Create Wp Category Pages
    */
   const wpCategory = await graphql(`
