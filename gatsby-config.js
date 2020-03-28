@@ -13,70 +13,12 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: 'assets',
+        path: `${__dirname}/static`,
+        name: 'static',
       },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map((edge) => ({
-                ...edge.node.frontmatter,
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-              })),
-            query: `
-              {
-                allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: "Your Site's RSS Feed",
-          },
-        ],
-      },
-    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -86,7 +28,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#1f2430',
         display: 'minimal-ui',
-        icon: 'content/assets/favicon.png',
+        icon: 'static/favicon.png',
       },
     },
     'gatsby-plugin-offline',
@@ -111,38 +53,6 @@ module.exports = {
             'https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css',
           ],
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-prismjs',
-          },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          {
-            resolve: 'gatsby-remark-autolink-headers',
-            options: {
-              offsetY: '100',
-              enableCustomId: true,
-              icon: false,
-            },
-          },
-        ],
       },
     },
     'gatsby-plugin-styled-components',
@@ -182,5 +92,6 @@ module.exports = {
         ),
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
   ],
 };

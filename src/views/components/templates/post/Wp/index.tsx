@@ -18,7 +18,7 @@ const WpPostLayout = ({ data }: any) => {
       <PostTemplate>
         <h1
           style={{
-            marginBottom: 0,
+            marginBottom: '4px',
           }}
         >
           {title}
@@ -33,14 +33,14 @@ const WpPostLayout = ({ data }: any) => {
           <span className="date">
             {moment(date).format('YYYY년 MM월 DD일')}
           </span>
-          <span className="time">{moment(date).format('HH:MM:SS')}</span>
         </p>
         {wpContentArray.map((block: string) => {
           let __html = block;
           if (__html.indexOf('<pre') !== -1) {
             return <CodeHighlight code={__html} />;
           }
-          __html = __html.replace('<code>', '<code class="language-text">');
+          const Code = new RegExp('<code>', 'g');
+          __html = __html.replace(Code, '<code class="language-text">');
           return <div dangerouslySetInnerHTML={{ __html: __html }} />;
         })}
       </PostTemplate>
