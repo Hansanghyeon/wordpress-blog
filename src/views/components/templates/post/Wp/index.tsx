@@ -40,7 +40,8 @@ const WpPostLayout = ({ data }: any) => {
           if (__html.indexOf('<pre') !== -1) {
             return <CodeHighlight code={__html} />;
           }
-          __html = __html.replace('<code>', '<code class="language-text">');
+          const Code = new RegExp('<code>', 'g');
+          __html = __html.replace(Code, '<code class="language-text">');
           return <div dangerouslySetInnerHTML={{ __html: __html }} />;
         })}
       </PostTemplate>
