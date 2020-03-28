@@ -22,7 +22,7 @@ const MainInner = styled.div`
   background-color: ${({ theme }) => theme.color.bg[0]};
 `;
 const Content = styled.div`
-  color: ${({ theme }) => theme.color.text[1]};
+  color: ${({ theme }) => theme.color.text[2]};
 `;
 const Date = styled.div`
   color: ${({ theme }) => theme.color.text[2]};
@@ -34,9 +34,9 @@ const CategoryLabel = styled.div`
 interface DittoProps {
   excerpt: string;
   date: number;
-  footer: any;
+  footer: () => React.ReactNode;
   imgSrc?: string;
-  title: string;
+  title: () => React.ReactNode;
   isGrid: boolean;
 }
 const Ditto = ({
@@ -48,8 +48,8 @@ const Ditto = ({
   isGrid,
 }: DittoProps) => {
   const _excerpt = () => {
-    if (excerpt.length < 118) return excerpt;
-    return `${excerpt.substring(0, 110)}...`;
+    if (excerpt.length < 85) return excerpt;
+    return `${excerpt.substring(3, 83)}...`;
   };
   useEffect(() => {
     const tl = new TimelineLite();
@@ -76,7 +76,7 @@ const Ditto = ({
         <Thumnail className="_thumnail" imgSrc={imgSrc} />
         <MainInner className="_mainInner">
           <Body className="_body">
-            <Title className="_title">{title}</Title>
+            <Title className="_title">{title()}</Title>
             <Content className="_content">{_excerpt()}</Content>
           </Body>
           <Footer className="_footer">
