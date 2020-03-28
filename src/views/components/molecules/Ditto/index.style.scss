@@ -1,4 +1,5 @@
 .ditto {
+  // root
   &-root {
     padding: 1rem;
     min-height: 48px;
@@ -10,16 +11,7 @@
       z-index: 200;
     }
   }
-  ._main {
-    font-size: 16px;
-    border-radius: 8px;
-    box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.45s ease-in-out;
-    will-change: box-shadow, transform;
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-  }
+  // Thumbnail이 없는 포트스에서는 섬네일 관련 효과 및 섬네일 제거
   &.non-thumbnail {
     ._main {
       &:hover {
@@ -37,9 +29,18 @@
       margin-left: 0;
     }
   }
-}
-
-.ditto {
+  // Ditto 컴포넌트의 root 내부의 2가지 구조
+  // Thumbnail + Main
+  ._main {
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.45s ease-in-out;
+    will-change: box-shadow, transform;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+  }
   ._thumnail {
     width: 80px;
     height: 100%;
@@ -53,6 +54,9 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  // Main 내부 요소들의 스타일
+  // 어던 뷰상태이던 동일한 스타일 구성
   ._mainInner {
     position: relative;
     z-index: 200;
@@ -95,58 +99,61 @@
       }
     }
   }
-}
 
-.ditto-list {
-  ._main {
-    &:hover {
-      box-shadow: none;
-      ._thumnail {
-        width: 120px;
-        background-color: transparent;
-        margin-right: 0;
-        z-index: 200;
-        box-shadow: 2px 0 22px -8px rgba(0, 0, 0, 0.4);
-      }
-      ._mainInner {
-        padding-left: 1rem;
-        z-index: 100;
-        transform: scale(0.96) translate(calc(40px + 1rem));
-        box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
-        margin-left: calc(80px - 2rem);
+  // List 모드
+  &-list {
+    ._main {
+      &:hover {
+        box-shadow: none;
+        ._thumnail {
+          width: 120px;
+          background-color: transparent;
+          margin-right: 0;
+          z-index: 200;
+          box-shadow: 2px 0 22px -8px rgba(0, 0, 0, 0.4);
+        }
+        ._mainInner {
+          padding-left: 1rem;
+          z-index: 100;
+          transform: scale(0.96) translate(calc(40px + 1rem));
+          box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+          margin-left: calc(80px - 2rem);
+        }
       }
     }
   }
-}
-.ditto-grid {
-  ._main {
-    box-shadow: none;
-    transition: transform 0.45s ease-in-out;
-    &:hover {
-      transform: translateY(-8px);
+
+  // Grid 모드
+  &-grid {
+    ._main {
+      box-shadow: none;
+      transition: transform 0.45s ease-in-out;
+      &:hover {
+        transform: translateY(-8px);
+        ._thumnail {
+          background-size: 104%;
+        }
+        ._mainInner {
+          box-shadow: 0 22px 48px -28px rgba(0, 0, 0, 0.2);
+        }
+      }
       ._thumnail {
-        background-size: 104%;
+        width: 100%;
+        height: 54%;
+        transition: all 0.2s ease-in-out;
+        transition-delay: 0.2s;
+        background-color: transparent;
+        border: {
+          bottom-left-radius: 0;
+          bottom-right-radius: 0;
+        }
       }
       ._mainInner {
-        box-shadow: 0 22px 48px -28px rgba(0, 0, 0, 0.2);
-      }
-    }
-    ._thumnail {
-      width: 100%;
-      height: 54%;
-      transition: all 0.2s ease-in-out;
-      transition-delay: 0.2s;
-      background-color: transparent;
-      border: {
-        bottom-left-radius: 0;
-        bottom-right-radius: 0;
-      }
-    }
-    ._mainInner {
-      box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
-      border-top: {
-        left-radius: 0;
-        right-radius: 0;
+        box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+        border-top: {
+          left-radius: 0;
+          right-radius: 0;
+        }
       }
     }
   }
