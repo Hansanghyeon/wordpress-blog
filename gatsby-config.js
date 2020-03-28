@@ -20,23 +20,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: '4log | 매일매일 1%',
