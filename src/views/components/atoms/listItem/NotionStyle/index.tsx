@@ -7,7 +7,6 @@ const Wrap = styled.div`
   column-gap: 8px;
   font-size: 14px;
   color: ${({ theme }) => theme.color.text[1]};
-  margin-bottom: 4px;
   > div {
     align-self: center;
   }
