@@ -41,7 +41,7 @@ const WpPostLayout = ({ data }: any) => {
           }
           const Code = new RegExp('<code>', 'g');
           __html = __html.replace(Code, '<code class="language-text">');
-          return <div dangerouslySetInnerHTML={{ __html: __html }} />;
+          return <div dangerouslySetInnerHTML={{ __html }} />;
         })}
       </PostTemplate>
     </>
