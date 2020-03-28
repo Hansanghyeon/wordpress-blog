@@ -3,6 +3,12 @@
     padding: 1rem;
     min-height: 48px;
     position: relative;
+    z-index: 0;
+    transition: z-index 0.45s;
+    will-change: z-index;
+    &:hover {
+      z-index: 200;
+    }
   }
   ._main {
     font-size: 16px;
@@ -13,6 +19,23 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
+  }
+  &.non-thumbnail {
+    ._main {
+      &:hover {
+        ._mainInner {
+          transform: unset;
+          padding-left: 0;
+          margin-left: 0;
+        }
+      }
+    }
+    ._thumnail {
+      display: none;
+    }
+    ._mainInner {
+      margin-left: 0;
+    }
   }
 }
 
@@ -36,6 +59,7 @@
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
     margin-left: calc(80px - 1rem);
+    will-change: padding-left, z-index, transform, margin-left, box-shadow;
 
     ._body {
       padding: 0.5rem 1rem;
@@ -86,10 +110,10 @@
       }
       ._mainInner {
         padding-left: 1rem;
-        margin-left: calc(120px - 1rem);
         z-index: 100;
-        transform: scale(0.96);
+        transform: scale(0.96) translate(calc(40px + 1rem));
         box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+        margin-left: calc(80px - 2rem);
       }
     }
   }
