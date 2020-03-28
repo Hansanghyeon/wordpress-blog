@@ -5,3 +5,9 @@ hr {
   border: 1px dashed #404347;
   height: 0;
 }
+
+@for $i from 2 through 6 {
+  h#{$i} {
+    margin-top: 1.6rem;
+  }
+}
