@@ -1,5 +1,5 @@
 <a href="https://4log.hapas.io/">
-  <img width="125" src="content/assets/4log-logo.png">
+  <img width="125" src="static/4log-logo.png">
 </a>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/hansanghyeon/4log/badge)](https://www.codefactor.io/repository/github/hansanghyeon/4log)
