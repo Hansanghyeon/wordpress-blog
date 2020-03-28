@@ -22,7 +22,7 @@ const Link = ({
   if (internal) {
     return (
       <AniLink
-        swipe
+        fade
         top="exit"
         direction="right"
         duration={0.3}

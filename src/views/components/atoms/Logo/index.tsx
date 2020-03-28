@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+import Link from '@atom/Link';
 
 const Wrap = styled(Link)`
   text-decoration: none;
