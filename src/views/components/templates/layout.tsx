@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled, {
   ThemeProvider,
   createGlobalStyle,
   css,
 } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 import Grid from '@style/Grid';
 import GNB from '@organism/GNB';
@@ -44,12 +43,14 @@ const GlobalStyle = createGlobalStyle`
   ${_GlobalStyle}
 `;
 
-const Layout = ({ children }: any) => {
-  const themeContext = useContext(ThemeManagerContext);
-
+interface props {
+  children: React.ReactNode;
+  isDark?: boolean;
+}
+const Layout = ({ children, isDark }: props) => {
   return (
     <>
-      <ThemeProvider theme={themeContext.isDark ? DarkTheme : DefaultTheme}>
+      <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>
         <GlobalStyle />
         <GridThemeProvider gridTheme={Grid}>
           <>
