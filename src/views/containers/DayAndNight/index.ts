@@ -1,8 +1,8 @@
 import DayAndNightToggle from '@atom/toggle/DayAndNight';
 import { connect } from 'react-redux';
 
-const mapReduxStateToReactProps = (state: any) => {
-  return { ...state };
+const mapReduxStateToReactProps = ({ themeState }: any) => {
+  return { ...themeState };
 };
 
 const mapReduxDispatchToReactProps = (dispatch: any) => {
