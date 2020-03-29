@@ -1,7 +1,7 @@
 import { createStore as reduxCreateStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const reducer = (state: any) => {
+const reducer = (state: any, action: any) => {
   if (state === undefined) {
     return {
       ...state,
@@ -9,6 +9,11 @@ const reducer = (state: any) => {
         window.matchMedia &&
         window.matchMedia('(prefers-color-scheme: dark)').matches
       ),
+    };
+  }
+  if (action.type === 'TOGGLE_DARK') {
+    return {
+      isDark: !state.isDark,
     };
   }
   return state;
