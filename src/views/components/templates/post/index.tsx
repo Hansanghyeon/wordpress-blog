@@ -5,7 +5,7 @@ import Grid from '@style/Grid';
 import Bio from '@view/components/bio';
 import { rhythm } from '@style/typography';
 // components
-import Utterance from '@molecule/Utterances';
+import Utterance from '#/Utterances';
 
 const CardWrap = styled.div`
   background: ${({ theme }) => theme.color.bg[0]};
