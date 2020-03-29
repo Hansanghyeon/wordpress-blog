@@ -26,7 +26,18 @@
       display: none;
     }
     ._mainInner {
-      margin-left: 0;
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+      border-radius: 8px !important;
+      ._content {
+        max-width: calc(280px + 80px - 1rem);
+        transition: max-width 0.45s;
+      }
+    }
+  }
+  &-grid.non-thumbnail {
+    ._mainInner ._content {
+      max-width: 280px;
     }
   }
   // Ditto 컴포넌트의 root 내부의 2가지 구조
@@ -47,7 +58,8 @@
     position: absolute;
     z-index: 100;
     transition: all 0.45s ease-in-out;
-    will-change: width, background-color, margin-right, background-size, height;
+    will-change: width, background-color, margin-right, background-size, height,
+      transform;
     border-radius: 8px;
     background-blend-mode: overlay;
     background-size: cover;
@@ -128,10 +140,12 @@
     ._main {
       box-shadow: none;
       transition: transform 0.45s ease-in-out;
+      border-radius: 8px;
+      overflow: hidden;
       &:hover {
         transform: translateY(-8px);
         ._thumnail {
-          background-size: 104%;
+          transform: scale(1.05);
         }
         ._mainInner {
           box-shadow: 0 22px 48px -28px rgba(0, 0, 0, 0.2);
