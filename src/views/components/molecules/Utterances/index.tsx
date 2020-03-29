@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
+import React from 'react';
 import Light from './Light';
 import Dark from './Dark';
 
-const Utterances = () => {
-  const themeContext = useContext(ThemeManagerContext);
-
-  return themeContext.isDark ? <Dark /> : <Light />;
-};
+interface props {
+  isDark?: boolean;
+}
+const Utterances = ({ isDark }: props) => (isDark ? <Dark /> : <Light />);
 
 Utterances.displayName = 'Utterances';
 
