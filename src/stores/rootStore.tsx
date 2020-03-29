@@ -19,11 +19,9 @@ const reducer = (state: any, action: any) => {
   return state;
 };
 
-const initialState = {};
-
-export default () =>
+const createStore = () =>
   reduxCreateStore(
     reducer,
-    initialState,
     process.env.NODE_ENV !== 'production' ? composeWithDevTools() : null,
   );
+export default createStore;
