@@ -5,11 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { globalHistory } from '@reach/router';
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode';
 
 interface Props {
   description?: string;
@@ -19,7 +18,6 @@ interface Props {
 }
 
 const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
-  const themeContext = useContext(ThemeManagerContext);
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,9 +38,6 @@ const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
     <Helmet
       htmlAttributes={{
         lang,
-      }}
-      bodyAttributes={{
-        class: themeContext.isDark ? 'dark-mode' : 'light-mode',
       }}
       title={title}
       titleTemplate={
