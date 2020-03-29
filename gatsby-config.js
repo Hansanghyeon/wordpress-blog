@@ -65,9 +65,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-styled-components-dark-mode',
-    },
-    {
       resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/views/pages`,
