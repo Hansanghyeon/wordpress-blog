@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.style.scss';
 
-const DayAndNightToggle = () => {
-  const [isOn, setIsOn] = useState(false);
+interface props {
+  isDark?: boolean;
+  onClick?: any;
+}
+const DayAndNightToggle = ({ isDark, onClick }: props) => {
+  const _handleClick = () => {
+    onClick();
+  };
   return (
     <button
       type="button"
-      className={`DayAndNight${isOn ? '-Night' : '-Day'}`}
-      onClick={(): void => setIsOn(!isOn)}
+      className={`DayAndNight${isDark ? '-Night' : '-Day'}`}
+      onClick={_handleClick}
     >
       <div className="toggleHandler">
         <div className="creater creater-1" />

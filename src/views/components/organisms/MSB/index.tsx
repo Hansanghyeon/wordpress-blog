@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
 import respondTo from '@style/_respondTo';
-import PCSC from '@molecule/PCSC';
 // Containers
+import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
 
 const SideBar = styled.div`
@@ -54,7 +54,7 @@ const MSB = () => (
       <Container>
         <Row style={{ marginBottom: rhythm(1) }}>
           <Col col>
-            <PCSC />
+            <DayAndNightToggle />
           </Col>
         </Row>
         <Row>

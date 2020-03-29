@@ -65,9 +65,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-styled-components-dark-mode',
-    },
-    {
       resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/views/pages`,
@@ -88,7 +85,7 @@ module.exports = {
       resolve: `gatsby-plugin-transition-link`,
       options: {
         layout: require.resolve(
-          `${__dirname}/src/views/components/templates/layout.tsx`,
+          `${__dirname}/src/views/containers/Layout/index.ts`,
         ),
       },
     },

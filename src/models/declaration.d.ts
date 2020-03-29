@@ -15,3 +15,4 @@ declare module '*.mdx' {
 declare module 'prism';
 declare module 'gatsby-plugin-transition-link/AniLink';
 declare module 'gatsby-plugin-transition-link';
+declare module 'redux-devtools-extension';

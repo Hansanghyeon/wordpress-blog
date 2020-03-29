@@ -1,9 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import createStore from './rootStore';
+import createStore from '@store/rootStore';
 
-export default ({ element }: any) => {
-  const store = createStore();
-  return <Provider store={store}>{element}</Provider>;
+interface prop {
+  element: React.ReactNode;
+}
+export default ({ element }: prop) => {
+  return <Provider store={createStore()}>{element}</Provider>;
 };
