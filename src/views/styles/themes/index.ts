@@ -15,6 +15,7 @@ const DefaultTheme: StyleSystem = {
 export const DarkTheme: DarkStyleSystem = {
   color: {
     ...DefaultTheme.color,
+    primary: '#fff46a',
     bg: ['#303437', '#232326'],
     text: ['#f2f4f7', '#e6ecf8', '#9ba4b7'],
   },

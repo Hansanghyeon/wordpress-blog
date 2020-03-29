@@ -5,6 +5,7 @@ import './index.style.scss';
 const GAL = styled.button`
   --color: ${({ theme }) => theme.color.text[0]};
   --background: ${({ theme }) => theme.color.bg[0]};
+  --background-hover: ${({ theme }) => theme.color.bg[0]};
   --icon-color: ${({ theme }) => theme.color.primary};
 `;
 
