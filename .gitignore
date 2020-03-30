@@ -41,7 +41,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
 pids
@@ -138,13 +138,6 @@ psd
 thumb
 sketch
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
@@ -155,3 +148,5 @@ sketch
 package-lock.json
 build
 dev
+*.framerx
+.env*
