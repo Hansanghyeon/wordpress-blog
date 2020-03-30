@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": "🔥4log",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      ".cache/": true,
+      ".github/": true,
+      "public/": true
+    },
+    "explorer.sortOrder": "type",
+    "workspace.exclude": {
+      ".cache/": true,
+      ".github/": true,
+      "public/": true
+    },
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "editor.formatOnSave": true
+  }
+}

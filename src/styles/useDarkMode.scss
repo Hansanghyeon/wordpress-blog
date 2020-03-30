@@ -1,0 +1,16 @@
+body.light-mode {
+  background-color: #f2f4f7;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+body.dark-mode {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #232326;
+
+  a {
+    color: #fff;
+    &:hover {
+      color: #658dc6;
+    }
+  }
+}

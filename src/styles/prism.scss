@@ -1,0 +1,29 @@
+.line-numbers .line-numbers-rows {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  border-right: 1px solid rgba(153, 153, 153, 0.1);
+}
+
+.command-line-prompt {
+  > span:before {
+    color: #999;
+    content: ' ';
+    display: block;
+    padding-right: 0.8em;
+  }
+
+  /* Prompt for all users */
+  > span[data-user]:before {
+    content: '[' attr(data-user) '@' attr(data-host) '] $';
+  }
+
+  /* Prompt for root */
+  > span[data-user='root']:before {
+    content: '[' attr(data-user) '@' attr(data-host) '] #';
+  }
+
+  > span[data-prompt]:before {
+    content: attr(data-prompt);
+  }
+}
