@@ -13,8 +13,13 @@ import Link from '@atom/Link';
 import GridAndListToggle from '@atom/toggle/GridAndList';
 
 const StyledContainer = styled(Container)`
-  padding: ${rhythm(1)} 0;
+  padding-top: ${rhythm(1)};
+  padding-bottom: ${rhythm(1)};
 `;
+const StyledGALTwrap = styled.div`
+  margin-left: 1rem;
+`;
+
 const DittoWrap = styled.div`
   width: 100%;
   display: flex;
@@ -33,22 +38,28 @@ const IndexPage = ({ data }: any) => {
       <StyledContainer>
         <Row>
           <Col col>
-            <GridAndListToggle onClick={_handleClick} />
+            <StyledGALTwrap>
+              <GridAndListToggle onClick={_handleClick} />
+            </StyledGALTwrap>
           </Col>
-          <DittoWrap>
-            {posts.edges.map(({ node }: any) => {
-              const props = {
-                imgSrc: node.featuredImage?.mediaItemUrl,
-                excerpt: node.excerpt,
-                date: node.date,
-                footer: () => <CategoryList data={node.categories} />,
-                title: () => <Link to={`/${node.slug}`}>{node.title}</Link>,
-                isGrid: isGrid,
-                key: node.id,
-              };
-              return <Ditto {...props} />;
-            })}
-          </DittoWrap>
+        </Row>
+        <Row>
+          <Col col>
+            <DittoWrap>
+              {posts.edges.map(({ node }: any) => {
+                const props = {
+                  imgSrc: node.featuredImage?.mediaItemUrl,
+                  excerpt: node.excerpt,
+                  date: node.date,
+                  footer: () => <CategoryList data={node.categories} />,
+                  title: () => <Link to={`/${node.slug}`}>{node.title}</Link>,
+                  isGrid: isGrid,
+                  key: node.id,
+                };
+                return <Ditto {...props} />;
+              })}
+            </DittoWrap>
+          </Col>
         </Row>
       </StyledContainer>
     </>
