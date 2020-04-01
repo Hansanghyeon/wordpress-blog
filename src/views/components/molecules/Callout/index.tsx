@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import { rhythm, scale } from '@style/typography';
-import { darken, lighten } from 'polished';
+import { darken, transparentize } from 'polished';
 
 interface StyledProps {
   bgColor: string;
@@ -15,9 +15,9 @@ const Wrap = styled(Container)<StyledProps>`
   background-color: ${({ bgColor, isDark, theme }) => {
     let _color;
     if (bgColor !== '') {
-      [, _color] = theme.color.bg;
+      _color = isDark ? transparentize(0.4, darken(0.2, bgColor)) : bgColor;
     } else {
-      _color = isDark ? darken(0.2, bgColor) : lighten(0.2, bgColor);
+      [, _color] = theme.color.bg;
     }
     return _color;
   }};

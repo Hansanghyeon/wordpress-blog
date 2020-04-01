@@ -13,7 +13,7 @@ import Callout from '#/Callout';
 
 interface props {
   attr: {
-    bg: string | any;
+    bg: string;
     icon: string;
   };
   children: JSX.Element | JSX.Element[];
