@@ -9,11 +9,11 @@ import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
 import CodeHighlight from '@utile/CodeHighlight';
-import Callout from '@src/views/components/molecules/Callout';
+import Callout from '#/Callout';
 
 interface props {
   attr: {
-    bg?: string;
+    bg: string | any;
     icon: string;
   };
   children: JSX.Element | JSX.Element[];
