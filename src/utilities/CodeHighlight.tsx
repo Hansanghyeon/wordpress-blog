@@ -16,7 +16,6 @@ const CodeHighlight = ({ code }: Props) => {
     new RegExp('&lt;', 'g'),
     '<',
   );
-  console.log(codeString);
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
   });
