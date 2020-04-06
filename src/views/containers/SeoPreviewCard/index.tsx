@@ -14,5 +14,5 @@ export default (url: string) => {
   if (loading) return <div>로딩중...</div>;
   if (error) return <Link href={url}>{url}</Link>;
   if (!response) return null;
-  return <SeoPreviewCard data={response.data} url={url} />;
+  return <SeoPreviewCard data={response.data} />;
 };
