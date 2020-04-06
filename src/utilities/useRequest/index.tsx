@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 const useRequest = (url: string) => {
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<AxiosResponse>();
+  const [response, setResponse] = useState<any>();
   const [error, setError] = useState(null);
 
   // 렌더링 될 때, 그리고 url이 바뀔때만 실행됨

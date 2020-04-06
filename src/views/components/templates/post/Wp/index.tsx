@@ -9,6 +9,7 @@ import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
 import CodeHighlight from '@utile/CodeHighlight';
+import SeoPreviewCard from '#/SeoPreviewCard';
 import Callout from '#/Callout';
 
 // HTML react parser options
@@ -23,6 +24,8 @@ const options = {
               {domToReact(children)}
             </Callout>
           );
+        case 'seo-preview':
+          return SeoPreviewCard(attribs.url);
         default:
           return;
       }
