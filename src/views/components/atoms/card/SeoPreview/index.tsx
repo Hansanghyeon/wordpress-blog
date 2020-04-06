@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'styled-bootstrap-grid';
 import './index.style.scss';
+// Components
+import NonFavicon from '@atom/icons/NonFavicon';
+import CpuChipLoader from '@atom/loader/CpuChip';
 
 const Header = styled.div`
   background-color: ${({ theme }) => theme.color.bg[0]};
@@ -33,11 +36,11 @@ const RootWrap = styled.a`
   }
 `;
 
-const SeoPreviewCard = ({ data }: props) => {
+const Loaded = ({ data }: reqData) => {
   const { title, description, url, favicon, image } = data;
   const decodeUrl = decodeURI(url);
   return (
-    <RootWrap href={decodeUrl} className="seoPreview">
+    <>
       <Header className="_header">
         <Favicon className="_favicon">
           <img src={favicon} alt="" />
@@ -51,6 +54,29 @@ const SeoPreviewCard = ({ data }: props) => {
         </Content>
         {image && <ImageCol col={12} sm={4} bg={image} className="_thumnail" />}
       </Body>
+    </>
+  );
+};
+const Loading = () => (
+  <>
+    <Header className="_header">
+      <Favicon className="_favicon">
+        <NonFavicon />
+      </Favicon>
+      <div>Loading...</div>
+    </Header>
+    <Body className="_body">
+      <Col col className="_content">
+        <CpuChipLoader />
+      </Col>
+    </Body>
+  </>
+);
+
+const SeoPreviewCard = ({ data, loading, reqUrl }: props) => {
+  return (
+    <RootWrap href={reqUrl} className={`seoPreview ${loading && 'loading'}`}>
+      {!loading ? <Loaded data={data} /> : <Loading />}
     </RootWrap>
   );
 };
@@ -59,7 +85,7 @@ export default SeoPreviewCard;
 interface styleProps {
   bg?: string;
 }
-interface props {
+interface reqData {
   data?: {
     title: string;
     description: string;
@@ -67,4 +93,8 @@ interface props {
     favicon: string;
     url: string;
   };
+}
+interface props extends reqData {
+  loading: boolean;
+  reqUrl: string;
 }

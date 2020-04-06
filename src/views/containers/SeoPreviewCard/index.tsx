@@ -11,8 +11,14 @@ export default (url: string) => {
         : 'localhost:8080'
     }/seo/?url=${encodeURI(url)}`,
   );
-  if (loading) return <div>로딩중...</div>;
+  if (loading) return <SeoPreviewCard loading={loading} reqUrl={url} />;
   if (error) return <Link href={url}>{url}</Link>;
   if (!response) return null;
-  return <SeoPreviewCard data={response.data} />;
+  const { data } = response;
+  const props = {
+    data,
+    loading,
+    reqUrl: url,
+  };
+  return <SeoPreviewCard {...props} />;
 };
