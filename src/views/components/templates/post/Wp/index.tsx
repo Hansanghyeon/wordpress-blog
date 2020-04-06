@@ -11,28 +11,18 @@ import PostTemplate from '@template/post/index';
 import CodeHighlight from '@utile/CodeHighlight';
 import Callout from '#/Callout';
 
-interface props {
-  attr: {
-    bg: string;
-    icon: string;
-  };
-  children: JSX.Element | JSX.Element[];
-}
-const callout = ({ attr, children }: props) => {
-  const { bg, icon } = attr;
-  return (
-    <Callout icon={icon} bgColor={bg}>
-      {children}
-    </Callout>
-  );
-};
+// HTML react parser options
 const options = {
   replace: ({ name, children, attribs }: any) => {
     if (!name) return;
     if (name === 'component') {
       switch (attribs.fc) {
         case 'callout':
-          return callout({ attr: attribs, children: domToReact(children) });
+          return (
+            <Callout bgColor={attribs.bg} icon={attribs.icon}>
+              {domToReact(children)}
+            </Callout>
+          );
         default:
           return;
       }
