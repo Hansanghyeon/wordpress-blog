@@ -18,6 +18,9 @@ const MainWrapper = styled.div`
   margin-top: var(--mt);
   height: calc(100% - var(--mt));
   overflow-y: scroll;
+  &::-webkit-scrollbar:vertical {
+    width: 8px;
+  }
 `;
 const PageWrap = styled.div`
   display: flex;

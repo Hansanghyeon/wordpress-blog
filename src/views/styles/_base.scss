@@ -12,3 +12,28 @@ body,
 a {
   text-decoration: none;
 }
+
+*::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  border: none;
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar:horizontal {
+  display: none;
+}
+*::-webkit-scrollbar:vertical {
+  width: 0;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}

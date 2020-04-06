@@ -12,7 +12,10 @@ interface Props {
 const CodeHighlight = ({ code }: Props) => {
   const result = CodeBlockRegExp.exec(code);
   const lang = result && result[1];
-  const codeString = result && result[2];
+  const codeString = (result && result[2])?.replace(
+    new RegExp('&lt;', 'g'),
+    '<',
+  );
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
   });
