@@ -34,12 +34,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        prependData: `@import '~@style/global';`,
-      },
-    },
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-typography',
       options: {

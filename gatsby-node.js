@@ -72,7 +72,8 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
+  const { setWebpackConfig } = actions;
+  setWebpackConfig({
     resolve: {
       plugins: [new TsconfigPathsPlugin()],
     },
