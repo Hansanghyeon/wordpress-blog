@@ -60,14 +60,11 @@ interface styleProps {
   bg?: string;
 }
 interface props {
-  data: {
+  data?: {
     title: string;
     description: string;
+    image: string;
+    favicon: string;
     url: string;
-    image?: string;
-    favicon?: string;
-    // optional
-    site_name?: string;
-    type?: string;
   };
 }
