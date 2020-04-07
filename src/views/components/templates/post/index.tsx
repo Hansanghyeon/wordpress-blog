@@ -32,6 +32,12 @@ const FeaturedImageWrap = styled.div`
 const StyledRow = styled(Row)`
   margin-bottom: ${rhythm(1)};
   margin-top: ${rhythm(1)};
+  .fc-dim {
+    color: ${({ theme }) => theme.color.text[3]};
+  }
+  blockquote {
+    border-left: 4px solid ${({ theme }) => theme.color.bg[1]};
+  }
 `;
 
 const BioRow = styled(StyledRow)`

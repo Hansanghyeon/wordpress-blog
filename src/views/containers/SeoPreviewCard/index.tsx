@@ -12,7 +12,12 @@ export default (url: string) => {
     }/seo/?url=${encodeURI(url)}`,
   );
   if (loading) return <SeoPreviewCard loading={loading} reqUrl={url} />;
-  if (error) return <Link href={url}>{url}</Link>;
+  if (error)
+    return (
+      <div>
+        <Link href={url}>{decodeURI(url)}</Link>
+      </div>
+    );
   if (!response) return null;
   const { data } = response;
   const props = {

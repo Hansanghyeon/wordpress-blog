@@ -16,3 +16,39 @@ hr {
     margin-top: 3.2rem;
   }
 }
+
+figure {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  img {
+    margin-bottom: 0;
+    border-radius: 2px;
+  }
+  + p {
+    margin-top: 1.6rem;
+  }
+}
+
+blockquote {
+  margin-left: 0;
+  font-style: italic;
+  font-size: 0.8rem;
+  border-radius: 2px 0 0 2px;
+  padding-left: 1.6rem;
+  padding: {
+    top: 0.4rem;
+    bottom: 0.4rem;
+  }
+}
+
+.fc-dim {
+  font-size: 0.9rem;
+}
+
+code[class*='language-'] {
+  padding: {
+    left: 4px;
+    right: 4px;
+  }
+}
