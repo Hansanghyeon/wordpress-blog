@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const wpCategory = await graphql(`
     query GET_NODE_WP_CATEGORIES {
       wpgql {
-        categories {
+        categories(where: { hideEmpty: true }) {
           edges {
             node {
               id
@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const wpPost = await graphql(`
     query GET_NODE_WP_POSTS {
       wpgql {
-        posts {
+        posts(where: { status: PUBLISH }) {
           edges {
             node {
               databaseId
