@@ -45,7 +45,13 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Noto Sans KR', 'Noto Sans', 'Fira Code', 'Nanum Gothic'],
+          families: [
+            'Noto Sans KR',
+            'Noto Sans',
+            'Fira Code',
+            'Nanum Gothic',
+            'Fira Sans',
+          ],
         },
         custom: {
           families: ['D2 coding'],

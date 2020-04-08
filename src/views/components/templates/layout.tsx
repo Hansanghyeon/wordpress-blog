@@ -61,7 +61,9 @@ const Layout = ({ children, isDark }: props) => {
             <MainWrapper>
               <PageWrap>
                 <MSB />
-                <Main>{children}</Main>
+                <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
+                  {children}
+                </Main>
               </PageWrap>
               <FNB />
             </MainWrapper>

@@ -3,3 +3,11 @@
   @import './prism';
   @import './post';
 }
+.layout_main {
+  &.dark {
+    @import '../../../node_modules/prism-themes/themes/prism-dracula.scss';
+  }
+  &.light {
+    @import '../../../node_modules/prism-themes/themes/prism-base16-ateliersulphurpool.light.scss';
+  }
+}
