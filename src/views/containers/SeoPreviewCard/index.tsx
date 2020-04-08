@@ -9,7 +9,7 @@ export default (url: string) => {
       process.env.NODE_ENV === 'production'
         ? 'https://api.nas.hapas.io'
         : 'http://localhost:8080'
-    }/seo/?url=${encodeURI(url)}`,
+    }/seo/?m_url=${encodeURI(url)}`,
   );
   if (loading) return <SeoPreviewCard loading={loading} reqUrl={url} />;
   if (error)
