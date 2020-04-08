@@ -38,6 +38,9 @@ const StyledRow = styled(Row)`
   blockquote {
     border-left: 4px solid ${({ theme }) => theme.color.bg[1]};
   }
+  .fc-highlight {
+    color: ${({ theme }) => theme.color.primary};
+  }
 `;
 
 const BioRow = styled(StyledRow)`
