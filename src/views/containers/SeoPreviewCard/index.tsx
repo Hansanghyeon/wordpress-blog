@@ -11,7 +11,7 @@ export default (url: string) => {
         : 'http://localhost:8080'
     }/seo/?m_url=${encodeURI(url)}`,
   );
-  if (loading) return <SeoPreviewCard loading={loading} reqUrl={url} />;
+  if (loading) return <SeoPreviewCard loading={loading} mUrl={url} />;
   if (error)
     return (
       <div>
@@ -23,7 +23,14 @@ export default (url: string) => {
   const props = {
     data,
     loading,
-    reqUrl: url,
+    mUrl: decodeURI(url),
   };
+  if (data === undefined) {
+    return (
+      <div>
+        <Link href={url}>{decodeURI(url)}</Link>
+      </div>
+    );
+  }
   return <SeoPreviewCard {...props} />;
 };

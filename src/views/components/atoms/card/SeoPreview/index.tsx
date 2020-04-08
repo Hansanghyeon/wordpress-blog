@@ -36,9 +36,8 @@ const RootWrap = styled.a`
   }
 `;
 
-const Loaded = ({ data }: reqData) => {
-  const { title, description, url, favicon, image } = data;
-  const decodeUrl = decodeURI(url);
+const Loaded = ({ data, mUrl }: reqData) => {
+  const { title, description, favicon, image } = data;
   return (
     <>
       <Header className="_header">
@@ -50,7 +49,7 @@ const Loaded = ({ data }: reqData) => {
       <Body className="_body">
         <Content col className="_content">
           <div className="_description">{description}</div>
-          <Url className="_url">{decodeUrl}</Url>
+          <Url className="_url">{mUrl}</Url>
         </Content>
         {image && <ImageCol col={12} sm={4} bg={image} className="_thumnail" />}
       </Body>
@@ -73,10 +72,10 @@ const Loading = () => (
   </>
 );
 
-const SeoPreviewCard = ({ data, loading, reqUrl }: props) => {
+const SeoPreviewCard = ({ data, loading, mUrl }: props) => {
   return (
-    <RootWrap href={reqUrl} className={`seoPreview ${loading && 'loading'}`}>
-      {!loading ? <Loaded data={data} /> : <Loading />}
+    <RootWrap href={mUrl} className={`seoPreview ${loading && 'loading'}`}>
+      {!loading ? <Loaded data={data} mUrl={mUrl} /> : <Loading />}
     </RootWrap>
   );
 };
@@ -93,8 +92,8 @@ interface reqData {
     favicon: string;
     url: string;
   };
+  mUrl: string;
 }
 interface props extends reqData {
   loading: boolean;
-  reqUrl: string;
 }
