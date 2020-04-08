@@ -5,7 +5,7 @@ import styled, {
   css,
 } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-
+// COMPONENTS
 import Grid from '@style/Grid';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
@@ -36,10 +36,14 @@ const _GlobalStyle = css`
     color: ${({ theme }) => theme.color.text[0]};
     a {
       color: ${({ theme }) => theme.color.text[0]};
-      &:hover {
+      &:hover,
+      &.active {
         color: ${({ theme }) => theme.color.primary};
       }
     }
+  }
+  .tl-wrapper--unmount {
+    box-shadow: inset rgba(0, 0, 0, 0.13) 0px 0px 100px 10px !important;
   }
 `;
 const GlobalStyle = createGlobalStyle`

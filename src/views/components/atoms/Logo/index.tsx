@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from '@atom/Link';
 
-const Wrap = styled(Link)`
-  text-decoration: none;
+const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.color.text[0]};
   fill: ${({ theme }) => theme.color.text[0]};
   display: flex;
@@ -17,14 +16,14 @@ const Wrap = styled(Link)`
 `;
 
 export const SmLogo = () => (
-  <Wrap to="/">
+  <StyledLink direaction="right" to="/">
     <img src="/favicon.png" alt="" />
     4Log
-  </Wrap>
+  </StyledLink>
 );
 
 export const Logo = () => (
-  <Wrap to="/">
+  <StyledLink direaction="right" to="/">
     <svg height="100%" width="100%" viewBox="0 0 256 256">
       <path
         d="M49.38,159L116,62.57V128h19c2.76,0,5-2.24,5-5V20h-21.38c-1.64,0-3.18,0.81-4.11,2.16L20.89,157.72
@@ -40,5 +39,5 @@ export const Logo = () => (
         height="160"
       />
     </svg>
-  </Wrap>
+  </StyledLink>
 );

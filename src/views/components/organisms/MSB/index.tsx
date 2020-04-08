@@ -28,6 +28,9 @@ const SideBar = styled.div`
   ${respondTo.md`
     display: block;
   `};
+  .cat-text {
+    font-size: 14px;
+  }
 `;
 
 const Main = styled.div`

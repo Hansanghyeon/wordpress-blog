@@ -52,7 +52,11 @@ const IndexPage = ({ data }: any) => {
                   excerpt: node.excerpt,
                   date: node.date,
                   footer: () => <CategoryList data={node.categories} />,
-                  title: () => <Link to={`/${node.slug}`}>{node.title}</Link>,
+                  title: () => (
+                    <Link direction="left" to={`/${node.slug}`}>
+                      {node.title}
+                    </Link>
+                  ),
                   isGrid: isGrid,
                   key: node.id,
                 };
