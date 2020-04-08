@@ -1,14 +1,14 @@
 /* eslint-disable consistent-return */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import moment from 'moment';
 import parse, { domToReact } from 'html-react-parser';
+import Prism from 'prismjs';
 
 import SEO from '@view/components/seo';
 import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
-import CodeHighlight from '@utile/CodeHighlight';
 import SeoPreviewCard from '#/SeoPreviewCard';
 import Callout from '#/Callout';
 
@@ -16,6 +16,9 @@ import Callout from '#/Callout';
 const options = {
   replace: ({ name, children, attribs }: any) => {
     if (!name) return;
+    if (name === 'pre' && attribs.class === 'wp-block-code') {
+      return <pre>{domToReact(children)}</pre>;
+    }
     if (name === 'component') {
       switch (attribs.fc) {
         case 'callout':
@@ -40,6 +43,9 @@ const WpPostLayout = ({ data }: any) => {
   const { title, excerpt, date, content } = data.wpgql.post;
   const wpContentArray = content.split('\n\n\n\n');
 
+  useEffect(() => {
+    setTimeout(() => Prism.highlightAll(), 0);
+  });
   return (
     <>
       <SEO title={title} description={excerpt} />
@@ -62,11 +68,7 @@ const WpPostLayout = ({ data }: any) => {
             {moment(date).format('YYYY년 MM월 DD일')}
           </span>
         </p>
-        {wpContentArray.map((block: string) =>
-          block.indexOf('<pre') !== -1
-            ? CodeHighlight({ code: block })
-            : parse(block, options),
-        )}
+        {wpContentArray.map((block: string) => parse(block, options))}
       </PostTemplate>
     </>
   );
