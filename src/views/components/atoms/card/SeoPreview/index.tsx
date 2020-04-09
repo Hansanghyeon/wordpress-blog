@@ -42,7 +42,7 @@ const Loaded = ({ data, mUrl }: reqData) => {
     <>
       <Header className="_header">
         <Favicon className="_favicon">
-          <img src={favicon} alt="" />
+          {favicon ? <img src={favicon} alt="" /> : <NonFavicon />}
         </Favicon>
         <div>{title}</div>
       </Header>

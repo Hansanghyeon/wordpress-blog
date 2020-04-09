@@ -5,9 +5,9 @@
 }
 .layout_main {
   &.dark {
-    @import '../../../node_modules/prism-themes/themes/prism-dracula.scss';
+    @import './modules/prism-dracula.scss';
   }
   &.light {
-    @import '../../../node_modules/prism-themes/themes/prism-base16-ateliersulphurpool.light.scss';
+    @import './modules/prism-base16-ateliersulphurpool.light.scss';
   }
 }
