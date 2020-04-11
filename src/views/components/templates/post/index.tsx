@@ -8,6 +8,7 @@ import moment from 'moment';
 // Utils
 import respondTo from '@style/_respondTo';
 // components
+import CCBox from '@atom/icons/CCBox';
 import Utterance from '#/Utterances';
 
 const CardWrap = styled.div`
@@ -81,6 +82,11 @@ const PostData = styled(Col)`
   `}
 `;
 
+const EtcWrap = styled.div`
+  display: flex;
+  margin-top: ${rhythm(1 / 2)};
+`;
+
 interface header {
   title: string;
   date: string;
@@ -108,6 +114,9 @@ const PostTemplate = ({ children, imgSrc, header }: props) => {
             <PostData col={12} lg={imgSrc ? 6 : 12}>
               <h1>{header.title}</h1>
               <span>{moment(header.date).format('YYYY년 MM월 DD일')}</span>
+              <EtcWrap>
+                <CCBox />
+              </EtcWrap>
             </PostData>
             {imgSrc && <FeaturedImg col={12} lg={6} bgImg={imgSrc} />}
           </FeaturedImgRow>
