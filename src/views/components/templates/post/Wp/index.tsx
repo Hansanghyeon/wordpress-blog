@@ -1,12 +1,10 @@
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
-import moment from 'moment';
 import parse, { domToReact } from 'html-react-parser';
 import Prism from 'prismjs';
 
 import SEO from '@view/components/seo';
-import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
 import SeoPreviewCard from '#/SeoPreviewCard';
@@ -40,8 +38,12 @@ const options = {
 };
 
 const WpPostLayout = ({ data }: any) => {
-  const { title, excerpt, date, content } = data.wpgql.post;
+  const { title, excerpt, date, content, featuredImage } = data.wpgql.post;
   const wpContentArray = content.split('\n\n\n\n');
+  const header = {
+    title,
+    date,
+  };
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
@@ -49,25 +51,7 @@ const WpPostLayout = ({ data }: any) => {
   return (
     <>
       <SEO title={title} description={excerpt} />
-      <PostTemplate>
-        <h1
-          style={{
-            marginBottom: '4px',
-          }}
-        >
-          {title}
-        </h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-          }}
-        >
-          <span className="date">
-            {moment(date).format('YYYY년 MM월 DD일')}
-          </span>
-        </p>
+      <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
         {wpContentArray.map((block: string) => parse(block, options))}
       </PostTemplate>
     </>
