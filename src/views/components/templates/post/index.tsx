@@ -9,13 +9,17 @@ import moment from 'moment';
 import respondTo from '@style/_respondTo';
 // components
 import CCBox from '@atom/icons/CCBox';
+import PostTitleText from '@atom/text/PostTitle';
 import Utterance from '#/Utterances';
 
 const CardWrap = styled.div`
   background: ${({ theme }) => theme.color.bg[0]};
   border-radius: 3px;
-  padding: ${rhythm(1)};
+  padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  ${respondTo.md`
+    padding: ${rhythm(1)};
+  `};
 `;
 
 const CommentsRow = styled(Row)`
@@ -112,7 +116,7 @@ const PostTemplate = ({ children, imgSrc, header }: props) => {
         <StyledContainer>
           <FeaturedImgRow>
             <PostData col={12} lg={imgSrc ? 6 : 12}>
-              <h1>{header.title}</h1>
+              <PostTitleText>{header.title}</PostTitleText>
               <span>{moment(header.date).format('YYYY년 MM월 DD일')}</span>
               <EtcWrap>
                 <CCBox />
