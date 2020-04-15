@@ -17,6 +17,7 @@ const CardWrap = styled.div`
   border-radius: 3px;
   padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  position: relative;
   ${respondTo.md`
     padding: ${rhythm(1)};
   `};
