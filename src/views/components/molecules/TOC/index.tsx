@@ -64,6 +64,7 @@ interface props {
   data?: Array<string>;
 }
 const TOC = ({ data }: props) => {
+  if (data?.length === 0) return null;
   const HeadingLevel = levelMap(data);
 
   return (
