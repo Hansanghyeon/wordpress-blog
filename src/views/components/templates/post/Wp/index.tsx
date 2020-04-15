@@ -44,6 +44,10 @@ const WpPostLayout = ({ data }: any) => {
     title,
     date,
   };
+  const tocData: string[] = [];
+  wpContentArray.forEach((e: string) => {
+    if (e.search(/<h[0-4].+>/) !== -1) tocData.push(e);
+  });
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
