@@ -21,16 +21,28 @@ const TocView = styled.div`
   `};
 `;
 
+interface ContentReactMemoType {
+  wpData: Array<string>;
+}
+const ContentMemo = React.memo(({ wpData }: ContentReactMemoType) => {
+  return wpData.map((block: string) => parse(block, options));
+});
+
 const WpPostLayout = ({ data }: any) => {
   const { title, excerpt, date, content, featuredImage } = data.wpgql.post;
-  const wpContentArray = content.split('\n\n\n\n');
+  const wpData = content.split('\n\n\n\n');
   const header = {
     title,
     date,
   };
   const tocData: string[] = [];
-  wpContentArray.forEach((e: string) => {
-    if (e.search(/<h[0-4].+>/) !== -1) tocData.push(e);
+  wpData.forEach((e: string, index: number) => {
+    if (e.search(/<h[0-4].+>/) !== -1) {
+      tocData.push(e);
+      wpData[index] = `${e.substring(0, 3)} id='toc-${
+        tocData.length - 1
+      }'${e.substring(3)}`;
+    }
   });
 
   useEffect(() => {
@@ -43,7 +55,7 @@ const WpPostLayout = ({ data }: any) => {
         <TocView>
           <TOC data={tocData} />
         </TocView>
-        {wpContentArray.map((block: string) => parse(block, options))}
+        <ContentMemo wpData={wpData} />
       </PostTemplate>
     </>
   );
