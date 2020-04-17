@@ -5,7 +5,9 @@ body,
   overflow: hidden;
 }
 #gatsby-focus-wrapper {
-  height: 100vh;
+  --mt: 45px;
+  margin-top: var(--mt);
+  height: calc(100vh - var(--mt));
   overflow: auto;
 }
 

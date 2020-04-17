@@ -15,8 +15,6 @@ import DefaultTheme, { DarkTheme } from '@style/themes';
 
 const MainWrapper = styled.div``;
 const PageWrap = styled.div`
-  --mt: 45px;
-  margin-top: var(--mt);
   display: flex;
 `;
 const Main = styled.div`
