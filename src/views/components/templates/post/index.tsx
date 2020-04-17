@@ -63,6 +63,12 @@ const StyledRow = styled(Row)`
   .how-block {
     margin-top: 0;
   }
+  hr {
+    border-bottom-color: ${({ theme }) => theme.color.text[3]};
+  }
+  > ${Col} {
+    position: unset;
+  }
 `;
 
 const BioRow = styled(StyledRow)`

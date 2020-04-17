@@ -1,49 +1,49 @@
-/* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
-import parse, { domToReact } from 'html-react-parser';
+import parse from 'html-react-parser';
 import Prism from 'prismjs';
-
+import styled from 'styled-components';
+// Utils
 import SEO from '@view/components/seo';
+import respondTo from '@style/_respondTo';
+import { rhythm } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
-import SeoPreviewCard from '#/SeoPreviewCard';
-import Callout from '#/Callout';
+import TOC from '@molecule/TOC';
+import options from './options';
 
-// HTML react parser options
-const options = {
-  replace: ({ name, children, attribs }: any) => {
-    if (!name) return;
-    if (name === 'pre' && attribs.class === 'wp-block-code') {
-      return <pre>{domToReact(children)}</pre>;
-    }
-    if (name === 'component') {
-      switch (attribs.fc) {
-        case 'callout':
-          return (
-            <Callout bgColor={attribs.bg} icon={attribs.icon}>
-              {domToReact(children)}
-            </Callout>
-          );
-        case 'seo-preview':
-          return SeoPreviewCard(attribs.url);
-        default:
-          return;
-      }
-    }
-    if (name === 'code') {
-      return <code className="language-text">{domToReact(children)}</code>;
-    }
-  },
-};
+const TocView = styled.div`
+  margin-bottom: ${rhythm(1)};
+  ${respondTo.hg`
+    position: fixed;
+    top: calc(45px + ${rhythm(1)});
+    transform: translateX(960px);
+  `};
+`;
+
+interface ContentReactMemoType {
+  wpData: Array<string>;
+}
+const ContentMemo = React.memo(({ wpData }: ContentReactMemoType) => {
+  return wpData.map((block: string) => parse(block, options));
+});
 
 const WpPostLayout = ({ data }: any) => {
   const { title, excerpt, date, content, featuredImage } = data.wpgql.post;
-  const wpContentArray = content.split('\n\n\n\n');
+  const wpData = content.split('\n\n\n\n');
   const header = {
     title,
     date,
   };
+  const tocData: string[] = [];
+  wpData.forEach((e: string, index: number) => {
+    if (e.search(/<h[0-4].+>/) !== -1) {
+      tocData.push(e);
+      wpData[index] = `${e.substring(0, 3)} id='toc-${
+        tocData.length - 1
+      }'${e.substring(3)}`;
+    }
+  });
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
@@ -52,7 +52,10 @@ const WpPostLayout = ({ data }: any) => {
     <>
       <SEO title={title} description={excerpt} />
       <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
-        {wpContentArray.map((block: string) => parse(block, options))}
+        <TocView>
+          <TOC data={tocData} />
+        </TocView>
+        <ContentMemo wpData={wpData} />
       </PostTemplate>
     </>
   );

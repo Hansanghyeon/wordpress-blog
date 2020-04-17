@@ -6,7 +6,10 @@ hr {
     right: auto;
   }
   background-color: transparent;
-  border: 1px dashed #404347;
+  border-bottom: {
+    width: 2px;
+    style: dashed;
+  }
   height: 0;
   width: 180px;
 }
