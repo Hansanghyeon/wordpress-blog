@@ -67,6 +67,23 @@ const TOC = ({ data }: props) => {
   if (data?.length === 0) return null;
   const HeadingLevel = levelMap(data);
 
+  const _handleClick = (e: any) => {
+    interface taget {
+      id: string;
+    }
+    const { id }: taget = e.target.dataset;
+    const scrollTarget = document.querySelector(`#${id}`);
+    const scrollEventRootWrap = document.querySelector('#gatsby-focus-wrapper');
+    const locationElement =
+      scrollTarget?.offsetTop - scrollEventRootWrap?.offsetTop / 2;
+
+    // set event
+    scrollEventRootWrap?.scrollTo({
+      top: locationElement,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <TOCWrap>
       {data?.map((e, index) =>
@@ -81,8 +98,9 @@ const TOC = ({ data }: props) => {
                   result = (
                     <Level1
                       {...attribs}
-                      id={`toc-${index}`}
+                      data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
+                      onClick={_handleClick}
                     >
                       {domToReact(children)}
                     </Level1>
@@ -92,8 +110,9 @@ const TOC = ({ data }: props) => {
                   result = (
                     <Level2
                       {...attribs}
-                      id={`toc-${index}`}
+                      data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
+                      onClick={_handleClick}
                     >
                       {domToReact(children)}
                     </Level2>
@@ -103,8 +122,9 @@ const TOC = ({ data }: props) => {
                   result = (
                     <Level3
                       {...attribs}
-                      id={`toc-${index}`}
+                      data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
+                      onClick={_handleClick}
                     >
                       {domToReact(children)}
                     </Level3>
