@@ -13,15 +13,11 @@ import MSB from '@organism/MSB';
 
 import DefaultTheme, { DarkTheme } from '@style/themes';
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.div``;
+const PageWrap = styled.div`
   --mt: 45px;
   margin-top: var(--mt);
-  height: calc(100% - var(--mt));
-  overflow-y: scroll;
-`;
-const PageWrap = styled.div`
   display: flex;
-  min-height: 100%;
 `;
 const Main = styled.div`
   width: 100%;

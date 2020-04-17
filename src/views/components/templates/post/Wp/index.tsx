@@ -13,7 +13,8 @@ import TOC from '@molecule/TOC';
 import options from './options';
 
 const TocView = styled.div`
-  ${respondTo.lg`
+  margin-bottom: ${rhythm(1)};
+  ${respondTo.hg`
     position: fixed;
     top: calc(45px + ${rhythm(1)});
     transform: translateX(960px);
