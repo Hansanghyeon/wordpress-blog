@@ -2,24 +2,12 @@ import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
 import Prism from 'prismjs';
-import styled from 'styled-components';
 // Utils
 import SEO from '@view/components/seo';
-import respondTo from '@style/_respondTo';
-import { rhythm } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
-import TOC from '@molecule/TOC';
+import TOC from '@molecule/TOC/context';
 import options from './options';
-
-const TocView = styled.div`
-  margin-bottom: ${rhythm(1)};
-  ${respondTo.hg`
-    position: fixed;
-    top: calc(45px + ${rhythm(1)});
-    transform: translateX(960px);
-  `};
-`;
 
 interface ContentReactMemoType {
   wpData: Array<string>;
@@ -52,9 +40,7 @@ const WpPostLayout = ({ data }: any) => {
     <>
       <SEO title={title} description={excerpt} />
       <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
-        <TocView>
-          <TOC data={tocData} />
-        </TocView>
+        <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
       </PostTemplate>
     </>
