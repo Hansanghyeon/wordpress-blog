@@ -51,7 +51,8 @@ const FeaturedImg = styled(Col)<bgImg>`
 const StyledRow = styled(Row)`
   margin-bottom: ${rhythm(1)};
   margin-top: ${rhythm(1)};
-  .fc-dim {
+  .fc-dim,
+  .fc-dim * {
     color: ${({ theme }) => theme.color.text[3]};
   }
   blockquote {
