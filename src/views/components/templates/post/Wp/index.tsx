@@ -27,9 +27,14 @@ const WpPostLayout = ({ data }: any) => {
   wpData.forEach((e: string, index: number) => {
     if (e.search(/<h[0-4].+>/) !== -1) {
       tocData.push(e);
-      wpData[index] = `${e.substring(0, 3)} id='toc-${
-        tocData.length - 1
-      }'${e.substring(3)}`;
+
+      const findHeadingRule = new RegExp(
+        '<(s*h[0-9])([^>]*)>(.*?<s*/s*h[0-9]>)',
+      );
+      const divider = findHeadingRule.exec(e);
+      wpData[index] = `<${divider[1]} id='toc-${tocData.length - 1}'${
+        divider[2]
+      }>${divider[3]}`;
     }
   });
 
