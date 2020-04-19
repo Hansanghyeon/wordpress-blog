@@ -1,11 +1,10 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 import { domToReact } from 'html-react-parser';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // components
 import Callout from '#/Callout';
 import SeoPreviewCard from '#/SeoPreviewCard';
+import SyntaxHighlighter from '#/SyntaxHighlighter';
 
 // FIXME 리팩토링 할일 해당 코드를 더 간결하게 만들수있나 고민
 const options = {
@@ -19,7 +18,7 @@ const options = {
       Object.prototype.hasOwnProperty.call(attribs, 'lang')
     ) {
       return (
-        <SyntaxHighlighter language={attribs.lang} style={atomDark}>
+        <SyntaxHighlighter lang={attribs.lang}>
           {domToReact(children)}
         </SyntaxHighlighter>
       );
