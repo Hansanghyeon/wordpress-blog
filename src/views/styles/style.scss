@@ -2,3 +2,11 @@
 .prism-previewer {
   @import './post';
 }
+.layout_main {
+  &.dark {
+    @import './themes/prism/atom-dark';
+  }
+  &.light {
+    @import './themes/prism/base16-ateliersulphurpool.light';
+  }
+}

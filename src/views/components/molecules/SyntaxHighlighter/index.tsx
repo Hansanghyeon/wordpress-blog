@@ -5,20 +5,22 @@ import {
   base16AteliersulphurpoolLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-interface themeState {
-  isDark?: boolean;
-}
-interface Props extends themeState {
+type Props = {
   lang: string;
+  isDark?: boolean;
   children: React.ReactNode;
-}
-const SyntaxHighlighter = ({ isDark, lang, children }: Props) => (
-  <ReactSyntaxHighlighter
-    language={lang}
-    style={isDark ? atomDark : base16AteliersulphurpoolLight}
-  >
-    {children}
-  </ReactSyntaxHighlighter>
-);
+};
+const SyntaxHighlighter = (props: Props) => {
+  const { lang, isDark, children } = props;
+  return (
+    <ReactSyntaxHighlighter
+      {...props}
+      language={lang}
+      style={isDark ? atomDark : base16AteliersulphurpoolLight}
+    >
+      {children}
+    </ReactSyntaxHighlighter>
+  );
+};
 
 export default SyntaxHighlighter;
