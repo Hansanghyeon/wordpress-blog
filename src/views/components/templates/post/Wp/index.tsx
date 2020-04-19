@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
-import Prism from 'prismjs';
 // Utils
 import SEO from '@view/components/seo';
 // components
@@ -38,9 +37,6 @@ const WpPostLayout = ({ data }: any) => {
     }
   });
 
-  useEffect(() => {
-    setTimeout(() => Prism.highlightAll(), 0);
-  });
   return (
     <>
       <SEO title={title} description={excerpt} />

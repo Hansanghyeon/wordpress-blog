@@ -1,13 +1,4 @@
 @import './base';
 .prism-previewer {
-  @import './prism';
   @import './post';
-}
-.layout_main {
-  &.dark {
-    @import './modules/prism-dracula.scss';
-  }
-  &.light {
-    @import './modules/prism-base16-ateliersulphurpool.light.scss';
-  }
 }
