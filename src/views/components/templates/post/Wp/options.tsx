@@ -1,6 +1,8 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 import { domToReact } from 'html-react-parser';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 // components
 import Callout from '#/Callout';
 import SeoPreviewCard from '#/SeoPreviewCard';
@@ -10,7 +12,17 @@ const options = {
   replace: ({ name, children, attribs }: any) => {
     if (!name) return;
     if (name === 'pre' && attribs.class === 'wp-block-code') {
-      return <pre>{domToReact(children)}</pre>;
+      return domToReact(children, options);
+    }
+    if (
+      name === 'code' &&
+      Object.prototype.hasOwnProperty.call(attribs, 'lang')
+    ) {
+      return (
+        <SyntaxHighlighter language={attribs.lang} style={atomDark}>
+          {domToReact(children)}
+        </SyntaxHighlighter>
+      );
     }
     if (name === 'component') {
       switch (attribs.fc) {
