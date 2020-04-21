@@ -4,9 +4,9 @@
 }
 .layout_main {
   &.dark {
-    @import './themes/prism/atom-dark';
+    @import './module/prism-atom-dark';
   }
   &.light {
-    @import './themes/prism/base16-ateliersulphurpool.light';
+    @import './module/prism-base16-ateliersulphurpool.light';
   }
 }
