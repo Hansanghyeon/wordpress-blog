@@ -18,6 +18,7 @@ const TitleWrap = styled.div`
 `;
 const StyledContainer = styled(Container)`
   padding-top: ${rhythm(1)};
+  min-height: calc(100vh - var(--gnb-height) - var(--fnb-height));
 `;
 
 const Category = ({ data }: any) => {

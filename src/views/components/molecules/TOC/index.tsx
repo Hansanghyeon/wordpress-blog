@@ -53,11 +53,11 @@ const Level1 = styled.a`
 `;
 const Level2 = styled.a`
   display: block;
-  padding-left: 1rem;
+  padding-left: 1.4rem;
 `;
 const Level3 = styled.a`
   display: block;
-  padding-left: 2rem;
+  padding-left: 2.8rem;
 `;
 
 interface props {
