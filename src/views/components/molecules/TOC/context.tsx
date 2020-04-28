@@ -29,6 +29,9 @@ const TocView = styled.div`
   left: 55%;
   transform: translateX(calc(960px / 2 + var(--margin) / 2));
   opacity: 0;
+  height: calc(100vh - var(--margin) - ${rhythm(2)});
+  overflow-y: scroll;
+  padding-right: 16px;
 `;
 
 interface data {
