@@ -31,9 +31,9 @@ const WpPostLayout = ({ data }: any) => {
         '<(s*h[0-9])([^>]*)>(.*?<s*/s*h[0-9]>)',
       );
       const divider = findHeadingRule.exec(e);
-      wpData[index] = `<${divider[1]} id='toc-${tocData.length - 1}'${
-        divider[2]
-      }>${divider[3]}`;
+      wpData[index] = `<${divider![1]} id='toc-${tocData.length - 1}'${
+        divider![2]
+      }>${divider![3]}`;
     }
   });
 
