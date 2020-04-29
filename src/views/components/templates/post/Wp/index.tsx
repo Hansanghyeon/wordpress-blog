@@ -39,7 +39,11 @@ const WpPostLayout = ({ data }: any) => {
 
   return (
     <>
-      <SEO title={title} description={excerpt} />
+      <SEO
+        title={title}
+        description={excerpt}
+        thumnail={featuredImage?.mediaItemUrl}
+      />
       <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
         <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
