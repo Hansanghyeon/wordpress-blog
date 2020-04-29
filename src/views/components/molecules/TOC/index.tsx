@@ -101,6 +101,7 @@ const TOC = ({ data }: props) => {
                       data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
                       onClick={_handleClick}
+                      key={`toc-${index}`}
                     >
                       {domToReact(children)}
                     </Level1>
@@ -113,6 +114,7 @@ const TOC = ({ data }: props) => {
                       data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
                       onClick={_handleClick}
+                      key={`toc-${index}`}
                     >
                       {domToReact(children)}
                     </Level2>
@@ -125,6 +127,7 @@ const TOC = ({ data }: props) => {
                       data-id={`toc-${index}`}
                       className={`toc-common toc-level-${level}`}
                       onClick={_handleClick}
+                      key={`toc-${index}`}
                     >
                       {domToReact(children)}
                     </Level3>
