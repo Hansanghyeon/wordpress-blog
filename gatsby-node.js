@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const wpPost = await graphql(`
     query GET_NODE_WP_POSTS {
       wpgql {
-        posts(where: { status: PUBLISH }) {
+        posts(first: 9999, where: { status: PUBLISH }) {
           edges {
             node {
               databaseId
