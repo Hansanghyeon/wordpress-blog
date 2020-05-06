@@ -11,7 +11,7 @@ import options from './options';
 interface ContentReactMemoType {
   wpData: Array<string>;
 }
-const ContentMemo = React.memo(({ wpData }: ContentReactMemoType) => {
+const ContentMemo = React.memo(({ wpData }: ContentReactMemoType): any => {
   return wpData.map((block: string) => parse(block, options));
 });
 

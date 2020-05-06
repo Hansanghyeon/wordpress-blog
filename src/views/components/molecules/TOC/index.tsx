@@ -28,14 +28,14 @@ const CONSTANTS = (() => {
 const findHighestHTagName = (heading: string[]) =>
   [...heading].reduce((pre, cur) => {
     const headingLevel = new RegExp('<h([0-4]).+>');
-    const tagNumOfPre = headingLevel.exec(pre)[1];
-    const tagNumOfCur = headingLevel.exec(cur)[1];
+    const tagNumOfPre = headingLevel.exec(pre)![1];
+    const tagNumOfCur = headingLevel.exec(cur)![1];
 
     return tagNumOfPre < tagNumOfCur ? pre : cur;
   });
 const getLevelsByHighestTag = (_findHighestHTagName: string) => {
   const headingLevel = new RegExp('<h([0-4]).+>');
-  const isHeadingNumber = headingLevel.exec(_findHighestHTagName)[1];
+  const isHeadingNumber = headingLevel.exec(_findHighestHTagName)![1];
   const levelMapByHihestTag = [CONSTANTS.levelsByH2, CONSTANTS.levelsByH3];
   return levelMapByHihestTag[isHeadingNumber - 2] || CONSTANTS.levelsByH4;
 };
@@ -75,7 +75,7 @@ const TOC = ({ data }: props) => {
     const scrollTarget = document.querySelector(`#${id}`);
     const scrollEventRootWrap = document.querySelector('#gatsby-focus-wrapper');
     const locationElement =
-      scrollTarget?.offsetTop - scrollEventRootWrap?.offsetTop / 2;
+      scrollTarget.offsetTop - scrollEventRootWrap.offsetTop / 2;
 
     // set event
     scrollEventRootWrap?.scrollTo({
