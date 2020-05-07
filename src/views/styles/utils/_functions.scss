@@ -1,41 +1,23 @@
-// Responsive Web Design
+// @README
+// 이 파일작성하고 저장하기전에 .prettierignore 작성 파일 추가하기
+// @NOTE
+// 그리드 시스템만 있다면 금방 제작할 수 있다. 파이팅! 👊
+// 이 스니펫을 쓸때마다
+// Bootstrap Sass system 파헤쳐보기 그리고 발전해나가기 🚀
+
 $breakpoints: (
-  'xs': (
-    max-width: 575px,
-  ),
-  'sm': (
-    min-width: 576px,
-  ),
-  'md': (
-    min-width: 768px,
-  ),
-  'lg': (
-    min-width: 992px,
-  ),
-  'xl': (
-    min-width: 1200px,
-  ),
-  'hg': (
-    min-width: 1440px,
-  ),
+  'xs': ( max-width: 575px, ),
+  'sm': ( min-width: 576px, ),
+  'md': ( min-width: 768px, ),
+  'lg': ( min-width: 992px, ),
+  'xl': ( min-width: 1200px, ),
+  'hg': ( min-width: 1440px, ),
 );
-/// Responsive breakpoint manager
-/// @access public
-/// @param {String} $breakpoint - Breakpoint
-/// @requires $breakpoints
 @mixin respond-to($breakpoint) {
   $raw-query: map-get($breakpoints, $breakpoint);
-
   @if $raw-query {
-    $query: if(
-      type-of($raw-query) == 'string',
-      unquote($raw-query),
-      inspect($raw-query)
-    );
-
-    @media #{$query} {
-      @content;
-    }
+    $query: if( type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query) );
+    @media #{$query} { @content; }
   } @else {
     @error 'No value found for `#{$breakpoint}`. '
 			+ 'Please make sure it is defined in `$breakpoints` map.';

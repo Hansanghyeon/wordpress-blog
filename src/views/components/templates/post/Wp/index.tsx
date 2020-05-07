@@ -1,79 +1,52 @@
-/* eslint-disable consistent-return */
 import React from 'react';
 import { graphql } from 'gatsby';
-import moment from 'moment';
-import parse, { domToReact } from 'html-react-parser';
-
+import parse from 'html-react-parser';
+// Utils
 import SEO from '@view/components/seo';
-import { rhythm, scale } from '@style/typography';
 // components
 import PostTemplate from '@template/post/index';
-import CodeHighlight from '@utile/CodeHighlight';
-import Callout from '@src/views/components/molecules/Callout';
+import TOC from '@molecule/TOC/context';
+import options from './options';
 
-interface props {
-  attr: {
-    bg?: string;
-    icon: string;
-  };
-  children: JSX.Element | JSX.Element[];
+interface ContentReactMemoType {
+  wpData: Array<string>;
 }
-const callout = ({ attr, children }: props) => {
-  const { bg, icon } = attr;
-  return (
-    <Callout icon={icon} bgColor={bg}>
-      {children}
-    </Callout>
-  );
-};
-const options = {
-  replace: ({ name, children, attribs }: any) => {
-    if (!name) return;
-    if (name === 'component') {
-      switch (attribs.fc) {
-        case 'callout':
-          return callout({ attr: attribs, children: domToReact(children) });
-        default:
-          return;
-      }
-    }
-    if (name === 'code') {
-      return <code className="language-text">{domToReact(children)}</code>;
-    }
-  },
-};
+const ContentMemo = React.memo(({ wpData }: ContentReactMemoType): any => {
+  return wpData.map((block: string) => parse(block, options));
+});
 
 const WpPostLayout = ({ data }: any) => {
-  const { title, excerpt, date, content } = data.wpgql.post;
-  const wpContentArray = content.split('\n\n\n\n');
+  const { title, excerpt, date, content, featuredImage } = data.wpgql.post;
+  const wpData = content.split('\n\n\n\n');
+  const header = {
+    title,
+    date,
+  };
+  const tocData: string[] = [];
+  wpData.forEach((e: string, index: number) => {
+    if (e.search(/<h[0-4].+>/) !== -1) {
+      tocData.push(e);
+
+      const findHeadingRule = new RegExp(
+        '<(s*h[0-9])([^>]*)>(.*?<s*/s*h[0-9]>)',
+      );
+      const divider = findHeadingRule.exec(e);
+      wpData[index] = `<${divider![1]} id='toc-${tocData.length - 1}'${
+        divider![2]
+      }>${divider![3]}`;
+    }
+  });
 
   return (
     <>
-      <SEO title={title} description={excerpt} />
-      <PostTemplate>
-        <h1
-          style={{
-            marginBottom: '4px',
-          }}
-        >
-          {title}
-        </h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-          }}
-        >
-          <span className="date">
-            {moment(date).format('YYYY년 MM월 DD일')}
-          </span>
-        </p>
-        {wpContentArray.map((block: string) =>
-          block.indexOf('<pre') !== -1
-            ? CodeHighlight({ code: block })
-            : parse(block, options),
-        )}
+      <SEO
+        title={title}
+        description={excerpt}
+        thumnail={featuredImage?.mediaItemUrl}
+      />
+      <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
+        <TOC data={tocData} />
+        <ContentMemo wpData={wpData} />
       </PostTemplate>
     </>
   );

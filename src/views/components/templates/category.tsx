@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql as gql } from 'gatsby';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
@@ -18,6 +18,7 @@ const TitleWrap = styled.div`
 `;
 const StyledContainer = styled(Container)`
   padding-top: ${rhythm(1)};
+  min-height: calc(100vh - var(--gnb-height) - var(--fnb-height));
 `;
 
 const Category = ({ data }: any) => {
@@ -56,8 +57,22 @@ const Category = ({ data }: any) => {
 };
 
 export default Category;
-export const pageQuery = graphql`
-  query GET_WP_CATEGORY_POST($categoryId: ID!) {
+export const postFragment = gql`
+  fragment PostFragment on WPGraphQL_Category {
+    posts {
+      edges {
+        node {
+          databaseId
+          id
+          title
+          slug
+        }
+      }
+    }
+  }
+`;
+export const pageQuery = gql`
+  query($categoryId: ID!) {
     wpgql {
       category(id: $categoryId) {
         name
@@ -67,16 +82,7 @@ export const pageQuery = graphql`
             mediaItemUrl
           }
         }
-        posts {
-          edges {
-            node {
-              databaseId
-              id
-              title
-              slug
-            }
-          }
-        }
+        ...PostFragment
       }
     }
   }

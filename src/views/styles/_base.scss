@@ -1,11 +1,14 @@
 html,
 body,
 #___gatsby {
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 #gatsby-focus-wrapper {
-  height: 100%;
+  --gnb-height: 45px;
+  --fnb-height: 71px;
+  margin-top: var(--gnb-height);
+  height: calc(100vh - var(--gnb-height));
   overflow: auto;
 }
 

@@ -1,13 +1,57 @@
 hr {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin: {
+    top: 3rem;
+    bottom: 3rem;
+    left: auto;
+    right: auto;
+  }
   background-color: transparent;
-  border: 1px dashed #404347;
+  border-bottom: {
+    width: 2px;
+    style: dashed;
+  }
   height: 0;
+  width: 180px;
 }
 
 @for $i from 2 through 6 {
   h#{$i} {
     margin-top: 3.2rem;
+  }
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  img {
+    margin-bottom: 0;
+    border-radius: 2px;
+  }
+  + p {
+    margin-top: 1.6rem;
+  }
+}
+
+blockquote {
+  margin-left: 0;
+  font-style: italic;
+  font-size: 0.8rem;
+  border-radius: 2px 0 0 2px;
+  padding-left: 1.6rem;
+  padding: {
+    top: 0.4rem;
+    bottom: 0.4rem;
+  }
+}
+
+.fc-dim {
+  font-size: 0.9rem;
+}
+
+code[class*='language-'] {
+  padding: {
+    left: 4px;
+    right: 4px;
   }
 }

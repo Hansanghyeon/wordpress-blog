@@ -11,6 +11,7 @@ const Link = ({
   to,
   activeClassName,
   partiallyActive,
+  direaction,
   ...other
 }: any) => {
   // Tailor the following test to your environment.
@@ -22,11 +23,11 @@ const Link = ({
   if (internal) {
     return (
       <AniLink
-        fade
+        swipe
         top="exit"
-        direction="right"
-        duration={0.3}
-        // entryOffset={100}
+        direction={direaction}
+        duration={1}
+        entryOffset={200}
         to={to}
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}

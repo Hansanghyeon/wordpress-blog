@@ -20,7 +20,9 @@ const InboxList = ({ data }: any) => {
       {data.edges.map(({ node }: any) => {
         return (
           <NotionStyleListItem key={node.id}>
-            <Link to={`/${node.slug}`}>{node.title}</Link>
+            <Link direction="left" to={`/${node.slug}`}>
+              {node.title}
+            </Link>
           </NotionStyleListItem>
         );
       })}

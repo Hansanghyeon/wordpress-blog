@@ -15,9 +15,10 @@ interface Props {
   lang?: string;
   meta?: [];
   title: string;
+  thumnail?: string;
 }
 
-const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
+const SEO = ({ description, lang = 'ko', meta, title, thumnail }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -34,6 +35,47 @@ const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
 
   const metaDescription = description || site.siteMetadata.description;
   const { location } = globalHistory;
+
+  const isThumnail = { property: 'og:image', content: thumnail } || null;
+  const defaultMeta = [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ];
+  const openGraph = [
+    {
+      property: 'og:title',
+      content: title,
+    },
+    {
+      property: 'og:description',
+      content: metaDescription,
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    isThumnail,
+  ];
+  const sns = [
+    {
+      name: 'github:card',
+      content: 'summary',
+    },
+    {
+      name: 'github:creator',
+      content: site.siteMetadata.author,
+    },
+    {
+      name: 'github:title',
+      content: title,
+    },
+    {
+      name: 'github:description',
+      content: metaDescription,
+    },
+  ];
   return (
     <Helmet
       htmlAttributes={{
@@ -45,40 +87,7 @@ const SEO = ({ description, lang = 'ko', meta, title }: Props) => {
           ? `${site.siteMetadata.title} | %s`
           : `%s | ${site.siteMetadata.title}`
       }
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:title',
-          content: title,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          name: 'github:card',
-          content: 'summary',
-        },
-        {
-          name: 'github:creator',
-          content: site.siteMetadata.author,
-        },
-        {
-          name: 'github:title',
-          content: title,
-        },
-        {
-          name: 'github:description',
-          content: metaDescription,
-        },
-      ].concat(meta || [])}
+      meta={[...defaultMeta, ...openGraph, ...sns].concat(meta || [])}
     />
   );
 };

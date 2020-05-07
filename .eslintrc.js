@@ -25,7 +25,8 @@ module.exports = {
     ecmaVersion: 11,
   },
   plugins: [
-    'react',
+    // 'react',
+    'react-hooks',
     '@typescript-eslint',
     '@typescript-eslint/eslint-plugin',
     'import',
@@ -46,6 +47,8 @@ module.exports = {
     'class-methods-use-this': 'off',
     'react/jsx-props-no-spreading': [0],
     'no-underscore-dangle': [0],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     'import/resolver': {

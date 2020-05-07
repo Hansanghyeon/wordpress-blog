@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import { darken, lighten } from 'polished';
+import { transparentize } from 'polished';
 
 const Profile = styled(Image)`
   margin-bottom: 0;
@@ -15,10 +15,7 @@ const Wrap = styled(Container)`
   font-size: 0.7rem;
   word-break: keep-all;
   margin-bottom: 8px;
-  color: ${({ theme }) =>
-    theme.isDark
-      ? lighten(0.5, theme.color.text[0])
-      : darken(0.5, theme.color.text[0])};
+  color: ${({ theme }) => transparentize(0.2, theme.color.text[0])};
 `;
 
 const Bio = () => {

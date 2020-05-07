@@ -28,7 +28,7 @@ const Dark: React.FC<IUtterancesProps> = React.memo(
       });
 
       containerRef.current!.appendChild(utterances);
-    }, [repo]);
+    }, [containerRef, repo]);
 
     return <div ref={containerRef} />;
   },

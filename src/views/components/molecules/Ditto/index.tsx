@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import { transparentize } from 'polished';
 import { TimelineLite, Power1 } from 'gsap';
+import parse from 'html-react-parser';
 import './index.style.scss';
 
 interface StyledProps {
@@ -49,7 +50,7 @@ const Ditto = ({
 }: DittoProps) => {
   const _excerpt = () => {
     if (excerpt.length < 85) return excerpt;
-    return `${excerpt.substring(3, 83)}...`;
+    return `${excerpt.substring(0, 80)}...`;
   };
   useEffect(() => {
     const tl = new TimelineLite();
@@ -77,7 +78,7 @@ const Ditto = ({
         <MainInner className="_mainInner">
           <Body className="_body">
             <Title className="_title">{title()}</Title>
-            <Content className="_content">{_excerpt()}</Content>
+            <Content className="_content">{parse(_excerpt())}</Content>
           </Body>
           <Footer className="_footer">
             <CategoryLabel className="_cat">{footer()}</CategoryLabel>

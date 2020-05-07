@@ -5,9 +5,7 @@ const Wrap = styled.div`
   display: grid;
   grid-template-columns: 16px auto;
   column-gap: 8px;
-  font-size: 14px;
-  font-family: 'Fira Code';
-  color: ${({ theme }) => theme.color.text[1]};
+  font-family: 'Fira Sans', sans-serif;
   > div {
     align-self: center;
   }
@@ -41,7 +39,7 @@ const NotionStyleListItem = ({ imgSrc, children }: Props) => (
       )}
     </ImgWrap>
     <div>
-      <span>{children}</span>
+      <span className="cat-text">{children}</span>
     </div>
   </Wrap>
 );

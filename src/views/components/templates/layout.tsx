@@ -5,7 +5,7 @@ import styled, {
   css,
 } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-
+// COMPONENTS
 import Grid from '@style/Grid';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
@@ -13,15 +13,9 @@ import MSB from '@organism/MSB';
 
 import DefaultTheme, { DarkTheme } from '@style/themes';
 
-const MainWrapper = styled.div`
-  --mt: 45px;
-  margin-top: var(--mt);
-  height: calc(100% - var(--mt));
-  overflow-y: scroll;
-`;
+const MainWrapper = styled.div``;
 const PageWrap = styled.div`
   display: flex;
-  min-height: 100%;
 `;
 const Main = styled.div`
   width: 100%;
@@ -33,10 +27,14 @@ const _GlobalStyle = css`
     color: ${({ theme }) => theme.color.text[0]};
     a {
       color: ${({ theme }) => theme.color.text[0]};
-      &:hover {
+      &:hover,
+      &.active {
         color: ${({ theme }) => theme.color.primary};
       }
     }
+  }
+  .tl-wrapper--unmount {
+    box-shadow: inset rgba(0, 0, 0, 0.13) 0px 0px 100px 10px !important;
   }
 `;
 const GlobalStyle = createGlobalStyle`
@@ -58,7 +56,9 @@ const Layout = ({ children, isDark }: props) => {
             <MainWrapper>
               <PageWrap>
                 <MSB />
-                <Main>{children}</Main>
+                <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
+                  {children}
+                </Main>
               </PageWrap>
               <FNB />
             </MainWrapper>
