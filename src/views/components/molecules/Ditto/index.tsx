@@ -50,7 +50,7 @@ const Ditto = ({
 }: DittoProps) => {
   const _excerpt = () => {
     if (excerpt.length < 85) return excerpt;
-    return `${excerpt.substring(3, 83)}...`;
+    return `${excerpt.substring(0, 80)}...`;
   };
   useEffect(() => {
     const tl = new TimelineLite();

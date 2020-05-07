@@ -73,7 +73,7 @@ const IndexPage = ({ data }: any) => {
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query {
+  {
     wpgql {
       posts(where: { status: PUBLISH }) {
         edges {
