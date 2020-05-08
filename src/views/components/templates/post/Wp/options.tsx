@@ -8,7 +8,7 @@ import SyntaxHighlighter from '#/SyntaxHighlighter';
 
 // FIXME 리팩토링 할일 해당 코드를 더 간결하게 만들수있나 고민
 const options = {
-  replace: ({ name, children, attribs }: any) => {
+  replace: ({ name, children, attribs, parent }: any) => {
     if (!name) return;
     if (name === 'pre' && attribs.class === 'wp-block-code') {
       return domToReact(children, options);
@@ -17,8 +17,11 @@ const options = {
       name === 'code' &&
       Object.prototype.hasOwnProperty.call(attribs, 'lang')
     ) {
+      const SyntaxHighlighterProps = {
+        data: { lang: attribs.lang, fileName: parent.attribs?.title },
+      };
       return (
-        <SyntaxHighlighter lang={attribs.lang}>
+        <SyntaxHighlighter {...SyntaxHighlighterProps}>
           {domToReact(children)}
         </SyntaxHighlighter>
       );
