@@ -49,6 +49,12 @@ module.exports = {
     'no-underscore-dangle': [0],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'import/prefer-default-export': [
+      'off',
+      {
+        extensions: ['style.tsx'],
+      },
+    ],
   },
   settings: {
     'import/resolver': {
