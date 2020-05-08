@@ -4,22 +4,53 @@ import {
   atomDark,
   base16AteliersulphurpoolLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Header, Lang, FileName } from './style';
 
 type Props = {
-  lang: string;
   isDark?: boolean;
+  data: {
+    lang: string;
+    fileName?: string;
+  };
   children: React.ReactNode;
 };
-const SyntaxHighlighter = (props: Props) => {
-  const { lang, isDark, children } = props;
+const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
+  const { data, isDark, children } = props;
+  const { lang, fileName } = data;
+  let icon: string = '';
+  switch (lang) {
+    case 'nginx':
+      icon = 'settings';
+      break;
+    case 'bash':
+      icon = 'console';
+      break;
+    case 'sql':
+      icon = 'database';
+      break;
+    default:
+      icon = lang;
+      break;
+  }
   return (
-    <ReactSyntaxHighlighter
-      {...props}
-      language={lang}
-      style={isDark ? atomDark : base16AteliersulphurpoolLight}
-    >
-      {children}
-    </ReactSyntaxHighlighter>
+    <>
+      <Header>
+        {fileName ? <FileName>{fileName}</FileName> : <div />}
+        {lang && (
+          <Lang
+            src={`https://wp.hapas.io/wp-content/uploads/icons/material/${icon}.svg`}
+            alt=""
+          />
+        )}
+      </Header>
+      <ReactSyntaxHighlighter
+        {...props}
+        language={lang}
+        style={isDark ? atomDark : base16AteliersulphurpoolLight}
+      >
+        {children}
+      </ReactSyntaxHighlighter>
+    </>
   );
 };
 
