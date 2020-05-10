@@ -15,7 +15,8 @@ const options = {
     }
     if (
       name === 'code' &&
-      Object.prototype.hasOwnProperty.call(attribs, 'lang')
+      (Object.prototype.hasOwnProperty.call(attribs, 'lang') ||
+        parent.name === 'pre')
     ) {
       const SyntaxHighlighterProps = {
         data: {
