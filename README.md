@@ -24,14 +24,14 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.1.0] - 2020-05-09
+## [1.2.0] - 2020-05-10
 
-#### Added
+### Added
 
-- 코드블럭 [PR#140](https://github.com/Hansanghyeon/4log/pull/140) [ISSUE#124](https://github.com/Hansanghyeon/4log/issues/124)
-  - 파일이름이 있으면 표시
-  - 코드언어 대표 Material 아이콘으로 표시
+- 코드블럭 라인넘버 [#141](https://github.com/Hansanghyeon/4log/issues/141)
 
-#### Changed
+### Changed
 
-- Eslint rule: `*.style.tsx` 파일은 기본값으로 export 해야하는 규직을 제외
+- 워드프레스 기본 블럭정렬 클래스값 스타일 적용
+- 인라인 코드블럭 `white-psace: pre`관련 수정
+- 코드블럭 언어타입없으면 인라인 코드블럭으로 취급에러 수정
