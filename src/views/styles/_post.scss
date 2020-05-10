@@ -22,7 +22,11 @@ hr {
 
 figure {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  &.aligncenter {
+    justify-content: center;
+  }
   margin-bottom: 0;
   img {
     margin-bottom: 0;
@@ -30,6 +34,12 @@ figure {
   }
   + p {
     margin-top: 1.6rem;
+  }
+  figcaption {
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -49,9 +59,11 @@ blockquote {
   font-size: 0.9rem;
 }
 
-code[class*='language-'] {
+:not(pre) > code[class*='language-'] {
   padding: {
     left: 4px;
     right: 4px;
   }
+  white-space: normal;
+  word-break: break-all;
 }
