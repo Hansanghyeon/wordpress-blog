@@ -18,7 +18,11 @@ const options = {
       Object.prototype.hasOwnProperty.call(attribs, 'lang')
     ) {
       const SyntaxHighlighterProps = {
-        data: { lang: attribs.lang, fileName: parent.attribs?.title },
+        data: {
+          lang: attribs.lang,
+          fileName: parent.attribs?.title,
+          isLineNumber: new Set(attribs.class.split(' ')).has('line-numbers'),
+        },
       };
       return (
         <SyntaxHighlighter {...SyntaxHighlighterProps}>
