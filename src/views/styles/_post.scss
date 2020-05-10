@@ -22,7 +22,9 @@ hr {
 
 figure {
   display: flex;
-  justify-content: center;
+  &.aligncenter {
+    justify-content: center;
+  }
   margin-bottom: 0;
   img {
     margin-bottom: 0;
