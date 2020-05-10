@@ -11,12 +11,13 @@ type Props = {
   data: {
     lang: string;
     fileName?: string;
+    isLineNumber?: boolean;
   };
   children: React.ReactNode;
 };
 const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
   const { data, isDark, children } = props;
-  const { lang, fileName } = data;
+  const { lang, fileName, isLineNumber } = data;
   let icon: string = '';
   switch (lang) {
     case 'nginx':
@@ -45,6 +46,9 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
       </Header>
       <ReactSyntaxHighlighter
         {...props}
+        showLineNumbers={isLineNumber}
+        showInlineLineNumbers
+        wrapLines
         language={lang}
         style={isDark ? atomDark : base16AteliersulphurpoolLight}
       >
