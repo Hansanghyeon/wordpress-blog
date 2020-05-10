@@ -22,6 +22,8 @@ hr {
 
 figure {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   &.aligncenter {
     justify-content: center;
   }
@@ -32,6 +34,12 @@ figure {
   }
   + p {
     margin-top: 1.6rem;
+  }
+  figcaption {
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
