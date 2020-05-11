@@ -5,6 +5,7 @@ import styled, {
   css,
 } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
+import { isMobile } from 'react-device-detect';
 // COMPONENTS
 import Grid from '@style/Grid';
 import GNB from '@organism/GNB';
@@ -21,11 +22,27 @@ const Main = styled.div`
   width: 100%;
 `;
 
+const scrollControl = css`
+  html,
+  body,
+  #___gatsby {
+    height: 100vh;
+    overflow: hidden;
+  }
+  #gatsby-focus-wrapper {
+    --gnb-height: 45px;
+    --fnb-height: 71px;
+    margin-top: var(--gnb-height);
+    height: calc(100vh - var(--gnb-height));
+    overflow: auto;
+  }
+`;
 const _GlobalStyle = css`
   body {
     background-color: ${({ theme }) => theme.color.bg[1]};
     color: ${({ theme }) => theme.color.text[0]};
     a {
+      text-decoration: none;
       color: ${({ theme }) => theme.color.text[0]};
       &:hover,
       &.active {
@@ -38,7 +55,8 @@ const _GlobalStyle = css`
   }
 `;
 const GlobalStyle = createGlobalStyle`
-  ${_GlobalStyle}
+  ${_GlobalStyle};
+  ${!isMobile && scrollControl}
 `;
 
 interface props {
