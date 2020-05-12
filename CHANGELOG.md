@@ -4,6 +4,17 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+
+## [1.2.1] - 2020-05-11
+
+### Changed
+
+- 메인 코딩테스트 포스트 제외
+
+### Fixed
+
+- 모바일에서 스크롤 허용하게 수정
+
 ## [1.2.0] - 2020-05-10
 
 ### Added
