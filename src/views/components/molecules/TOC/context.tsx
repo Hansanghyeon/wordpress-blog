@@ -6,7 +6,6 @@ import {
 } from 'gatsby-plugin-transition-link';
 import { TimelineLite, Power1 } from 'gsap';
 // Utils
-// import { respondTo } from '@style/_respondTo';
 import { rhythm } from '@style/typography';
 // Components
 import TOC from '@molecule/TOC';

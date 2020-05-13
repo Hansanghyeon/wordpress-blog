@@ -37,6 +37,7 @@ figure {
   }
   figcaption {
     opacity: 0.3;
+    word-break: break-all;
     &:hover {
       opacity: 1;
     }
