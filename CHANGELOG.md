@@ -4,6 +4,15 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.2.2] - 2020-05-13
+
+### Changed
+
+- 모바일 적용 스타일 코드 모바일에서 제외 되었던 것 다시 추가 기본값으로
+
+### Fixed
+
+- Grid 시스템에서 media query 기능을 분리 기존에 sass에서 유용하게 사용하던 respond-to 함수를 ts로 구현했던 것 제거하고 query를 그냥 타이핑 적용
 
 ## [1.2.1] - 2020-05-11
 
