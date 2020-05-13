@@ -30,9 +30,7 @@ const scrollControl = css`
     overflow: hidden;
   }
   #gatsby-focus-wrapper {
-    --gnb-height: 45px;
     --fnb-height: 71px;
-    margin-top: var(--gnb-height);
     height: calc(100vh - var(--gnb-height));
     overflow: auto;
   }
@@ -52,6 +50,10 @@ const _GlobalStyle = css`
   }
   .tl-wrapper--unmount {
     box-shadow: inset rgba(0, 0, 0, 0.13) 0px 0px 100px 10px !important;
+  }
+  #gatsby-focus-wrapper {
+    --gnb-height: 45px;
+    margin-top: var(--gnb-height);
   }
 `;
 const GlobalStyle = createGlobalStyle`
