@@ -1,23 +1,22 @@
-import GridSystem from '@model/GridSystem';
+export const breakpoints = {
+  hg: 1440,
+  xl: 1200,
+  lg: 992,
+  md: 768,
+  sm: 576,
+  xs: 575,
+} as const;
 
-const Grid: GridSystem = {
-  breakpoints: {
-    // defaults below
-    hg: 1440,
-    xl: 1200,
-    lg: 992,
-    md: 768,
-    sm: 576,
-    xs: 575,
-  },
+const Grid = {
+  breakpoints,
   row: {
-    padding: 16, // default 15
+    padding: 15, // default 15
   },
   col: {
-    padding: 16, // default 15
+    padding: 15, // default 15
   },
   container: {
-    padding: 16, // default 15
+    padding: 15, // default 15
     maxWidth: {
       // defaults below
       xl: 1140,
