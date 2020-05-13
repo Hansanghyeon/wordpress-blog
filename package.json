@@ -4,6 +4,7 @@
   "description": "4log github page package",
   "main": "index.js",
   "scripts": {
+    "m-start": "gatsby develop -H 0.0.0.0 -p 8000",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
