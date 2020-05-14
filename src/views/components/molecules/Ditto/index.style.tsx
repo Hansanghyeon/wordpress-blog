@@ -54,7 +54,7 @@ const BaseMainInner = styled.div`
   will-change: padding-left, z-index, transform, margin-left, box-shadow;
 `;
 
-export const Body = styled.div`
+const BaseBody = styled.div`
   padding: 0.5rem 1rem;
 `;
 export const Title = styled.div`
@@ -82,6 +82,7 @@ const BaseContent = styled.div`
   height: 3.9rem;
   overflow: hidden;
   font-size: 0.875rem;
+  transition: max-width 0.45s;
 `;
 export const Date = styled.div`
   color: ${({ theme }) => theme.color.text[2]};
@@ -123,12 +124,6 @@ const nonThumnail = {
     margin-left: 0 !important;
     margin-top: 0 !important;
     border-radius: 8px !important;
-    ${BaseContent} {
-      ${respondTo.sm} {
-        max-width: calc(280px + 80px - 1rem);
-      }
-      transition: max-width 0.45s;
-    }
   `,
   main: css`
     &:hover {
@@ -173,6 +168,9 @@ const Grid = {
       }
     }
   `,
+  body: css`
+    padding: 1rem;
+  `,
 };
 
 type IsThumnail = {
@@ -199,6 +197,18 @@ export const Main = styled(BaseMain)<Props>`
   ${({ isThumnail }) => !isThumnail && nonThumnail.main}
 `;
 
-export const Content = styled(BaseContent)<IsThumnail>`
+export const Content = styled(BaseContent)<Props>`
   ${({ isThumnail }) => !isThumnail && nonThumnail.content}
+  ${({ isThumnail, isGrid }) =>
+    !isThumnail &&
+    !isGrid &&
+    `
+      ${respondTo.sm} {
+        max-width: calc(280px + 80px - 1rem);
+      }
+    `}
+`;
+
+export const Body = styled(BaseBody)<Props>`
+  ${({ isGrid, isThumnail }) => isGrid && isThumnail && Grid.body}
 `;
