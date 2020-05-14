@@ -4,6 +4,12 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.2.4] - 2020-05-14
+
+### Changed
+
+- [#149](https://github.com/Hansanghyeon/4log/pull/149) [#148](https://github.com/Hansanghyeon/4log/issues/148) 메인페이지 그리드뷰가 부적합하게 레이아웃이 짜여진다. div가 일렬로 느려트려놓은 dom tree여서 일렬중에 한 DOM element만 높이가 높아지면 부적합한 그리드 레이아웃이 형성되는 스타일 수정
+
 ## [1.2.3] - 2020-05-14
 
 ### Refactoring
@@ -28,13 +34,13 @@
 
 ### Fixed
 
-- 모바일에서 스크롤 허용하게 수정
+- [#146](https://github.com/Hansanghyeon/4log/pull/146) [#138](https://github.com/Hansanghyeon/4log/issues/138) 모바일에서 스크롤 허용하게 수정
 
 ## [1.2.0] - 2020-05-10
 
 ### Added
 
-- 코드블럭 라인넘버 [#141](https://github.com/Hansanghyeon/4log/issues/141)
+- [#142](https://github.com/Hansanghyeon/4log/pull/142) [#141](https://github.com/Hansanghyeon/4log/issues/141) 코드블럭 라인넘버
 
 ### Changed
 
@@ -46,7 +52,7 @@
 
 ### Added
 
-- 코드블럭 [PR#140](https://github.com/Hansanghyeon/4log/pull/140) [ISSUE#124](https://github.com/Hansanghyeon/4log/issues/124)
+- [#140](https://github.com/Hansanghyeon/4log/pull/140) [#124](https://github.com/Hansanghyeon/4log/issues/124) 코드블럭
   - 파일이름이 있으면 표시
   - 코드언어 대표 Material 아이콘으로 표시
 

@@ -51,9 +51,11 @@ const Ditto = ({ data }: DittoProps) => {
       <Main isGrid={isGrid} isThumnail={!!imgSrc}>
         <Thumnail imgSrc={imgSrc} isGrid={isGrid} isThumnail={!!imgSrc} />
         <MainInner ref={MainInnerRef} isGrid={isGrid} isThumnail={!!imgSrc}>
-          <Body>
+          <Body isGrid={isGrid} isThumnail={!!imgSrc}>
             <Title>{title()}</Title>
-            <Content isThumnail={!!imgSrc}>{_excerpt()}</Content>
+            <Content isThumnail={!!imgSrc} isGrid={isGrid}>
+              {_excerpt()}
+            </Content>
           </Body>
           <Footer>
             <CategoryLabel>{footer()}</CategoryLabel>

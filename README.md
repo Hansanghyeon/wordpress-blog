@@ -24,8 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-## [1.2.3] - 2020-05-14
+### [1.2.4] - 2020-05-14
 
-### Refactoring
+#### Changed
 
-- Ditto 컴포넌트 Scss -> styled-components로만 구성하게 변경
+- [#149](https://github.com/Hansanghyeon/4log/pull/149) [#148](https://github.com/Hansanghyeon/4log/issues/148) 메인페이지 그리드뷰가 부적합하게 레이아웃이 짜여진다. div가 일렬로 느려트려놓은 dom tree여서 일렬중에 한 DOM element만 높이가 높아지면 부적합한 그리드 레이아웃이 형성되는 스타일 수정
