@@ -48,17 +48,19 @@ const IndexPage = ({ data }: any) => {
             <DittoWrap>
               {posts.edges.map(({ node }: any) => {
                 const props = {
-                  imgSrc: node.featuredImage?.mediaItemUrl,
-                  excerpt: node.excerpt,
-                  date: node.date,
-                  footer: () => <CategoryList data={node.categories} />,
-                  title: () => (
-                    <Link direction="left" to={`/${node.slug}`}>
-                      {node.title}
-                    </Link>
-                  ),
-                  isGrid: isGrid,
-                  key: node.id,
+                  data: {
+                    imgSrc: node.featuredImage?.mediaItemUrl,
+                    excerpt: node.excerpt,
+                    date: node.date,
+                    footer: () => <CategoryList data={node.categories} />,
+                    title: () => (
+                      <Link direction="left" to={`/${node.slug}`}>
+                        {node.title}
+                      </Link>
+                    ),
+                    isGrid: isGrid,
+                    key: node.id,
+                  },
                 };
                 return <Ditto {...props} />;
               })}

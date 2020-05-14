@@ -4,6 +4,12 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.2.3] - 2020-05-14
+
+### Refactoring
+
+- Ditto 컴포넌트 Scss -> styled-components로만 구성하게 변경
+
 ## [1.2.2] - 2020-05-13
 
 ### Changed

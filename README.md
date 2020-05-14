@@ -24,12 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-## [1.2.2] - 2020-05-13
+## [1.2.3] - 2020-05-14
 
-### Changed
+### Refactoring
 
-- 모바일 적용 스타일 코드 모바일에서 제외 되었던 것 다시 추가 기본값으로
-
-### Fixed
-
-- Grid 시스템에서 media query 기능을 분리 기존에 sass에서 유용하게 사용하던 respond-to 함수를 ts로 구현했던 것 제거하고 query를 그냥 타이핑 적용
+- Ditto 컴포넌트 Scss -> styled-components로만 구성하게 변경
