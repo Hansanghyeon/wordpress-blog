@@ -18,8 +18,12 @@ const InboxList = ({ data }: any) => {
         INBOX
       </TitleWrap>
       {data.edges.map(({ node }: any) => {
+        const { icon } = node._acf_post;
         return (
-          <NotionStyleListItem key={node.id}>
+          <NotionStyleListItem
+            key={node.id}
+            data={{ imgSrc: icon?.mediaItemUrl }}
+          >
             <Link direction="left" to={`/${node.slug}`}>
               {node.title}
             </Link>
