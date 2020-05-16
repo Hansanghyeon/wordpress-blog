@@ -1,4 +1,4 @@
-import StyleSystem, { DarkStyleSystem } from '@model/StyleSystem';
+import StyleSystem, { DarkStyleSystem } from './type';
 
 const DefaultTheme: StyleSystem = {
   color: {
