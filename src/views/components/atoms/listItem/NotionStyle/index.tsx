@@ -23,25 +23,28 @@ const ImgWrap = styled.div`
 `;
 
 interface Props {
-  imgSrc?: string;
+  data: { imgSrc?: string };
   children: React.ReactNode;
 }
 
-const NotionStyleListItem = ({ imgSrc, children }: Props) => (
-  <Wrap>
-    <ImgWrap>
-      {imgSrc ? (
-        <img src={imgSrc} alt="" />
-      ) : (
-        <span role="img" aria-label="page">
-          📄
-        </span>
-      )}
-    </ImgWrap>
-    <div>
-      <span className="cat-text">{children}</span>
-    </div>
-  </Wrap>
-);
+const NotionStyleListItem = ({ data, children }: Props) => {
+  const { imgSrc } = data;
+  return (
+    <Wrap>
+      <ImgWrap>
+        <img
+          src={
+            imgSrc ||
+            'https://wp.hapas.io/wp-content/uploads/icons/page-facing-up_1f4c4.png'
+          }
+          alt=""
+        />
+      </ImgWrap>
+      <div>
+        <span className="cat-text">{children}</span>
+      </div>
+    </Wrap>
+  );
+};
 
 export default NotionStyleListItem;
