@@ -57,20 +57,6 @@ const Category = ({ data }: any) => {
 };
 
 export default Category;
-export const postFragment = gql`
-  fragment PostFragment on WPGraphQL_Category {
-    posts {
-      edges {
-        node {
-          databaseId
-          id
-          title
-          slug
-        }
-      }
-    }
-  }
-`;
 export const pageQuery = gql`
   query($categoryId: ID!) {
     wpgql {
@@ -82,7 +68,21 @@ export const pageQuery = gql`
             mediaItemUrl
           }
         }
-        ...PostFragment
+        posts {
+          edges {
+            node {
+              databaseId
+              id
+              title
+              slug
+              _acf_post {
+                icon {
+                  mediaItemUrl
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
