@@ -57,12 +57,28 @@ export const pageQuery = graphql`
   query GET_WP_POST($postId: ID!) {
     wpgql {
       post(id: $postId) {
+        id
         date
         title
         content
         excerpt
         featuredImage {
           mediaItemUrl
+        }
+        serieses {
+          nodes {
+            id
+            name
+            posts {
+              edges {
+                node {
+                  id
+                  title
+                  slug
+                }
+              }
+            }
+          }
         }
       }
     }
