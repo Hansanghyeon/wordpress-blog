@@ -93,7 +93,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
             </ArrowBtn>
           )}
           {prevNextPost.next ? (
-            <Link to={`/${prevNextPost.next.node.slug}`}>
+            <Link to={`/${prevNextPost.next.node.slug}`} direction="left">
               <ArrowBtn type="button">
                 <FontAwesomeIcon icon={faChevronRight} />
               </ArrowBtn>
