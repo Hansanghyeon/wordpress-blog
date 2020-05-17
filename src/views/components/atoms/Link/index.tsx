@@ -11,7 +11,7 @@ const Link = ({
   to,
   activeClassName,
   partiallyActive,
-  direaction,
+  direction,
   ...other
 }: any) => {
   // Tailor the following test to your environment.
@@ -25,7 +25,7 @@ const Link = ({
       <AniLink
         swipe
         top="exit"
-        direction={direaction}
+        direction={direction}
         duration={1}
         entryOffset={200}
         to={to}

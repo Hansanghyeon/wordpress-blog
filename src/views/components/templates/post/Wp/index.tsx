@@ -6,6 +6,7 @@ import SEO from '@view/components/seo';
 // components
 import PostTemplate from '@template/post/index';
 import TOC from '@molecule/TOC/context';
+import SeriesList from '@molecule/list/Series';
 import options from './options';
 
 interface ContentReactMemoType {
@@ -16,7 +17,8 @@ const ContentMemo = React.memo(({ wpData }: ContentReactMemoType): any => {
 });
 
 const WpPostLayout = ({ data }: any) => {
-  const { title, excerpt, date, content, featuredImage } = data.wpgql.post;
+  const { title, excerpt, date, content, featuredImage, id } = data.wpgql.post;
+  const series = data.wpgql.post.serieses.nodes[0];
   const wpData = content.split('\n\n\n\n');
   const header = {
     title,
@@ -45,6 +47,7 @@ const WpPostLayout = ({ data }: any) => {
         thumnail={featuredImage?.mediaItemUrl}
       />
       <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
+        {series && <SeriesList data={{ query: series, currentPostId: id }} />}
         <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
       </PostTemplate>
@@ -57,12 +60,28 @@ export const pageQuery = graphql`
   query GET_WP_POST($postId: ID!) {
     wpgql {
       post(id: $postId) {
+        id
         date
         title
         content
         excerpt
         featuredImage {
           mediaItemUrl
+        }
+        serieses {
+          nodes {
+            id
+            name
+            posts {
+              edges {
+                node {
+                  id
+                  title
+                  slug
+                }
+              }
+            }
+          }
         }
       }
     }

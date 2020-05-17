@@ -16,14 +16,14 @@ const StyledLink = styled(Link)`
 `;
 
 export const SmLogo = () => (
-  <StyledLink direaction="right" to="/">
+  <StyledLink direction="right" to="/">
     <img src="/favicon.png" alt="" />
     4Log
   </StyledLink>
 );
 
 export const Logo = () => (
-  <StyledLink direaction="right" to="/">
+  <StyledLink direction="right" to="/">
     <svg height="100%" width="100%" viewBox="0 0 256 256">
       <path
         d="M49.38,159L116,62.57V128h19c2.76,0,5-2.24,5-5V20h-21.38c-1.64,0-3.18,0.81-4.11,2.16L20.89,157.72

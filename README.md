@@ -24,8 +24,12 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.2.4] - 2020-05-14
+### [1.3.0] - 2020-05-17
 
-#### Changed
+#### Add
 
-- [#149](https://github.com/Hansanghyeon/4log/pull/149) [#148](https://github.com/Hansanghyeon/4log/issues/148) 메인페이지 그리드뷰가 부적합하게 레이아웃이 짜여진다. div가 일렬로 느려트려놓은 dom tree여서 일렬중에 한 DOM element만 높이가 높아지면 부적합한 그리드 레이아웃이 형성되는 스타일 수정
+- [#153](https://github.com/Hansanghyeon/4log/pull/153) [#116](https://github.com/Hansanghyeon/4log/issues/116) 포스트페이지에서 시리즈관련 포스트들에 관한 컴포넌트를 추가
+
+#### Fix
+
+- AniLink 플러그인 인자 스펠링오타 수정
