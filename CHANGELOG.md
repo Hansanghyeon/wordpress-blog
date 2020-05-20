@@ -8,7 +8,7 @@
 
 ### Add
 
-- [#156](https://github.com/Hansanghyeon/4log/pull/156) [#114](https://github.com/Hansanghyeon/4log/issues/114) 바이오섹션에 Buy me a coffee 버튼 추가
+- [#157](https://github.com/Hansanghyeon/4log/pull/156) [#114](https://github.com/Hansanghyeon/4log/issues/114) 바이오섹션에 Buy me a coffee 버튼 추가
 
 ## [1.3.0] - 2020-05-17
 
