@@ -4,6 +4,12 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.4.0] - 2020-05-20
+
+### Add
+
+- [#157](https://github.com/Hansanghyeon/4log/pull/157) [#114](https://github.com/Hansanghyeon/4log/issues/114) 바이오섹션에 Buy me a coffee 버튼 추가
+
 ## [1.3.0] - 2020-05-17
 
 ### Add
