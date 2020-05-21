@@ -24,8 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.4.0] - 2020-05-20
+### [1.5.0] - 2020-05-20
 
-#### Add
+#### Fixed
 
-- [#157](https://github.com/Hansanghyeon/4log/pull/157) [#114](https://github.com/Hansanghyeon/4log/issues/114) 바이오섹션에 Buy me a coffee 버튼 추가
+- [#161](https://github.com/Hansanghyeon/4log/pull/161) [#156](https://github.com/Hansanghyeon/4log/issues/156) `styled-bootstrap-grid`에서 미디어쿼리에관한 코그가 있는지 모르고 scss에서 자주 사용하던 respond-to 기능을 만들어서 사용하던것을 제거하고 모듈로 사용할수있는 미디어타입으로 전부 교체

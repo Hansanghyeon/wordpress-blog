@@ -4,6 +4,12 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.5.0] - 2020-05-20
+
+### Fixed
+
+- [#161](https://github.com/Hansanghyeon/4log/pull/161) [#156](https://github.com/Hansanghyeon/4log/issues/156) `styled-bootstrap-grid`에서 미디어쿼리에관한 코그가 있는지 모르고 scss에서 자주 사용하던 respond-to 기능을 만들어서 사용하던것을 제거하고 모듈로 사용할수있는 미디어타입으로 전부 교체
+
 ## [1.4.0] - 2020-05-20
 
 ### Add
@@ -16,7 +22,7 @@
 
 - [#153](https://github.com/Hansanghyeon/4log/pull/153) [#116](https://github.com/Hansanghyeon/4log/issues/116) 포스트페이지에서 시리즈관련 포스트들에 관한 컴포넌트를 추가
 
-### Fix
+### Fixed
 
 - AniLink 플러그인 인자 스펠링오타 수정
 
