@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
-import respondTo from '@style/respondTo';
+import { media } from 'styled-bootstrap-grid';
 
 export const DittoRoot = styled.div`
   color: ${({ theme }) => theme.color.text[0]};
@@ -197,16 +197,15 @@ export const Main = styled(BaseMain)<Props>`
   ${({ isThumnail }) => !isThumnail && nonThumnail.main}
 `;
 
+const nonThumnailAndNonGrid = css`
+  ${media.sm`
+    max-width: calc(280px + 80px - 1rem);
+  `}
+`;
+
 export const Content = styled(BaseContent)<Props>`
   ${({ isThumnail }) => !isThumnail && nonThumnail.content}
-  ${({ isThumnail, isGrid }) =>
-    !isThumnail &&
-    !isGrid &&
-    `
-      ${respondTo.sm} {
-        max-width: calc(280px + 80px - 1rem);
-      }
-    `}
+  ${({ isThumnail, isGrid }) => !isThumnail && !isGrid && nonThumnailAndNonGrid}
 `;
 
 export const Body = styled(BaseBody)<Props>`

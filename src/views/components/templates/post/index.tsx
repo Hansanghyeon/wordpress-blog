@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GridThemeProvider, Container, Row, Col } from 'styled-bootstrap-grid';
+import {
+  GridThemeProvider,
+  Container,
+  Row,
+  Col,
+  media,
+} from 'styled-bootstrap-grid';
 import Grid from '@style/Grid';
 import Bio from '@view/components/bio';
 import { rhythm } from '@style/typography';
 import moment from 'moment';
 // Utils
-import respondTo from '@style/respondTo';
 // components
 import CCBox from '@atom/icons/CCBox';
 import PostTitleText from '@atom/text/PostTitle';
@@ -17,9 +22,9 @@ const CardWrap = styled.div`
   border-radius: 3px;
   padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  ${respondTo.md} {
+  ${media.md`
     padding: ${rhythm(1)};
-  }
+  `}
 `;
 
 const CommentsRow = styled(Row)`
@@ -43,9 +48,9 @@ const FeaturedImg = styled(Col)<bgImg>`
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   background-color: ${({ theme }) => theme.color.bg[0]};
-  ${respondTo.lg} {
+  ${media.lg`
     padding-top: calc(54% / 2);
-  }
+  `}
 `;
 
 const StyledRow = styled(Row)`
@@ -85,12 +90,12 @@ const PostData = styled(Col)`
   padding-bottom: ${rhythm(1 / 2)};
   margin-top: ${rhythm(1)};
   order: 2;
-  ${respondTo.lg} {
+  ${media.lg`
     order: 0;
     justify-content: flex-end;
     flex-direction: column;
     display: flex;
-  }
+  `}
 `;
 
 const EtcWrap = styled.div`
