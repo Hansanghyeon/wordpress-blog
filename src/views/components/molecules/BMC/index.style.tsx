@@ -1,5 +1,7 @@
 import Link from '@atom/Link';
 import styled from 'styled-components';
+import { media } from 'styled-bootstrap-grid';
+import { rhythm } from '@style/typography';
 
 export const Coffee = styled.img`
   margin-bottom: 0;
@@ -31,4 +33,13 @@ export const Button = styled(Link)`
     box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5);
     opacity: 0.85;
   }
+`;
+
+export const Wrap = styled.div`
+  width: 100%;
+  margin-top: ${rhythm(2)};
+  ${media.sm`
+    width: auto;
+    margin-top: 0;
+  `};
 `;
