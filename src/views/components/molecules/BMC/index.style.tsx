@@ -38,6 +38,7 @@ export const Button = styled(Link)`
 export const Wrap = styled.div`
   width: 100%;
   margin-top: ${rhythm(2)};
+  display: flex;
   ${media.sm`
     width: auto;
     margin-top: 0;
