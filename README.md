@@ -24,8 +24,9 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.5.0] - 2020-05-20
+### [1.5.1] - 2020-05-22
 
 #### Fixed
 
-- [#161](https://github.com/Hansanghyeon/4log/pull/161) [#156](https://github.com/Hansanghyeon/4log/issues/156) `styled-bootstrap-grid`에서 미디어쿼리에관한 코그가 있는지 모르고 scss에서 자주 사용하던 respond-to 기능을 만들어서 사용하던것을 제거하고 모듈로 사용할수있는 미디어타입으로 전부 교체
+- [#160](https://github.com/Hansanghyeon/4log/issues/160) BMC 컴포넌트 모바일일때 시각적으로 너무 붙어있는 부분 수정
+- Grid system에서 브레이크 포인트가 미디어에 딱맞게 되어있어서 1px씩 올림
