@@ -1,10 +1,10 @@
 export const breakpoints = {
-  xxl: 1440,
-  xl: 1200,
-  lg: 992,
-  md: 768,
-  sm: 576,
-  xs: 575,
+  xxl: 1441,
+  xl: 1201,
+  lg: 993,
+  md: 769,
+  sm: 577,
+  xs: 576,
   // or you can use aliases
   // veryGiant: 1440,
   // giant: 1200,
