@@ -68,3 +68,8 @@ blockquote {
   white-space: normal;
   word-break: break-all;
 }
+
+.wp-block-embed__wrapper,
+iframe {
+  width: 100%;
+}
