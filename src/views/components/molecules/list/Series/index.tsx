@@ -53,7 +53,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
       <Header toggle={toggle}>
         <Title>{query.name}</Title>
         <Img
-          src="https://wp.hapas.io/wp-content/uploads/icons/book.svg"
+          src="https://wp.hapas.io/wp-content/uploads/4log/icons/book.svg"
           alt="Series"
         />
       </Header>

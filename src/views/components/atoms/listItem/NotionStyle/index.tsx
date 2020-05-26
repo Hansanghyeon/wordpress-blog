@@ -35,7 +35,7 @@ const NotionStyleListItem = ({ data, children }: Props) => {
         <img
           src={
             imgSrc ||
-            'https://wp.hapas.io/wp-content/uploads/icons/page-facing-up_1f4c4.png'
+            'https://wp.hapas.io/wp-content/uploads/4log/icons/page-facing-up_1f4c4.png'
           }
           alt=""
         />
