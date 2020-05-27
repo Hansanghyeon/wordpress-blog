@@ -3,6 +3,7 @@ import { rhythm } from '@style/typography';
 
 export const Img = styled.img`
   max-width: 32px;
+  margin-bottom: 0;
 `;
 
 export const Wrap = styled.div`
@@ -32,6 +33,7 @@ export const Ol = styled.ol`
   padding-left: 0;
   margin-left: 0;
   counter-reset: item 0;
+  margin: ${rhythm(1 / 2)} 0;
 `;
 export const Li = styled.li`
   &:before {
