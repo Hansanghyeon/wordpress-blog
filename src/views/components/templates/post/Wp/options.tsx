@@ -2,6 +2,7 @@
 import React from 'react';
 import { domToReact } from 'html-react-parser';
 // components
+import DownloadButton from '@atom/btn/Download';
 import Callout from '#/Callout';
 import SeoPreviewCard from '#/SeoPreviewCard';
 import SyntaxHighlighter from '#/SyntaxHighlighter';
@@ -47,6 +48,9 @@ const options = {
     }
     if (name === 'code') {
       return <code className="language-text">{domToReact(children)}</code>;
+    }
+    if (attribs.class === 'wp-block-file') {
+      return <DownloadButton>{domToReact(children)}</DownloadButton>;
     }
   },
 };
