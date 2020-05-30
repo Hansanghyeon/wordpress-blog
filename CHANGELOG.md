@@ -4,6 +4,12 @@
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다.
 [Semantic Versioning](https://semver.org/lang/ko/) 프로젝트를 고수합니다.
 
+## [1.6.0] - 2020-05-30
+
+### Add
+
+- [#160](https://github.com/Hansanghyeon/4log/issues/167) 파일 다운로드 버튼 추가
+
 ## [1.5.1] - 2020-05-22
 
 ### Fixed

@@ -24,9 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.5.1] - 2020-05-22
+### [1.6.0] - 2020-05-30
 
-#### Fixed
+#### Add
 
-- [#160](https://github.com/Hansanghyeon/4log/issues/160) BMC 컴포넌트 모바일일때 시각적으로 너무 붙어있는 부분 수정
-- Grid system에서 브레이크 포인트가 미디어에 딱맞게 되어있어서 1px씩 올림
+- [#160](https://github.com/Hansanghyeon/4log/issues/167) 파일 다운로드 버튼 추가
