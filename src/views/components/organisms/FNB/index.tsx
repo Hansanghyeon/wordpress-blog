@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import { rhythm } from '@style/typography';
 
+import Link from '@atom/Link';
+
 const Footer = styled(Container)`
   padding-top: ${rhythm(1)};
   padding-bottom: ${rhythm(1)};
@@ -20,7 +22,9 @@ const FNB = () => (
     <Container>
       <Row>
         <CopyrightCol col>
-          <span>Copyright © 2020 Hansanghyeon</span>
+          <Link href="https://github.com/Hansanghyeon/4log/blob/master/LICENSE">
+            Copyright (c) 2020 999hyeon
+          </Link>
         </CopyrightCol>
       </Row>
     </Container>
