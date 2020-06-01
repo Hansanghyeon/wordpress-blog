@@ -25,6 +25,83 @@ const DittoWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+const DepthDittoWrap = styled(DittoWrap)<{ isGrid: boolean }>`
+  width: auto;
+  ${({ isGrid }) => isGrid && `display: block;`}
+`;
+
+type postNode = {
+  node: {
+    id: string;
+    slug: string;
+    date: number;
+    title: string;
+    featuredImage: {
+      mediaItemUrl: string;
+    };
+    excerpt: string;
+    categories: {
+      edges: {
+        node: {
+          name: string;
+          slug: string;
+          id: string;
+          _acf_taxonomy: {
+            icon: {
+              mediaItemUrl: string;
+            };
+          };
+        };
+      };
+    };
+  };
+};
+type BuildDittoProps = {
+  post: postNode;
+  isGrid: boolean;
+};
+const BuildDitto = ({ post, isGrid }: BuildDittoProps) => {
+  const { node } = post;
+  const { categories, slug, title } = node;
+  const props = {
+    data: {
+      imgSrc: node.featuredImage?.mediaItemUrl,
+      excerpt: node.excerpt,
+      date: node.date,
+      footer: () => <CategoryList data={categories} />,
+      title: () => (
+        <Link direction="left" to={`/${slug}`}>
+          {title}
+        </Link>
+      ),
+      isGrid: isGrid,
+      key: node.id,
+    },
+  };
+  return <Ditto {...props} />;
+};
+
+// 2차원 배열로 재구성
+const depthReducer = (
+  acc: any[][],
+  cur: { node: any },
+  idx: string | number,
+  arr: { [x: string]: any },
+) => {
+  const { node } = cur;
+  const isThumnail = node?.featuredImage;
+  if (!isThumnail) {
+    const accIdx = acc?.length;
+    if (Array.isArray(acc[accIdx - 1]) && acc[accIdx - 1].length === 1) {
+      acc[accIdx - 1].push(arr[idx]);
+      return acc;
+    }
+    acc.push([arr[idx]]);
+    return acc;
+  }
+  acc.push(arr[idx]);
+  return acc;
+};
 
 const IndexPage = ({ data }: any) => {
   const [isGrid, setIsGrid] = useState(false);
@@ -32,6 +109,7 @@ const IndexPage = ({ data }: any) => {
   const _handleClick = () => {
     setIsGrid(!isGrid);
   };
+  const posts2wrap = posts.edges.reduce(depthReducer, []);
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
@@ -46,21 +124,17 @@ const IndexPage = ({ data }: any) => {
         <Row>
           <Col col>
             <DittoWrap>
-              {posts.edges.map(({ node }: any) => {
-                const props = {
-                  imgSrc: node.featuredImage?.mediaItemUrl,
-                  excerpt: node.excerpt,
-                  date: node.date,
-                  footer: () => <CategoryList data={node.categories} />,
-                  title: () => (
-                    <Link direction="left" to={`/${node.slug}`}>
-                      {node.title}
-                    </Link>
-                  ),
-                  isGrid: isGrid,
-                  key: node.id,
-                };
-                return <Ditto {...props} />;
+              {posts2wrap.map((post: any) => {
+                if (Array.isArray(post)) {
+                  return (
+                    <DepthDittoWrap isGrid={isGrid}>
+                      {post.map((postData) => {
+                        return <BuildDitto post={postData} isGrid={isGrid} />;
+                      })}
+                    </DepthDittoWrap>
+                  );
+                }
+                return <BuildDitto post={post} isGrid={isGrid} />;
               })}
             </DittoWrap>
           </Col>
@@ -75,7 +149,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     wpgql {
-      posts(where: { status: PUBLISH, categoryNotIn: "12" }) {
+      posts(where: { status: PUBLISH, categoryNotIn: "12" }, first: 99) {
         edges {
           node {
             id

@@ -24,12 +24,13 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-## [1.2.2] - 2020-05-13
+### [1.7.0] - 2020-06-01
 
-### Changed
+#### Add
 
-- 모바일 적용 스타일 코드 모바일에서 제외 되었던 것 다시 추가 기본값으로
+- [[#172](https://github.com/Hansanghyeon/4log/issues/172) 4log 저장소에 적용한 코드에 대한 라이센스 적용
 
-### Fixed
+#### Changed
 
-- Grid 시스템에서 media query 기능을 분리 기존에 sass에서 유용하게 사용하던 respond-to 함수를 ts로 구현했던 것 제거하고 query를 그냥 타이핑 적용
+- https://github.com/Hansanghyeon/4log/pull/169#issuecomment-636887973 `gh-pages` 제거
+- `Theme`관련 타입을 분리하지 않고 한곳으로 구성 코드양이 작아서

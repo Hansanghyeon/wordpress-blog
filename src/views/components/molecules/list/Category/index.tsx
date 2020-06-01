@@ -17,7 +17,7 @@ const CategoryList = ({ data }: any) => {
       {categories.map(({ node }: any) => (
         <Link key={node.id} to={`/${node.slug}`} activeClassName="active">
           <NotionStyleListItemStyled
-            imgSrc={node._acf_taxonomy.icon.mediaItemUrl}
+            data={{ imgSrc: node._acf_taxonomy.icon.mediaItemUrl }}
           >
             {node.name}
           </NotionStyleListItemStyled>

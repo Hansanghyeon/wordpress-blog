@@ -20,6 +20,9 @@ const PageWrap = styled.div`
 `;
 const Main = styled.div`
   width: 100%;
+  @media (max-width: 1106px) and (min-width: 993px) {
+    max-width: calc(100% - 146px);
+  }
 `;
 
 const scrollControl = css`

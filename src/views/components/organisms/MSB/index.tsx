@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
+import { Container, Row, Col, media } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 // Components
 import { Logo } from '@atom/Logo';
 import { rhythm } from '@style/typography';
-import respondTo from '@style/respondTo';
 // Containers
 import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
@@ -18,16 +17,16 @@ const SideBar = styled.div`
   padding: 0 ${rhythm(1 / 2)};
   font-family: 'Fira Code';
   display: none;
-  ${respondTo.hg} {
+  ${media.xxl`
     position: fixed;
     left: 0;
     top: 0;
     margin-top: 0;
     z-index: 200;
-  }
-  ${respondTo.md} {
+  `}
+  ${media.md`
     display: block;
-  }
+  `}
   .cat-text {
     font-size: 14px;
   }

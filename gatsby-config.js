@@ -51,6 +51,7 @@ module.exports = {
             'Fira Code',
             'Nanum Gothic',
             'Fira Sans',
+            'Cookie',
           ],
         },
         custom: {

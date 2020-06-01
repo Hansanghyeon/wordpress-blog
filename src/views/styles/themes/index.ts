@@ -1,4 +1,23 @@
-import StyleSystem, { DarkStyleSystem } from '@model/StyleSystem';
+interface Grayscales {
+  dark: string[];
+  light: string[];
+}
+
+interface Colors {
+  primary: string;
+  bg: string[];
+  text: string[];
+  grayscales: Grayscales;
+}
+
+interface DarkColors extends Colors {}
+interface StyleSystem {
+  color: Colors;
+}
+
+interface DarkStyleSystem extends StyleSystem {
+  color: DarkColors;
+}
 
 const DefaultTheme: StyleSystem = {
   color: {

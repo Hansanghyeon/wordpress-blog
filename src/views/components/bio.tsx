@@ -4,6 +4,7 @@ import Image from 'gatsby-image';
 import { Container, Col, Row } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import BMC from '@molecule/BMC';
 
 const Profile = styled(Image)`
   margin-bottom: 0;
@@ -39,7 +40,7 @@ const Bio = () => {
   const { author } = data.site.siteMetadata;
   return (
     <Wrap>
-      <Row>
+      <Row alignItems="center">
         <Profile
           fixed={data.avatar.childImageSharp.fixed}
           alt={author}
@@ -53,6 +54,7 @@ const Bio = () => {
           <br />
           프로그래밍 언어, 소프트웨어, 커뮤니티에 관심이 많습니다.
         </Col>
+        <BMC />
       </Row>
     </Wrap>
   );

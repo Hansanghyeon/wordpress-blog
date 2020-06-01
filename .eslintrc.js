@@ -55,6 +55,7 @@ module.exports = {
         extensions: ['style.tsx'],
       },
     ],
+    '@typescript-eslint/camelcase': ['off'],
   },
   settings: {
     'import/resolver': {
