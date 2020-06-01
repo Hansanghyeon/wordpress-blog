@@ -24,8 +24,13 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.6.0] - 2020-05-30
+### [1.7.0] - 2020-06-01
 
 #### Add
 
-- [#160](https://github.com/Hansanghyeon/4log/issues/167) 파일 다운로드 버튼 추가
+- [[#172](https://github.com/Hansanghyeon/4log/issues/172) 4log 저장소에 적용한 코드에 대한 라이센스 적용
+
+#### Changed
+
+- https://github.com/Hansanghyeon/4log/pull/169#issuecomment-636887973 `gh-pages` 제거
+- `Theme`관련 타입을 분리하지 않고 한곳으로 구성 코드양이 작아서
