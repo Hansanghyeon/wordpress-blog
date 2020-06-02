@@ -9,7 +9,7 @@ const GNB = () => (
   <Wrap>
     <Container.Inner fluid>
       <Row.def>
-        <Col.menu col={1}>
+        <Col.menu col={2}>
           <MenuBtn />
         </Col.menu>
         <Col.Left auto>

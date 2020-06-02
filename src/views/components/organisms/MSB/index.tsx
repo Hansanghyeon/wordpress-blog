@@ -1,12 +1,10 @@
 import React from 'react';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
 // Components
 import { Logo } from '@atom/Logo';
-import { rhythm } from '@style/typography';
 // Containers
 import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
-import { SideBar, LogoLayout, Main } from './index.style';
+import { SideBar, LogoLayout, Main, Row, Col } from './index.style';
 
 type props = {
   isActive?: boolean;
@@ -17,18 +15,16 @@ const MSB: React.FC<props> = ({ isActive }: props) => (
       <Logo />
     </LogoLayout>
     <Main>
-      <Container>
-        <Row style={{ marginBottom: rhythm(1) }}>
-          <Col col>
-            <DayAndNightToggle />
-          </Col>
-        </Row>
-        <Row>
-          <Col col>
-            <PostTypeAllCat />
-          </Col>
-        </Row>
-      </Container>
+      <Row.menu>
+        <Col.def col>
+          <DayAndNightToggle />
+        </Col.def>
+      </Row.menu>
+      <Row.def>
+        <Col.def col>
+          <PostTypeAllCat />
+        </Col.def>
+      </Row.def>
     </Main>
   </SideBar>
 );
