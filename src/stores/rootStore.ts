@@ -12,6 +12,9 @@ const initialState = {
       return window !== undefined ? result : false;
     },
   },
+  menuState: {
+    isActive: false,
+  },
 };
 
 const createStore = () =>
