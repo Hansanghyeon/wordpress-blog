@@ -2,7 +2,7 @@ import React from 'react';
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';
 
-import MenuBtn from '@atom/toggle/Menu';
+import MenuBtn from '#/MenuBtn';
 import { Wrap, Col, Row, Container } from './index.style';
 
 const GNB = () => (

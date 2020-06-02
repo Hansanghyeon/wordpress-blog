@@ -8,8 +8,11 @@ import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
 import { SideBar, LogoLayout, Main } from './index.style';
 
-const MSB = () => (
-  <SideBar>
+type props = {
+  isActive?: boolean;
+};
+const MSB: React.FC<props> = ({ isActive }: props) => (
+  <SideBar isActive={isActive}>
     <LogoLayout>
       <Logo />
     </LogoLayout>
