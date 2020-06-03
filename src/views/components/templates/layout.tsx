@@ -10,9 +10,8 @@ import { isMobile } from 'react-device-detect';
 import Grid from '@style/Grid';
 import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
-import MSB from '@organism/MSB';
-
 import DefaultTheme, { DarkTheme } from '@style/themes';
+import MSB from '#/MSB';
 
 const MainWrapper = styled.div``;
 const PageWrap = styled.div`

@@ -24,13 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.7.0] - 2020-06-01
+### [1.8.0] - 2020-06-02
 
 #### Add
 
-- [[#172](https://github.com/Hansanghyeon/4log/issues/172) 4log 저장소에 적용한 코드에 대한 라이센스 적용
-
-#### Changed
-
-- https://github.com/Hansanghyeon/4log/pull/169#issuecomment-636887973 `gh-pages` 제거
-- `Theme`관련 타입을 분리하지 않고 한곳으로 구성 코드양이 작아서
+- [#88](https://github.com/Hansanghyeon/4log/issues/88) 모바일 메뉴관련 버튼 추가 이전에는 모바일 md =< 786 사이즈 이하로 떨어질때 카테고리 메뉴를 완전 제거했는데 버튼을 통한 메뉴 보기 기능을 가하였다. `react-redux`를 활용 나중에 offset 밖영역 클릭도 리듀서를 통한 간단하게 기능추가가 가능함
