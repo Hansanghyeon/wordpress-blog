@@ -4,7 +4,6 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/hansanghyeon/4log/badge)](https://www.codefactor.io/repository/github/hansanghyeon/4log)
 [![Hansanghyeon](https://circleci.com/gh/Hansanghyeon/4log.svg?style=shield)](https://app.circleci.com/pipelines/github/Hansanghyeon/4log)
-[![Greenkeeper badge](https://badges.greenkeeper.io/Hansanghyeon/4log.svg)](https://greenkeeper.io/)
 <a href="https://hits.seeyoufarm.com"/><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FHansanghyeon%2F4log"/></a>
 
 [![airbnb-typescript](https://img.shields.io/badge/code%20style-airbnb--typescript-blue)](https://github.com/iamturns/eslint-config-airbnb-typescript)
