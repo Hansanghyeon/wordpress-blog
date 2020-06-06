@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb-typescript',
+    'airbnb/hooks',
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
@@ -55,7 +56,12 @@ module.exports = {
         extensions: ['style.tsx'],
       },
     ],
-    '@typescript-eslint/camelcase': ['off'],
+    '@typescript-eslint/naming-convention': [
+      'off',
+      {
+        extensions: ['style.tsx'],
+      },
+    ],
   },
   settings: {
     'import/resolver': {

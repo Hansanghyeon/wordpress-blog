@@ -1,70 +1,30 @@
 import React from 'react';
-import { Container, Row, Col, media } from 'styled-bootstrap-grid';
-import styled from 'styled-components';
 // Components
 import { Logo } from '@atom/Logo';
-import { rhythm } from '@style/typography';
 // Containers
 import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
+import { SideBar, LogoLayout, Main, Row, Col } from './index.style';
 
-const SideBar = styled.div`
-  width: 200px;
-  height: 100%;
-  position: sticky;
-  top: -45px;
-  margin-top: -45px;
-  padding: 0 ${rhythm(1 / 2)};
-  font-family: 'Fira Code';
-  display: none;
-  ${media.xxl`
-    position: fixed;
-    left: 0;
-    top: 0;
-    margin-top: 0;
-    z-index: 200;
-  `}
-  ${media.md`
-    display: block;
-  `}
-  .cat-text {
-    font-size: 14px;
-  }
-`;
-
-const Main = styled.div`
-  height: 100%;
-  padding: ${rhythm(1)} 0;
-`;
-
-const LogoLayout = styled.div`
-  height: 45px;
-  width: 100%;
-  padding: ${rhythm(1 / 4)} 16px;
-  * {
-    height: 100%;
-    width: auto;
-  }
-`;
-
-const MSB = () => (
-  <SideBar>
+type props = {
+  isActive?: boolean;
+};
+const MSB: React.FC<props> = ({ isActive }: props) => (
+  <SideBar isActive={isActive}>
     <LogoLayout>
       <Logo />
     </LogoLayout>
     <Main>
-      <Container>
-        <Row style={{ marginBottom: rhythm(1) }}>
-          <Col col>
-            <DayAndNightToggle />
-          </Col>
-        </Row>
-        <Row>
-          <Col col>
-            <PostTypeAllCat />
-          </Col>
-        </Row>
-      </Container>
+      <Row.menu>
+        <Col.def col>
+          <DayAndNightToggle />
+        </Col.def>
+      </Row.menu>
+      <Row.def>
+        <Col.def col>
+          <PostTypeAllCat />
+        </Col.def>
+      </Row.def>
     </Main>
   </SideBar>
 );

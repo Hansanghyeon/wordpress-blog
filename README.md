@@ -24,13 +24,8 @@
 
 [CHANGELOG](CHANGELOG.md)
 
-### [1.7.0] - 2020-06-01
-
-#### Add
-
-- [[#172](https://github.com/Hansanghyeon/4log/issues/172) 4log 저장소에 적용한 코드에 대한 라이센스 적용
+### [1.8.1] - 2020-06-06
 
 #### Changed
 
-- https://github.com/Hansanghyeon/4log/pull/169#issuecomment-636887973 `gh-pages` 제거
-- `Theme`관련 타입을 분리하지 않고 한곳으로 구성 코드양이 작아서
+- [#181](https://github.com/Hansanghyeon/4log/issues/181) ~~[Semantic Versioning](https://semver.org/lang/ko/)~~ 프로젝트룰을 제거 독자적 버저닝으로 변경
