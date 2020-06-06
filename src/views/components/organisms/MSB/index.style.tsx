@@ -24,13 +24,6 @@ export const SideBar = styled.div<SideBar>`
   will-change: left;
   background-color: ${({ theme }) => transparentize(0.05, theme.color.bg[1])};
 
-  ${media.xxl`
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 200;
-  `};
-
   ${media.md`
     display: block;
     position: sticky;
@@ -41,6 +34,13 @@ export const SideBar = styled.div<SideBar>`
     z-index: 0;
     background-color: transparent;
     padding: 0 ${rhythm(1)};
+  `};
+
+  ${media.xxl`
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
   `};
 
   .cat-text {
