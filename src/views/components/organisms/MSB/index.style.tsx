@@ -39,7 +39,7 @@ export const SideBar = styled.div<SideBar>`
   ${media.xxl`
     position: fixed;
     left: 0;
-    top: 0;
+    top: 45px;
     z-index: 200;
   `};
 
@@ -56,6 +56,7 @@ export const Main = styled(Container)`
   padding: 0;
   ${media.md`
     padding: ${rhythm(1)} 0;
+    display: block;
   `}
 `;
 
