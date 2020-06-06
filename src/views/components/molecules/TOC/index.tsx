@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import parser, { domToReact } from 'html-react-parser';
 
@@ -35,7 +35,9 @@ const findHighestHTagName = (heading: string[]) =>
   });
 const getLevelsByHighestTag = (_findHighestHTagName: string) => {
   const headingLevel = new RegExp('<h([0-4]).+>');
-  const isHeadingNumber = headingLevel.exec(_findHighestHTagName)![1];
+  const isHeadingNumber: number = Number(
+    headingLevel.exec(_findHighestHTagName)![1],
+  );
   const levelMapByHihestTag = [CONSTANTS.levelsByH2, CONSTANTS.levelsByH3];
   return levelMapByHihestTag[isHeadingNumber - 2] || CONSTANTS.levelsByH4;
 };
@@ -65,23 +67,29 @@ interface props {
 }
 const TOC = ({ data }: props) => {
   if (data?.length === 0) return null;
-  const HeadingLevel = levelMap(data);
+  const HeadingLevel = levelMap(data || ['']);
 
   const _handleClick = (e: any) => {
-    interface taget {
+    interface Taget {
       id: string;
     }
-    const { id }: taget = e.target.dataset;
-    const scrollTarget = document.querySelector(`#${id}`);
-    const scrollEventRootWrap = document.querySelector('#gatsby-focus-wrapper');
-    const locationElement =
-      scrollTarget.offsetTop - scrollEventRootWrap.offsetTop / 2;
-
-    // set event
-    scrollEventRootWrap?.scrollTo({
-      top: locationElement,
-      behavior: 'smooth',
-    });
+    const { id }: Taget = e.target.dataset;
+    const scrollTarget = useRef<HTMLDivElement>(
+      document.querySelector(`#${id}`),
+    );
+    const scrollEventRootWrap = useRef<HTMLDivElement>(
+      document.querySelector('#gatsby-focus-wrapper'),
+    );
+    if (scrollTarget.current !== null && scrollEventRootWrap.current !== null) {
+      const locationElement =
+        scrollTarget.current.offsetTop -
+        scrollEventRootWrap.current.offsetTop / 2;
+      // set event
+      scrollEventRootWrap.current.scrollTo({
+        top: locationElement,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (

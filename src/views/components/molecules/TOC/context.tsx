@@ -10,7 +10,7 @@ import { rhythm } from '@style/typography';
 // Components
 import TOC from '@molecule/TOC';
 
-enum transitionStatusList {
+enum TransitionStatusList {
   entering = 'entering',
   entered = 'entered',
   exited = 'exited',
@@ -18,7 +18,7 @@ enum transitionStatusList {
 }
 interface TransitionStateType {
   mount: boolean;
-  transitionStatus: transitionStatusList;
+  transitionStatus: TransitionStatusList;
 }
 
 const TocView = styled.div`
@@ -33,11 +33,11 @@ const TocView = styled.div`
   padding-right: 16px;
 `;
 
-interface data {
+interface Props {
   data: Array<string>;
 }
 
-export default ({ data }: data) => {
+export default ({ data }: Props) => {
   useEffect(() => {
     const tl = new TimelineLite();
     tl.to(['.TocEl'], 0.6, {
@@ -52,7 +52,7 @@ export default ({ data }: data) => {
     <TransitionPortal>
       <TransitionState>
         {({ mount, transitionStatus }: TransitionStateType) => {
-          if (transitionStatus === transitionStatusList.entered && mount)
+          if (transitionStatus === TransitionStatusList.entered && mount)
             return (
               <TocView className="TocEl">
                 <TOC data={data} />
