@@ -1,6 +1,6 @@
 {
   "name": "4log",
-  "version": "1.8.2",
+  "version": "1.8.4",
   "description": "4log github page package",
   "main": "index.js",
   "scripts": {
