@@ -89,6 +89,7 @@ export const RootWrap = styled(Link)`
   text-decoration: none;
   padding: 16px 0;
   position: relative;
+  text-decoration: none !important;
   &:hover {
     box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0);
   }
