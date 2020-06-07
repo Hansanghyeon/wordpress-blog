@@ -1,3 +1,16 @@
+# KO
+
+<!--
+아래 정보를 입력해주시면 해당 pull reqeust(PR)을 쉽고 빠르게 검토 및 병합하는데 도움이 됩니다.
+-->
+
+## 이 PR을 작성한 이유, 동기가 무엇인가요?
+<!-- 이 PR은 feature, bug fix, documentation, etc 어떤 것인가요? -->
+
+---
+
+# EN
+
 <!--
 Filling out the information below can facilitate the review/merge of the pull request (PR).
 -->

@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.8.4] - 2020-06-07
+
+### Fixed
+
+- `CardWrap` 첫번째 헤딩요소의 `margin-top` 스타일 제거
+
 ## [1.8.3] - 2020-06-06
 
 ### Fixed
