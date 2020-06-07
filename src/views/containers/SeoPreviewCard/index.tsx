@@ -7,9 +7,9 @@ export default (url: string) => {
   const [response, loading, error] = useRequest(
     `${
       process.env.NODE_ENV === 'production'
-        ? 'https://api.nas.hapas.io'
-        : 'http://localhost:8080'
-    }/seo/?m_url=${encodeURI(url)}`,
+        ? 'https://api.nas.hapas.io/seo'
+        : 'http://localhost:40000'
+    }/?m_url=${encodeURI(url)}`,
   );
   if (loading) return <SeoPreviewCard loading={loading} mUrl={url} />;
   if (error)

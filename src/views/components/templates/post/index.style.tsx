@@ -10,6 +10,9 @@ export const CardWrap = styled.div`
   ${media.md`
     padding: ${rhythm(1)};
   `}
+  *:first-child {
+    margin-top: 0 !important;
+  }
 `;
 
 export const FeaturedImg = styled(Col)<{ bgImg?: string }>`
