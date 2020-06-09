@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   Container as _Container,
   Row as _Row,
@@ -8,7 +8,13 @@ import {
 
 import { rhythm } from '@style/typography';
 
-export const Wrap = styled.div`
+const wrapSidebarOpen = css`
+  transform: translateX(200px);
+`;
+type tWrap = {
+  sidebarOpen?: boolean;
+};
+export const Wrap = styled.div<tWrap>`
   width: 100%;
   height: 45px;
   position: fixed;
@@ -19,6 +25,9 @@ export const Wrap = styled.div`
   padding: 0 ${rhythm(1 / 2)};
   background: ${({ theme }) => theme.color.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+  ${({ sidebarOpen }) => sidebarOpen && wrapSidebarOpen};
 `;
 
 export const Col = {

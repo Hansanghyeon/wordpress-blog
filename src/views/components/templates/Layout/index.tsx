@@ -1,12 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-// COMPONENTS
+// Component
 import Grid from '@style/Grid';
-import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
 import DefaultTheme, { DarkTheme } from '@style/themes';
 import { MainWrapper, Main, GlobalStyle } from './index.style';
+// Container
+import GNB from '#/GNB';
 import MSB from '#/MSB';
 
 interface props {
