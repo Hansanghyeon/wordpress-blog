@@ -1,5 +1,10 @@
 import { useEffect } from 'react';
 
+/**
+ *
+ * @param ref 선택요소 외부영역 클릭이벤트를 실행하게할 요소 설정
+ * @param inFuction 해당 인자로 받은 함수를 실행시킴
+ */
 function useOutsideAlerter({ ref, inFunction }) {
   /**
    * Alert if clicked on outside of element
