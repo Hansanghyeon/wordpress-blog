@@ -2,7 +2,17 @@ import { createStore as reduxCreateStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducers from '@store/rootReducers';
 
-const initialState = {
+export interface MenuStateType {
+  isActive?: boolean;
+}
+export interface ThemeStateuType {
+  isDark?: () => boolean;
+}
+interface InitialStateType {
+  themeState: ThemeStateuType;
+  menuState: MenuStateType;
+}
+const initialState: InitialStateType = {
   themeState: {
     isDark: () => {
       const result = !!(

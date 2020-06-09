@@ -23,7 +23,7 @@ const FNB = () => (
       <Row>
         <CopyrightCol col>
           <Link href="https://github.com/Hansanghyeon/4log/blob/master/LICENSE">
-            Copyright (c) 2020 999hyeon
+            Copyright (c) 2019-2020 999hyeon
           </Link>
         </CopyrightCol>
       </Row>

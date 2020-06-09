@@ -5,10 +5,15 @@ import {
   Col as _Col,
   media,
 } from 'styled-bootstrap-grid';
-
+// style utile
 import { rhythm } from '@style/typography';
+// Component
+import {
+  SidebarStatueType,
+  SidebarStatueStyle,
+} from '@organism/MSB/index.style';
 
-export const Wrap = styled.div`
+export const Wrap = styled.div<SidebarStatueType>`
   width: 100%;
   height: 45px;
   position: fixed;
@@ -19,6 +24,8 @@ export const Wrap = styled.div`
   padding: 0 ${rhythm(1 / 2)};
   background: ${({ theme }) => theme.color.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.open};
+  ${SidebarStatueStyle.def};
 `;
 
 export const Col = {
