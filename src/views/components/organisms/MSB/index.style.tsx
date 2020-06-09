@@ -14,33 +14,26 @@ type SideBar = {
 };
 export const SideBar = styled.div<SideBar>`
   width: 200px;
-  height: calc(100% - 45px);
+  height: 100%;
   padding: ${rhythm(1)};
   font-family: 'Fira Code';
   position: fixed;
-  left: ${({ isActive }) => (isActive ? 0 : '-100%')};
+  top: 0;
+  transform: translateX(${({ isActive }) => (isActive ? 0 : '-100%')});
   z-index: 900;
-  transition: left 0.5s ease-out;
-  will-change: left;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
   background-color: ${({ theme }) => transparentize(0.05, theme.color.bg[1])};
 
   ${media.md`
-    display: block;
-    position: sticky;
-    left: auto;
     height: 100%;
-    top: -45px;
-    margin-top: -45px;
-    z-index: 0;
     background-color: transparent;
     padding: 0 ${rhythm(1)};
+    transform: unset;
   `};
 
   ${media.xxl`
-    position: fixed;
-    left: 0;
-    top: 45px;
-    z-index: 200;
+    transform: unset;
   `};
 
   .cat-text {
