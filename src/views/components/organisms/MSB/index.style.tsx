@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   media,
   Container,
@@ -80,4 +80,17 @@ export const Row = {
 
 export const Col = {
   def: styled(_Col)``,
+};
+
+export interface SidebarStatueType {
+  sidebarOpen: boolean;
+}
+export const SidebarStatueStyle = {
+  def: css`
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+  `,
+  open: css`
+    transform: translateX(200px);
+  `,
 };

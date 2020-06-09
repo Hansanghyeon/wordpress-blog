@@ -1,20 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   Container as _Container,
   Row as _Row,
   Col as _Col,
   media,
 } from 'styled-bootstrap-grid';
-
+// style utile
 import { rhythm } from '@style/typography';
+// Component
+import {
+  SidebarStatueType,
+  SidebarStatueStyle,
+} from '@organism/MSB/index.style';
 
-const wrapSidebarOpen = css`
-  transform: translateX(200px);
-`;
-type tWrap = {
-  sidebarOpen?: boolean;
-};
-export const Wrap = styled.div<tWrap>`
+export const Wrap = styled.div<SidebarStatueType>`
   width: 100%;
   height: 45px;
   position: fixed;
@@ -25,9 +24,8 @@ export const Wrap = styled.div<tWrap>`
   padding: 0 ${rhythm(1 / 2)};
   background: ${({ theme }) => theme.color.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease-out;
-  will-change: transform;
-  ${({ sidebarOpen }) => sidebarOpen && wrapSidebarOpen};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.open};
+  ${SidebarStatueStyle.def};
 `;
 
 export const Col = {
