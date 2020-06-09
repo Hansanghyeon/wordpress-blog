@@ -1,8 +1,16 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
 import { media } from 'styled-bootstrap-grid';
 import { isMobile } from 'react-device-detect';
+// Component
+import {
+  SidebarStatueType,
+  SidebarStatueStyle,
+} from '@organism/MSB/index.style';
 
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.div<SidebarStatueType>`
+  ${SidebarStatueStyle.def};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.open};
+
   ${media.md`
     margin-left: 200px;
   `};

@@ -1,6 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
+// store
+import { MenuStateType } from '@store/rootStore';
 // Component
 import Grid from '@style/Grid';
 import FNB from '@organism/FNB';
@@ -10,11 +12,11 @@ import { MainWrapper, Main, GlobalStyle } from './index.style';
 import GNB from '#/GNB';
 import MSB from '#/MSB';
 
-interface props {
+interface props extends MenuStateType {
   children: React.ReactNode;
   isDark?: boolean;
 }
-const Layout = ({ children, isDark }: props) => {
+const Layout = ({ children, isDark, isActive }: props) => {
   return (
     <>
       <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>
@@ -23,7 +25,7 @@ const Layout = ({ children, isDark }: props) => {
           <>
             <GNB />
             <MSB />
-            <MainWrapper>
+            <MainWrapper sidebarOpen={isActive}>
               <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
                 {children}
               </Main>
