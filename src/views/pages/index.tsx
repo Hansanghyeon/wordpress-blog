@@ -149,7 +149,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     wpgql {
-      posts(where: { status: PUBLISH, categoryNotIn: "12" }, first: 99) {
+      posts(where: { status: PUBLISH, categoryNotIn: [1, 12] }, first: 99) {
         edges {
           node {
             id
