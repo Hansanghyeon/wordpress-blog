@@ -5,11 +5,11 @@ import rootReducers from '@store/rootReducers';
 export interface MenuStateType {
   isActive?: boolean;
 }
-export interface ThemeStateuType {
+export interface ThemeStateType {
   isDark?: () => boolean;
 }
 interface InitialStateType {
-  themeState: ThemeStateuType;
+  themeState: ThemeStateType;
   menuState: MenuStateType;
 }
 const initialState: InitialStateType = {
