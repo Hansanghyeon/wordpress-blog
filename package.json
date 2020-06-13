@@ -41,7 +41,7 @@
     "gatsby-plugin-manifest": "^2.2.33",
     "gatsby-plugin-offline": "^3.1.2",
     "gatsby-plugin-page-creator": "^2.1.40",
-    "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-plugin-remove-trailing-slashes": "^2.2.1",
     "gatsby-plugin-sass": "^2.3.3",
     "gatsby-plugin-sharp": "^2.6.11",
