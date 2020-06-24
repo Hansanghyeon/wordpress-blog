@@ -3,6 +3,31 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.10.1] - 2020-06-24
+
+### Fixed
+
+- 모든 카테고리가 페이지로 만들어지지 않는 오류 수정
+  - 이유는 기본적으로 GraphQL이 가져오는 갯수가 10개라서 이부분을 임의적으로 9999개로 변경시킴
+
+### Changed
+
+- `Row, Col`의 기본값을 객체화시켜서 내보낼때 `def`, `menu`와 같이 소문자로 작성했는데 이부분이 `eslint` 룰에 어긋나서 이 부분 수정
+
+## [1.10.0] - 2020-06-09
+
+### Add
+
+- `useOutsideAlerter` `ref`로 설정된 컴포넌트 외부 클릭시 받은 함수 실행하도록하는 커스텀 훅 제작
+
+### Changed
+
+- `Layout` > `MSB`와 메인을 감싸고있던 wrap구조를 변경
+- `Layout` > `layout.tsx` 에서 폴더로 구조변경하고 스타일 파일 따로 생성 연결
+- `MSB` HTML 돔순서를 변경해서 디바이스 중간사이즈에서도 `position: fixed`로 고정
+  - `GNB` MSB의 상태에따라 스타일추가 - Redux 상태사용
+  - `Layout > Main` MBS의 상태에 따라 스타일 추가 - Redux 상태사용
+
 ## [1.9.0] - 2020-06-07
 
 ### Changed

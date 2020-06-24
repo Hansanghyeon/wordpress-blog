@@ -1,8 +1,8 @@
-import Layout from '@template/layout';
+import Layout from '@template/Layout';
 import { connect } from 'react-redux';
 
-const mapReduxStateToReactProps = ({ themeState }: any) => {
-  return { ...themeState };
+const mapReduxStateToReactProps = ({ themeState, menuState }: any) => {
+  return { ...themeState, ...menuState };
 };
 
 const connector = connect(mapReduxStateToReactProps);

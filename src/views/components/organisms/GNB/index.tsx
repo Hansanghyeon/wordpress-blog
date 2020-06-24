@@ -1,25 +1,28 @@
 import React from 'react';
+// etc
+import { MenuStateType } from '@store/rootStore';
+// Components
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';
-
+// Containers
 import MenuBtn from '#/MenuBtn';
 import { Wrap, Col, Row, Container } from './index.style';
 
-const GNB = () => (
-  <Wrap>
+const GNB: React.FC<MenuStateType> = ({ isActive }: MenuStateType) => (
+  <Wrap sidebarOpen={isActive}>
     <Container.Inner fluid>
-      <Row.def>
-        <Col.menu col={2}>
+      <Row.Def>
+        <Col.Menu col={2}>
           <MenuBtn />
-        </Col.menu>
+        </Col.Menu>
         <Col.Left auto>
           <SmLogo />
         </Col.Left>
-        <Col.def col />
+        <Col.Def col />
         <Col.Right auto>
           <SnsIcon />
         </Col.Right>
-      </Row.def>
+      </Row.Def>
     </Container.Inner>
   </Wrap>
 );

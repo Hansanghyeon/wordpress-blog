@@ -11,8 +11,8 @@ const DownloadButton: React.FC<props> = ({ children }: props) => {
     setIsClicked(true);
   };
   return (
-    <Box.wrap>
-      <Box.main>
+    <Box.Wrap>
+      <Box.Main>
         <Icon>
           <div>
             <SVG.Arrow viewBox="0 0 20 18">
@@ -24,9 +24,9 @@ const DownloadButton: React.FC<props> = ({ children }: props) => {
             <SVG.Span clicked={isClicked} />
           </div>
         </Icon>
-        <Box.link onClick={_handleClick}>{children}</Box.link>
-      </Box.main>
-    </Box.wrap>
+        <Box.Link onClick={_handleClick}>{children}</Box.Link>
+      </Box.Main>
+    </Box.Wrap>
   );
 };
 

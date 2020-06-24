@@ -36,7 +36,7 @@ const options = {
       switch (attribs.fc) {
         case 'callout':
           return (
-            <Callout bgColor={attribs.bg} icon={attribs.icon}>
+            <Callout data={{ bgColor: attribs.bg, icon: attribs.icon }}>
               {domToReact(children)}
             </Callout>
           );
