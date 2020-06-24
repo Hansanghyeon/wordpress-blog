@@ -7,7 +7,7 @@ const PostTypeAllCat = () => (
     query={graphql`
       query GET_CATEGOERIES {
         wpgql {
-          categories(where: { hideEmpty: true }) {
+          categories(where: { hideEmpty: true, exclude: "1" }, first: 9999) {
             edges {
               node {
                 _acf_taxonomy {
