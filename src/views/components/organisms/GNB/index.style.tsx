@@ -24,12 +24,12 @@ export const Wrap = styled.div<SidebarStatueType>`
   padding: 0 ${rhythm(1 / 2)};
   background: ${({ theme }) => theme.color.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.open};
-  ${SidebarStatueStyle.def};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
+  ${SidebarStatueStyle.Def};
 `;
 
 export const Col = {
-  def: styled(_Col)``,
+  Def: styled(_Col)``,
   Right: styled(_Col)`
     display: flex;
     justify-content: flex-end;
@@ -42,7 +42,7 @@ export const Col = {
       width: auto;
     }
   `,
-  menu: styled(_Col)`
+  Menu: styled(_Col)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,11 +53,11 @@ export const Col = {
 };
 
 export const Row = {
-  def: styled(_Row)``,
+  Def: styled(_Row)``,
 };
 
 export const Container = {
-  def: styled(_Container)``,
+  Def: styled(_Container)``,
   Inner: styled(_Container)`
     height: 100%;
     > ${_Row} {

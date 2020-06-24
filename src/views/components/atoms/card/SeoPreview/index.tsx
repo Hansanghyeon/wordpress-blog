@@ -57,9 +57,9 @@ const Loading = () => (
       <div>Loading...</div>
     </Header>
     <Row.Body>
-      <Col.def col>
+      <Col.Def col>
         <CpuChipLoader />
-      </Col.def>
+      </Col.Def>
     </Row.Body>
   </>
 );

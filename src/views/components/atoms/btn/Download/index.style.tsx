@@ -83,7 +83,7 @@ export const SVG = {
 };
 
 export const Box = {
-  main: styled.div`
+  Main: styled.div`
     --duration: 4000;
     --success: #16bf78;
     display: flex;
@@ -100,8 +100,8 @@ export const Box = {
       }
     }
   `,
-  wrap: styled.div`
+  Wrap: styled.div`
     display: flex;
   `,
-  link: styled.div``,
+  Link: styled.div``,
 };

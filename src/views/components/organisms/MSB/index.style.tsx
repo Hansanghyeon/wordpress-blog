@@ -68,8 +68,8 @@ export const LogoLayout = styled.div`
 `;
 
 export const Row = {
-  def: styled(_Row)``,
-  menu: styled(_Row)`
+  Def: styled(_Row)``,
+  Menu: styled(_Row)`
     ${media.md`
       margin-bottom: ${rhythm(1)};
       order: 0;
@@ -79,18 +79,18 @@ export const Row = {
 };
 
 export const Col = {
-  def: styled(_Col)``,
+  Def: styled(_Col)``,
 };
 
 export interface SidebarStatueType {
-  sidebarOpen: boolean;
+  sidebarOpen?: boolean;
 }
 export const SidebarStatueStyle = {
-  def: css`
+  Def: css`
     transition: transform 0.5s ease-out;
     will-change: transform;
   `,
-  open: css`
+  Open: css`
     transform: translateX(200px);
   `,
 };

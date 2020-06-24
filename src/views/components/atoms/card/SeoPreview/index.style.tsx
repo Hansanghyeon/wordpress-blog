@@ -46,7 +46,7 @@ export const Description = styled.div`
   `};
 `;
 export const Col = {
-  def: styled(_Col)``,
+  Def: styled(_Col)``,
   Image: styled(_Col)<styleProps>`
     background-image: ${({ bg }) => `url(${bg})`};
     display: none;
@@ -70,7 +70,7 @@ export const Col = {
   `,
 };
 export const Row = {
-  def: styled(_Row)``,
+  Def: styled(_Row)``,
   Body: styled(_Row)`
     background-color: ${({ theme }) => theme.color.bg[1]};
     color: ${({ theme }) => theme.color.text[2]};

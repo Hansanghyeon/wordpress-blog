@@ -21,16 +21,16 @@ const MSB: React.FC<props> = ({ isActive, inFunction }: props) => {
         <Logo />
       </LogoLayout>
       <Main>
-        <Row.menu>
-          <Col.def col>
+        <Row.Menu>
+          <Col.Def col>
             <DayAndNightToggle />
-          </Col.def>
-        </Row.menu>
-        <Row.def>
-          <Col.def col>
+          </Col.Def>
+        </Row.Menu>
+        <Row.Def>
+          <Col.Def col>
             <PostTypeAllCat />
-          </Col.def>
-        </Row.def>
+          </Col.Def>
+        </Row.Def>
       </Main>
     </SideBar>
   );
