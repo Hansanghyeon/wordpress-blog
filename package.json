@@ -52,7 +52,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.13",
     "gatsby-source-graphql": "^2.5.3",
-    "gatsby-transformer-sharp": "^2.5.7",
+    "gatsby-transformer-sharp": "^2.5.10",
     "gsap": "^3.3.1",
     "html-react-parser": "^0.13.0",
     "lodash": "^4.17.15",
