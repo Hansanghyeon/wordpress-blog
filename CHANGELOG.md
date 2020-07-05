@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.10.2] - 2020-07-05
+
+### Fixed
+
+- `wp-graphql` 플러그인 업데이트로 `mediaItemUrl` 쿼리가 node로 구분되어서 여러개 구성할수있게 변경되었다. 이부분을 반영해서 오류 나던부분 제거
+
 ## [1.10.1] - 2020-06-24
 
 ### Fixed

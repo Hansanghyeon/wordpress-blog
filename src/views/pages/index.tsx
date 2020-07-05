@@ -37,7 +37,9 @@ type postNode = {
     date: number;
     title: string;
     featuredImage: {
-      mediaItemUrl: string;
+      node: {
+        mediaItemUrl: string;
+      };
     };
     excerpt: string;
     categories: {
@@ -65,7 +67,7 @@ const BuildDitto = ({ post, isGrid }: BuildDittoProps) => {
   const { categories, slug, title } = node;
   const props = {
     data: {
-      imgSrc: node.featuredImage?.mediaItemUrl,
+      imgSrc: node.featuredImage?.node.mediaItemUrl,
       excerpt: node.excerpt,
       date: node.date,
       footer: () => <CategoryList data={categories} />,
@@ -157,7 +159,9 @@ export const pageQuery = graphql`
             date
             title
             featuredImage {
-              mediaItemUrl
+              node {
+                mediaItemUrl
+              }
             }
             excerpt
             categories {

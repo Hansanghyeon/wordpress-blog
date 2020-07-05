@@ -79,7 +79,7 @@ const BaseContent = styled.div`
   color: ${({ theme }) => theme.color.text[1]};
 
   max-width: 280px;
-  height: 3.9rem;
+  height: 4rem;
   overflow: hidden;
   font-size: 0.875rem;
   transition: max-width 0.45s;
