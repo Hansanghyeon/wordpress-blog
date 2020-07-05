@@ -44,9 +44,9 @@ const WpPostLayout = ({ data }: any) => {
       <SEO
         title={title}
         description={excerpt}
-        thumnail={featuredImage?.mediaItemUrl}
+        thumnail={featuredImage?.node.mediaItemUrl}
       />
-      <PostTemplate imgSrc={featuredImage?.mediaItemUrl} header={header}>
+      <PostTemplate imgSrc={featuredImage?.node.mediaItemUrl} header={header}>
         {series && <SeriesList data={{ query: series, currentPostId: id }} />}
         <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
@@ -66,7 +66,9 @@ export const pageQuery = graphql`
         content
         excerpt
         featuredImage {
-          mediaItemUrl
+          node {
+            mediaItemUrl
+          }
         }
         serieses {
           nodes {
