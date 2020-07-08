@@ -53,7 +53,7 @@
     "gatsby-source-filesystem": "^2.3.13",
     "gatsby-source-graphql": "^2.6.1",
     "gatsby-transformer-sharp": "^2.5.7",
-    "gsap": "^3.3.1",
+    "gsap": "^3.4.0",
     "html-react-parser": "^0.13.0",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
