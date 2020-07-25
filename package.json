@@ -91,7 +91,7 @@
     "@typescript-eslint/parser": "^2.21.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-typescript": "^8.0.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.22.0",
