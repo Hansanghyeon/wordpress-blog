@@ -21,9 +21,9 @@ import {
   ArrowBtn,
   CurrentLi,
 } from './index.style';
-import { SeriesListType, accPostType } from './index.type';
+import { SerieListType, accPostType } from './index.type';
 
-const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
+const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
   const { query, currentPostId } = data;
   const [toggle, setToggle] = useState(true);
   const _handleClick = () => {
@@ -109,4 +109,4 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
   );
 };
 
-export default SeriesList;
+export default SerieList;

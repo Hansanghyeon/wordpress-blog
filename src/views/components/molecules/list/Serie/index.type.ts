@@ -18,7 +18,7 @@ export type accPostType = {
   next: PostType | null;
 };
 
-export type SeriesListType = {
+export type SerieListType = {
   data: {
     currentPostId: string;
     query: WpQueryType;

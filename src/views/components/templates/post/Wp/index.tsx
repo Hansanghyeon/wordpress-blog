@@ -6,7 +6,7 @@ import SEO from '@view/components/seo';
 // components
 import PostTemplate from '@template/post/index';
 import TOC from '@molecule/TOC/context';
-import SeriesList from '@molecule/list/Series';
+import SerieList from '@molecule/list/Serie';
 import options from './options';
 
 interface ContentReactMemoType {
@@ -47,7 +47,7 @@ const WpPostLayout = ({ data }: any) => {
         thumnail={featuredImage?.node.mediaItemUrl}
       />
       <PostTemplate imgSrc={featuredImage?.node.mediaItemUrl} header={header}>
-        {series && <SeriesList data={{ query: series, currentPostId: id }} />}
+        {series && <SerieList data={{ query: series, currentPostId: id }} />}
         <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
       </PostTemplate>
