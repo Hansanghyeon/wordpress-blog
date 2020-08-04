@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const wpCategory = await graphql(`
     query GET_NODE_WP_CATEGORIES {
       wpgql {
-        categories(where: { hideEmpty: true }, first: 9999) {
+        categories(where: { hideEmpty: true, exclude: "8" }, first: 9999) {
           edges {
             node {
               id
