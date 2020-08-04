@@ -59,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   wpPost.data.wpgql.posts.edges.forEach(({ node }) => {
     createPage({
-      path: node.slug,
+      path: 'post/' + node.slug,
       component: path.resolve(
         __dirname,
         'src/views/components/templates/post/Wp/index.tsx',

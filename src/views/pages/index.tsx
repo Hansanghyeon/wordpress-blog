@@ -57,7 +57,7 @@ const BuildDitto = ({ post, isGrid }: BuildDittoProps) => {
       date: node.date,
       footer: () => <CategoryList data={categories} />,
       title: () => (
-        <Link direction="left" to={`/${slug}`}>
+        <Link direction="left" to={`/post/${slug}`}>
           {title}
         </Link>
       ),
