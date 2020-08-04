@@ -16,7 +16,6 @@ export const SideBar = styled.div<SideBar>`
   width: 200px;
   height: 100%;
   padding: ${rhythm(1)};
-  font-family: 'Fira Code';
   position: fixed;
   top: 0;
   transform: translateX(${({ isActive }) => (isActive ? 0 : '-100%')});

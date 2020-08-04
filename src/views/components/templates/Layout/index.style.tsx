@@ -8,8 +8,8 @@ import {
 } from '@organism/MSB/index.style';
 
 export const MainWrapper = styled.div<SidebarStatueType>`
-  ${SidebarStatueStyle.def};
-  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.open};
+  ${SidebarStatueStyle.Def};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
 
   ${media.md`
     margin-left: 200px;
