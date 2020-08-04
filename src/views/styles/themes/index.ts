@@ -10,14 +10,14 @@ interface Colors {
   grayscales: Grayscales;
 }
 
-interface DarkColors extends Colors {}
+// interface DarkColors extends Colors {}
 interface StyleSystem {
   color: Colors;
 }
 
-interface DarkStyleSystem extends StyleSystem {
-  color: DarkColors;
-}
+// interface DarkStyleSystem extends StyleSystem {
+//   color: DarkColors;
+// }
 
 const DefaultTheme: StyleSystem = {
   color: {
@@ -31,7 +31,7 @@ const DefaultTheme: StyleSystem = {
   },
 };
 
-export const DarkTheme: DarkStyleSystem = {
+export const DarkTheme: StyleSystem = {
   color: {
     ...DefaultTheme.color,
     primary: '#fff46a',
