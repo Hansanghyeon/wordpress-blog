@@ -3,11 +3,12 @@ import React, { useRef } from 'react';
 import { Logo } from '@atom/Logo';
 import { MenuStateType } from '@store/rootStore';
 import useOutsideAlerter from '@utile/useOutsideAlerter';
+// Style
+import { SideBar, LogoLayout, Main, Row, Col } from './index.style';
 // Containers
 import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';
-// Style
-import { SideBar, LogoLayout, Main, Row, Col } from './index.style';
+import StaticAllPageList from '#/StaticAllPageList';
 
 interface props extends MenuStateType {
   inFunction: any;
@@ -27,6 +28,15 @@ const MSB: React.FC<props> = ({ isActive, inFunction }: props) => {
           </Col.Def>
         </Row.Menu>
         <Row.Def>
+          <Col.Def col>
+            <div>Page</div>
+            <StaticAllPageList />
+          </Col.Def>
+        </Row.Def>
+        <Row.Def>
+          <Col.Def col>
+            <div>Category</div>
+          </Col.Def>
           <Col.Def col>
             <PostTypeAllCat />
           </Col.Def>

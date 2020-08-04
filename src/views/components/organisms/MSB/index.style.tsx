@@ -67,7 +67,9 @@ export const LogoLayout = styled.div`
 `;
 
 export const Row = {
-  Def: styled(_Row)``,
+  Def: styled(_Row)`
+    margin-bottom: ${rhythm(1 / 2)};
+  `,
   Menu: styled(_Row)`
     ${media.md`
       margin-bottom: ${rhythm(1)};
