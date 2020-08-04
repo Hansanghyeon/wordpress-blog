@@ -1,34 +1,19 @@
-/* eslint-disable react/no-danger */
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
-
-// import Bio from '@src/components/bio';
+// components
 import SEO from '@view/components/seo';
-import { rhythm } from '@style/typography';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
 import CategoryList from '@molecule/list/Category';
 import Ditto from '@molecule/Ditto';
 import Link from '@atom/Link';
 import GridAndListToggle from '@atom/toggle/GridAndList';
-
-const StyledContainer = styled(Container)`
-  padding-top: ${rhythm(1)};
-  padding-bottom: ${rhythm(1)};
-`;
-const StyledGALTwrap = styled.div`
-  margin-left: 1rem;
-`;
-
-const DittoWrap = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const DepthDittoWrap = styled(DittoWrap)<{ isGrid: boolean }>`
-  width: auto;
-  ${({ isGrid }) => isGrid && `display: block;`}
-`;
+import {
+  Container,
+  Row,
+  Col,
+  GridAndListToggleWrap,
+  DittoWrap,
+  DepthDittoWrap,
+} from './page.style';
 
 type postNode = {
   node: {
@@ -115,16 +100,16 @@ const IndexPage = ({ data }: any) => {
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
-      <StyledContainer>
-        <Row>
-          <Col col>
-            <StyledGALTwrap>
+      <Container.Home>
+        <Row.Def>
+          <Col.Def col>
+            <GridAndListToggleWrap>
               <GridAndListToggle onClick={_handleClick} />
-            </StyledGALTwrap>
-          </Col>
-        </Row>
-        <Row>
-          <Col col>
+            </GridAndListToggleWrap>
+          </Col.Def>
+        </Row.Def>
+        <Row.Def>
+          <Col.Def col>
             <DittoWrap>
               {posts2wrap.map((post: any) => {
                 if (Array.isArray(post)) {
@@ -139,9 +124,9 @@ const IndexPage = ({ data }: any) => {
                 return <BuildDitto post={post} isGrid={isGrid} />;
               })}
             </DittoWrap>
-          </Col>
-        </Row>
-      </StyledContainer>
+          </Col.Def>
+        </Row.Def>
+      </Container.Home>
     </>
   );
 };
