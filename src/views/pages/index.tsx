@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 // components
@@ -111,17 +112,25 @@ const IndexPage = ({ data }: any) => {
         <Row.Def>
           <Col.Def col>
             <DittoWrap>
-              {posts2wrap.map((post: any) => {
+              {posts2wrap.map((post: any, index: number) => {
                 if (Array.isArray(post)) {
                   return (
-                    <DepthDittoWrap isGrid={isGrid}>
+                    <DepthDittoWrap isGrid={isGrid} key={`d-${index}`}>
                       {post.map((postData) => {
-                        return <BuildDitto post={postData} isGrid={isGrid} />;
+                        return (
+                          <BuildDitto
+                            post={postData}
+                            isGrid={isGrid}
+                            key={postData.node.id}
+                          />
+                        );
                       })}
                     </DepthDittoWrap>
                   );
                 }
-                return <BuildDitto post={post} isGrid={isGrid} />;
+                return (
+                  <BuildDitto post={post} isGrid={isGrid} key={`d-${index}`} />
+                );
               })}
             </DittoWrap>
           </Col.Def>
