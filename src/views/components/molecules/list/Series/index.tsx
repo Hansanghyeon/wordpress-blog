@@ -69,7 +69,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
             }
             return (
               <Li key={`${currentPostId}-${node.id}`}>
-                <Link to={`/${node.slug}`}>{node.title}</Link>
+                <Link to={`/post/${node.slug}`}>{node.title}</Link>
               </Li>
             );
           })}
@@ -82,7 +82,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
         </MoreBtn>
         <Controller>
           {prevNextPost.prev ? (
-            <Link to={`/${prevNextPost.prev.node.slug}`}>
+            <Link to={`/post/${prevNextPost.prev.node.slug}`}>
               <ArrowBtn type="button">
                 <FontAwesomeIcon icon={faChevronLeft} />
               </ArrowBtn>
@@ -93,7 +93,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
             </ArrowBtn>
           )}
           {prevNextPost.next ? (
-            <Link to={`/${prevNextPost.next.node.slug}`} direction="left">
+            <Link to={`/post/${prevNextPost.next.node.slug}`} direction="left">
               <ArrowBtn type="button">
                 <FontAwesomeIcon icon={faChevronRight} />
               </ArrowBtn>
