@@ -1,34 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
-import { rhythm } from '@style/typography';
-
+// components
 import Link from '@atom/Link';
-
-const Footer = styled(Container)`
-  padding-top: ${rhythm(1)};
-  padding-bottom: ${rhythm(1)};
-  font-size: 0.8rem;
-  background-color: ${({ theme }) => theme.color.bg[0]};
-  color: ${({ theme }) => theme.color.text[0]};
-`;
-
-const CopyrightCol = styled(Col)`
-  text-align: center;
-`;
+import { Container, Row, Col } from './index.style';
 
 const FNB = () => (
-  <Footer fluid>
-    <Container>
-      <Row>
-        <CopyrightCol col>
+  <Container.Footer fluid>
+    <Container.Def>
+      <Row.Def>
+        <Col.Copyright col>
           <Link href="https://github.com/Hansanghyeon/4log/blob/master/LICENSE">
             Copyright (c) 2019-2020 999hyeon
           </Link>
-        </CopyrightCol>
-      </Row>
-    </Container>
-  </Footer>
+        </Col.Copyright>
+      </Row.Def>
+    </Container.Def>
+  </Container.Footer>
 );
 
 export default FNB;
