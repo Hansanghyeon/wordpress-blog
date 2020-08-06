@@ -8,9 +8,17 @@ export interface MenuStateType {
 export interface ThemeStateType {
   isDark?: () => boolean;
 }
+
+enum FnbType {
+  default,
+}
+export interface LayoutComponentType {
+  fnbType: FnbType;
+}
 interface InitialStateType {
   themeState: ThemeStateType;
   menuState: MenuStateType;
+  layoutComponent: LayoutComponentType;
 }
 const initialState: InitialStateType = {
   themeState: {
@@ -24,6 +32,9 @@ const initialState: InitialStateType = {
   },
   menuState: {
     isActive: false,
+  },
+  layoutComponent: {
+    fnbType: FnbType.default,
   },
 };
 
