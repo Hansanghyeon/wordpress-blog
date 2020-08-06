@@ -29,7 +29,7 @@ const Layout: React.FC<props> = ({
   const {
     state: { path },
   } = location;
-  renderToFunction(path);
+  renderToFunction(window !== undefined ? path : '');
   return (
     <>
       <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>
