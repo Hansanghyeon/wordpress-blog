@@ -9,8 +9,9 @@ const StaticAllPageList = () => (
         allSitePage(filter: { componentPath: { regex: "/src/views/pages/" } }) {
           edges {
             node {
+              path
               id
-              componentPath
+              internalComponentName
             }
           }
         }
