@@ -15,7 +15,7 @@ import MSB from '#/MSB';
 interface props extends MenuStateType, LayoutComponentType {
   children: React.ReactNode;
   isDark?: boolean;
-  location: { state: { path: string } };
+  location: { pathname: string };
   renderToFunction: any;
 }
 const Layout: React.FC<props> = ({
@@ -26,10 +26,8 @@ const Layout: React.FC<props> = ({
   location,
   renderToFunction,
 }: props) => {
-  const {
-    state: { path },
-  } = location;
-  renderToFunction(window !== undefined ? path : '');
+  const { pathname } = location;
+  renderToFunction(pathname);
   return (
     <>
       <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>

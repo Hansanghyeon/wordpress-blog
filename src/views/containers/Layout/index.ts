@@ -13,7 +13,7 @@ const mapReduxDispatchToReactProps = (dispatch: any) => {
   return {
     renderToFunction: (path: string) => {
       switch (path) {
-        case 'Project':
+        case '/project/':
           dispatch({ type: 'PROJECT_PAGE' });
           break;
         default:
