@@ -9,6 +9,24 @@ const mapReduxStateToReactProps = ({
   return { ...themeState, ...menuState, ...layoutComponent };
 };
 
-const connector = connect(mapReduxStateToReactProps);
+const mapReduxDispatchToReactProps = (dispatch: any) => {
+  return {
+    renderToFunction: (path: string) => {
+      switch (path) {
+        case 'Project':
+          dispatch({ type: 'PROJECT_PAGE' });
+          break;
+        default:
+          dispatch({ type: 'OUT_PROJECT_PAGE' });
+          break;
+      }
+    },
+  };
+};
+
+const connector = connect(
+  mapReduxStateToReactProps,
+  mapReduxDispatchToReactProps,
+);
 
 export default connector(Layout);

@@ -15,18 +15,21 @@ import MSB from '#/MSB';
 interface props extends MenuStateType, LayoutComponentType {
   children: React.ReactNode;
   isDark?: boolean;
+  location: { state: { path: string } };
+  renderToFunction: any;
 }
 const Layout: React.FC<props> = ({
   children,
   isDark,
   isActive,
   fnbType,
+  location,
+  renderToFunction,
 }: props) => {
-  let RenderFNB;
-  switch (fnbType) {
-    default:
-      RenderFNB = () => <FNB />;
-  }
+  const {
+    state: { path },
+  } = location;
+  renderToFunction(path);
   return (
     <>
       <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>
@@ -39,7 +42,7 @@ const Layout: React.FC<props> = ({
               <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
                 {children}
               </Main>
-              <RenderFNB />
+              <FNB fnbType={fnbType} />
             </MainWrapper>
           </>
         </GridThemeProvider>

@@ -9,8 +9,9 @@ export interface ThemeStateType {
   isDark?: () => boolean;
 }
 
-enum FnbType {
+export enum FnbType {
   default,
+  hidden,
 }
 export interface LayoutComponentType {
   fnbType: FnbType;
