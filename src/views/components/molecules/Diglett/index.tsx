@@ -1,33 +1,24 @@
 import React, { useState, useEffect } from 'react';
 // component
+import { FnbType } from '@store/rootStore';
 import { DiglettRoot, MoveWrap } from './index.style';
-
-type props = {
-  type: string;
-};
-const RenderComponent = ({ type }: props) => {
-  switch (type) {
-    case 'Demo2':
-      return <div />;
-    case 'Demo3':
-      return <div />;
-    default:
-      return <div />;
-  }
-};
 
 const variansts = {
   show: { translateY: 0 },
   hidden: { translateY: '100%' },
   toggle: {
-    translateY: [0, 0, '100%', '100%', 0, 0],
-    borderTopLeftRadius: [0, '20%', '20%', '20%', '20%', 0],
-    borderTopRightRadius: [0, '20%', '20%', '20%', '20%', 0],
+    translateY: [0, 0, 0, '100%', '100%', 0, 0],
+    borderTopLeftRadius: [0, 0, '20%', '20%', '20%', '20%', 0],
+    borderTopRightRadius: [0, 0, '20%', '20%', '20%', '20%', 0],
   },
 };
 
-const Diglett: React.FC<props> = ({ type }: props) => {
-  const [delayedType, setDelayedType] = useState('');
+type props = {
+  type: FnbType;
+  RenderComponent: ({ type }: { type: FnbType }) => JSX.Element;
+};
+const Diglett: React.FC<props> = ({ type, RenderComponent }: props) => {
+  const [delayedType, setDelayedType] = useState(FnbType.default);
   useEffect(() => {
     const timeout = setTimeout(() => setDelayedType(type), 400);
     return () => clearTimeout(timeout);
@@ -36,11 +27,11 @@ const Diglett: React.FC<props> = ({ type }: props) => {
     <DiglettRoot>
       <MoveWrap
         key={type}
-        animate={type === 'hidden' ? type : 'toggle'}
+        animate={type === FnbType.hidden ? 'hidden' : 'toggle'}
         variants={variansts}
         transition={{
-          duration: 1.5,
-          times: [0, 0.2, 0.3, 0.7, 0.8, 1],
+          duration: 2.5,
+          times: [0, 0.4, 0.52, 0.58, 0.82, 0.88, 1],
           ease: 'easeInOut',
           repeatDelay: 1,
         }}
