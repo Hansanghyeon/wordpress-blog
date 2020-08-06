@@ -11,7 +11,7 @@ import PostTypeAllCat from '#/PostTypeAllCat';
 import StaticAllPageList from '#/StaticAllPageList';
 
 interface props extends MenuStateType {
-  inFunction: any;
+  inFunction?: any;
 }
 const MSB: React.FC<props> = ({ isActive, inFunction }: props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
