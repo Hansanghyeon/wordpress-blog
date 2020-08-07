@@ -16,6 +16,9 @@ const mapReduxDispatchToReactProps = (dispatch: any) => {
         case '/project/':
           dispatch({ type: 'PROJECT_PAGE' });
           break;
+        case '/project':
+          dispatch({ type: 'PROJECT_PAGE' });
+          break;
         default:
           dispatch({ type: 'OUT_PROJECT_PAGE' });
           break;

@@ -13,6 +13,9 @@ export const Container = {
     padding-top: ${rhythm(1)};
     padding-bottom: ${rhythm(1)};
   `,
+  Project: styled(_Container)`
+    height: 100%;
+  `,
 };
 
 export const Row = {

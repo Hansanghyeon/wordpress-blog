@@ -1,6 +1,6 @@
 import React from 'react';
 // Component
-import { ThemeStateType } from '@store/rootStore';
+import { ThemeStateType } from '@store/Theme';
 import { Wrap, Col, Row, Emoji } from './index.style';
 
 // NOTE

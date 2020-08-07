@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 // Components
 import { Logo } from '@atom/Logo';
-import { MenuStateType } from '@store/rootStore';
+import { MenuStateType } from '@store/Menu';
 import useOutsideAlerter from '@utile/useOutsideAlerter';
 // Style
 import { SideBar, LogoLayout, Main, Row, Col } from './index.style';

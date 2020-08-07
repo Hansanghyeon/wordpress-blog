@@ -1,6 +1,6 @@
 import React from 'react';
 // etc
-import { MenuStateType } from '@store/rootStore';
+import { MenuStateType } from '@store/Menu';
 // Components
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';

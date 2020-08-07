@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // component
-import { FnbType } from '@store/rootStore';
+import { FnbType } from '@store/Layout/index.type';
 import { DiglettRoot, MoveWrap } from './index.style';
 
 const variansts = {

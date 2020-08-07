@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 // store
-import { MenuStateType, LayoutComponentType } from '@store/rootStore';
+import { LayoutComponentType } from '@store/Layout';
+import { MenuStateType } from '@store/Menu';
 // Component
 import Grid from '@style/Grid';
 import FNB from '@organism/FNB';
@@ -26,8 +27,10 @@ const Layout: React.FC<props> = ({
   location,
   renderToFunction,
 }: props) => {
-  const { pathname } = location;
-  renderToFunction(pathname);
+  useEffect(() => {
+    const { pathname } = location;
+    renderToFunction(pathname);
+  });
   return (
     <>
       <ThemeProvider theme={isDark ? DarkTheme : DefaultTheme}>

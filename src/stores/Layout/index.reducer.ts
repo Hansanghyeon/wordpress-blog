@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-cycle
-import { FnbType } from '../rootStore';
+import { FnbType } from './index.type';
 
 const PROJECT_PAGE = 'PROJECT_PAGE';
 const OUT_PROJECT_PAGE = 'OUT_PROJECT_PAGE';
