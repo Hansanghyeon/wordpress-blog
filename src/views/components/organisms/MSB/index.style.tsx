@@ -11,7 +11,25 @@ import { rhythm } from '@style/typography';
 
 type SideBar = {
   isActive?: boolean;
+  type: string;
 };
+
+const DefaultSideBar = css`
+  ${media.md`
+    transform: unset;
+  `};
+  ${media.xxl`
+    transform: unset;
+  `};
+`;
+const mdHiddenSideBar = css`
+  ${media.md`
+    transform: translateX(-100%);
+  `};
+  ${media.xxl`
+    transform: translateX(-100%);
+  `};
+`;
 export const SideBar = styled.div<SideBar>`
   width: 200px;
   height: 100%;
@@ -28,12 +46,8 @@ export const SideBar = styled.div<SideBar>`
     height: 100%;
     background-color: transparent;
     padding: 0 ${rhythm(1)};
-    transform: unset;
   `};
-
-  ${media.xxl`
-    transform: unset;
-  `};
+  ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)};
 
   .cat-text {
     font-size: 14px;

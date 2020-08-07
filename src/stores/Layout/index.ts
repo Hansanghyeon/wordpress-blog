@@ -1,6 +1,5 @@
 import layoutReducer from './index.reducer';
 import layoutState from './index.state';
-import { FnbType } from './index.type';
 
 const Layout = {
   reducer: layoutReducer,
@@ -8,6 +7,7 @@ const Layout = {
 };
 
 export interface LayoutComponentType {
-  fnbType: FnbType;
+  fnbType: string;
+  msbType: string;
 }
 export default Layout;

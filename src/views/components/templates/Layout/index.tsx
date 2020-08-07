@@ -24,6 +24,7 @@ const Layout: React.FC<props> = ({
   isDark,
   isActive,
   fnbType,
+  msbType,
   location,
   renderToFunction,
 }: props) => {
@@ -38,12 +39,12 @@ const Layout: React.FC<props> = ({
         <GridThemeProvider gridTheme={Grid}>
           <>
             <GNB />
-            <MSB />
+            <MSB type={msbType} />
             <MainWrapper sidebarOpen={isActive}>
               <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
                 {children}
               </Main>
-              <FNB fnbType={fnbType} />
+              <FNB type={fnbType} />
             </MainWrapper>
           </>
         </GridThemeProvider>

@@ -12,12 +12,13 @@ import StaticAllPageList from '#/StaticAllPageList';
 
 interface props extends MenuStateType {
   inFunction?: any;
+  type: string;
 }
-const MSB: React.FC<props> = ({ isActive, inFunction }: props) => {
+const MSB: React.FC<props> = ({ isActive, inFunction, type }: props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   useOutsideAlerter({ ref: isActive && wrapperRef, inFunction });
   return (
-    <SideBar ref={wrapperRef} isActive={isActive}>
+    <SideBar ref={wrapperRef} isActive={isActive} type={type}>
       <LogoLayout>
         <Logo />
       </LogoLayout>

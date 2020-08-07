@@ -1,13 +1,11 @@
-import { FnbType } from './index.type';
-
 const PROJECT_PAGE = 'PROJECT_PAGE';
 const OUT_PROJECT_PAGE = 'OUT_PROJECT_PAGE';
 const layoutReducer = (state: any, action: any) => {
   switch (action.type) {
     case OUT_PROJECT_PAGE:
-      return { ...state, fnbType: FnbType.default };
+      return { ...state, fnbType: 'default', msbType: 'default' };
     case PROJECT_PAGE:
-      return { ...state, fnbType: FnbType.hidden };
+      return { ...state, fnbType: 'hidden', msbType: 'hidden' };
     default:
       return { ...state };
   }

@@ -1,8 +1,7 @@
-import { FnbType } from './index.type';
-
 const layoutState = {
   layoutComponent: {
-    fnbType: FnbType.default,
+    fnbType: 'default',
+    msbType: 'default',
   },
 };
 
