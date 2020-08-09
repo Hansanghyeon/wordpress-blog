@@ -40,7 +40,7 @@ const Layout: React.FC<props> = ({
           <>
             <GNB />
             <MSB type={msbType} />
-            <MainWrapper sidebarOpen={isActive}>
+            <MainWrapper msbType={msbType} sidebarOpen={isActive}>
               <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
                 {children}
               </Main>

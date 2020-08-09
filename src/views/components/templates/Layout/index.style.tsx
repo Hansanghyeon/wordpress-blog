@@ -7,13 +7,19 @@ import {
   SidebarStatueStyle,
 } from '@organism/MSB/index.style';
 
-export const MainWrapper = styled.div<SidebarStatueType>`
-  ${SidebarStatueStyle.Def};
-  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
-
+interface MainWrapperType extends SidebarStatueType {
+  msbType: string;
+}
+const DefaultMainWrapper = css`
   ${media.md`
     margin-left: 200px;
   `};
+`;
+export const MainWrapper = styled.div<MainWrapperType>`
+  ${SidebarStatueStyle.Def};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
+
+  ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
   ${media.xxl`
     margin-left: auto;
   `};
