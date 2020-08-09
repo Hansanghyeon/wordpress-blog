@@ -51,7 +51,7 @@
     "gatsby-plugin-typography": "^2.5.4",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.13",
-    "gatsby-source-graphql": "^2.6.1",
+    "gatsby-source-graphql": "^2.7.0",
     "gatsby-transformer-sharp": "^2.5.7",
     "gsap": "^3.4.0",
     "html-react-parser": "^0.13.0",
