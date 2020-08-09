@@ -4,7 +4,7 @@ import { DiglettRoot, MoveWrap } from './index.style';
 
 const bottom_variansts = {
   show: { translateY: 0 },
-  hidden: { translateY: '100%' },
+  hidden: { translateY: '100%', height: 0 },
   toggle: {
     translateY: [0, 0, 0, '100%', '100%', 0, 0],
     borderTopLeftRadius: [0, 0, '30px', '30px', '30px', '30px', 0],
