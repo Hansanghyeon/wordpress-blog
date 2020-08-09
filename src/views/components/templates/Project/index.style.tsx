@@ -22,3 +22,15 @@ export const Row = {
 export const Col = {
   Def: styled(_Col)``,
 };
+
+export const ProjectItem = {
+  Wrap: styled.div`
+    display: flex;
+  `,
+  Content: styled.div`
+    width: 50%;
+  `,
+  Video: styled.div`
+    width: 50%;
+  `,
+};
