@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-
+// import { navigate } from '@reach/router';
+// Components
 // import Bio from '@src/components/bio';
 import SEO from '@view/components/seo';
 import { rhythm } from '@style/typography';
@@ -112,6 +113,7 @@ const IndexPage = ({ data }: any) => {
     setIsGrid(!isGrid);
   };
   const posts2wrap = posts.edges.reduce(depthReducer, []);
+  const pagination = new Array(Math.ceil(posts.edges.length / 8));
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
@@ -127,6 +129,7 @@ const IndexPage = ({ data }: any) => {
           <Col col>
             <DittoWrap>
               {posts2wrap.map((post: any) => {
+                // if (i > 4) return <></>;
                 if (Array.isArray(post)) {
                   return (
                     <DepthDittoWrap isGrid={isGrid}>
@@ -138,6 +141,7 @@ const IndexPage = ({ data }: any) => {
                 }
                 return <BuildDitto post={post} isGrid={isGrid} />;
               })}
+              {pagination.length}
             </DittoWrap>
           </Col>
         </Row>
