@@ -13,7 +13,7 @@ interface ContentReactMemoType {
   wpData: Array<string>;
 }
 const ContentMemo = React.memo(({ wpData }: ContentReactMemoType): any => {
-  return wpData.map((block: string) => parse(block, options));
+  return wpData.map((block: string) => parse(block, options(block)));
 });
 
 const WpPostLayout = ({ data }: any) => {
