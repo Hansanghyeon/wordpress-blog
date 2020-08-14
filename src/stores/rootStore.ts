@@ -1,30 +1,20 @@
 import { createStore as reduxCreateStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+// store
 import rootReducers from '@store/rootReducers';
+import Theme, { ThemeStateType } from '@store/Theme';
+import Layout, { LayoutComponentType } from '@store/Layout';
+import Menu, { MenuStateType } from '@store/Menu';
 
-export interface MenuStateType {
-  isActive?: boolean;
-}
-export interface ThemeStateType {
-  isDark?: () => boolean;
-}
-interface InitialStateType {
+type InitialStateType = {
   themeState: ThemeStateType;
   menuState: MenuStateType;
-}
+  layoutComponent: LayoutComponentType;
+};
 const initialState: InitialStateType = {
-  themeState: {
-    isDark: () => {
-      const result = !!(
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      );
-      return window !== undefined ? result : false;
-    },
-  },
-  menuState: {
-    isActive: false,
-  },
+  ...Theme.initialState,
+  ...Menu.initialState,
+  ...Layout.initialState,
 };
 
 const createStore = () =>

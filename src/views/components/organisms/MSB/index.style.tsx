@@ -11,12 +11,29 @@ import { rhythm } from '@style/typography';
 
 type SideBar = {
   isActive?: boolean;
+  type: string;
 };
+
+const DefaultSideBar = css`
+  ${media.md`
+    transform: unset;
+  `};
+  ${media.xxl`
+    transform: unset;
+  `};
+`;
+const mdHiddenSideBar = css`
+  ${media.md`
+    transform: translateX(-100%);
+  `};
+  ${media.xxl`
+    transform: translateX(-100%);
+  `};
+`;
 export const SideBar = styled.div<SideBar>`
   width: 200px;
   height: 100%;
   padding: ${rhythm(1)};
-  font-family: 'Fira Code';
   position: fixed;
   top: 0;
   transform: translateX(${({ isActive }) => (isActive ? 0 : '-100%')});
@@ -29,12 +46,8 @@ export const SideBar = styled.div<SideBar>`
     height: 100%;
     background-color: transparent;
     padding: 0 ${rhythm(1)};
-    transform: unset;
   `};
-
-  ${media.xxl`
-    transform: unset;
-  `};
+  ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)};
 
   .cat-text {
     font-size: 14px;
@@ -68,7 +81,9 @@ export const LogoLayout = styled.div`
 `;
 
 export const Row = {
-  Def: styled(_Row)``,
+  Def: styled(_Row)`
+    margin-bottom: ${rhythm(1 / 2)};
+  `,
   Menu: styled(_Row)`
     ${media.md`
       margin-bottom: ${rhythm(1)};
