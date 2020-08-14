@@ -3,6 +3,13 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.11.0] - 2020-08-14
+
+### Changed
+
+- project 임시 페이지 완료 더이상 아이디어가 없어서 진행하지 못함
+- Redux 레이아웃 타입 추가
+
 ## [1.10.2] - 2020-07-05
 
 ### Fixed
