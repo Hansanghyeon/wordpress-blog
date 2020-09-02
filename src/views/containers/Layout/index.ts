@@ -12,12 +12,9 @@ const mapReduxStateToReactProps = ({
 const mapReduxDispatchToReactProps = (dispatch: any) => {
   return {
     renderToFunction: (path: string) => {
-      switch (path) {
-        case '/project/':
-          dispatch({ type: 'PROJECT_PAGE' });
-          break;
-        case '/project':
-          dispatch({ type: 'PROJECT_PAGE' });
+      switch (true) {
+        case /\/project/g.test(path):
+          dispatch({ type: 'FNB_AND_MSB_HIDDEN' });
           break;
         default:
           dispatch({ type: 'OUT_PROJECT_PAGE' });
