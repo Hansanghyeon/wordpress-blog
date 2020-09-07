@@ -1,11 +1,11 @@
-version: "3.1"
+version: "3.7"
 
 services:
   wordpress:
-    image: wordpress
+    image: wordpress:latest
     restart: always
     ports:
-      - 32772:80
+      - 32775:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wp

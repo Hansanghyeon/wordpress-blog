@@ -1,0 +1,5 @@
+.only-admin {
+}
+.only-admin ._label {
+  color: var(--textColor);
+}

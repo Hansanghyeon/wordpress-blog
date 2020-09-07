@@ -1,10 +1,22 @@
 /*
-Theme Name:     ChildTheme
+Theme Name:     CMS Hapas
 Author:         Hansanghyeon
-Author URI:     https://4log.hapas.io
-Description:    Wordpress Child theme template
-Template:       twentytwelve
+Author URI:     https://github.com/Hansanghyeon
+Description:    Empty Wordpress Headless CMS – 999hyeon
+Template:       twentysixteen
 Version:        0.0.1
 */
 
-@import url("../twentytwelve/style.css");
+html {
+  height: calc(100% - 34px);
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  height: 100%;
+  overflow-y: scroll;
+}
+#wp-admin-bar-wp-logo,
+#wp-admin-bar-comments {
+  display: none;
+}
