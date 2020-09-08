@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import {
   Container as _Container,
@@ -7,24 +8,26 @@ import {
 //
 import { rhythm } from '@style/typography';
 
-export const Container = {
-  Def: styled(_Container)``,
-  Home: styled(_Container)`
-    padding-top: ${rhythm(1)};
-    padding-bottom: ${rhythm(1)};
-  `,
-  Project: styled(_Container)`
-    height: 100%;
-  `,
-};
+const ContainerStyled = styled(_Container)``;
+const Container = (props: any) => (
+  <ContainerStyled {...props}>{props?.children}</ContainerStyled>
+);
+Container.Home = styled(_Container)`
+  padding-top: ${rhythm(1)};
+  padding-bottom: ${rhythm(1)};
+`;
+Container.Project = styled(_Container)`
+  height: 100%;
+`;
+export { Container };
 
-export const Row = {
-  Def: styled(_Row)``,
-};
+const RowStyled = styled(_Row)``;
+const Row = (props: any) => <RowStyled {...props}>{props?.children}</RowStyled>;
+export { Row };
 
-export const Col = {
-  Def: styled(_Col)``,
-};
+const ColStyled = styled(_Col)``;
+const Col = (props: any) => <ColStyled {...props}>{props?.children}</ColStyled>;
+export { Col };
 
 export const GridAndListToggleWrap = styled.div`
   margin-left: 1rem;
