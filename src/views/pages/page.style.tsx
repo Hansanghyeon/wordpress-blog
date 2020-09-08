@@ -12,17 +12,16 @@ const ContainerStyled = styled(_Container)``;
 const Container = (props: any) => (
   <ContainerStyled {...props}>{props?.children}</ContainerStyled>
 );
-Container.Home = styled(_Container)`
-  padding-top: ${rhythm(1)};
-  padding-bottom: ${rhythm(1)};
-`;
-Container.Project = styled(_Container)`
-  height: 100%;
-`;
 export { Container };
 
 const RowStyled = styled(_Row)``;
 const Row = (props: any) => <RowStyled {...props}>{props?.children}</RowStyled>;
+Row.Header = styled.div`
+  padding-top: ${rhythm(1)};
+`;
+Row.Footer = styled.div`
+  padding-bottom: ${rhythm(1)};
+`;
 export { Row };
 
 const ColStyled = styled(_Col)``;

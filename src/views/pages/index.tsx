@@ -101,7 +101,8 @@ const IndexPage = ({ data }: any) => {
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
-      <Container.Home>
+      <Container>
+        <Row.Header />
         <Row>
           <Col col>
             <GridAndListToggleWrap>
@@ -135,7 +136,8 @@ const IndexPage = ({ data }: any) => {
             </DittoWrap>
           </Col>
         </Row>
-      </Container.Home>
+        <Row.Footer />
+      </Container>
     </>
   );
 };
