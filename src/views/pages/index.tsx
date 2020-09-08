@@ -102,15 +102,15 @@ const IndexPage = ({ data }: any) => {
     <>
       <SEO title="매일매일 1%씩 성장하기" />
       <Container.Home>
-        <Row.Def>
-          <Col.Def col>
+        <Row>
+          <Col col>
             <GridAndListToggleWrap>
               <GridAndListToggle onClick={_handleClick} />
             </GridAndListToggleWrap>
-          </Col.Def>
-        </Row.Def>
-        <Row.Def>
-          <Col.Def col>
+          </Col>
+        </Row>
+        <Row>
+          <Col col>
             <DittoWrap>
               {posts2wrap.map((post: any, index: number) => {
                 if (Array.isArray(post)) {
@@ -133,8 +133,8 @@ const IndexPage = ({ data }: any) => {
                 );
               })}
             </DittoWrap>
-          </Col.Def>
-        </Row.Def>
+          </Col>
+        </Row>
       </Container.Home>
     </>
   );
