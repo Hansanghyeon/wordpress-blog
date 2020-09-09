@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  exclude: ['*.js'],
   extends: [
     'plugin:react/recommended',
     'airbnb-typescript',
@@ -12,6 +13,7 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     Atomics: 'readonly',
