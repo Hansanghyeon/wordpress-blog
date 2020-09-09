@@ -7,16 +7,14 @@ const PostTypeAllCat = () => (
     query={graphql`
       query GET_CATEGOERIES {
         wpgql {
-          categories(
-            where: { hideEmpty: true, exclude: ["1", "8"] }
-            first: 9999
-          ) {
+          categories(where: { hideEmpty: true }, first: 9999) {
             edges {
               node {
-                _acf_taxonomy {
+                _acf_taxonomy_category_list {
                   icon {
                     mediaItemUrl
                   }
+                  categoryListVisible
                 }
                 name
                 slug
@@ -28,9 +26,19 @@ const PostTypeAllCat = () => (
         }
       }
     `}
-    render={(data) => {
-      const { categories } = data.wpgql;
-      return <CategoryList data={categories} />;
+    render={({
+      wpgql: {
+        categories: { edges },
+      },
+    }) => {
+      const data = {
+        edges: edges.filter(
+          ({ node }: any) =>
+            node.id !== 'Y2F0ZWdvcnk6MQ==' &&
+            node._acf_taxonomy_category_list.categoryListVisible,
+        ),
+      };
+      return <CategoryList data={data} />;
     }}
   />
 );

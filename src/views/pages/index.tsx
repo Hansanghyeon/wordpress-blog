@@ -34,7 +34,7 @@ type postNode = {
           name: string;
           slug: string;
           id: string;
-          _acf_taxonomy: {
+          _acf_taxonomy_category_list: {
             icon: {
               mediaItemUrl: string;
             };
@@ -91,13 +91,24 @@ const depthReducer = (
   return acc;
 };
 
+// TODO: 여러개의 카테고리를 가져도 활성화되게 변경 -> useCategoryMainVisible 만들기
+// 임시 방편
+// 현재는 한가지의 카테고리만 가진다고 확정함
+const visibleCategory = ({ node }: any) => {
+  const isVisible =
+    node.categories.edges[0].node._acf_taxonomy_category_main.mainVisible;
+  return isVisible;
+};
+
 const IndexPage = ({ data }: any) => {
   const [isGrid, setIsGrid] = useState(false);
   const { posts } = data.wpgql;
   const _handleClick = () => {
     setIsGrid(!isGrid);
   };
-  const posts2wrap = posts.edges.reduce(depthReducer, []);
+  const posts2wrap = posts.edges
+    .filter(visibleCategory)
+    .reduce(depthReducer, []);
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
@@ -145,7 +156,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     wpgql {
-      posts(where: { status: PUBLISH, categoryNotIn: [1, 12, 26] }, first: 99) {
+      posts(where: { status: PUBLISH }, first: 99) {
         edges {
           node {
             id
@@ -164,10 +175,14 @@ export const pageQuery = graphql`
                   name
                   slug
                   id
-                  _acf_taxonomy {
+                  _acf_taxonomy_category_list {
                     icon {
                       mediaItemUrl
                     }
+                    categoryListVisible
+                  }
+                  _acf_taxonomy_category_main {
+                    mainVisible
                   }
                 }
               }
