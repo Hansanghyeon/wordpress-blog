@@ -5,7 +5,6 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  exclude: ['*.js'],
   extends: [
     'plugin:react/recommended',
     'airbnb-typescript',
