@@ -34,7 +34,7 @@ type postNode = {
           name: string;
           slug: string;
           id: string;
-          _acf_taxonomy: {
+          _acf_taxonomy_category_list: {
             icon: {
               mediaItemUrl: string;
             };
@@ -145,7 +145,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     wpgql {
-      posts(where: { status: PUBLISH, categoryNotIn: [1, 12, 26] }, first: 99) {
+      posts(where: { status: PUBLISH }, first: 99) {
         edges {
           node {
             id
@@ -164,10 +164,11 @@ export const pageQuery = graphql`
                   name
                   slug
                   id
-                  _acf_taxonomy {
+                  _acf_taxonomy_category_list {
                     icon {
                       mediaItemUrl
                     }
+                    categoryListVisible
                   }
                 }
               }

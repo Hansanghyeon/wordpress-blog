@@ -23,7 +23,7 @@ const StyledContainer = styled(Container)`
 
 const Category = ({ data }: any) => {
   const { category } = data.wpgql;
-  const { mediaItemUrl } = category?._acf_taxonomy.icon;
+  const { mediaItemUrl } = category?._acf_taxonomy_category_list.icon;
   const { name, description } = category;
   const { posts } = category;
   return (
@@ -63,7 +63,7 @@ export const pageQuery = gql`
       category(id: $categoryId) {
         name
         description
-        _acf_taxonomy {
+        _acf_taxonomy_category_list {
           icon {
             mediaItemUrl
           }
