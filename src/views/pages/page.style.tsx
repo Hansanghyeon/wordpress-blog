@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import styled from 'styled-components';
 import {
@@ -14,13 +15,18 @@ const Container = (props: any) => (
 );
 export { Container };
 
-const RowStyled = styled(_Row)``;
-const Row = (props: any) => <RowStyled {...props}>{props?.children}</RowStyled>;
-Row.Header = styled.div`
-  padding-top: ${rhythm(1)};
+const RowStyled = styled(_Row)`
+  margin-bottom: ${rhythm(1)};
 `;
-Row.Footer = styled.div`
+const Row = (props: any) => <RowStyled {...props}>{props?.children}</RowStyled>;
+Row.Header = styled(_Row)`
+  padding-top: 80px;
+`;
+Row.Footer = styled(_Row)`
   padding-bottom: ${rhythm(1)};
+`;
+Row.Divider = styled.div`
+  margin-bottom: ${rhythm(3)};
 `;
 export { Row };
 
@@ -40,4 +46,10 @@ export const DittoWrap = styled.div`
 export const DepthDittoWrap = styled(DittoWrap)<{ isGrid: boolean }>`
   width: auto;
   ${({ isGrid }) => isGrid && `display: block;`}
+`;
+
+export const LogoWrap = styled.div`
+  max-width: 250px;
+  max-height: 250px;
+  margin-bottom: 40px;
 `;
