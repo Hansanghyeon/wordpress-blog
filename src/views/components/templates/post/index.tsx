@@ -26,12 +26,12 @@ type props = {
   };
 };
 
-const PostTemplate = ({ children, imgSrc, header }: props) => {
+const PostTemplate: React.FC<props> = ({ children, imgSrc, header }: props) => {
   const _Grid = {
     ...Grid,
     container: {
       maxWidth: {
-        xl: 960,
+        xl: 800,
       },
     },
   };

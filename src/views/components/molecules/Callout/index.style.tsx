@@ -3,7 +3,7 @@ import { darken, transparentize } from 'polished';
 import { Container, Row as _Row, Col as _Col } from 'styled-bootstrap-grid';
 //
 import { rhythm } from '@style/typography';
-import { ThemeStateType } from '@store/rootStore';
+import { ThemeStateType } from '@store/Theme';
 
 interface props extends ThemeStateType {
   bgColor: string;
@@ -39,5 +39,5 @@ export const Row = {
 };
 
 export const Emoji = styled.span`
-  transform: scale(1.4);
+  font-size: 1.4em;
 `;

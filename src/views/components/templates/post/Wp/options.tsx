@@ -8,11 +8,13 @@ import SeoPreviewCard from '#/SeoPreviewCard';
 import SyntaxHighlighter from '#/SyntaxHighlighter';
 
 // FIXME 리팩토링 할일 해당 코드를 더 간결하게 만들수있나 고민
-const options = {
-  replace: ({ name, children, attribs, parent }: any) => {
+const options = (block: string) => ({
+  replace: (domNode: any) => {
+    const { name, children, attribs, parent } = domNode;
+    const _block = block;
     if (!name) return;
     if (name === 'pre' && attribs.class === 'wp-block-code') {
-      return domToReact(children, options);
+      return domToReact(children, options(_block));
     }
     if (
       name === 'code' &&
@@ -28,7 +30,9 @@ const options = {
       };
       return (
         <SyntaxHighlighter {...SyntaxHighlighterProps}>
-          {domToReact(children)}
+          {block
+            .replace(/<pre.+>/, '')
+            .replace(/\n<\/code><\/pre>|<\/code><\/pre>/, '')}
         </SyntaxHighlighter>
       );
     }
@@ -36,7 +40,7 @@ const options = {
       switch (attribs.fc) {
         case 'callout':
           return (
-            <Callout data={{ bgColor: attribs.bg, icon: attribs.icon }}>
+            <Callout bgColor={attribs.bg} icon={attribs.icon}>
               {domToReact(children)}
             </Callout>
           );
@@ -53,7 +57,7 @@ const options = {
       return <DownloadButton>{domToReact(children)}</DownloadButton>;
     }
   },
-};
+});
 
 // HTML react parser options
 // const component: any = {

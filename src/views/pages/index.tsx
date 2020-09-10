@@ -1,34 +1,20 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
-
-// import Bio from '@src/components/bio';
+// components
 import SEO from '@view/components/seo';
-import { rhythm } from '@style/typography';
-import { Container, Row, Col } from 'styled-bootstrap-grid';
 import CategoryList from '@molecule/list/Category';
 import Ditto from '@molecule/Ditto';
 import Link from '@atom/Link';
 import GridAndListToggle from '@atom/toggle/GridAndList';
-
-const StyledContainer = styled(Container)`
-  padding-top: ${rhythm(1)};
-  padding-bottom: ${rhythm(1)};
-`;
-const StyledGALTwrap = styled.div`
-  margin-left: 1rem;
-`;
-
-const DittoWrap = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const DepthDittoWrap = styled(DittoWrap)<{ isGrid: boolean }>`
-  width: auto;
-  ${({ isGrid }) => isGrid && `display: block;`}
-`;
+import {
+  Container,
+  Row,
+  Col,
+  GridAndListToggleWrap,
+  DittoWrap,
+  DepthDittoWrap,
+} from './page.style';
 
 type postNode = {
   node: {
@@ -48,7 +34,7 @@ type postNode = {
           name: string;
           slug: string;
           id: string;
-          _acf_taxonomy: {
+          _acf_taxonomy_category_list: {
             icon: {
               mediaItemUrl: string;
             };
@@ -72,7 +58,7 @@ const BuildDitto = ({ post, isGrid }: BuildDittoProps) => {
       date: node.date,
       footer: () => <CategoryList data={categories} />,
       title: () => (
-        <Link direction="left" to={`/${slug}`}>
+        <Link direction="left" to={`/post/${slug}`}>
           {title}
         </Link>
       ),
@@ -105,43 +91,64 @@ const depthReducer = (
   return acc;
 };
 
+// TODO: 여러개의 카테고리를 가져도 활성화되게 변경 -> useCategoryMainVisible 만들기
+// 임시 방편
+// 현재는 한가지의 카테고리만 가진다고 확정함
+const visibleCategory = ({ node }: any) => {
+  const isVisible =
+    node.categories.edges[0].node._acf_taxonomy_category_main.mainVisible;
+  return isVisible;
+};
+
 const IndexPage = ({ data }: any) => {
   const [isGrid, setIsGrid] = useState(false);
   const { posts } = data.wpgql;
   const _handleClick = () => {
     setIsGrid(!isGrid);
   };
-  const posts2wrap = posts.edges.reduce(depthReducer, []);
+  const posts2wrap = posts.edges
+    .filter(visibleCategory)
+    .reduce(depthReducer, []);
   return (
     <>
       <SEO title="매일매일 1%씩 성장하기" />
-      <StyledContainer>
+      <Container>
+        <Row.Header />
         <Row>
           <Col col>
-            <StyledGALTwrap>
+            <GridAndListToggleWrap>
               <GridAndListToggle onClick={_handleClick} />
-            </StyledGALTwrap>
+            </GridAndListToggleWrap>
           </Col>
         </Row>
         <Row>
           <Col col>
             <DittoWrap>
-              {posts2wrap.map((post: any) => {
+              {posts2wrap.map((post: any, index: number) => {
                 if (Array.isArray(post)) {
                   return (
-                    <DepthDittoWrap isGrid={isGrid}>
+                    <DepthDittoWrap isGrid={isGrid} key={`d-${index}`}>
                       {post.map((postData) => {
-                        return <BuildDitto post={postData} isGrid={isGrid} />;
+                        return (
+                          <BuildDitto
+                            post={postData}
+                            isGrid={isGrid}
+                            key={postData.node.id}
+                          />
+                        );
                       })}
                     </DepthDittoWrap>
                   );
                 }
-                return <BuildDitto post={post} isGrid={isGrid} />;
+                return (
+                  <BuildDitto post={post} isGrid={isGrid} key={`d-${index}`} />
+                );
               })}
             </DittoWrap>
           </Col>
         </Row>
-      </StyledContainer>
+        <Row.Footer />
+      </Container>
     </>
   );
 };
@@ -151,7 +158,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     wpgql {
-      posts(where: { status: PUBLISH, categoryNotIn: [1, 12] }, first: 99) {
+      posts(where: { status: PUBLISH }, first: 99) {
         edges {
           node {
             id
@@ -170,10 +177,14 @@ export const pageQuery = graphql`
                   name
                   slug
                   id
-                  _acf_taxonomy {
+                  _acf_taxonomy_category_list {
                     icon {
                       mediaItemUrl
                     }
+                    categoryListVisible
+                  }
+                  _acf_taxonomy_category_main {
+                    mainVisible
                   }
                 }
               }

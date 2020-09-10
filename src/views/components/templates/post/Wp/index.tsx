@@ -6,14 +6,14 @@ import SEO from '@view/components/seo';
 // components
 import PostTemplate from '@template/post/index';
 import TOC from '@molecule/TOC/context';
-import SeriesList from '@molecule/list/Series';
+import SerieList from '@molecule/list/Serie';
 import options from './options';
 
 interface ContentReactMemoType {
   wpData: Array<string>;
 }
 const ContentMemo = React.memo(({ wpData }: ContentReactMemoType): any => {
-  return wpData.map((block: string) => parse(block, options));
+  return wpData.map((block: string) => parse(block, options(block)));
 });
 
 const WpPostLayout = ({ data }: any) => {
@@ -47,7 +47,7 @@ const WpPostLayout = ({ data }: any) => {
         thumnail={featuredImage?.node.mediaItemUrl}
       />
       <PostTemplate imgSrc={featuredImage?.node.mediaItemUrl} header={header}>
-        {series && <SeriesList data={{ query: series, currentPostId: id }} />}
+        {series && <SerieList data={{ query: series, currentPostId: id }} />}
         <TOC data={tocData} />
         <ContentMemo wpData={wpData} />
       </PostTemplate>

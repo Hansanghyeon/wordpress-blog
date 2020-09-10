@@ -1,6 +1,6 @@
 import React from 'react';
 // Component
-import { ThemeStateType } from '@store/rootStore';
+import { ThemeStateType } from '@store/Theme';
 import { Wrap, Col, Row, Emoji } from './index.style';
 
 // NOTE
@@ -8,14 +8,16 @@ import { Wrap, Col, Row, Emoji } from './index.style';
 
 interface Props extends ThemeStateType {
   children: React.ReactNode;
-  data: {
-    icon: string;
-    bgColor: string;
-  };
+  icon?: string;
+  bgColor?: string;
 }
 
-const Callout = ({ children, isDark, data }: Props) => {
-  const { icon, bgColor } = data;
+const Callout: React.FC<Props> = ({
+  children,
+  isDark,
+  icon = '📌',
+  bgColor = '',
+}: Props) => {
   return (
     <Wrap bgColor={bgColor} isDark={isDark}>
       <Row.Def>

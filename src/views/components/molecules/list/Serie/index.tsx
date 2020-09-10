@@ -21,9 +21,9 @@ import {
   ArrowBtn,
   CurrentLi,
 } from './index.style';
-import { SeriesListType, accPostType } from './index.type';
+import { SerieListType, accPostType } from './index.type';
 
-const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
+const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
   const { query, currentPostId } = data;
   const [toggle, setToggle] = useState(true);
   const _handleClick = () => {
@@ -69,7 +69,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
             }
             return (
               <Li key={`${currentPostId}-${node.id}`}>
-                <Link to={`/${node.slug}`}>{node.title}</Link>
+                <Link to={`/post/${node.slug}`}>{node.title}</Link>
               </Li>
             );
           })}
@@ -82,7 +82,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
         </MoreBtn>
         <Controller>
           {prevNextPost.prev ? (
-            <Link to={`/${prevNextPost.prev.node.slug}`}>
+            <Link to={`/post/${prevNextPost.prev.node.slug}`}>
               <ArrowBtn type="button">
                 <FontAwesomeIcon icon={faChevronLeft} />
               </ArrowBtn>
@@ -93,7 +93,7 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
             </ArrowBtn>
           )}
           {prevNextPost.next ? (
-            <Link to={`/${prevNextPost.next.node.slug}`} direction="left">
+            <Link to={`/post/${prevNextPost.next.node.slug}`} direction="left">
               <ArrowBtn type="button">
                 <FontAwesomeIcon icon={faChevronRight} />
               </ArrowBtn>
@@ -109,4 +109,4 @@ const SeriesList: React.FC<SeriesListType> = ({ data }: SeriesListType) => {
   );
 };
 
-export default SeriesList;
+export default SerieList;

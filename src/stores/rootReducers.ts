@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import themeReducer from '@store/Reducers/theme';
-import menuReducer from '@store/Reducers/menu';
+import Theme from '@store/Theme';
+import Layout from '@store/Layout';
+import Menu from '@store/Menu';
 
 export default combineReducers({
-  themeState: themeReducer,
-  menuState: menuReducer,
+  themeState: Theme.reducer,
+  menuState: Menu.reducer,
+  layoutComponent: Layout.reducer,
 });

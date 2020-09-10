@@ -24,7 +24,7 @@ const InboxList = ({ data }: any) => {
             key={node.id}
             data={{ imgSrc: icon?.mediaItemUrl }}
           >
-            <Link direction="left" to={`/${node.slug}`}>
+            <Link direction="left" to={`/post/${node.slug}`}>
               {node.title}
             </Link>
           </NotionStyleListItem>

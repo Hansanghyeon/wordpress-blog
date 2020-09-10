@@ -75,6 +75,7 @@ module.exports = {
       resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/views/pages`,
+        ignore: [`*.style.(js|ts)?(x)`],
       },
     },
     {
@@ -87,7 +88,7 @@ module.exports = {
         // Url to query from
         url: 'https://wp.hapas.io/graphql',
         // refetch interval in seconds
-        refetchInterval: 60,
+        // refetchInterval: 60,
       },
     },
     {
