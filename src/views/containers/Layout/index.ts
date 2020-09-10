@@ -17,7 +17,7 @@ const mapReduxDispatchToReactProps = (dispatch: any) => {
           dispatch({ type: 'FNB_AND_MSB_HIDDEN' });
           break;
         case /\/about/g.test(path):
-          dispatch({ type: 'FNB_AND_MSB_HIDDEN' });
+          dispatch({ type: 'MSB_HIDDEN' });
           break;
         default:
           dispatch({ type: 'OUT_PROJECT_PAGE' });
