@@ -39,5 +39,5 @@ export const Row = {
 };
 
 export const Emoji = styled.span`
-  transform: scale(1.4);
+  font-size: 1.4em;
 `;

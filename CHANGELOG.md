@@ -3,6 +3,18 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.12.0] - 2020-09-10
+
+### Added
+
+- About Page 추가
+
+### Changed
+
+- About Page Redux 상태 적용
+- 패키지 최신화
+- react-hook에 맞게 타입들 변경
+
 ## [1.11.0] - 2020-08-14
 
 ### Changed

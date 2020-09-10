@@ -88,7 +88,7 @@ module.exports = {
         // Url to query from
         url: 'https://wp.hapas.io/graphql',
         // refetch interval in seconds
-        refetchInterval: 60,
+        // refetchInterval: 60,
       },
     },
     {

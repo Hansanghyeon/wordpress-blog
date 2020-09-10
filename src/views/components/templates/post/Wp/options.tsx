@@ -40,7 +40,7 @@ const options = (block: string) => ({
       switch (attribs.fc) {
         case 'callout':
           return (
-            <Callout data={{ bgColor: attribs.bg, icon: attribs.icon }}>
+            <Callout bgColor={attribs.bg} icon={attribs.icon}>
               {domToReact(children)}
             </Callout>
           );
