@@ -23,7 +23,7 @@ Row.Header = styled(_Row)`
   padding-top: 80px;
 `;
 Row.Footer = styled(_Row)`
-  padding-bottom: ${rhythm(1)};
+  padding-bottom: 80px;
 `;
 Row.Divider = styled.div`
   margin-bottom: ${rhythm(3)};
