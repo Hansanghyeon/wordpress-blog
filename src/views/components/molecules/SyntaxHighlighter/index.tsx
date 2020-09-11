@@ -9,7 +9,7 @@ import { Header, Lang, FileName } from './style';
 type Props = {
   isDark?: boolean;
   data: {
-    lang: string;
+    lang?: string;
     fileName?: string;
     isLineNumber?: boolean;
   };
@@ -18,8 +18,10 @@ type Props = {
 const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
   const { data, isDark, children } = props;
   const { lang, fileName, isLineNumber } = data;
-  let icon: string = '';
+  let icon = '';
   switch (lang) {
+    case undefined:
+      break;
     case 'nginx':
       icon = 'settings';
       break;

@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import React from 'react';
-import { domToReact } from 'html-react-parser';
+import { domToReact, HTMLReactParserOptions } from 'html-react-parser';
 // components
 import DownloadButton from '@atom/btn/Download';
 import Callout from '#/Callout';
@@ -8,36 +8,35 @@ import SeoPreviewCard from '#/SeoPreviewCard';
 import SyntaxHighlighter from '#/SyntaxHighlighter';
 
 // FIXME 리팩토링 할일 해당 코드를 더 간결하게 만들수있나 고민
-const options = (block: string) => ({
-  replace: (domNode: any) => {
+const options = (block: string): HTMLReactParserOptions => ({
+  replace: (domNode) => {
     const { name, children, attribs, parent } = domNode;
     const _block = block;
     if (!name) return;
-    if (name === 'pre' && attribs.class === 'wp-block-code') {
-      return domToReact(children, options(_block));
+    if (name === 'pre' && attribs?.class === 'wp-block-code') {
+      return !!children && domToReact(children, options(_block));
     }
     if (
       name === 'code' &&
-      (Object.prototype.hasOwnProperty.call(attribs, 'lang') ||
-        parent.name === 'pre')
+      Object.prototype.hasOwnProperty.call(attribs, 'lang')
     ) {
       const SyntaxHighlighterProps = {
         data: {
-          lang: attribs.lang,
-          fileName: parent.attribs?.title,
-          isLineNumber: new Set(attribs.class.split(' ')).has('line-numbers'),
+          lang: attribs?.lang,
+          fileName: parent?.attribs?.title,
+          isLineNumber: new Set(attribs?.class.split(' ')).has('line-numbers'),
         },
       };
       return (
         <SyntaxHighlighter {...SyntaxHighlighterProps}>
           {block
-            .replace(/<pre.+>/, '')
+            .replace(/<pre.+?><code.+?>/, '')
             .replace(/\n<\/code><\/pre>|<\/code><\/pre>/, '')}
         </SyntaxHighlighter>
       );
     }
-    if (name === 'component') {
-      switch (attribs.fc) {
+    if (name === 'component' && children) {
+      switch (attribs?.fc) {
         case 'callout':
           return (
             <Callout bgColor={attribs.bg} icon={attribs.icon}>
@@ -50,10 +49,10 @@ const options = (block: string) => ({
           return;
       }
     }
-    if (name === 'code') {
+    if (name === 'code' && !!children) {
       return <code className="language-text">{domToReact(children)}</code>;
     }
-    if (attribs.class === 'wp-block-file') {
+    if (attribs?.class === 'wp-block-file' && !!children) {
       return <DownloadButton>{domToReact(children)}</DownloadButton>;
     }
   },
