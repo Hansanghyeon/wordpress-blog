@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.13.1] - 2020-09-11
+
+### Fixed
+
+- #392 코드블럭 태그찾는 정규식 수정으로 오류 해결
+
 ## [1.13.0] - 2020-09-10
 
 ### Added
