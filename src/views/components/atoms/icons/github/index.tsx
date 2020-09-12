@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FaGithub } from 'react-icons/fa';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const LinkWrap = styled.a`
@@ -11,7 +10,7 @@ const LinkWrap = styled.a`
   align-items: center;
 `;
 
-const Github = () => {
+const Github: React.FC = () => {
   const data = useStaticQuery(graphql`
     query SocialQuery {
       site {
@@ -27,7 +26,7 @@ const Github = () => {
 
   return (
     <LinkWrap href={`https://github.com/${social.github}`}>
-      <FontAwesomeIcon icon={faGithub} />
+      <FaGithub />
     </LinkWrap>
   );
 };

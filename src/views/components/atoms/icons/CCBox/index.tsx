@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCreativeCommons,
-  faCreativeCommonsBy,
-  faCreativeCommonsNc,
-  faCreativeCommonsSa,
-} from '@fortawesome/free-brands-svg-icons';
+  FaCreativeCommons,
+  FaCreativeCommonsBy,
+  FaCreativeCommonsNc,
+  FaCreativeCommonsSa,
+} from 'react-icons/fa';
 import Link from '@atom/Link';
 
 const CCBoxWrap = styled(Link)`
@@ -31,18 +30,18 @@ const CCBoxWrap = styled(Link)`
   }
 `;
 
-const CCBox = () => (
+const CCBox: React.FC = () => (
   <CCBoxWrap
     href="https://creativecommons.org/licenses/by-nc-sa/2.0/kr/"
     target="_blank"
   >
     <div>
-      <FontAwesomeIcon icon={faCreativeCommons} />
+      <FaCreativeCommons />
     </div>
     <div>
-      <FontAwesomeIcon icon={faCreativeCommonsBy} />
-      <FontAwesomeIcon icon={faCreativeCommonsNc} />
-      <FontAwesomeIcon icon={faCreativeCommonsSa} />
+      <FaCreativeCommonsBy />
+      <FaCreativeCommonsNc />
+      <FaCreativeCommonsSa />
     </div>
   </CCBoxWrap>
 );
