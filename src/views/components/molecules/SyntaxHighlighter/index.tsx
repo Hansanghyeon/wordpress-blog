@@ -49,7 +49,6 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
       <ReactSyntaxHighlighter
         {...props}
         showLineNumbers={isLineNumber}
-        showInlineLineNumbers
         wrapLines
         language={lang}
         style={isDark ? atomDark : base16AteliersulphurpoolLight}

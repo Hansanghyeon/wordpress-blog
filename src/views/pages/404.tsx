@@ -1,12 +1,25 @@
 import React from 'react';
-
 import SEO from '@view/components/seo';
+import Animation404 from '#/Animation404';
+import { Container, Row, Col } from './page.style';
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
   <>
     <SEO title="404: Not Found" />
-    <h1>Not Found</h1>
-    <p>You just hit a route that doesn&apos;t exist... the sadness.</p>
+    <Container.Cover>
+      <Row.Header />
+      <Row>
+        <Col col>
+          <Animation404 />
+        </Col>
+      </Row>
+      <Row>
+        <Col col>
+          <h1 style={{ display: 'none' }}>Not Found</h1>
+        </Col>
+      </Row>
+      <Row.Footer />
+    </Container.Cover>
   </>
 );
 

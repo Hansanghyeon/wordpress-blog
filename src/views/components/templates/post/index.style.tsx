@@ -13,6 +13,9 @@ export const CardWrap = styled.div`
   *:first-child {
     margin-top: 0 !important;
   }
+  img {
+    height: auto !important;
+  }
 `;
 
 export const FeaturedImg = styled(Col)<{ bgImg?: string }>`

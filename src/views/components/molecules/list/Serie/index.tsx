@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCaretDown,
-  faCaretUp,
-  faChevronRight,
-  faChevronLeft,
-} from '@fortawesome/free-solid-svg-icons';
+  FaCaretDown,
+  FaCaretUp,
+  FaChevronRight,
+  FaChevronLeft,
+} from 'react-icons/fa';
 import Link from '@atom/Link';
 import {
   Img,
@@ -77,30 +76,30 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
       </Body>
       <Footer>
         <MoreBtn type="button" onClick={_handleClick}>
-          <FontAwesomeIcon icon={toggle ? faCaretDown : faCaretUp} />
+          {toggle ? <FaCaretDown /> : <FaCaretUp />}
           <span>{toggle ? '목록보기' : '접기'}</span>
         </MoreBtn>
         <Controller>
           {prevNextPost.prev ? (
             <Link to={`/post/${prevNextPost.prev.node.slug}`}>
               <ArrowBtn type="button">
-                <FontAwesomeIcon icon={faChevronLeft} />
+                <FaChevronLeft />
               </ArrowBtn>
             </Link>
           ) : (
             <ArrowBtn type="button" disable>
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FaChevronLeft />
             </ArrowBtn>
           )}
           {prevNextPost.next ? (
             <Link to={`/post/${prevNextPost.next.node.slug}`} direction="left">
               <ArrowBtn type="button">
-                <FontAwesomeIcon icon={faChevronRight} />
+                <FaChevronRight />
               </ArrowBtn>
             </Link>
           ) : (
             <ArrowBtn type="button" disable>
-              <FontAwesomeIcon icon={faChevronRight} />
+              <FaChevronRight />
             </ArrowBtn>
           )}
         </Controller>

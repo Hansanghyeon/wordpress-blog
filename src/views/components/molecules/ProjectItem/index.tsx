@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FaGithub } from 'react-icons/fa';
 
 // components
 import Link from '@atom/Link';
@@ -17,7 +16,7 @@ const FooterLink: React.FC<FooterLinkProps> = ({
   if (name === 'github')
     return (
       <Link to={src}>
-        <FontAwesomeIcon icon={faGithub} />
+        <FaGithub />
       </Link>
     );
   return <Link to={src} />;
