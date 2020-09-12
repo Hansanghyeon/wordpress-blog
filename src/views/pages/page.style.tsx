@@ -13,6 +13,9 @@ const ContainerStyled = styled(_Container)``;
 const Container = (props: any) => (
   <ContainerStyled {...props}>{props?.children}</ContainerStyled>
 );
+Container.Cover = styled(_Container)`
+  height: calc(100vh - 120px);
+`;
 export { Container };
 
 const RowStyled = styled(_Row)`
