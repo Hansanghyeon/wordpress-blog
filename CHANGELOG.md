@@ -3,6 +3,22 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.14.0] - 2020-09-12
+
+### Added
+
+- 'gatsby-plugin-sitemap` 추가
+- 404 페이지 애니메이션 추가
+
+### Changed
+
+- `@fortawesome/*` 패키지는 `react-icons`로 변경 사용하기 매우 편리하다.
+
+### Fixed
+
+- 코드블럭에서 마지막 라인의 코드에 번호가 붙어서 나오는 거 수정
+- 워드프레스 코드에서 이미지의 높이를 지정해서 불러오는거 스타일 수정
+
 ## [1.13.1] - 2020-09-11
 
 ### Fixed
