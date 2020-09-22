@@ -53,7 +53,7 @@
     "gsap": "^3.5.0",
     "html-react-parser": "^0.14.0",
     "lodash": "^4.17.20",
-    "moment": "^2.27.0",
+    "moment": "^2.29.0",
     "polished": "^3.6.5",
     "prism-themes": "^1.4.0",
     "react": "^16.12.0",
