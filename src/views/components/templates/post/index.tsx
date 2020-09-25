@@ -2,7 +2,7 @@ import React from 'react';
 import { GridThemeProvider, Col } from 'styled-bootstrap-grid';
 import Grid from '@style/Grid';
 import Bio from '@view/components/bio';
-import moment from 'moment';
+import dayjs from 'dayjs';
 // Utils
 // components
 import CCBox from '@atom/icons/CCBox';
@@ -42,7 +42,7 @@ const PostTemplate: React.FC<props> = ({ children, imgSrc, header }: props) => {
           <Row.FeaturedImg>
             <PostData col={12} lg={imgSrc ? 6 : 12}>
               <PostTitleText>{header.title}</PostTitleText>
-              <span>{moment(header.date).format('YYYY년 MM월 DD일')}</span>
+              <span>{dayjs(header.date).format('YYYY년 MM월 DD일')}</span>
               <EtcWrap>
                 <CCBox />
               </EtcWrap>
@@ -70,6 +70,9 @@ const PostTemplate: React.FC<props> = ({ children, imgSrc, header }: props) => {
       </GridThemeProvider>
     </>
   );
+};
+PostTemplate.defaultProps = {
+  imgSrc: undefined,
 };
 
 export default PostTemplate;
