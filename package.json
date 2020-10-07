@@ -55,7 +55,7 @@
     "html-react-parser": "^0.14.0",
     "lodash": "^4.17.20",
     "polished": "^3.6.5",
-    "prism-themes": "^1.4.0",
+    "prism-themes": "^1.4.1",
     "react": "^16.12.0",
     "react-device-detect": "^1.13.1",
     "react-dom": "^16.12.0",
