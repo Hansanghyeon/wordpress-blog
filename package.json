@@ -57,7 +57,7 @@
     "polished": "^4.0.2",
     "prism-themes": "^1.4.0",
     "react": "^16.12.0",
-    "react-device-detect": "^1.13.1",
+    "react-device-detect": "^1.14.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
