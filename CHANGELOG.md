@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.14.1] - 2020-10-10
+
+### Changed
+
+- 메뉴버튼 `MenuBtn`의 Redux에서 전달하는 dispatch 액션을 isActive 값을통해서 함수실행여부 분기
+
 ## [1.14.0] - 2020-09-12
 
 ### Added

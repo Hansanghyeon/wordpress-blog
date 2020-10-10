@@ -62,11 +62,15 @@ blockquote {
 
 :not(pre) > code[class*='language-'] {
   padding: {
-    left: 4px;
-    right: 4px;
+    left: 4px !important;
+    right: 4px !important;
   }
   white-space: normal;
   word-break: break-all;
+}
+
+pre[data] {
+  margin-bottom: 1.6rem !important;
 }
 
 .wp-block-embed__wrapper,
