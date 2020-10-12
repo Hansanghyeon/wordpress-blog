@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [1.14.3] - 2020-10-12
+
+### Changed
+
+- Notion List style 컴포넌트를 bit으로 관리이전
+
 ## [1.14.2] - 2020-10-12
 
 ### Removed
