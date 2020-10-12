@@ -13,9 +13,6 @@ const mapReduxDispatchToReactProps = (dispatch: any) => {
   return {
     renderToFunction: (path: string) => {
       switch (true) {
-        case /\/project/g.test(path):
-          dispatch({ type: 'FNB_AND_MSB_HIDDEN' });
-          break;
         case /\/about/g.test(path):
           dispatch({ type: 'MSB_HIDDEN' });
           break;

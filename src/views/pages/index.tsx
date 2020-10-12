@@ -1,10 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+// Bit Components
+import Ditto from '@bit/hansanghyeon.card.ditto';
 // components
 import SEO from '@view/components/seo';
 import CategoryList from '@molecule/list/Category';
-import Ditto from '@molecule/Ditto';
 import Link from '@atom/Link';
 import GridAndListToggle from '@atom/toggle/GridAndList';
 import {
@@ -52,19 +53,17 @@ const BuildDitto = ({ post, isGrid }: BuildDittoProps) => {
   const { node } = post;
   const { categories, slug, title } = node;
   const props = {
-    data: {
-      imgSrc: node.featuredImage?.node.mediaItemUrl,
-      excerpt: node.excerpt,
-      date: node.date,
-      footer: () => <CategoryList data={categories} />,
-      title: () => (
-        <Link direction="left" to={`/post/${slug}`}>
-          {title}
-        </Link>
-      ),
-      isGrid: isGrid,
-      key: node.id,
-    },
+    imgSrc: node.featuredImage?.node.mediaItemUrl,
+    excerpt: node.excerpt,
+    date: node.date,
+    footer: () => <CategoryList data={categories} />,
+    title: () => (
+      <Link direction="left" to={`/post/${slug}`}>
+        {title}
+      </Link>
+    ),
+    isGrid: isGrid,
+    key: node.id,
   };
   return <Ditto {...props} />;
 };
