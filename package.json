@@ -24,8 +24,8 @@
   },
   "homepage": "https://4log.hapas.io/",
   "dependencies": {
-    "@bit/hansanghyeon.card.ditto": "^1.0.9",
-    "@bit/hansanghyeon.list-item.notion-style": "^1.0.1",
+    "@bit/hansanghyeon.card.ditto": "^1.0.11",
+    "@bit/hansanghyeon.list-item.notion-style": "^1.0.2",
     "@reach/router": "^1.3.3",
     "axios": "^0.20.0",
     "dayjs": "^1.9.1",

@@ -4,15 +4,13 @@ import NotionStyle from '@bit/hansanghyeon.list-item.notion-style';
 // Components
 import Link from '@atom/Link';
 
-import { PostTypeAllCatRootWrap } from './index.style';
-
 const NotionStyleListItemStyled = styled(NotionStyle)`
   margin-bottom: 4px;
 `;
 
 const CategoryList = ({ data }: any) => {
   return (
-    <PostTypeAllCatRootWrap>
+    <>
       {data.edges.map(({ node }: any) => (
         <Link key={node.id} to={`/${node.slug}`} activeClassName="active">
           <NotionStyleListItemStyled
@@ -22,7 +20,7 @@ const CategoryList = ({ data }: any) => {
           </NotionStyleListItemStyled>
         </Link>
       ))}
-    </PostTypeAllCatRootWrap>
+    </>
   );
 };
 export default CategoryList;
