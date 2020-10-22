@@ -13,3 +13,12 @@ function themeslug_enqueue()
   wp_enqueue_script('JS : Bootstrap 3         ', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array(), null, false);
 }
 add_action('wp_enqueue_scripts', 'themeslug_enqueue');
+
+include('functions/kill-parentTheme.php');
+include('functions/page-info.php');
+include('functions/gutenberg.php');
+include('functions/code-syntax-block.php');
+include('functions/uploda-media-type.php');
+include('functions/content-page/index.php');
+
+include('functions/admin/dashboard/index.php');
