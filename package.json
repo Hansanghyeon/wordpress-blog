@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Hansanghyeon/4log/issues"
   },
-  "homepage": "https://4log.hapas.io/",
+  "homepage": "https://4log.hyeon.pro/",
   "dependencies": {
     "@bit/hansanghyeon.card.ditto": "^1.0.11",
     "@bit/hansanghyeon.list-item.notion-style": "^1.0.2",

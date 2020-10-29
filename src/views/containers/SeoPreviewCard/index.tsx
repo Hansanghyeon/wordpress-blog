@@ -7,7 +7,7 @@ export default (url: string) => {
   const [response, loading, error] = useRequest(
     `${
       process.env.NODE_ENV === 'production'
-        ? 'https://api.nas.hapas.io/seo'
+        ? 'https://api.nas.hyeon.pro/seo'
         : 'http://localhost:40000'
     }/?m_url=${encodeURI(url)}`,
   );
