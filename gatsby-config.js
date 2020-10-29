@@ -3,7 +3,7 @@ module.exports = {
     title: '4log',
     author: 'Han sanghyeon',
     description: '매일매일 1%',
-    siteUrl: 'https://4log.hapas.io/',
+    siteUrl: 'https://4log.hyeon.pro/',
     social: {
       github: 'Hansanghyeon',
     },
@@ -86,7 +86,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: 'wpgql',
         // Url to query from
-        url: 'https://wp.hapas.io/graphql',
+        url: 'https://wp.hyeon.pro/graphql',
         // refetch interval in seconds
         // refetchInterval: 60,
       },

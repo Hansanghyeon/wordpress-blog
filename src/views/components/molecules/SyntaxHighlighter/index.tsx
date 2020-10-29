@@ -41,7 +41,7 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
         {fileName ? <FileName>{fileName}</FileName> : <div />}
         {lang && (
           <Lang
-            src={`https://wp.hapas.io/wp-content/uploads/4log/icons/material/${icon}.svg`}
+            src={`https://wp.hyeon.pro/wp-content/uploads/4log/icons/material/${icon}.svg`}
             alt=""
           />
         )}
@@ -49,7 +49,6 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
       <ReactSyntaxHighlighter
         {...props}
         showLineNumbers={isLineNumber}
-        wrapLines
         language={lang}
         style={isDark ? atomDark : base16AteliersulphurpoolLight}
       >
@@ -57,6 +56,9 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
       </ReactSyntaxHighlighter>
     </>
   );
+};
+SyntaxHighlighter.defaultProps = {
+  isDark: false,
 };
 
 export default SyntaxHighlighter;

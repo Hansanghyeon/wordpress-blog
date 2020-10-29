@@ -6,9 +6,10 @@ import Link from '@atom/Link';
 
 const NotionStyleListItemStyled = styled(NotionStyle)`
   margin-bottom: 4px;
+  font-family: 'Fira Code';
 `;
 
-const CategoryList = ({ data }: any) => {
+const CategoryList: React.FC = ({ data }: any) => {
   return (
     <>
       {data.edges.map(({ node }: any) => (

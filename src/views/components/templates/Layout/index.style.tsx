@@ -54,6 +54,9 @@ const _GlobalStyle = css`
       &:hover,
       &.active {
         color: ${({ theme }) => theme.color.primary};
+        > *:first-child {
+          --color: ${({ theme }) => theme.color.primary};
+        }
       }
     }
   }
