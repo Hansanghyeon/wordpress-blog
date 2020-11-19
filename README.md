@@ -1,11 +1,9 @@
 <a href="https://4log.hyeon.pro/">
-  <img width="125" src="static/4log-logo.png">
+  <img width="125" src="https://wp.hyeon.pro/wp-content/uploads/4log-logo.png">
 </a>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/hansanghyeon/4log/badge)](https://www.codefactor.io/repository/github/hansanghyeon/4log)
 <a href="https://hits.seeyoufarm.com"/><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FHansanghyeon%2F4log"/></a>
-
-[![airbnb-typescript](https://img.shields.io/badge/code%20style-airbnb--typescript-blue)](https://github.com/iamturns/eslint-config-airbnb-typescript)
 
 ## 서론
 

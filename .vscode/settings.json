@@ -1,7 +1,6 @@
 {
   "files.exclude": {
-    ".cache/": true,
-    "public/": true
+    ".next/": true
   },
   "explorer.sortOrder": "type",
   "javascript.format.enable": false,
