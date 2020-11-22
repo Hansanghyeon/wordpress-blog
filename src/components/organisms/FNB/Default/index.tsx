@@ -1,7 +1,7 @@
 import React from 'react';
 // components
-import Link from '@atom/Link';
-import { Container, Row, Col } from './index.style';
+import Link from 'next/link';
+import { Container, Row, Col } from './style';
 
 const DefaultFNB: React.FC = () => (
   <Container.Footer fluid>
