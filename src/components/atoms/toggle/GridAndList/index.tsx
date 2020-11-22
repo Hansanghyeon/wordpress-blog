@@ -1,13 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import './index.style.scss';
-
-const GAL = styled.button`
-  --color: ${({ theme }) => theme.color.text[0]};
-  --background: ${({ theme }) => theme.color.bg[0]};
-  --background-hover: ${({ theme }) => theme.color.bg[0]};
-  --icon-color: ${({ theme }) => theme.color.primary};
-`;
+import React, { useState } from "react";
+import { GridList, Line, Text, Dots, Icon } from "./style";
 
 interface props {
   onClick: () => void;
@@ -19,30 +11,31 @@ const GridAndListToggle = ({ onClick }: props) => {
     onClick();
   };
   return (
-    <GAL
+    <GridList
       type="button"
-      className={`grid-list animation ${isActive && 'active'}`}
+      className={`animation`}
+      active={isActive}
       onClick={_handleClick}
     >
-      <div className="icon">
-        <div className="dots">
+      <Icon>
+        <Dots active={isActive}>
           <i />
           <i />
           <i />
           <i />
-        </div>
-        <div className="lines">
+        </Dots>
+        <Line active={isActive}>
           <i />
           <i />
           <i />
           <i />
-        </div>
-      </div>
-      <div className="text">
+        </Line>
+      </Icon>
+      <Text active={isActive}>
         <span>Grid</span>
         <span>List</span>
-      </div>
-    </GAL>
+      </Text>
+    </GridList>
   );
 };
 
