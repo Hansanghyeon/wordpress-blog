@@ -1,28 +1,28 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
-import Tags from '../../components/tags'
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import Container from "@src/components/container";
+import PostBody from "@src/components/post-body";
+import MoreStories from "@molecule/MoreStories";
+import Header from "@src/components/header";
+import PostHeader from "@src/components/post-header";
+import SectionSeparator from "@src/components/section-separator";
+import Layout from "@template/Layout";
+import { getAllPostsWithSlug, getPostAndMorePosts } from "@src/lib/api";
+import PostTitle from "@src/components/post-title";
+import Head from "next/head";
+import { CMS_NAME } from "@src/lib/constants";
+import Tags from "@src/components/tags";
 
-export default function Post({ post, posts, preview }) {
-  const router = useRouter()
-  const morePosts = posts?.edges
+export default function Post({ post, posts, preview }: any) {
+  const router = useRouter();
+  const morePosts = posts?.edges;
 
   if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
+    return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -58,11 +58,15 @@ export default function Post({ post, posts, preview }) {
         )}
       </Container>
     </Layout>
-  )
+  );
 }
 
-export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData)
+export async function getStaticProps({
+  params,
+  preview = false,
+  previewData,
+}: any) {
+  const data = await getPostAndMorePosts(params.slug, preview, previewData);
 
   return {
     props: {
@@ -70,14 +74,14 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       post: data.post,
       posts: data.posts,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPostsWithSlug();
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+    paths: allPosts.edges.map(({ node }: any) => `/posts/${node.slug}`) || [],
     fallback: true,
-  }
+  };
 }
