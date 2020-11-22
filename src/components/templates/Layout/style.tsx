@@ -1,10 +1,10 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
-import { media } from 'styled-bootstrap-grid';
+import styled, { createGlobalStyle, css } from "styled-components";
+import { media } from "styled-bootstrap-grid";
 // Component
 import {
   SidebarStatueType,
   SidebarStatueStyle,
-} from '@organism/MSB/index.style';
+} from "@organism/MSB/index.style";
 
 interface MainWrapperType extends SidebarStatueType {
   msbType: string;
@@ -18,12 +18,12 @@ export const MainWrapper = styled.div<MainWrapperType>`
   ${SidebarStatueStyle.Def};
   ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
 
-  ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
+  ${({ msbType }) => msbType !== "hidden" && DefaultMainWrapper};
   ${media.xxl`
     margin-left: auto;
   `};
 `;
-export const Main = styled.div`
+export const Main = styled.main`
   width: 100%;
   @media (max-width: 1106px) and (min-width: 993px) {
     max-width: calc(100% - 146px);
@@ -66,9 +66,11 @@ const _GlobalStyle = css`
     --gnb-height: 45px;
     margin-top: var(--gnb-height);
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export const GlobalStyle = createGlobalStyle`
   ${_GlobalStyle};
-  /* ${!isMobile && scrollControl} */
 `;

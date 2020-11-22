@@ -1,19 +1,33 @@
-import GNB from '@organism/GNB'
-import FNB from '@organism/FNB'
-import FNB from '@organism/FNB'
-import { MainWrapper, Main, GlobalStyle } from './style';
+import { GridThemeProvider } from "styled-bootstrap-grid";
+import { ThemeProvider } from "styled-components";
+import useDarkMode from "use-dark-mode";
+// style
+import { MainWrapper, Main, GlobalStyle } from "./style";
+import Grid from "@style/Grid";
+import Theme, { DarkTheme } from "@style/Themes";
+// state
+// components
+// import GNB from "@organism/GNB";
+import FNB from "@organism/FNB";
 
-export default function Layout ({ children }) {
+const Layout: React.FC = ({ children }) => {
+  const darkMode = useDarkMode();
   return (
     <>
-            <GNB />
-            <MSB type={msbType} />
-            <MainWrapper msbType={msbType} sidebarOpen={isActive}>
-              <Main className={`layout_main ${isDark ? 'dark' : 'light'}`}>
-                {children}
-              </Main>
-              <FNB type={fnbType} />
+      <ThemeProvider theme={darkMode.value ? DarkTheme : Theme}>
+        <GlobalStyle />
+        <GridThemeProvider gridTheme={Grid}>
+          <>
+            <MainWrapper msbType="hidden" sidebarOpen={false}>
+              {darkMode.value}
+              <Main>{children}</Main>
+              <FNB type="default" />
             </MainWrapper>
           </>
-  )
-}
+        </GridThemeProvider>
+      </ThemeProvider>
+    </>
+  );
+};
+
+export default Layout;
