@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import './index.style.scss';
+import React from "react";
+import styled from "styled-components";
 // Components
-import Github from '@atom/icons/github';
-import Dribbble from '@atom/icons/Dribbble';
-import CodeSandbox from '@atom/icons/CodeSandbox';
+import Github from "@atom/icons/github";
+import Dribbble from "@atom/icons/Dribbble";
+import CodeSandbox from "@atom/icons/CodeSandbox";
 
 const Wrap = styled.div`
   display: flex;
