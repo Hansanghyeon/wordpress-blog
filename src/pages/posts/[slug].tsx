@@ -1,17 +1,17 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import Container from "@src/components/container";
-import PostBody from "@src/components/post-body";
-import MoreStories from "@molecule/MoreStories";
-import Header from "@src/components/header";
-import PostHeader from "@src/components/post-header";
-import SectionSeparator from "@src/components/section-separator";
-import Layout from "@template/Layout";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "@src/lib/api";
-import PostTitle from "@src/components/post-title";
-import Head from "next/head";
-import { CMS_NAME } from "@src/lib/constants";
-import Tags from "@src/components/tags";
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
+import Container from '@src/components/container';
+import PostBody from '@src/components/post-body';
+import MoreStories from '@molecule/MoreStories';
+import Header from '@src/components/header';
+import PostHeader from '@src/components/post-header';
+import SectionSeparator from '@src/components/section-separator';
+import Layout from '@template/Layout';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '@src/lib/api';
+import PostTitle from '@src/components/post-title';
+import Head from 'next/head';
+import { CMS_NAME } from '@src/lib/constants';
+import Tags from '@src/components/tags';
 
 export default function Post({ post, posts, preview }: any) {
   const router = useRouter();

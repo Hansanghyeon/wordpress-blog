@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 // components
-import Ditto from "@src/components/card/Ditto";
-import CategoryList from "@molecule/CategoryList";
-import GridAndListToggle from "@atom/toggle/GridAndList";
-import PostPreview from "@src/components/post-preview";
+import Ditto from '@src/components/card/Ditto';
+import CategoryList from '@molecule/CategoryList';
+import GridAndListToggle from '@atom/toggle/GridAndList';
+import PostPreview from '@src/components/post-preview';
 // style
-import { DittoWrap, GridAndListToggleWrap } from "./style";
+import { DittoWrap, GridAndListToggleWrap } from './style';
 
 export default function MoreStories({ posts }: any) {
   const [isGrid, setIsGrid] = useState(false);

@@ -1,22 +1,23 @@
-import Head from 'next/head'
-import Container from '@src/components/container'
-import MoreStories from '@src/components/more-stories'
-import HeroPost from '@src/components/hero-post'
-import Intro from '@src/components/intro'
-import Layout from '@src/components/layout'
-import { getAllPostsForHome } from '@src/lib/api'
-import { CMS_NAME } from '@src/lib/constants'
+import Head from 'next/head';
+import Container from '@src/components/container';
+import MoreStories from '@molecule/MoreStories';
+import HeroPost from '@src/components/hero-post';
+import Intro from '@src/components/intro';
+// import Layout from "@src/components/layout";
+import { getAllPostsForHome } from '@src/lib/api';
+import { CMS_NAME } from '@src/lib/constants';
+import * as LayoutT from '@template/Layout';
 
 export default function Index({ allPosts: { edges }, preview }: any) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+  const heroPost = edges[0]?.node;
+  const morePosts = edges.slice(1);
 
   return (
     <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
+      <Head>
+        <title>Next.js Blog Example with {CMS_NAME}</title>
+      </Head>
+      <LayoutT.default>
         <Container>
           <Intro />
           {heroPost && (
@@ -31,14 +32,14 @@ export default function Index({ allPosts: { edges }, preview }: any) {
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
-      </Layout>
+      </LayoutT.default>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+  const allPosts = await getAllPostsForHome(preview);
   return {
     props: { allPosts, preview },
-  }
+  };
 }
