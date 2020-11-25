@@ -6,7 +6,7 @@ type MenuBtnProps = {
   isActive: boolean;
   onClick?: () => void;
 };
-const MenuBtn: React.FC<MenuBtnProps> = ({
+const MenuToggle: React.FC<MenuBtnProps> = ({
   isActive,
   onClick,
 }: MenuBtnProps) => {
@@ -20,8 +20,8 @@ const MenuBtn: React.FC<MenuBtnProps> = ({
     </Menu>
   );
 };
-MenuBtn.defaultProps = {
+MenuToggle.defaultProps = {
   onClick: undefined,
 };
 
-export default MenuBtn;
+export default MenuToggle;
