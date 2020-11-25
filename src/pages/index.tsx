@@ -5,7 +5,6 @@ import HeroPost from '@src/components/hero-post';
 import Intro from '@src/components/intro';
 // import Layout from "@src/components/layout";
 import { getAllPostsForHome } from '@src/lib/api';
-import { CMS_NAME } from '@src/lib/constants';
 import * as LayoutT from '@template/Layout';
 
 export default function Index({ allPosts: { edges }, preview }: any) {
@@ -15,7 +14,7 @@ export default function Index({ allPosts: { edges }, preview }: any) {
   return (
     <>
       <Head>
-        <title>Next.js Blog Example with {CMS_NAME}</title>
+        <title>매일매일 1% | 4log</title>
       </Head>
       <LayoutT.default>
         <Container>
