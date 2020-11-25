@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 // components
-import Ditto from '@src/components/card/Ditto';
+import Ditto from '@atom/card/Ditto';
 import CategoryList from '@molecule/CategoryList';
 import GridAndListToggle from '@atom/toggle/GridAndList';
-import PostPreview from '@src/components/post-preview';
+// import PostPreview from '@src/components/post-preview';
 // style
 import { DittoWrap, GridAndListToggleWrap } from './style';
 
