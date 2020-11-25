@@ -7,11 +7,15 @@ const NotionStyleListItemStyled = styled(NotionStyle)`
   font-family: 'Fira Code';
 `;
 
-const CategoryList: React.FC = ({ data }: any) => {
+const CategoryList = ({ data }: any) => {
   return (
     <>
       {data.edges.map(({ node }: any) => (
-        <Link key={`cat-posts-${node.slug}`} as={`/posts/${node.slug}`} href={`/posts/[slug]`}>
+        <Link
+          key={`cat-posts-${node.slug}`}
+          as={`/posts/${node.slug}`}
+          href={`/posts/[slug]`}
+        >
           <NotionStyleListItemStyled
             imgSrc={node?._acf_taxonomy_category_list?.icon.mediaItemUrl}
           >
