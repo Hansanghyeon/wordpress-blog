@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from '@atom/Link';
+import Link from 'next/link';
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   color: ${({ theme }) => theme.color.text[0]};
   fill: ${({ theme }) => theme.color.text[0]};
   display: flex;
   align-items: center;
   font-family: 'Fira Code';
+  cursor: pointer;
   img {
     height: 1em;
     margin-bottom: 0;
@@ -16,16 +17,15 @@ const StyledLink = styled(Link)`
 `;
 
 export const SmLogo: React.FC = () => (
-  <StyledLink direction="right" to="/">
-    <img src="/favicon.png" alt="" />
-    4Log
-  </StyledLink>
+  <Link href="/">
+    <StyledLink>
+      <img src="/favicon/favicon-32x32.png" alt="" />
+      4Log
+    </StyledLink>
+  </Link>
 );
 
-interface LogoProps {
-  noLink?: boolean;
-}
-const LogoSvg: React.FC = () => (
+const Logo: React.FC = () => (
   <svg height="100%" width="100%" viewBox="0 0 256 256">
     <path
       d="M49.38,159L116,62.57V128h19c2.76,0,5-2.24,5-5V20h-21.38c-1.64,0-3.18,0.81-4.11,2.16L20.89,157.72
@@ -42,15 +42,5 @@ const LogoSvg: React.FC = () => (
     />
   </svg>
 );
-const Logo: React.FC<LogoProps> = ({ noLink = false }: LogoProps) => {
-  if (noLink) {
-    return <LogoSvg />;
-  }
-  return (
-    <StyledLink direction="right" to="/">
-      <LogoSvg />
-    </StyledLink>
-  );
-};
 
 export default Logo;

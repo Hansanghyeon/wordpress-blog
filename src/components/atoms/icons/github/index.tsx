@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaGithub } from 'react-icons/fa';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const LinkWrap = styled.a`
   text-decoration: none;
@@ -11,21 +10,8 @@ const LinkWrap = styled.a`
 `;
 
 const Github: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query SocialQuery {
-      site {
-        siteMetadata {
-          social {
-            github
-          }
-        }
-      }
-    }
-  `);
-  const { social } = data.site.siteMetadata;
-
   return (
-    <LinkWrap href={`https://github.com/${social.github}`}>
+    <LinkWrap href={`https://github.com/hansanghyeon`}>
       <FaGithub />
     </LinkWrap>
   );
