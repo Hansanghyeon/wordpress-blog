@@ -7,7 +7,7 @@ import Grid from '@style/Grid';
 import Theme, { DarkTheme } from '@style/Themes';
 // state
 // components
-// import GNB from "@organism/GNB";
+import GNB from '@organism/GNB';
 import FNB from '@organism/FNB';
 import Meta from './meta';
 
@@ -20,6 +20,7 @@ const Layout: React.FC = ({ children }) => {
         <GlobalStyle />
         <GridThemeProvider gridTheme={Grid}>
           <>
+            <GNB />
             <MainWrapper msbType="hidden" sidebarOpen={false}>
               {darkMode.value}
               <Main>{children}</Main>

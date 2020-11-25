@@ -1,19 +1,16 @@
 import React from 'react';
-// etc
-import { MenuStateType } from '@store/Menu';
 // Components
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@molecule/SNS';
-// Containers
-import MenuBtn from '#/MenuBtn';
+import MenuToggle from '@atom/toggle/Menu';
 import { Wrap, Col, Row, Container } from './index.style';
 
-const GNB: React.FC<MenuStateType> = ({ isActive }: MenuStateType) => (
-  <Wrap sidebarOpen={isActive}>
+const GNB = () => (
+  <Wrap sidebarOpen={false}>
     <Container.Inner fluid>
       <Row.Def>
         <Col.Menu col={2}>
-          <MenuBtn />
+          <MenuToggle isActive={false} />
         </Col.Menu>
         <Col.Left auto>
           <SmLogo />
