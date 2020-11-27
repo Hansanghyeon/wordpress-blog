@@ -37,7 +37,7 @@ const Logo: React.FC = () => (
     <path d="M165,128v-7c0-2.76,2.24-5,5-5h22v7c0,2.76-2.24,5-5,5H165z" />
     <circle cx="191.75" cy="72.75" r="22.75" />
     <image
-      xlinkHref="/favicon.png"
+      xlinkHref="/favicon/logo.png"
       transform="matrix(0.2971 0 0 0.2971 167.9846 48.9846)"
       width="160"
       height="160"
