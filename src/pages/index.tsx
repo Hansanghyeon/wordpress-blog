@@ -1,37 +1,16 @@
 import Head from 'next/head';
-import Container from '@src/components/container';
-import MoreStories from '@molecule/MoreStories';
-import HeroPost from '@src/components/hero-post';
-import Intro from '@src/components/intro';
-// import Layout from "@src/components/layout";
+// API
 import { getAllPostsForHome } from '@src/lib/api';
-import * as LayoutT from '@template/Layout';
+// components
+import Layout from '@template/Layout';
 
-export default function Index({ allPosts: { edges }, preview }: any) {
-  const heroPost = edges[0]?.node;
-  const morePosts = edges.slice(1);
-
+export default function Index({ allPosts, preview }: any) {
   return (
     <>
       <Head>
         <title>매일매일 1% | 4log</title>
       </Head>
-      <LayoutT.default>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage?.node}
-              date={heroPost.date}
-              author={heroPost.author?.node}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </LayoutT.default>
+      <Layout.Main data={{ allPosts }} />
     </>
   );
 }
