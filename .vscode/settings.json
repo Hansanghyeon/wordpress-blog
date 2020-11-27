@@ -1,14 +1,6 @@
 {
-  "files.exclude": {
-    ".next/": true
-  },
   "explorer.sortOrder": "type",
   "javascript.format.enable": false,
   "typescript.format.enable": false,
-  "editor.formatOnSave": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#2ea1b5",
-    "statusBarItem.hoverBackground": "#247d8c",
-    "statusBar.foreground": "#15202b"
-  }
+  "editor.formatOnSave": true
 }
