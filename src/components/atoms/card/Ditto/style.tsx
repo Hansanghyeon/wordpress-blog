@@ -66,7 +66,6 @@ const BaseBody = styled.div`
 `;
 export const BaseTitle = styled.div`
   margin-bottom: 8px;
-  max-width: 280px;
   font-weight: bold;
 `;
 export const Footer = styled.div`
@@ -86,7 +85,6 @@ export const Footer = styled.div`
 const BaseContent = styled.div`
   color: var(--color1, #4a4f57);
 
-  max-width: 280px;
   height: 4rem;
   overflow: hidden;
   font-size: 0.875rem;
@@ -197,40 +195,27 @@ type IsGrid = {
   isGrid: boolean;
 };
 
-interface Props extends IsThumnail, IsGrid { }
+interface Props extends IsThumnail, IsGrid {}
 
-export const Thumnail = styled(BaseThumnail) <Props>`
+export const Thumnail = styled(BaseThumnail)<Props>`
   ${({ isGrid }) => isGrid && Grid.thumnail}
   ${({ isThumnail }) => !isThumnail && nonThumnail.thumnail}
 `;
 
-export const MainInner = styled(BaseMainInner) <Props>`
+export const MainInner = styled(BaseMainInner)<Props>`
   ${({ isGrid }) => isGrid && Grid.mainInner}
   ${({ isThumnail }) => !isThumnail && nonThumnail.mainInner}
-  ${({
-  isGrid,
-  isThumnail,
-}) =>
-    isGrid &&
-    !isThumnail &&
-    css`
-      max-width: calc(280px + 2rem);
-    `};
 `;
 
-export const Main = styled(BaseMain) <Props>`
+export const Main = styled(BaseMain)<Props>`
   ${({ isGrid }) => (isGrid ? Grid.main : List.main)}
   ${({ isThumnail }) => !isThumnail && nonThumnail.main}
 `;
 
-export const Content = styled(BaseContent) <IsThumnail>`
-  ${({ isThumnail }) => !isThumnail && nonThumnail.content}
-`;
+export const Content = styled(BaseContent)<IsThumnail>``;
 
-export const Body = styled(BaseBody) <Props>`
+export const Body = styled(BaseBody)<Props>`
   ${({ isGrid, isThumnail }) => isGrid && isThumnail && Grid.body}
 `;
 
-export const Title = styled(BaseTitle) <IsThumnail>`
-  ${({ isThumnail }) => !isThumnail && nonThumnail.content}
-`;
+export const Title = styled(BaseTitle)<IsThumnail>``;
