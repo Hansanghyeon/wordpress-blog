@@ -1,9 +1,9 @@
 import React from 'react';
 // Components
 import { SmLogo } from '@atom/Logo';
-import SnsIcon from '@molecule/SNS';
+import SnsIcon from '@module/list/SNS';
 import MenuToggle from '@atom/toggle/Menu';
-import { Wrap, Col, Row, Container } from './index.style';
+import { Wrap, Col, Row, Container } from './style';
 
 const GNB = () => (
   <Wrap sidebarOpen={false}>

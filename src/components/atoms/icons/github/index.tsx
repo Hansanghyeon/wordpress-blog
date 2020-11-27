@@ -5,8 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 const LinkWrap = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.color.text[0]};
-  display: flex;
-  align-items: center;
+  line-height: 1;
 `;
 
 const Github: React.FC = () => {

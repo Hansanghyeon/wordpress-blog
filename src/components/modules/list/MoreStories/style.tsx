@@ -10,3 +10,16 @@ export const DittoWrap = styled.div`
   margin-left: -1rem;
   margin-right: -1rem;
 `;
+
+export const MasonryStyled = styled.div`
+  .my-masonry-grid {
+    display: flex;
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    background-clip: padding-box;
+  }
+  /* Style your items */
+  .my-masonry-grid_column > div {
+  }
+`;

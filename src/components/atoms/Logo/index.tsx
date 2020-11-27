@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const StyledLink = styled.a`
+const StyledLink = styled.div`
   color: ${({ theme }) => theme.color.text[0]};
   fill: ${({ theme }) => theme.color.text[0]};
   display: flex;
@@ -18,10 +18,12 @@ const StyledLink = styled.a`
 
 export const SmLogo: React.FC = () => (
   <Link href="/">
-    <StyledLink>
-      <img src="/favicon/favicon-32x32.png" alt="" />
-      4Log
-    </StyledLink>
+    <a>
+      <StyledLink>
+        <img src="/favicon/favicon-32x32.png" alt="" />
+        4Log
+      </StyledLink>
+    </a>
   </Link>
 );
 

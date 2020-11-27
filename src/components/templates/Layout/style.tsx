@@ -1,10 +1,7 @@
-import styled, { createGlobalStyle, css } from "styled-components";
-import { media } from "styled-bootstrap-grid";
+import styled, { createGlobalStyle, css } from 'styled-components';
+import { media } from 'styled-bootstrap-grid';
 // Component
-import {
-  SidebarStatueType,
-  SidebarStatueStyle,
-} from "@organism/MSB/index.style";
+import { SidebarStatueType, SidebarStatueStyle } from '@module/MSB/style';
 
 interface MainWrapperType extends SidebarStatueType {
   msbType: string;
@@ -18,7 +15,7 @@ export const MainWrapper = styled.div<MainWrapperType>`
   ${SidebarStatueStyle.Def};
   ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
 
-  ${({ msbType }) => msbType !== "hidden" && DefaultMainWrapper};
+  ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
   ${media.xxl`
     margin-left: auto;
   `};
@@ -30,19 +27,6 @@ export const Main = styled.main`
   }
 `;
 
-const scrollControl = css`
-  html,
-  body,
-  #___gatsby {
-    height: 100vh;
-    overflow: hidden;
-  }
-  #gatsby-focus-wrapper {
-    --fnb-height: 71px;
-    height: calc(100vh - var(--gnb-height));
-    overflow: auto;
-  }
-`;
 const _GlobalStyle = css`
   body {
     background-color: ${({ theme }) => theme.color.bg[1]};

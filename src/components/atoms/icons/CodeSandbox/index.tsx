@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 import { FiCodesandbox } from 'react-icons/fi';
 
-const A = styled.a`
+const A = styled.a``;
+
+const LinkWrap = styled.a`
+  text-decoration: none;
   color: ${({ theme }) => theme.color.text[0]};
+  line-height: 1;
 `;
 
 const CodeSandbox = () => (
-  <A href="https://codesandbox.io/u/Hansanghyeon">
+  <LinkWrap href="https://codesandbox.io/u/Hansanghyeon">
     <FiCodesandbox />
-  </A>
+  </LinkWrap>
 );
 
 export default CodeSandbox;

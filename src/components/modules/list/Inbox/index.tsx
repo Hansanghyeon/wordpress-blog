@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 // components
-import NotionStyle from '@bit/hansanghyeon.list-item.notion-style';
-import Link from '@atom/Link';
+import NotionListItem from '@atom/listItem/Notion';
+import Link from 'next/link';
 
 const Wrap = styled.div``;
 const TitleWrap = styled.div`
@@ -20,11 +20,11 @@ const InboxList = ({ data }: any) => {
       {data.edges.map(({ node }: any) => {
         const { icon } = node._acf_post;
         return (
-          <NotionStyle key={node.id} imgSrc={icon?.mediaItemUrl}>
-            <Link direction="left" to={`/post/${node.slug}`}>
+          <NotionListItem key={node.id} imgSrc={icon?.mediaItemUrl}>
+            <Link as={`/posts/${node.slug}`} href="/posts/[slug]">
               {node.title}
             </Link>
-          </NotionStyle>
+          </NotionListItem>
         );
       })}
     </Wrap>

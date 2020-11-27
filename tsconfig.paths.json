@@ -8,11 +8,8 @@
       "@atom/*": [
         "src/components/atoms/*"
       ],
-      "@molecule/*": [
-        "src/components/molecules/*"
-      ],
-      "@organism/*": [
-        "src/components/organisms/*"
+      "@module/*": [
+        "src/components/modules/*"
       ],
       "@template/*": [
         "src/components/templates/*"
@@ -20,6 +17,9 @@
       "@style/*": [
         "src/styles/*"
       ],
+      "@hook/*": [
+        "src/hook/*"
+      ]
     }
   }
 }

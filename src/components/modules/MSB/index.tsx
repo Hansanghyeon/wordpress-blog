@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 // Components
 import Logo from '@atom/Logo';
 import { MenuStateType } from '@store/Menu';
-import useOutsideAlerter from '@utile/useOutsideAlerter';
+import useOutsideAlerter from '@hook/useOutsideAlerter';
 // Style
-import { SideBar, LogoLayout, Main, Row, Col } from './index.style';
+import { SideBar, LogoLayout, Main, Row, Col } from './style';
 // Containers
 import DayAndNightToggle from '#/DayAndNight';
 import PostTypeAllCat from '#/PostTypeAllCat';

@@ -8,10 +8,7 @@ import {
 // style utile
 import { rhythm } from '@style/typography';
 // Component
-import {
-  SidebarStatueType,
-  SidebarStatueStyle,
-} from '@organism/MSB/index.style';
+import { SidebarStatueType, SidebarStatueStyle } from '@module/MSB/style';
 
 export const Wrap = styled.div<SidebarStatueType>`
   width: 100%;
