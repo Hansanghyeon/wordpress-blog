@@ -1,12 +1,11 @@
-import "../styles/index.css";
-import { AppProps } from "next/app";
-import { RecoilRoot } from "recoil";
+import { AppProps } from 'next/app';
+import Providers from '@/Provider';
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
+    <Providers>
       <Component {...pageProps} />
-    </RecoilRoot>
+    </Providers>
   );
 }
 

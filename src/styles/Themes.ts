@@ -19,7 +19,7 @@ interface StyleSystem {
 //   color: DarkColors;
 // }
 
-const Theme: StyleSystem = {
+export const lightTheme: StyleSystem = {
   color: {
     primary: '#0f4c81',
     bg: ['#fff', '#E1EBF2'],
@@ -31,13 +31,11 @@ const Theme: StyleSystem = {
   },
 };
 
-export const DarkTheme: StyleSystem = {
+export const darkTheme: StyleSystem = {
   color: {
-    ...Theme.color,
+    ...lightTheme.color,
     primary: '#fff46a',
     bg: ['#2C2F33', '#232326'],
     text: ['#C2BFB9', '#C2BFB9', '#9ba4b7', '#515151'],
   },
 };
-
-export default Theme;
