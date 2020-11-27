@@ -12,6 +12,7 @@ export const DittoWrap = styled.div`
 `;
 
 export const MasonryStyled = styled.div`
+  width: 100%;
   .my-masonry-grid {
     display: flex;
     width: auto;
