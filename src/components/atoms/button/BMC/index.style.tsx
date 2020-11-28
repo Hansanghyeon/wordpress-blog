@@ -1,4 +1,3 @@
-import Link from '@atom/Link';
 import styled from 'styled-components';
 import { media } from 'styled-bootstrap-grid';
 import { rhythm } from '@style/typography';
@@ -12,7 +11,7 @@ export const Title = styled.span`
   margin-left: 4px;
   font-size: 22px;
 `;
-export const Button = styled(Link)`
+export const Button = styled.a`
   display: flex;
   align-items: center;
   padding: 4px 12px 4px 8px;
@@ -22,7 +21,6 @@ export const Button = styled(Link)`
   border: 1px;
   letter-spacing: 0.6px;
   box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5);
-  margin: 0 auto;
   font-family: 'Cookie', cursive;
   box-sizing: border-box;
 
@@ -32,6 +30,9 @@ export const Button = styled(Link)`
   &:focus {
     box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5);
     opacity: 0.85;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.color.bg[1]};
   }
 `;
 
