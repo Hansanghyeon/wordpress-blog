@@ -1,67 +1,38 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import Container from '@/container';
-import PostBody from '@/post-body';
-import MoreStories from '@module/list/MoreStories';
-import Header from '@/header';
-import PostHeader from '@/post-header';
-import SectionSeparator from '@/section-separator';
-import Layout from '@template/Layout';
-import { getAllPostsWithSlug, getPostAndMorePosts } from '@src/lib/api';
-import PostTitle from '@/post-title';
 import Head from 'next/head';
+// API
+import { getAllPostsWithSlug, getPostAndMorePosts } from '@src/lib/api';
+// components
 import { CMS_NAME } from '@src/lib/constants';
-import Tags from '@/tags';
+import PostTitle from '@/post-title';
+import WpPost from '@template/Post/Wp';
+import Layout from '@template/Layout';
 
 export default function Post({ post, posts, preview }: any) {
   const router = useRouter();
-  const morePosts = posts?.edges;
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
+  if (router.isFallback) return <PostTitle>Loading…</PostTitle>;
+
   return (
     <>
-      <Header />
+      <Head>
+        <title>
+          {post.title} | {CMS_NAME}
+        </title>
+        <meta name="og:title" content={`${post.title} | ${CMS_NAME}`} />
+        <meta name="description" content={post.excerpt} />
+        <meta
+          property="og:image"
+          content={post.featuredImage?.node?.mediaItemUrl}
+        />
+      </Head>
       <Layout>
-        <Container>
-          {router.isFallback ? (
-            <PostTitle>Loading…</PostTitle>
-          ) : (
-            <>
-              <article>
-                <Head>
-                  <title>
-                    {post.title} | {CMS_NAME}
-                  </title>
-                  <meta
-                    name="description"
-                    content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-                  />
-                  <meta
-                    property="og:image"
-                    content={post.featuredImage?.node?.sourceUrl}
-                  />
-                </Head>
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.featuredImage?.node}
-                  date={post.date}
-                  author={post.author?.node}
-                  categories={post.categories}
-                />
-                <PostBody content={post.content} />
-                <footer>
-                  {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-                </footer>
-              </article>
-
-              <SectionSeparator />
-              {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-            </>
-          )}
-        </Container>
+        <WpPost post={post} morePosts={posts?.edges} />
       </Layout>
     </>
   );

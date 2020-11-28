@@ -1,13 +1,12 @@
-import React from 'react';
+import useDarkMode from 'use-dark-mode';
 import { Prism as ReactSyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   atomDark,
   base16AteliersulphurpoolLight,
-} from 'react-syntax-highlighter/dist/esm/styles/prism';
+} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Header, Lang, FileName } from './style';
 
 type Props = {
-  isDark?: boolean;
   data: {
     lang?: string;
     fileName?: string;
@@ -15,8 +14,10 @@ type Props = {
   };
   children: React.ReactNode;
 };
-const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
-  const { data, isDark, children } = props;
+export default function SyntaxHighlighter(props: Props) {
+  const { data, children } = props;
+  const { value } = useDarkMode();
+  const isDark = value;
   const { lang, fileName, isLineNumber } = data;
   let icon = '';
   switch (lang) {
@@ -56,9 +57,4 @@ const SyntaxHighlighter: React.FC<Props> = (props: Props) => {
       </ReactSyntaxHighlighter>
     </>
   );
-};
-SyntaxHighlighter.defaultProps = {
-  isDark: false,
-};
-
-export default SyntaxHighlighter;
+}

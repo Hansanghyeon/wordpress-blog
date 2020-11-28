@@ -5,7 +5,7 @@ import {
   FaChevronRight,
   FaChevronLeft,
 } from 'react-icons/fa';
-import Link from '@atom/Link';
+import Link from 'next/link';
 import {
   Img,
   Wrap,
@@ -68,7 +68,9 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
             }
             return (
               <Li key={`${currentPostId}-${node.id}`}>
-                <Link to={`/post/${node.slug}`}>{node.title}</Link>
+                <Link as={`/posts/${node.slug}`} href="/posts/[slug]">
+                  {node.title}
+                </Link>
               </Li>
             );
           })}

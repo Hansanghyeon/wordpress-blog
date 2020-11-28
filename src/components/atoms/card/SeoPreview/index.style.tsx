@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Row as _Row, Col as _Col, media } from 'styled-bootstrap-grid';
 
-import Link from '@atom/Link';
-
 type styleProps = {
   bg?: string;
 };
@@ -83,7 +81,7 @@ export const Row = {
     border: 1px solid transparent;
   `,
 };
-export const RootWrap = styled(Link)`
+export const RootWrap = styled.div`
   display: block;
   color: inherit;
   text-decoration: none;

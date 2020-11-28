@@ -1,25 +1,23 @@
-import React from 'react';
-// Component
-import { ThemeStateType } from '@store/Theme';
+import useDarkMode from 'use-dark-mode';
 import { Wrap, Col, Row, Emoji } from './index.style';
 
 // NOTE
 // "Callout은 MDX에서 사용하기때문에 렌더링할때 props에서 theme 값을 가져올 수 없다."
 
-interface Props extends ThemeStateType {
+interface Props {
   children: React.ReactNode;
   icon?: string;
   bgColor?: string;
 }
 
-const Callout: React.FC<Props> = ({
+export default function Callout({
   children,
-  isDark,
   icon = '📌',
   bgColor = '',
-}: Props) => {
+}: Props) {
+  const { value } = useDarkMode();
   return (
-    <Wrap bgColor={bgColor} isDark={isDark}>
+    <Wrap bgColor={bgColor} isDark={value}>
       <Row.Def>
         <Emoji role="img" aria-label="">
           {icon}
@@ -28,6 +26,4 @@ const Callout: React.FC<Props> = ({
       </Row.Def>
     </Wrap>
   );
-};
-
-export default Callout;
+}

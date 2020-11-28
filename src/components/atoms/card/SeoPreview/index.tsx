@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 // Components
 import NonFavicon from '@atom/icons/NonFavicon';
 import CpuChipLoader from '@atom/loader/CpuChip';
@@ -66,9 +67,11 @@ const Loading = () => (
 
 const SeoPreviewCard = ({ data, loading, mUrl }: props) => {
   return (
-    <RootWrap href={mUrl}>
-      {!loading ? <Loaded data={data} mUrl={mUrl} /> : <Loading />}
-    </RootWrap>
+    <Link href={mUrl}>
+      <RootWrap>
+        {!loading ? <Loaded data={data} mUrl={mUrl} /> : <Loading />}
+      </RootWrap>
+    </Link>
   );
 };
 

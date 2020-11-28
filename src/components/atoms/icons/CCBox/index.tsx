@@ -6,19 +6,22 @@ import {
   FaCreativeCommonsNc,
   FaCreativeCommonsSa,
 } from 'react-icons/fa';
-import Link from '@atom/Link';
 
-const CCBoxWrap = styled(Link)`
+const CCBoxWrap = styled.div`
   border: 2px solid ${({ theme }) => theme.color.text[3]};
   color: ${({ theme }) => theme.color.text[3]};
   display: flex;
   border-radius: 999px;
-  padding: 0px 6px;
+  padding: 4px 6px;
   margin-right: 8px;
   justify-content: center;
   align-items: center;
   transition: color 0.45s;
   will-change: color;
+  div {
+    display: flex;
+    align-items: center;
+  }
   div:first-child {
     margin-right: 6px;
   }
@@ -31,10 +34,7 @@ const CCBoxWrap = styled(Link)`
 `;
 
 const CCBox: React.FC = () => (
-  <CCBoxWrap
-    href="https://creativecommons.org/licenses/by-nc-sa/2.0/kr/"
-    target="_blank"
-  >
+  <CCBoxWrap>
     <div>
       <FaCreativeCommons />
     </div>

@@ -1,11 +1,11 @@
-import React from 'react';
+import useDarkMode from 'use-dark-mode';
 import Light from './Light';
 import Dark from './Dark';
 
-interface props {
-  isDark?: boolean;
-}
-const Utterances = ({ isDark }: props) => (isDark ? <Dark /> : <Light />);
+const Utterances = () => {
+  const { value } = useDarkMode();
+  return value ? <Dark /> : <Light />;
+};
 
 Utterances.displayName = 'Utterances';
 

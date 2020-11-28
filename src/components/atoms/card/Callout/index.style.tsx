@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { darken, transparentize } from 'polished';
 import { Container, Row as _Row, Col as _Col } from 'styled-bootstrap-grid';
-//
 import { rhythm } from '@style/typography';
-import { ThemeStateType } from '@store/Theme';
 
-interface props extends ThemeStateType {
+interface props {
   bgColor: string;
+  isDark: boolean;
 }
 // "Callout은 MDX에서 사용하기때문에 렌더링할때 props에서 theme 값을 가져올 수 없다."
 export const Wrap = styled(Container)<props>`
