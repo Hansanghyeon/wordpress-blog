@@ -135,6 +135,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
       avatar {
         url
       }
+      _acf_user_option {
+        bmc
+      }
     }
     fragment PostFields on Post {
       title

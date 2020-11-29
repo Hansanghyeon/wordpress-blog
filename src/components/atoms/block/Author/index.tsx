@@ -27,7 +27,9 @@ export default function Author({ author }: props) {
           {description}
         </Introduce>
       </Wrap>
-      <BMC />
+      {author._acf_user_option?.bmc && (
+        <BMC url={author._acf_user_option?.bmc} />
+      )}
     </RootWrap>
   );
 }
