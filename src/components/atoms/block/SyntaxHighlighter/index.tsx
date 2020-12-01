@@ -42,8 +42,8 @@ export default function SyntaxHighlighter(props: Props) {
         {fileName ? <FileName>{fileName}</FileName> : <div />}
         {lang && (
           <Lang
-            src={`https://wp.hyeon.pro/wp-content/uploads/4log/icons/material/${icon}.svg`}
-            alt=""
+            src={`https://wp.hyeon.pro/wp-content/uploads/${icon}.svg`}
+            alt={icon}
           />
         )}
       </Header>
