@@ -7,6 +7,7 @@ export const CardWrap = styled.div`
   border-radius: 3px;
   padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  position: relative;
   ${media.md`
     padding: ${rhythm(1)};
   `}
@@ -15,6 +16,14 @@ export const CardWrap = styled.div`
   }
   img {
     height: auto !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin: 60px;
   }
 `;
 

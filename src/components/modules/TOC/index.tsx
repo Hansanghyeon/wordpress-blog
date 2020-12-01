@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import parser, { domToReact } from 'html-react-parser';
+import { TOCView, TOCWrap, Level1, Level2, Level3 } from './style';
 
 const CONSTANTS = (() => {
   const KEY_OF_H2 = 2;
@@ -35,113 +35,89 @@ const findHighestHTagName = (heading: string[]) =>
   });
 const getLevelsByHighestTag = (_findHighestHTagName: string) => {
   const headingLevel = new RegExp('<h([0-4]).+>');
-  const isHeadingNumber = headingLevel.exec(_findHighestHTagName)![1];
+  const isHeadingNumber: any = headingLevel.exec(_findHighestHTagName)![1];
   const levelMapByHihestTag = [CONSTANTS.levelsByH2, CONSTANTS.levelsByH3];
   return levelMapByHihestTag[isHeadingNumber - 2] || CONSTANTS.levelsByH4;
 };
 const levelMap = (data: string[]) =>
   getLevelsByHighestTag(findHighestHTagName(data));
 
-const TOCWrap = styled.div`
-  a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-`;
-const Level1 = styled.a`
-  display: block;
-`;
-const Level2 = styled.a`
-  display: block;
-  padding-left: 1.4rem;
-`;
-const Level3 = styled.a`
-  display: block;
-  padding-left: 2.8rem;
-`;
-
 interface props {
-  data?: Array<string>;
+  data: Array<string>;
 }
 const TOC = ({ data }: props) => {
   if (data?.length === 0) return null;
   const HeadingLevel = levelMap(data);
 
   const _handleClick = (e: any) => {
-    interface taget {
-      id: string;
-    }
-    const { id }: taget = e.target.dataset;
-    const scrollTarget = document.querySelector(`#${id}`);
-    const scrollEventRootWrap = document.querySelector('#gatsby-focus-wrapper');
-    const locationElement =
-      scrollTarget.offsetTop - scrollEventRootWrap.offsetTop / 2;
-
-    // set event
-    scrollEventRootWrap?.scrollTo({
-      top: locationElement,
+    const { id } = e.target.dataset;
+    const scrollTarget: any = document.querySelector(`#${id}`);
+    scrollTarget.scrollIntoView({
       behavior: 'smooth',
+      inline: 'center',
     });
   };
 
   return (
-    <TOCWrap>
-      {data?.map((e, index) =>
-        parser(e, {
-          replace: ({ name, children, attribs }: any) => {
-            if (!name) return;
-            if (Object.prototype.hasOwnProperty.call(HeadingLevel, name)) {
-              const level: number = HeadingLevel[name];
-              let result;
-              switch (level) {
-                case 1:
-                  result = (
-                    <Level1
-                      {...attribs}
-                      data-id={`toc-${index}`}
-                      className={`toc-common toc-level-${level}`}
-                      onClick={_handleClick}
-                      key={`toc-${index}`}
-                    >
-                      {domToReact(children)}
-                    </Level1>
-                  );
-                  break;
-                case 2:
-                  result = (
-                    <Level2
-                      {...attribs}
-                      data-id={`toc-${index}`}
-                      className={`toc-common toc-level-${level}`}
-                      onClick={_handleClick}
-                      key={`toc-${index}`}
-                    >
-                      {domToReact(children)}
-                    </Level2>
-                  );
-                  break;
-                case 3:
-                  result = (
-                    <Level3
-                      {...attribs}
-                      data-id={`toc-${index}`}
-                      className={`toc-common toc-level-${level}`}
-                      onClick={_handleClick}
-                      key={`toc-${index}`}
-                    >
-                      {domToReact(children)}
-                    </Level3>
-                  );
-                  break;
-                default:
+    <TOCView>
+      <TOCWrap>
+        {data?.map((e, index) =>
+          parser(e, {
+            replace: ({ name, children, attribs }: any) => {
+              if (!name) return;
+              if (Object.prototype.hasOwnProperty.call(HeadingLevel, name)) {
+                const level: number = HeadingLevel[name];
+                let result;
+                switch (level) {
+                  case 1:
+                    result = (
+                      <Level1
+                        {...attribs}
+                        data-id={`toc-${index}`}
+                        className={`toc-common toc-level-${level}`}
+                        onClick={_handleClick}
+                        key={`toc-${index}`}
+                      >
+                        {domToReact(children)}
+                      </Level1>
+                    );
+                    break;
+                  case 2:
+                    result = (
+                      <Level2
+                        {...attribs}
+                        data-id={`toc-${index}`}
+                        className={`toc-common toc-level-${level}`}
+                        onClick={_handleClick}
+                        key={`toc-${index}`}
+                      >
+                        {domToReact(children)}
+                      </Level2>
+                    );
+                    break;
+                  case 3:
+                    result = (
+                      <Level3
+                        {...attribs}
+                        data-id={`toc-${index}`}
+                        className={`toc-common toc-level-${level}`}
+                        onClick={_handleClick}
+                        key={`toc-${index}`}
+                      >
+                        {domToReact(children)}
+                      </Level3>
+                    );
+                    break;
+                  default:
+                }
+                // eslint-disable-next-line consistent-return
+                return result;
               }
-              // eslint-disable-next-line consistent-return
-              return result;
-            }
-          },
-        }),
-      )}
-    </TOCWrap>
+            },
+          }),
+        )}
+      </TOCWrap>
+    </TOCView>
   );
 };
 

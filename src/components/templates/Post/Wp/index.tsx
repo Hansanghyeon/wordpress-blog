@@ -2,7 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 // components
 import PostTemplate from '@template/Post/index';
-// import TOC from '@module/TOC/context';
+import TOC from '@module/TOC';
 import SerieList from '@module/list/Serie';
 import options from './options';
 import Tags from '@/tags';
@@ -32,11 +32,10 @@ export default function WpPost({ post, morePosts }: any) {
       }>${divider![3]}`;
     }
   });
-
   return (
     <PostTemplate morePosts={morePosts} post={post}>
       {series && <SerieList data={{ query: series, currentPostId: id }} />}
-      {/* <TOC data={tocData} /> */}
+      <TOC data={tocData} />
       <ContentMemo wpData={wpData} />
       {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
     </PostTemplate>
