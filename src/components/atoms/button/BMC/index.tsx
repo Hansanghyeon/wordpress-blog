@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coffee, Title, Button, Wrap } from './index.style';
+import { Coffee, Title, Button, Wrap } from './style';
 
 export default function BMC({ url }: { url: string }) {
   return (
