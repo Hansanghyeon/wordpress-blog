@@ -25,6 +25,34 @@ export const CardWrap = styled.div`
   h6 {
     scroll-margin: 60px;
   }
+  table {
+    td,
+    th {
+      border: 1px solid ${({ theme }) => theme.color.bg[1]};
+      padding: 8px;
+    }
+    th {
+      text-align: left;
+      padding: 8px;
+      word-break: keep-all;
+    }
+    tr:first-child th,
+    tr:first-child td {
+      border-top: 0;
+    }
+    tr th:first-child,
+    tr td:first-child {
+      border-left: 0;
+    }
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0;
+    }
+    tr th:last-child,
+    tr td:last-child {
+      border-right: 0;
+    }
+  }
 `;
 
 export const FeaturedImg = styled(Col)<{ bgImg?: string }>`
