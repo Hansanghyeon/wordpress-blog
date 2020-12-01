@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { media } from 'styled-bootstrap-grid';
 import { rhythm } from '@style/typography';
+import { rgba } from 'polished';
 
 export const Coffee = styled.img`
   margin-bottom: 0;
@@ -15,12 +16,12 @@ export const Button = styled.a`
   display: flex;
   align-items: center;
   padding: 4px 12px 4px 8px;
-  color: ${({ theme }) => theme.color.text[0]};
+  color: ${({ theme }) => theme.color.grayscales.dark[0]};
   background-color: #ff813f;
   border-radius: 5px;
   border: 1px;
   letter-spacing: 0.6px;
-  box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5);
+  box-shadow: 0px 1px 2px ${rgba('#ff813f', 0.5)};
   font-family: 'Cookie', cursive;
   box-sizing: border-box;
 
@@ -28,7 +29,6 @@ export const Button = styled.a`
   &:hover,
   &:active,
   &:focus {
-    box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5);
     opacity: 0.85;
   }
 `;
