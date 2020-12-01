@@ -1,4 +1,6 @@
 import { css, createGlobalStyle } from 'styled-components';
+import { rgba } from 'polished';
+
 const _GlobalStyle = css`
   body {
     background-color: ${({ theme }) => theme.color.bg[1]};
@@ -24,6 +26,23 @@ const _GlobalStyle = css`
   }
   * {
     box-sizing: border-box;
+  }
+
+  /* Inline code */
+  :not(pre) > code[class*='language-'] {
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+    font-family: 'Fira Code', monospace;
+    color: ${({ theme }) => rgba(theme.code.color, 0.6)};
+    background-color: ${({ theme }) => theme.code.bg};
+    transition: color 0.3s;
+    will-change: color;
+    &:hover {
+      color: ${({ theme }) => theme.code.color};
+    }
+  }
+  pre * {
+    font-family: 'Fira Code', monospace;
   }
 `;
 

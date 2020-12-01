@@ -1,25 +1,4 @@
-interface Grayscales {
-  dark: string[];
-  light: string[];
-}
-
-interface Colors {
-  primary: string;
-  bg: string[];
-  text: string[];
-  grayscales: Grayscales;
-}
-
-// interface DarkColors extends Colors {}
-interface StyleSystem {
-  color: Colors;
-}
-
-// interface DarkStyleSystem extends StyleSystem {
-//   color: DarkColors;
-// }
-
-export const lightTheme: StyleSystem = {
+export const lightTheme = {
   color: {
     primary: '#0f4c81',
     bg: ['#fff', '#E1EBF2'],
@@ -29,13 +8,21 @@ export const lightTheme: StyleSystem = {
       light: ['#ffffff', '#e6ecf8', '#9ba4b7', '#6d7484', '#404655'],
     },
   },
-};
+  code: {
+    bg: '#f5f7ff',
+    color: '#5e6687',
+  },
+} as const;
 
-export const darkTheme: StyleSystem = {
+export const darkTheme = {
   color: {
     ...lightTheme.color,
     primary: '#fff46a',
     bg: ['#2C2F33', '#232326'],
     text: ['#C2BFB9', '#C2BFB9', '#9ba4b7', '#515151'],
   },
-};
+  code: {
+    bg: '#1d1f21',
+    color: '#f92672',
+  },
+} as const;
