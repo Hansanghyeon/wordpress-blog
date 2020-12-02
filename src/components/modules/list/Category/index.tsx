@@ -7,8 +7,8 @@ const CategoryList = ({ data }: any) => {
       {data.edges.map(({ node }: any) => (
         <Link
           key={`cat-${node.slug}`}
-          as={`/category/${node.slug}`}
-          href={`/category/[slug]`}
+          as={`/dev/category/${node.slug}`}
+          href={`/dev/category/[slug]`}
         >
           <a>
             <NotionListItem
