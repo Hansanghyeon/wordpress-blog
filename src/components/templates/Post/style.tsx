@@ -118,7 +118,14 @@ const MainRow = styled(_Row)`
   a {
     font-size: 0.9em;
     text-decoration-line: underline;
-    text-decoration-color: ${({ theme }) => theme.color.primary};
+    transition: color 0.3s;
+    will-change: color;
+    &:visited {
+      color: ${({ theme }) => theme.color.text[3]};
+    }
+    &:hover {
+      color: ${({ theme }) => theme.color.primary};
+    }
   }
 `;
 const BioRow = styled(_Row)`
