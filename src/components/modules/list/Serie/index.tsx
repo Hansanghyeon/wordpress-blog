@@ -68,7 +68,7 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
             }
             return (
               <Li key={`${currentPostId}-${node.id}`}>
-                <Link as={`/posts/${node.slug}`} href="/posts/[slug]">
+                <Link as={`/dev/posts/${node.slug}`} href="/dev/posts/[slug]">
                   {node.title}
                 </Link>
               </Li>

@@ -42,7 +42,7 @@ export default function MoreStories({ posts }: any) {
                 date: node.date,
                 footer: () => <CategoryList data={categories} />,
                 title: () => (
-                  <Link as={`/posts/${slug}`} href="/posts/[slug]">
+                  <Link as={`/dev/posts/${slug}`} href="/dev/posts/[slug]">
                     {title}
                   </Link>
                 ),
