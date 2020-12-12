@@ -14,11 +14,18 @@ function themeslug_enqueue()
 }
 add_action('wp_enqueue_scripts', 'themeslug_enqueue');
 
-include('functions/kill-parentTheme.php');
-include('functions/page-info.php');
-include('functions/gutenberg.php');
-include('functions/code-syntax-block.php');
-include('functions/uploda-media-type.php');
-include('functions/content-page/index.php');
 
+
+/**
+ *  * functions 폴더내부의 php 모두 불러오기
+ *   *
+ *    * @author       Hansanghyeon
+ *     * @copyright    Hansanghyeon <dandan9509@gmail.com>
+ *      **/
+
+foreach (glob(get_stylesheet_directory() . "/functions/*.php") as $filename) {
+	  include $filename;
+}
+
+include('functions/content-page/index.php');
 include('functions/admin/dashboard/index.php');
