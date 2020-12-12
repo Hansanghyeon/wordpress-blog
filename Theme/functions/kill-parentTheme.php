@@ -3,9 +3,8 @@
 /**
  * Kill Themes
  *
- * @package      hapas
  * @author       Hansanghyeon
- * @copyright    Hansanghyeon <dandan9509@gmail.com>
+ * @copyright    Hansanghyeon <999@hyeon.pro>
  **/
 
 function kill_theme_wpse_188906($themes)

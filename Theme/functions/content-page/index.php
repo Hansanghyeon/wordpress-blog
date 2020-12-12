@@ -4,7 +4,7 @@
  * 단일 포스트 스타일 지정
  *
  * @author       Hansanghyeon
- * @copyright    Hansanghyeon <dandan9509@gmail.com>
+ * @copyright    Hansanghyeon <999@hyeon.pro>
  **/
 define('F_DIR', str_replace("/var/www/html", "", plugin_dir_path(__FILE__)));
 
