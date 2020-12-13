@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { Row as _Row, Col as _Col, media } from 'styled-bootstrap-grid';
 
-type styleProps = {
-  bg?: string;
-};
 export const Header = styled.div`
   background-color: ${({ theme }) => theme.colors.bg[0]};
 
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   font-size: 10px;
   position: absolute;
   top: 2px;
@@ -18,6 +16,9 @@ export const Header = styled.div`
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.45s;
   will-change: background-color, color;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
 `;
 export const Favicon = styled.div`
   border-radius: 2px;
@@ -43,44 +44,57 @@ export const Description = styled.div`
     overflow: hidden;
   `};
 `;
-export const Col = {
-  Def: styled(_Col)``,
-  Image: styled(_Col)<styleProps>`
-    background-image: ${({ bg }) => `url(${bg})`};
-    display: none;
-    background-size: cover;
-    background-position: center;
-    ${media.md`
-      display: block;
-    `};
-  `,
-  Content: styled(_Col)`
-    overflow: hidden;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    ${media.md`
-      height: 120px;
-    `};
-  `,
+
+const Col = _Col as typeof _Col & {
+  Image: typeof _Col;
+  Content: typeof _Col;
 };
-export const Row = {
-  Def: styled(_Row)``,
-  Body: styled(_Row)`
-    background-color: ${({ theme }) => theme.colors.bg[1]};
-    color: ${({ theme }) => theme.colors.text[2]};
-    font-size: 14px;
-    border-radius: 4px;
-    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.45s;
-    will-change: box-shadow, color, border;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-  `,
+Col.Image = styled(_Col)<{ url: string }>`
+  background-image: ${({ url }) => `url(${url})`};
+  background-size: cover;
+  background-position: center;
+  display: none;
+  ${media.sm`
+    display: block;
+  `};
+`;
+Col.Content = styled(_Col)`
+  overflow: hidden;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  ${media.md`
+    height: 120px;
+  `};
+`;
+
+const BodyBase = styled.div`
+  background-color: ${({ theme }) => theme.colors.bg[1]};
+  color: ${({ theme }) => theme.colors.text[2]};
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.45s;
+  will-change: box-shadow, color, border;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  display: flex;
+`;
+const Body = BodyBase as typeof BodyBase & {
+  Loading: any;
 };
+Body.Loading = styled(Body)`
+  display: flex;
+  justify-content: center;
+  > div {
+    max-width: 180px;
+  }
+`;
+export { Body };
+
 export const RootWrap = styled.div`
   display: block;
   color: inherit;
@@ -92,18 +106,16 @@ export const RootWrap = styled.div`
     box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0);
   }
 
-  ${_Row} {
-    margin-left: 0;
-    margin-right: 0;
-  }
   &:hover {
     ${Header} {
       background-color: ${({ theme }) => theme.colors.primary};
       color: ${({ theme }) => theme.colors.bg[1]};
     }
-    ${Row.Body} {
+    ${Body} {
       color: ${({ theme }) => theme.colors.text[1]};
       border: 1px solid ${({ theme }) => theme.colors.text[2]};
     }
   }
 `;
+
+export { Col };

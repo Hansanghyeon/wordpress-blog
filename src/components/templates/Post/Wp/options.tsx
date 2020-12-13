@@ -3,7 +3,7 @@ import { domToReact, HTMLReactParserOptions } from 'html-react-parser';
 // components
 import DownloadButton from '@atom/button/Download';
 import Callout from '@atom/card/Callout';
-import SeoPreviewCard from '@atom/card/SeoPreview';
+import SeoPreviewCard from '@atom/card/SeoPreview/context';
 import SyntaxHighlighter from '@atom/block/SyntaxHighlighter';
 
 // FIXME 리팩토링 할일 해당 코드를 더 간결하게 만들수있나 고민

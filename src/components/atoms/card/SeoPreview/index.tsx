@@ -3,7 +3,17 @@ import Link from 'next/link';
 // components
 import NonFavicon from '@atom/icons/NonFavicon';
 import CpuChipLoader from '@atom/loader/CpuChip';
-import { Col, Row, Header, Favicon, Url, RootWrap, Description } from './style';
+import {
+  Col,
+  Header,
+  Favicon,
+  Url,
+  RootWrap,
+  Description,
+  Body,
+  Thumbnail,
+  Content,
+} from './style';
 
 interface reqData {
   data?: {
@@ -26,17 +36,27 @@ const Loaded = ({ data, mUrl }: reqData) => {
     <>
       <Header>
         <Favicon>
-          {favicon ? <img src={favicon} alt="" /> : <NonFavicon />}
+          {favicon ? (
+            <img src={favicon.replace('hapas.io', 'hyeon.pro')} alt="" />
+          ) : (
+            <NonFavicon />
+          )}
         </Favicon>
         <div>{title}</div>
       </Header>
-      <Row.Body>
+      <Body>
         <Col.Content col>
           <Description>{description}</Description>
           <Url>{mUrl}</Url>
         </Col.Content>
-        {image && <Col.Image col={12} sm={4} bg={image} />}
-      </Row.Body>
+        {image && (
+          <Col.Image
+            col={12}
+            sm={4}
+            url={image.replace('hapas.io', 'hyeon.pro')}
+          />
+        )}
+      </Body>
     </>
   );
 };
@@ -49,11 +69,9 @@ const Loading = () => (
       </Favicon>
       <div>Loading...</div>
     </Header>
-    <Row.Body>
-      <Col.Def col>
-        <CpuChipLoader />
-      </Col.Def>
-    </Row.Body>
+    <Body.Loading>
+      <CpuChipLoader />
+    </Body.Loading>
   </>
 );
 

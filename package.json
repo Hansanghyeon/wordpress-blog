@@ -9,6 +9,7 @@
     "sb-build": "build-storybook"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "dayjs": "^1.9.6",
     "framer-motion": "^2.9.4",
     "gsap": "^3.5.1",
