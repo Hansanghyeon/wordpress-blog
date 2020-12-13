@@ -49,6 +49,7 @@ export const List = styled.div``;
 // Modal
 export const TocModal = styled.div<{ onModal: boolean }>`
   position: fixed;
+  z-index: 200;
   bottom: 45px;
   right: 20px;
   transform: translate3d(0, 0, 0);
