@@ -6,6 +6,7 @@ export const RootWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 30px;
 `;
 export const Wrap = styled.div`
   font-size: 0.7rem;
