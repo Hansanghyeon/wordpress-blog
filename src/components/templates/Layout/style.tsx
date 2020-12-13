@@ -12,7 +12,7 @@ const DefaultMainWrapper = css`
   `};
 `;
 export const MainWrapper = styled.div<MainWrapperType>`
-  ${SidebarStatueStyle.Def};
+  /* ${SidebarStatueStyle.Def}; */
   ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
 
   ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};

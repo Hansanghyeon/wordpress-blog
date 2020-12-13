@@ -1,6 +1,18 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import parser, { domToReact } from 'html-react-parser';
-import { TOCView, TOCWrap, Level1, Level2, Level3 } from './style';
+import {
+  TOCView,
+  TOCWrap,
+  Level1,
+  Level2,
+  Level3,
+  Title,
+  TocModal,
+  ToggleBtn,
+  TocModalListWrap,
+  List,
+} from './style';
+import useWindowSize from '@hook/useWinwoSize';
 
 const CONSTANTS = (() => {
   const KEY_OF_H2 = 2;
@@ -47,7 +59,11 @@ interface props {
 }
 const TOC = ({ data }: props) => {
   if (data?.length === 0) return null;
+  const tocEl = useRef<HTMLDivElement>(null);
+  const [onModal, setOnModal] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const HeadingLevel = levelMap(data);
+  const size = useWindowSize();
 
   const _handleClick = (e: any) => {
     const { id } = e.target.dataset;
@@ -58,9 +74,25 @@ const TOC = ({ data }: props) => {
     });
   };
 
-  return (
-    <TOCView>
-      <TOCWrap>
+  const _handleToggleClick = (e) => {
+    setToggle(!toggle);
+  };
+
+  useEffect(() => {
+    if (tocEl.current && tocEl.current.clientWidth < 320) {
+      setOnModal(true);
+    } else {
+      setOnModal(false);
+    }
+  }, [size]);
+
+  const TocList = () => (
+    <>
+      <Title>
+        <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+        <b> 목차</b>
+      </Title>
+      <List>
         {data?.map((e, index) =>
           parser(e, {
             replace: ({ name, children, attribs }: any) => {
@@ -116,8 +148,26 @@ const TOC = ({ data }: props) => {
             },
           }),
         )}
-      </TOCWrap>
-    </TOCView>
+      </List>
+    </>
+  );
+
+  return (
+    <>
+      <TOCView onModal={onModal}>
+        <TOCWrap ref={tocEl}>
+          <TocList />
+        </TOCWrap>
+      </TOCView>
+      <TocModal onModal={onModal}>
+        <TocModalListWrap toggle={toggle}>
+          <TocList />
+        </TocModalListWrap>
+        <ToggleBtn onClick={_handleToggleClick}>
+          <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+        </ToggleBtn>
+      </TocModal>
+    </>
   );
 };
 
