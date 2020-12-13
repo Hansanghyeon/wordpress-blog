@@ -5,7 +5,7 @@ const A = styled.a``;
 
 const LinkWrap = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.color.text[0]};
+  color: ${({ theme }) => theme.colors.text[0]};
   line-height: 1;
 `;
 

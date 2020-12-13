@@ -19,7 +19,7 @@ import {
   MoreBtn,
   ArrowBtn,
   CurrentLi,
-} from './index.style';
+} from './style';
 import { SerieListType, accPostType } from './index.type';
 
 const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {

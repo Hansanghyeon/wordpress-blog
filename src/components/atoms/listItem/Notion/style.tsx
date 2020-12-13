@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
-  --color: ${({ theme }) => theme.color?.text[0]};
+  --color: ${({ theme }) => theme.colors?.text[0]};
   color: var(--color, #333);
   display: grid;
   grid-template-columns: 16px auto;

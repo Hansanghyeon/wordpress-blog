@@ -3,16 +3,16 @@ import { rgba } from 'polished';
 
 const _GlobalStyle = css`
   body {
-    background-color: ${({ theme }) => theme.color.bg[1]};
-    color: ${({ theme }) => theme.color.text[0]};
+    background-color: ${({ theme }) => theme.colors.bg[1]};
+    color: ${({ theme }) => theme.colors.text[0]};
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.color.text[0]};
+      color: ${({ theme }) => theme.colors.text[0]};
       &:hover,
       &.active {
-        color: ${({ theme }) => theme.color.primary};
+        color: ${({ theme }) => theme.colors.primary};
         > *:first-child {
-          --color: ${({ theme }) => theme.color.primary};
+          --color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
@@ -33,12 +33,12 @@ const _GlobalStyle = css`
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
     font-family: 'Fira Code', monospace;
-    color: ${({ theme }) => rgba(theme.code.color, 0.6)};
-    background-color: ${({ theme }) => theme.code.bg};
+    color: ${({ theme }) => rgba(theme.colors.codeColor, 0.6)};
+    background-color: ${({ theme }) => theme.colors.codeBg};
     transition: color 0.3s;
     will-change: color;
     &:hover {
-      color: ${({ theme }) => theme.code.color};
+      color: ${({ theme }) => theme.colors.codeColor};
     }
   }
   pre * {

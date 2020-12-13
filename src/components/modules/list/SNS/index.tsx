@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// Components
+// components
 import Github from '@atom/icons/github';
 import Dribbble from '@atom/icons/Dribbble';
 import CodeSandbox from '@atom/icons/CodeSandbox';

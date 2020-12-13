@@ -30,16 +30,16 @@ export const Main = styled.main`
 
 const _GlobalStyle = css`
   body {
-    background-color: ${({ theme }) => theme.color.bg[1]};
-    color: ${({ theme }) => theme.color.text[0]};
+    background-color: ${({ theme }) => theme.colors.bg[1]};
+    color: ${({ theme }) => theme.colors.text[0]};
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.color.text[0]};
+      color: ${({ theme }) => theme.colors.text[0]};
       &:hover,
       &.active {
-        color: ${({ theme }) => theme.color.primary};
+        color: ${({ theme }) => theme.colors.primary};
         > *:first-child {
-          --color: ${({ theme }) => theme.color.primary};
+          --color: ${({ theme }) => theme.colors.primary};
         }
       }
     }

@@ -1,17 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-// Components
+// components
 import NonFavicon from '@atom/icons/NonFavicon';
 import CpuChipLoader from '@atom/loader/CpuChip';
-import {
-  Col,
-  Row,
-  Header,
-  Favicon,
-  Url,
-  RootWrap,
-  Description,
-} from './index.style';
+import { Col, Row, Header, Favicon, Url, RootWrap, Description } from './style';
 
 interface reqData {
   data?: {

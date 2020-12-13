@@ -52,7 +52,7 @@ type isClicked = {
 export const SVG = {
   Arrow: styled.svg`
     fill: currentColor;
-    color: ${({ theme }) => theme.color.bg[0]};
+    color: ${({ theme }) => theme.colors.bg[0]};
     position: absolute;
     left: 0;
     top: 0;
@@ -61,14 +61,14 @@ export const SVG = {
   Shape: styled.svg<isClicked>`
     fill: currentColor;
     color: ${({ theme, clicked }) =>
-      clicked ? 'var(--success)' : theme.color.text[0]};
+      clicked ? 'var(--success)' : theme.colors.text[0]};
     transition: color 0.18ms;
     will-change: color;
   `,
   Span: styled.span<isClicked>`
     --s: 1;
     background-color: ${({ theme, clicked }) =>
-      clicked ? 'var(--success)' : theme.color.text[0]};
+      clicked ? 'var(--success)' : theme.colors.text[0]};
     position: absolute;
     left: 1px;
     right: 1px;

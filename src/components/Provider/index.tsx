@@ -9,7 +9,10 @@ import { darkTheme, lightTheme } from '@style/Themes';
 import GlobalStyle from '@style/GlobalStyle';
 
 export default function Providers({ children }: any) {
-  const { value } = useDarkMode(false, { storageKey: null, onChange: null });
+  const { value } = useDarkMode(false, {
+    storageKey: undefined,
+    onChange: undefined,
+  });
   const theme = value ? darkTheme : lightTheme;
 
   const [mounted, setMounted] = useState(false);

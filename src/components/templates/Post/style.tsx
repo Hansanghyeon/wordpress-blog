@@ -3,7 +3,7 @@ import { rhythm } from '@style/typography';
 import { Container, Row as _Row, Col, media } from 'styled-bootstrap-grid';
 
 export const CardWrap = styled.div`
-  background: ${({ theme }) => theme.color.bg[0]};
+  background: ${({ theme }) => theme.colors.bg[0]};
   border-radius: 3px;
   padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
@@ -28,7 +28,7 @@ export const CardWrap = styled.div`
   table {
     td,
     th {
-      border: 1px solid ${({ theme }) => theme.color.bg[1]};
+      border: 1px solid ${({ theme }) => theme.colors.bg[1]};
       padding: 8px;
     }
     th {
@@ -62,7 +62,7 @@ export const FeaturedImg = styled(Col)<{ bgImg?: string }>`
   padding-top: 54%;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: ${({ theme }) => theme.color.bg[0]};
+  background-color: ${({ theme }) => theme.colors.bg[0]};
   ${media.lg`
     padding-top: calc(54% / 2);
   `}
@@ -98,19 +98,19 @@ const MainRow = styled(_Row)`
   margin-top: ${rhythm(1)};
   .fc-dim,
   .fc-dim * {
-    color: ${({ theme }) => theme.color.text[3]};
+    color: ${({ theme }) => theme.colors.text[3]};
   }
   blockquote {
-    border-left: 4px solid ${({ theme }) => theme.color.bg[1]};
+    border-left: 4px solid ${({ theme }) => theme.colors.bg[1]};
   }
   .fc-highlight {
-    color: ${({ theme }) => theme.color.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
   .how-block {
     margin-top: 0;
   }
   hr {
-    border-bottom-color: ${({ theme }) => theme.color.text[3]};
+    border-bottom-color: ${({ theme }) => theme.colors.text[3]};
   }
   > ${Col} {
     position: unset;
@@ -121,10 +121,10 @@ const MainRow = styled(_Row)`
     transition: color 0.3s;
     will-change: color;
     &:visited {
-      color: ${({ theme }) => theme.color.text[3]};
+      color: ${({ theme }) => theme.colors.text[3]};
     }
     &:hover {
-      color: ${({ theme }) => theme.color.primary};
+      color: ${({ theme }) => theme.colors.primary};
     }
   }
 `;

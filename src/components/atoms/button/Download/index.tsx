@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Icon, SVG } from './index.style';
+import { Box, Icon, SVG } from './style';
 
 type props = {
   children: React.ReactNode;

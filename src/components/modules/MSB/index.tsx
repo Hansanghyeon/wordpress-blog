@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-// Components
+// components
 import Logo from '@atom/Logo';
 import { MenuStateType } from '@store/Menu';
 import useOutsideAlerter from '@hook/useOutsideAlerter';

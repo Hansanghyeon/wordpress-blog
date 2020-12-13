@@ -40,7 +40,7 @@ export const SideBar = styled.div<SideBar>`
   z-index: 900;
   transition: transform 0.5s ease-out;
   will-change: transform;
-  background-color: ${({ theme }) => transparentize(0.05, theme.color.bg[1])};
+  background-color: ${({ theme }) => transparentize(0.05, theme.colors.bg[1])};
 
   ${media.md`
     height: 100%;

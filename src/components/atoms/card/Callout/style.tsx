@@ -14,7 +14,7 @@ export const Wrap = styled(Container)<props>`
     if (bgColor !== '') {
       _color = isDark ? transparentize(0.4, darken(0.2, bgColor)) : bgColor;
     } else {
-      [, _color] = theme.color.bg;
+      [, _color] = theme.colors.bg;
     }
     return _color;
   }};

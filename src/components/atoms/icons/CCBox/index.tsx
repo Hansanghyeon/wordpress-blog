@@ -8,8 +8,8 @@ import {
 } from 'react-icons/fa';
 
 const CCBoxWrap = styled.div`
-  border: 2px solid ${({ theme }) => theme.color.text[3]};
-  color: ${({ theme }) => theme.color.text[3]};
+  border: 2px solid ${({ theme }) => theme.colors.text[3]};
+  color: ${({ theme }) => theme.colors.text[3]};
   display: flex;
   border-radius: 999px;
   padding: 4px 6px;

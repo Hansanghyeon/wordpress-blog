@@ -1,5 +1,5 @@
 import useDarkMode from 'use-dark-mode';
-import { Wrap, Col, Row, Emoji } from './index.style';
+import { Wrap, Col, Row, Emoji } from './style';
 
 // NOTE
 // "Callout은 MDX에서 사용하기때문에 렌더링할때 props에서 theme 값을 가져올 수 없다."

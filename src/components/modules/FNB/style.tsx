@@ -13,8 +13,8 @@ export const Container = {
     padding-top: ${rhythm(1)};
     padding-bottom: ${rhythm(1)};
     font-size: 0.8rem;
-    background-color: ${({ theme }) => theme.color.bg[0]};
-    color: ${({ theme }) => theme.color.text[0]};
+    background-color: ${({ theme }) => theme.colors.bg[0]};
+    color: ${({ theme }) => theme.colors.text[0]};
   `,
 };
 export const Row = {

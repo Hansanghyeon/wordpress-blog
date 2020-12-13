@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css, keyframes } from 'styled-components';
 
 type animation = {
   active: boolean;
@@ -66,10 +66,10 @@ const grisListActive = css`
   --lines-delay: 0.3s;
 `;
 export const GridList = styled.button<animation>`
-  --color: ${({ theme }) => theme.color.text[0]};
-  --background: ${({ theme }) => theme.color.bg[0]};
-  --background-hover: ${({ theme }) => theme.color.bg[0]};
-  --icon-color: ${({ theme }) => theme.color.primary};
+  --color: ${({ theme }) => theme.colors.text[0]};
+  --background: ${({ theme }) => theme.colors.bg[0]};
+  --background-hover: ${({ theme }) => theme.colors.bg[0]};
+  --icon-color: ${({ theme }) => theme.colors.primary};
 
   padding: 6px 12px 6px 8px;
   margin: 0;

@@ -5,7 +5,7 @@ type styleProps = {
   bg?: string;
 };
 export const Header = styled.div`
-  background-color: ${({ theme }) => theme.color.bg[0]};
+  background-color: ${({ theme }) => theme.colors.bg[0]};
 
   display: flex;
   align-items: center;
@@ -70,8 +70,8 @@ export const Col = {
 export const Row = {
   Def: styled(_Row)``,
   Body: styled(_Row)`
-    background-color: ${({ theme }) => theme.color.bg[1]};
-    color: ${({ theme }) => theme.color.text[2]};
+    background-color: ${({ theme }) => theme.colors.bg[1]};
+    color: ${({ theme }) => theme.colors.text[2]};
     font-size: 14px;
     border-radius: 4px;
     box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.1);
@@ -98,12 +98,12 @@ export const RootWrap = styled.div`
   }
   &:hover {
     ${Header} {
-      background-color: ${({ theme }) => theme.color.primary};
-      color: ${({ theme }) => theme.color.bg[1]};
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.bg[1]};
     }
     ${Row.Body} {
-      color: ${({ theme }) => theme.color.text[1]};
-      border: 1px solid ${({ theme }) => theme.color.text[2]};
+      color: ${({ theme }) => theme.colors.text[1]};
+      border: 1px solid ${({ theme }) => theme.colors.text[2]};
     }
   }
 `;

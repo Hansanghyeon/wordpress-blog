@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const IconSvg = styled.svg`
-  fill: ${({ theme }) => theme.color.text[1]};
+  fill: ${({ theme }) => theme.colors.text[1]};
 `;
 
 const NonFavicon = () => (

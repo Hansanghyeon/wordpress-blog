@@ -1,6 +1,6 @@
 import React from 'react';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
-// Components
+// components
 import Grid from '@style/Grid';
 import Logo from '@atom/Logo';
 import { Container, Row, Col, LogoWrap } from '../page.style';

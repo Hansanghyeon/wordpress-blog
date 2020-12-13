@@ -1,5 +1,5 @@
 import Headroom from 'react-headroom';
-// Components
+// components
 import { SmLogo } from '@atom/Logo';
 import SnsIcon from '@module/list/SNS';
 import MenuToggle from '@atom/toggle/Menu';
@@ -9,18 +9,18 @@ const GNB = () => (
   <Headroom>
     <Wrap sidebarOpen={false}>
       <Container.Inner fluid>
-        <Row.Def>
+        <Row>
           <Col.Menu col={2}>
             <MenuToggle isActive={false} />
           </Col.Menu>
           <Col.Left auto>
             <SmLogo />
           </Col.Left>
-          <Col.Def col />
+          <Col col />
           <Col.Right auto>
             <SnsIcon />
           </Col.Right>
-        </Row.Def>
+        </Row>
       </Container.Inner>
     </Wrap>
   </Headroom>
