@@ -17,15 +17,21 @@ const _GlobalStyle = css`
       }
     }
   }
-  .tl-wrapper--unmount {
-    box-shadow: inset rgba(0, 0, 0, 0.13) 0px 0px 100px 10px !important;
-  }
-  #gatsby-focus-wrapper {
-    --gnb-height: 45px;
-    margin-top: var(--gnb-height);
-  }
   * {
     box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => rgba(theme.colors.bg[1], 0.6)};
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => rgba(theme.colors.text[0], 0.6)};
+      border-radius: 999px;
+    }
   }
 
   /* Inline code */
