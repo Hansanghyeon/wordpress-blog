@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
 import { media } from 'styled-bootstrap-grid';
 import { isMobile } from 'react-device-detect';
+import { rgba } from 'polished';
 // Component
 import {
   SidebarStatueType,
@@ -66,6 +67,23 @@ const _GlobalStyle = css`
   #gatsby-focus-wrapper {
     --gnb-height: 45px;
     margin-top: var(--gnb-height);
+  }
+
+  * {
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => rgba(theme.color.bg[1], 0.6)};
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => rgba(theme.color.text[0], 0.6)};
+      border-radius: 999px;
+    }
   }
 `;
 
