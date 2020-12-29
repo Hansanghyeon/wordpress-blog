@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  gatsby:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: React__4log_gatsby
+    restart: always
+    ports:
+      - 32776:80
