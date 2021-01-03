@@ -12,7 +12,7 @@ const CategoryList = ({ data }: any) => {
         >
           <a>
             <NotionListItem
-              imgSrc={node?._acf_taxonomy_category_list?.icon.mediaItemUrl}
+              imgSrc={node?._acf_taxonomy_category_list?.icon?.mediaItemUrl}
             >
               {node.name}
             </NotionListItem>
