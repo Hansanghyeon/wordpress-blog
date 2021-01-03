@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rhythm } from '@style/typography';
 import { rgba } from 'polished';
 
@@ -10,11 +10,17 @@ export const TOCView = styled.div<{ onModal: boolean }>`
   height: 0px;
   visibility: ${({ onModal }) => onModal && 'hidden'};
 `;
-export const TOCWrap = styled.div`
+export const TOCWrap = styled.div<{ onModal: boolean }>`
   position: absolute;
   left: calc(100% + ${rhythm(1)});
   width: calc(50vw - 50% - ${rhythm(2)});
   padding: 0 ${rhythm(1.5)};
+  ${({ onModal }) =>
+    onModal &&
+    css`
+      padding: 0;
+      left: 0;
+    `};
 `;
 const LevelLink = styled.a`
   cursor: pointer;

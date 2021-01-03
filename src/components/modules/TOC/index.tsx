@@ -155,7 +155,7 @@ const TOC = ({ data }: props) => {
   return (
     <>
       <TOCView onModal={onModal}>
-        <TOCWrap ref={tocEl}>
+        <TOCWrap ref={tocEl} onModal={onModal}>
           <TocList />
         </TOCWrap>
       </TOCView>
