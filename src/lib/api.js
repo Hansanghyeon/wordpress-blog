@@ -62,7 +62,7 @@ export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `
     query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: 50, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             title
@@ -252,6 +252,64 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug);
   // If there are still 3 posts, remove the last one
   if (data.posts.edges.length > 2) data.posts.edges.pop();
+
+  return data;
+}
+
+// Categories
+
+export async function getAllCategoriesWithSlug() {
+  const data = await fetchAPI(`
+    {
+      categories {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
+  return data?.categories;
+}
+
+export async function getCategoryAndPosts(slug) {
+  const data = await fetchAPI(
+    `
+    query Category($id: ID!, $idType: CategoryIdType!) {
+      category(id: $id, idType:$idType) {
+        name
+        description
+        _acf_taxonomy_category_list {
+          icon {
+            mediaItemUrl
+          }
+        }
+        posts {
+          edges {
+            node {
+              databaseId
+              id
+              title
+              slug
+              _acf_post {
+                icon {
+                  mediaItemUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+    {
+      variables: {
+        id: slug,
+        idType: 'SLUG',
+      },
+    },
+  );
 
   return data;
 }

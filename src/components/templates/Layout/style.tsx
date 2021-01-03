@@ -22,7 +22,6 @@ export const MainWrapper = styled.div<MainWrapperType>`
 `;
 export const Main = styled.main`
   width: 100%;
-  margin-top: 45px;
   @media (max-width: 1106px) and (min-width: 993px) {
     max-width: calc(100% - 146px);
   }
@@ -44,18 +43,18 @@ const _GlobalStyle = css`
       }
     }
   }
-  .tl-wrapper--unmount {
-    box-shadow: inset rgba(0, 0, 0, 0.13) 0px 0px 100px 10px !important;
-  }
-  #gatsby-focus-wrapper {
-    --gnb-height: 45px;
-    margin-top: var(--gnb-height);
-  }
   * {
     box-sizing: border-box;
+  }
+`;
+const GlobalVariable = css`
+  body {
+    --gnb-height: 45px;
+    --fnb-height: 71px;
   }
 `;
 
 export const GlobalStyle = createGlobalStyle`
   ${_GlobalStyle};
+  ${GlobalVariable};
 `;
