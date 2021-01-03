@@ -102,6 +102,7 @@ const MainRow = styled(_Row)`
   }
   blockquote {
     border-left: 4px solid ${({ theme }) => theme.colors.bg[1]};
+    padding-left: 18px;
   }
   .fc-highlight {
     color: ${({ theme }) => theme.colors.primary};

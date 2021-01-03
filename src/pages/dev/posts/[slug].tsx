@@ -4,7 +4,7 @@ import Head from 'next/head';
 // API
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@src/lib/api';
 // components
-import { CMS_NAME } from '@src/lib/constants';
+import { SITE_NAME } from '@src/lib/constants';
 import PostTitle from '@/post-title';
 import WpPost from '@template/Post/Wp';
 import Layout from '@template/Layout';
@@ -22,9 +22,9 @@ export default function Post({ post, posts, preview }: any) {
     <>
       <Head>
         <title>
-          {post.title} | {CMS_NAME}
+          {post.title} | {SITE_NAME}
         </title>
-        <meta name="og:title" content={`${post.title} | ${CMS_NAME}`} />
+        <meta name="og:title" content={`${post.title} | ${SITE_NAME}`} />
         <meta name="description" content={post.excerpt} />
         <meta
           property="og:image"
