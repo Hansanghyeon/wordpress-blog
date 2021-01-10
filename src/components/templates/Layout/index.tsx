@@ -6,7 +6,8 @@ import GNB from '@module/GNB';
 import FNB from '@module/FNB';
 import Meta from './meta';
 // content
-import MainContent, { MainType } from './Main';
+import MainContent from './Main';
+import DevContent, { DevType } from './Dev';
 import AboutContent from './About';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -21,9 +22,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </>
   );
 };
-Layout.Main = ({ data }: MainType) => (
+Layout.Main = () => (
   <Layout>
-    <MainContent data={data} />
+    <MainContent />
+  </Layout>
+);
+Layout.Dev = ({ data }: DevType) => (
+  <Layout>
+    <DevContent data={data} />
   </Layout>
 );
 Layout.About = () => (

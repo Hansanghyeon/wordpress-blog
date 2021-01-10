@@ -5,12 +5,13 @@ import { getAllPostsForHome } from '@src/lib/api';
 import Layout from '@template/Layout';
 
 export default function Index({ allPosts, preview }: any) {
+  console.log(allPosts);
   return (
     <>
       <Head>
-        <title>매일매일 1% | 4log</title>
+        <title>매일매일 1% | Dev</title>
       </Head>
-      <Layout.Main data={{ allPosts }} />
+      <Layout.Dev data={{ allPosts }} />
     </>
   );
 }

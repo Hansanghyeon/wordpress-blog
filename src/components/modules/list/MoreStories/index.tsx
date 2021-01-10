@@ -21,7 +21,6 @@ export default function MoreStories({ posts }: any) {
   };
   return (
     <section>
-      <h2>More Stories</h2>
       {posts.length > 2 && (
         <GridAndListToggleWrap>
           <GridAndListToggle onClick={_handleClick} />

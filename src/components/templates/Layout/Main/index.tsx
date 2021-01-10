@@ -1,30 +1,28 @@
 // style
 import { Container, Row, Col } from '../page.style';
 // components
-import Intro from '@/intro';
-import MoreStories from '@module/list/MoreStories';
+import Intro from '@atom/Intro';
+import styled from 'styled-components';
 
-export type MainType = {
-  data: {
-    allPosts: any;
-  };
-};
+const PageWrap = styled.div`
+  min-height: calc(100vh - 45px - 72px);
+`;
 
-export default function MainContent({ data }: MainType) {
-  const { edges } = data.allPosts;
-
+export default function MainContent() {
   return (
-    <Container>
-      <Row.Header />
-      <Row>
-        <Col col>
-          <Intro />
-        </Col>
-      </Row>
-      <Row>
-        <Col col>{edges.length > 0 && <MoreStories posts={edges} />}</Col>
-      </Row>
-      <Row.Footer />
-    </Container>
+    <PageWrap>
+      <Container>
+        <Row.Header />
+        <Row>
+          <Col col>
+            <Intro />
+          </Col>
+        </Row>
+        <Row>
+          <Col col></Col>
+        </Row>
+        <Row.Footer />
+      </Container>
+    </PageWrap>
   );
 }
