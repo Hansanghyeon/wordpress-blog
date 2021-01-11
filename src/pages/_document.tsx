@@ -27,18 +27,22 @@ class _Document extends Document {
   }
 
   render() {
+    const GoogleFonts = [
+      'Cookie',
+      'Noto+Sans+KR:wght@100;300;400;500;700;900',
+      'Fira+Code:wght@300;400;500;600;700',
+      'Nanum+Gothic:wght@400;700;800',
+      'Noto+Sans:ital,wght@0,400;0,700;1,400;1,700',
+    ];
+
     return (
       <Html>
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href={`"https://fonts.googleapis.com/css2?
-              family=Noto+Sans+KR:wght@100;300;400;500;700;900&
-              family=Fira+Code:wght@300;400;500;600;700&
-              family=Nanum+Gothic:wght@400;700;800&
-              Nanum+Brush+Script&
-              Cookie&
-              display=swap"`}
+            href={`https://fonts.googleapis.com/css2?${GoogleFonts.map(
+              (font) => `family=${font}&`,
+            ).join('')}display=swap`}
             rel="stylesheet"
           />
           <link
