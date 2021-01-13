@@ -4,7 +4,10 @@ import {
   atomDark,
   base16AteliersulphurpoolLight,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Header, Lang, FileName } from './style';
+// function
+import iconFilter from './iconFilter';
+// components
+import { PreWrap, Header, Lang, FileName } from './style';
 
 type Props = {
   data: {
@@ -19,25 +22,10 @@ export default function SyntaxHighlighter(props: Props) {
   const { value } = useDarkMode();
   const isDark = value;
   const { lang, fileName, isLineNumber } = data;
-  let icon = '';
-  switch (lang) {
-    case undefined:
-      break;
-    case 'nginx':
-      icon = 'settings';
-      break;
-    case 'bash':
-      icon = 'console';
-      break;
-    case 'sql':
-      icon = 'database';
-      break;
-    default:
-      icon = lang;
-      break;
-  }
+  const icon = iconFilter(lang || '');
+
   return (
-    <>
+    <PreWrap>
       <Header>
         {fileName ? <FileName>{fileName}</FileName> : <div />}
         {lang && (
@@ -55,6 +43,6 @@ export default function SyntaxHighlighter(props: Props) {
       >
         {children}
       </ReactSyntaxHighlighter>
-    </>
+    </PreWrap>
   );
 }

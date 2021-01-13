@@ -1,6 +1,62 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rhythm } from '@style/typography';
+import { rgba } from 'polished';
 import { Container, Row as _Row, Col, media } from 'styled-bootstrap-grid';
+
+const Wordpress = css`
+  * + .preWrap {
+    margin-top: -1.4rem;
+  }
+  .preWrap + *:not(.preWrap) {
+    margin-top: 1.4rem;
+  }
+  .preWrap + .preWrap {
+    margin-top: -0.5rem;
+  }
+
+  .wp-block-embed__wrapper iframe {
+    max-width: 100%;
+  }
+  figure img {
+    margin-bottom: 0;
+  }
+  .fc-dim,
+  .fc-dim * {
+    color: ${({ theme }) => theme.colors.text[3]};
+  }
+  blockquote {
+    border-left: 4px solid ${({ theme }) => theme.colors.bg[1]};
+    padding-left: 18px;
+    font-size: 0.8rem;
+    * {
+      margin-bottom: 0.4rem;
+    }
+  }
+  .fc-highlight {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  .how-block {
+    margin-top: 0;
+  }
+  hr {
+    border-bottom-color: ${({ theme }) => theme.colors.text[3]};
+  }
+  > ${Col} {
+    position: unset;
+  }
+  a {
+    font-size: 0.9em;
+    text-decoration-line: underline;
+    transition: color 0.3s;
+    will-change: color;
+    &:visited {
+      color: ${({ theme }) => theme.colors.text[3]};
+    }
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
+`;
 
 export const CardWrap = styled.div`
   background: ${({ theme }) => theme.colors.bg[0]};
@@ -53,6 +109,24 @@ export const CardWrap = styled.div`
       border-right: 0;
     }
   }
+
+  * {
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => rgba(theme.colors.bg[1], 0.6)};
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => rgba(theme.colors.text[3], 0.6)};
+      border-radius: 999px;
+    }
+  }
+  ${Wordpress};
 `;
 
 export const FeaturedImg = styled(Col)<{ bgImg?: string }>`
@@ -96,38 +170,6 @@ export const EtcWrap = styled.div`
 const MainRow = styled(_Row)`
   margin-bottom: ${rhythm(1)};
   margin-top: ${rhythm(1)};
-  .fc-dim,
-  .fc-dim * {
-    color: ${({ theme }) => theme.colors.text[3]};
-  }
-  blockquote {
-    border-left: 4px solid ${({ theme }) => theme.colors.bg[1]};
-    padding-left: 18px;
-  }
-  .fc-highlight {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-  .how-block {
-    margin-top: 0;
-  }
-  hr {
-    border-bottom-color: ${({ theme }) => theme.colors.text[3]};
-  }
-  > ${Col} {
-    position: unset;
-  }
-  a {
-    font-size: 0.9em;
-    text-decoration-line: underline;
-    transition: color 0.3s;
-    will-change: color;
-    &:visited {
-      color: ${({ theme }) => theme.colors.text[3]};
-    }
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-  }
 `;
 const BioRow = styled(_Row)`
   padding: 0 ${rhythm(1)};
