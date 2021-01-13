@@ -1,0 +1,15 @@
+/* 재사용가능 블럭 */
+body .block-editor-editor-skeleton__body .empty-block {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  body .block-editor {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  body .block-editor {
+    max-width: 720px;
+  }
+}
