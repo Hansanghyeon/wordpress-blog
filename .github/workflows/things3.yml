@@ -1,0 +1,31 @@
+name: "create Things3 to-do"
+
+on:
+  issues:
+    types: [assigned]
+
+jobs:
+  test:
+    if: ${{ (github.repository_owner == 'beeclover' || github.repository_owner == 'Hansanghyeon')}} && ${{github.event.issues.assigned == 'Hansanghyeon' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: ${{ github.event.issue.title }}
+          body: | 
+            Link: ${{github.event.issue.url}}
+            
+            ${{github.event.issue.body}}
+          to: ${{secrets.MAIL_TO}}
+          from: 999@hyeon.pro # <user@example.com>
+          # Optional content type (defaults to text/plain):
+          content_type: text/plain
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          # convert_markdown: true
+          # Optional attachments:
+          # attachments: attachments.zip,git.diff,./dist/static/main.js
