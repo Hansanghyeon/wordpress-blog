@@ -34,14 +34,14 @@ export default function MoreStories({ posts }: any) {
             columnClassName="my-masonry-grid_column"
           >
             {posts.map(({ node }: any) => {
-              const { categories, slug, title } = node;
+              const { categories, title, uri } = node;
               const props = {
                 imgSrc: node.featuredImage?.node.mediaItemUrl,
                 excerpt: node.excerpt,
                 date: node.date,
                 footer: () => <CategoryList data={categories} />,
                 title: () => (
-                  <Link as={`/dev/posts/${slug}`} href="/dev/posts/[slug]">
+                  <Link as={uri} href="/dev/[slug]">
                     {title}
                   </Link>
                 ),

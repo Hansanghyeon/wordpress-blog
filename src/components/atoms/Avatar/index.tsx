@@ -1,11 +1,7 @@
 import { Wrap, ImgWrap } from './style';
 
 export default function Avatar({ author }: any) {
-  const name = author
-    ? author.firstName && author.lastName
-      ? `${author.firstName} ${author.lastName}`
-      : author.name
-    : null;
+  const name = author ? author.nicename : author.name;
 
   return (
     <>

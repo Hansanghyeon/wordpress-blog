@@ -1,11 +1,10 @@
 import Head from 'next/head';
 // API
-import { getAllPostsForHome } from '@src/lib/api';
+import { getAllDevPostsForHome } from '@api/wp/dev';
 // components
 import Layout from '@template/Layout';
 
 export default function Index({ allPosts, preview }: any) {
-  console.log(allPosts);
   return (
     <>
       <Head>
@@ -17,7 +16,7 @@ export default function Index({ allPosts, preview }: any) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+  const allPosts = await getAllDevPostsForHome('dev', preview);
   return {
     props: { allPosts, preview },
   };
