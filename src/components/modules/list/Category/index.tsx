@@ -6,7 +6,7 @@ const CategoryList = ({ data }: any) => {
     <>
       {data.edges.map(({ node }: any) => (
         <Link
-          key={`cat-${node.slug}`}
+          key={node.slug}
           as={`/dev/category/${node.slug}`}
           href={`/dev/category/[slug]`}
         >

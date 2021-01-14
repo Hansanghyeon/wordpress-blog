@@ -89,7 +89,7 @@ const TOC = ({ data }: props) => {
   const TocList = () => (
     <>
       <Title>
-        <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+        <img src={`${process.env.FILE_SERVER}/005-archive.svg`} />
         <b> 목차</b>
       </Title>
       <List>
@@ -164,7 +164,7 @@ const TOC = ({ data }: props) => {
           <TocList />
         </TocModalListWrap>
         <ToggleBtn onClick={_handleToggleClick}>
-          <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+          <img src={`${process.env.FILE_SERVER}/005-archive.svg`} />
         </ToggleBtn>
       </TocModal>
     </>
