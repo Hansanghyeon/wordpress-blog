@@ -2,38 +2,24 @@ version: "3.7"
 
 services:
   wordpress:
-    image: wordpress:5.5.1-php7.4
+    container_name: WP__hyeon.pro
+    image: wordpress:php7.4
     restart: always
     ports:
       - 32775:80
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wp
-      WORDPRESS_DB_PASSWORD: wp
-      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
       - ./.wordpress:/var/www/html
       - ./Theme:/var/www/html/wp-content/themes/hapas
-    networks:
-      - backend
-
-  db:
-    image: mariadb
-    restart: always
-    ports:
-      - 3306
-    environment:
-      MYSQL_DATABASE: wp
-      MYSQL_USER: wp
-      MYSQL_PASSWORD: wp
-      MYSQL_RANDOM_ROOT_PASSWORD: "1"
-    volumes:
-      - maria:/var/lib/mysql
-    networks:
-      - backend
-
+      - ./backup:/var/www/html/wp-content/ai1wm-backups
+    external_links:
+      - DB__wordpress:mariadb
+  
 networks:
-  backend:
-    driver: bridge
-volumes:
-  maria:
+  default:
+    external:
+      name: db_net
