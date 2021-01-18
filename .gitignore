@@ -1,3 +1,4 @@
 .wordpress
 .env
 backup
+env.php
