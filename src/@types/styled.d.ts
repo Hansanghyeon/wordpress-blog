@@ -20,7 +20,7 @@ declare module 'styled-components' {
         '#303645',
       ];
       grayscalesLight: ['#ffffff', '#e6ecf8', '#9ba4b7', '#6d7484', '#404655'];
-      codeBg: '#f5f7ff' | '#1d1f21';
+      codeBg: '#E1EBF2' | '#1d1f21';
       codeColor: '#5e6687' | '#f92672';
     };
   }

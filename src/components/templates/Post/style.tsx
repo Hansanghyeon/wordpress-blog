@@ -14,8 +14,17 @@ const Wordpress = css`
     margin-top: -0.5rem;
   }
 
+  .wp-block-embed__wrapper {
+    padding-top: 56.6%;
+    position: relative;
+  }
   .wp-block-embed__wrapper iframe {
     max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   figure img {
     margin-bottom: 0;
@@ -39,7 +48,10 @@ const Wordpress = css`
     margin-top: 0;
   }
   hr {
-    border-bottom-color: ${({ theme }) => theme.colors.text[3]};
+    max-width: 200px;
+    border-bottom: 3px dotted ${({ theme }) => theme.colors.text[3]};
+    background: transparent;
+    margin: calc(3.2rem - 1px) auto;
   }
   > ${Col} {
     position: unset;
@@ -61,12 +73,25 @@ const Wordpress = css`
 export const CardWrap = styled.div`
   background: ${({ theme }) => theme.colors.bg[0]};
   border-radius: 3px;
-  padding: ${rhythm(1 / 2)};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   position: relative;
+  padding: ${rhythm(1 / 2)} 0;
   ${media.md`
-    padding: ${rhythm(1)};
+    padding: ${rhythm(1)} 0;
   `}
+
+  .preWrap pre {
+    padding: 1em ${rhythm(1 / 2)};
+    ${media.md`
+      padding: 1em ${rhythm(1)};
+    `}
+  }
+  > *:not(.preWrap) {
+    padding: 0 ${rhythm(1 / 2)};
+    ${media.md`
+      padding: 0 ${rhythm(1)};
+    `}
+  }
   *:first-child {
     margin-top: 0 !important;
   }

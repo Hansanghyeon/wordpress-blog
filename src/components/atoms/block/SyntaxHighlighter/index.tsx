@@ -37,6 +37,9 @@ export default function SyntaxHighlighter(props: Props) {
         showLineNumbers={isLineNumber}
         language={lang}
         style={isDark ? atomDark : base16AteliersulphurpoolLight}
+        customStyle={{
+          padding: 'none',
+        }}
       >
         {children}
       </ReactSyntaxHighlighter>

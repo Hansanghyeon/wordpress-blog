@@ -17,19 +17,20 @@ const options = (block: string): HTMLReactParserOptions => ({
     }
     if (
       name === 'code' &&
-      Object.prototype.hasOwnProperty.call(attribs, 'lang')
+      // Object.prototype.hasOwnProperty.call(attribs, 'lang')
+      parent.name === 'pre'
     ) {
       const SyntaxHighlighterProps = {
         data: {
           lang: attribs?.lang,
           fileName: parent?.attribs?.title,
-          isLineNumber: new Set(attribs?.class.split(' ')).has('line-numbers'),
+          isLineNumber: new Set(attribs?.class?.split(' ')).has('line-numbers'),
         },
       };
       return (
         <SyntaxHighlighter {...SyntaxHighlighterProps}>
           {block
-            .replace(/<pre.+?><code.+?>/, '')
+            .replace(/<pre.+><code>|<pre.+><code.+>/, '')
             .replace(/\n<\/code><\/pre>|<\/code><\/pre>/, '')}
         </SyntaxHighlighter>
       );
