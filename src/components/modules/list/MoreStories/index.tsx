@@ -14,10 +14,14 @@ export default function MoreStories({ posts }: any) {
   function _handleClick() {
     setIsGrid(!isGrid);
   }
-  const breakpointColumnsObj = {
+  const gridBreakpointColumnsObj = {
     default: 3,
-    700: 2,
+    998: 2,
     500: 1,
+  };
+  const ListBreakpointColumnsObj = {
+    default: 2,
+    768: 1,
   };
   return (
     <section>
@@ -29,7 +33,9 @@ export default function MoreStories({ posts }: any) {
       <DittoWrap>
         <MasonryStyled>
           <Masonry
-            breakpointCols={isGrid ? breakpointColumnsObj : 0}
+            breakpointCols={
+              isGrid ? gridBreakpointColumnsObj : ListBreakpointColumnsObj
+            }
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >

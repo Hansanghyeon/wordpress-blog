@@ -1,4 +1,3 @@
-import React from 'react';
 import { GridThemeProvider, Col } from 'styled-bootstrap-grid';
 import dayjs from 'dayjs';
 // components

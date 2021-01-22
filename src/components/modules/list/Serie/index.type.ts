@@ -8,7 +8,7 @@ export type PostType = {
 type WpQueryType = {
   id: string;
   name: string;
-  posts: {
+  devs: {
     edges: [PostType];
   };
 };
