@@ -1,7 +1,7 @@
-// style
-import { Container, Row, Col } from '../page.style';
 // components
 import MoreStories from '@module/list/MoreStories';
+// style
+import { Container, Row, Col } from '../page.style';
 
 export type DevType = {
   data: {

@@ -22,6 +22,7 @@ export const MainWrapper = styled.div<MainWrapperType>`
 `;
 export const Main = styled.main`
   width: 100%;
+  margin: auto;
   @media (max-width: 1106px) and (min-width: 993px) {
     max-width: calc(100% - 146px);
   }
