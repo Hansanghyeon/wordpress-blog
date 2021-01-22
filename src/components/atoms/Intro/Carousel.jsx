@@ -5,12 +5,12 @@ import { useGesture } from 'react-use-gesture';
 import { MotionImgWrap } from './style';
 
 const source = [
-  'https://wp.hyeon.pro/wp-content/uploads/IMG_0191-scaled.jpg',
-  'https://wp.hyeon.pro/wp-content/uploads/IMG_0161-scaled.jpg',
-  'https://wp.hyeon.pro/wp-content/uploads/IMG_0095-scaled.jpg',
-  'https://wp.hyeon.pro/wp-content/uploads/talkv_wo21iT6yFv_WE9zUhQOaHJdrqvuKHq3mk_talkv_high.mp4',
-  'https://wp.hyeon.pro/wp-content/uploads/IMG_0058.mp4',
-  'https://wp.hyeon.pro/wp-content/uploads/IMG_0094-scaled.jpg',
+  `${process.env.FILE_SERVER}/IMG_0191-scaled.jpg`,
+  `${process.env.FILE_SERVER}/IMG_0161-scaled.jpg`,
+  `${process.env.FILE_SERVER}/IMG_0095-scaled.jpg`,
+  `${process.env.FILE_SERVER}/talkv_wo21iT6yFv_WE9zUhQOaHJdrqvuKHq3mk_talkv_high.mp4`,
+  `${process.env.FILE_SERVER}/IMG_0058.mp4`,
+  `${process.env.FILE_SERVER}/IMG_0094-scaled.jpg`,
 ];
 
 function ImageCarousel() {
@@ -22,7 +22,7 @@ function ImageCarousel() {
   }));
   const bind = useGesture(
     ({ down, delta: [xDelta], direction: [xDir], distance, cancel }) => {
-      if (down && distance > 375 / 2) {
+      if (down && distance > 375 / 2 && cancel) {
         cancel(
           (index.current = clamp(
             index.current + (xDir > 0 ? -1 : 1),
