@@ -58,14 +58,12 @@ const Wordpress = css`
   }
   a {
     font-size: 0.9em;
-    text-decoration-line: underline;
-    transition: color 0.3s;
-    will-change: color;
+    color: ${({ theme }) => theme.colors.primary};
     &:visited {
       color: ${({ theme }) => theme.colors.text[3]};
     }
     &:hover {
-      color: ${({ theme }) => theme.colors.primary};
+      text-decoration-line: underline;
     }
   }
 `;

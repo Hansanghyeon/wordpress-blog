@@ -30,7 +30,7 @@ const options = (block: string): HTMLReactParserOptions => ({
       return (
         <SyntaxHighlighter {...SyntaxHighlighterProps}>
           {block
-            .replace(/<pre.+><code>|<pre.+><code.+>/, '')
+            .replace(/<[pre][^>]*><[code][^>]*>/, '')
             .replace(/\n<\/code><\/pre>|<\/code><\/pre>/, '')}
         </SyntaxHighlighter>
       );
