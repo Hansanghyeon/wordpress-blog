@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { RecoilRoot } from 'recoil';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeProvider } from 'styled-components';
 import useDarkMode from 'use-dark-mode';
@@ -22,14 +21,12 @@ export default function Providers({ children }: any) {
   }, []);
 
   const body = (
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <GridThemeProvider gridTheme={Grid}>
-          <>{children}</>
-        </GridThemeProvider>
-      </ThemeProvider>
-    </RecoilRoot>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <GridThemeProvider gridTheme={Grid}>
+        <>{children}</>
+      </GridThemeProvider>
+    </ThemeProvider>
   );
 
   // prevents ssr flash for mismatched dark mode

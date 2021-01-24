@@ -7,18 +7,24 @@ import {
 } from 'styled-bootstrap-grid';
 // style utile
 import { rhythm } from '@style/typography';
-// Component
 import { SidebarStatueType, SidebarStatueStyle } from '@module/MSB/style';
 
-export const Wrap = styled.div<SidebarStatueType>`
+export const GNBWrap = styled.div<SidebarStatueType>`
+  z-index: 9999;
+  position: relative;
+  overflow: hidden;
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
+
+  ${SidebarStatueStyle.Def};
+`;
+
+export const Wrap = styled.div`
   width: 100%;
   height: 45px;
   overflow: hidden;
   padding: 0 ${rhythm(1 / 2)};
   background: ${({ theme }) => theme.colors.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
-  ${SidebarStatueStyle.Def};
 `;
 
 const Col = _Col as typeof _Col & {

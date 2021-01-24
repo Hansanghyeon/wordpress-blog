@@ -9,11 +9,6 @@ import { transparentize } from 'polished';
 
 import { rhythm } from '@style/typography';
 
-type SideBar = {
-  isActive?: boolean;
-  type: string;
-};
-
 const DefaultSideBar = css`
   ${media.md`
     transform: unset;
@@ -30,10 +25,11 @@ const mdHiddenSideBar = css`
     transform: translateX(-100%);
   `};
 `;
-export const SideBar = styled.div<SideBar>`
+
+export const SideBar = styled.div<{ isActive?: boolean; type?: string }>`
   width: 200px;
   height: 100%;
-  padding: ${rhythm(1)};
+  padding: calc(${rhythm(1)} + 45px) ${rhythm(1 / 2)} ${rhythm(1)};
   position: fixed;
   top: 0;
   transform: translateX(${({ isActive }) => (isActive ? 0 : '-100%')});
@@ -42,11 +38,23 @@ export const SideBar = styled.div<SideBar>`
   will-change: transform;
   background-color: ${({ theme }) => transparentize(0.05, theme.colors.bg[1])};
 
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    all: unset;
+  }
+  &::-webkit-scrollbar-track {
+    all: unset;
+  }
+  &::-webkit-scrollbar-thumb {
+    all: unset;
+  }
+
   ${media.md`
     height: 100%;
     background-color: transparent;
-    padding: 0 ${rhythm(1)};
+    padding: 0 ${rhythm(1 / 2)};
   `};
+  /* TODO: type 추가 */
   ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)};
 
   .cat-text {
@@ -55,57 +63,45 @@ export const SideBar = styled.div<SideBar>`
 `;
 
 export const Main = styled(Container)`
-  height: calc(100% - 45px - ${rhythm(1)});
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0;
   ${media.md`
-    padding: ${rhythm(1)} 0;
+    padding-top: calc(${rhythm(1)} + 45px);
+    padding-bottom: ${rhythm(1)};
     display: block;
   `}
 `;
 
-export const LogoLayout = styled.div`
-  height: 45px;
-  width: 100%;
-  padding: ${rhythm(1 / 4)} 0;
-  margin-bottom: ${rhythm(1)};
+const Row = styled(_Row)`
+  margin-bottom: ${rhythm(1 / 2)};
+` as typeof _Row & {
+  Menu: typeof _Row;
+};
+Row.Menu = styled(_Row)`
   ${media.md`
-    margin-bottom: 0;
-  `}
-  * {
-    height: 100%;
-    width: auto;
-  }
+  margin-bottom: ${rhythm(1)};
+  order: 0;
+  `};
+  order: 2;
 `;
+export { Row };
 
-export const Row = {
-  Def: styled(_Row)`
-    margin-bottom: ${rhythm(1 / 2)};
-  `,
-  Menu: styled(_Row)`
-    ${media.md`
-      margin-bottom: ${rhythm(1)};
-      order: 0;
-      `};
-    order: 2;
-  `,
-};
-
-export const Col = {
-  Def: styled(_Col)``,
-};
+const Col = styled(_Col)`` as typeof _Col & {};
+export { Col };
 
 export interface SidebarStatueType {
   sidebarOpen?: boolean;
 }
 export const SidebarStatueStyle = {
   Def: css`
-    transition: transform 0.5s ease-out;
-    will-change: transform;
+    > div {
+      transition: transform 0.5s ease-out;
+    }
   `,
   Open: css`
-    transform: translateX(200px);
+    > div {
+      transform: translateX(200px);
+    }
   `,
 };

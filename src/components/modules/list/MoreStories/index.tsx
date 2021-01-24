@@ -17,7 +17,7 @@ export default function MoreStories({ posts }: any) {
   const gridBreakpointColumnsObj = {
     default: 3,
     998: 2,
-    500: 1,
+    576: 1,
   };
   const ListBreakpointColumnsObj = {
     default: 2,
