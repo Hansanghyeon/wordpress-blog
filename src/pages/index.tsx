@@ -1,6 +1,6 @@
 import Head from 'next/head';
 // components
-import Layout from '@template/Layout';
+import Layout from '@template/Layout/container';
 
 export default function Index() {
   return (

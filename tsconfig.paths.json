@@ -5,6 +5,9 @@
       "@api/*": [
         "src/lib/api/*"
       ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
       "@src/*": [
         "src/*"
       ],
@@ -25,6 +28,9 @@
       ],
       "@hook/*": [
         "src/hook/*"
+      ],
+      "@store/*": [
+        "src/store/*"
       ]
     }
   }
