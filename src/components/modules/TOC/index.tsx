@@ -68,13 +68,14 @@ const TOC = ({ data }: props) => {
   const _handleClick = (e: any) => {
     const { id } = e.target.dataset;
     const scrollTarget: any = document.querySelector(`#${id}`);
-    scrollTarget.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-    });
+    scrollTarget &&
+      scrollTarget.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+      });
   };
 
-  const _handleToggleClick = (e) => {
+  const _handleToggleClick = () => {
     setToggle(!toggle);
   };
 

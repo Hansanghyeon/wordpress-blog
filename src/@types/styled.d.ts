@@ -1,5 +1,6 @@
 // import original module declarations
 import 'styled-components';
+import { StyledBootstrapGrid } from 'styled-bootstrap-grid';
 
 declare module 'styled-components' {
   // 우리가 아는 타입 지정을 여기서 다해주고 불러서 쓰기
@@ -23,5 +24,6 @@ declare module 'styled-components' {
       codeBg: '#E1EBF2' | '#1d1f21';
       codeColor: '#5e6687' | '#f92672';
     };
+    styledBootstrapGrid: StyledBootstrapGrid;
   }
 }

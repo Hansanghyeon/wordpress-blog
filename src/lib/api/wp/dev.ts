@@ -78,6 +78,12 @@ fragment AuthorFields on User {
   }
   _acf_user_option {
     bmc
+    stackexchange {
+      ... on User_AcfUserOption_Stackexchange_Stack {
+        link
+        name
+      }
+    }
   }
 }
 `;
