@@ -26,7 +26,11 @@ const mdHiddenSideBar = css`
   `};
 `;
 
-export const SideBar = styled.div<{ isActive?: boolean; type?: string }>`
+type SideBarProps = {
+  isActive?: boolean;
+  type?: string;
+};
+export const SideBar = styled.div<SideBarProps>`
   width: 200px;
   height: 100%;
   padding: calc(${rhythm(1)} + 45px) ${rhythm(1 / 2)} ${rhythm(1)};
@@ -55,7 +59,7 @@ export const SideBar = styled.div<{ isActive?: boolean; type?: string }>`
     padding: 0 ${rhythm(1 / 2)};
   `};
   /* TODO: type 추가 */
-  ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)};
+  ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)}
 
   .cat-text {
     font-size: 14px;
@@ -80,8 +84,8 @@ const Row = styled(_Row)`
 };
 Row.Menu = styled(_Row)`
   ${media.md`
-  margin-bottom: ${rhythm(1)};
-  order: 0;
+    margin-bottom: ${rhythm(1)};
+    order: 0;
   `};
   order: 2;
 `;
