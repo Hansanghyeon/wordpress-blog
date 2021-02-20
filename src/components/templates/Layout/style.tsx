@@ -4,7 +4,7 @@ import { media } from 'styled-bootstrap-grid';
 import { SidebarStatueType, SidebarStatueStyle } from '@module/MSB/style';
 
 interface MainWrapperType extends SidebarStatueType {
-  msbType: string;
+  msbType?: string;
 }
 const DefaultMainWrapper = css`
   ${media.md`

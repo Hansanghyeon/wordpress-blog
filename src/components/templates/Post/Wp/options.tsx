@@ -18,7 +18,7 @@ const options = (block: string): HTMLReactParserOptions => ({
     if (
       name === 'code' &&
       // Object.prototype.hasOwnProperty.call(attribs, 'lang')
-      parent.name === 'pre'
+      parent?.name === 'pre'
     ) {
       const SyntaxHighlighterProps = {
         data: {

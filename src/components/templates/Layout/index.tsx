@@ -14,19 +14,15 @@ import AboutContent from './About';
 interface LayoutPorps {
   children: React.ReactNode;
   menuState?: any;
-  layoutState?: any;
+  msbType?: string;
 }
-const Layout = ({ children, menuState, layoutState }: LayoutPorps) => {
-  console.log(menuState, layoutState);
+const Layout = ({ children, menuState, msbType }: LayoutPorps) => {
   return (
     <>
       <Meta />
       <GNB />
-      <MSB type={layoutState?.msbType} />
-      <MainWrapper
-        msbType={layoutState?.msbType}
-        sidebarOpen={menuState?.isActive || false}
-      >
+      <MSB type={msbType} />
+      <MainWrapper msbType={msbType} sidebarOpen={menuState?.isActive || false}>
         <Main>{children}</Main>
       </MainWrapper>
       <FNB />
@@ -34,7 +30,7 @@ const Layout = ({ children, menuState, layoutState }: LayoutPorps) => {
   );
 };
 Layout.Main = () => (
-  <Layout>
+  <Layout msbType="hidden">
     <MainContent />
   </Layout>
 );

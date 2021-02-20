@@ -7,13 +7,12 @@ const mapReduxStateToReactProps = ({ menuState, layoutState }: any) => {
 
 const mapReduxDispatchToReactProps = (dispatch: any) => {
   return {
-    renderToFunction: (path: string) => {
-      switch (true) {
-        case /\/about/g.test(path):
+    renderToFunction: (pageName: string) => {
+      switch (pageName) {
+        case 'home':
           dispatch({ type: 'MSB_HIDDEN' });
           break;
         default:
-          dispatch({ type: 'OUT_PROJECT_PAGE' });
           break;
       }
     },
