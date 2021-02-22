@@ -4,10 +4,8 @@ export async function fetchAPI(
   query: string,
   { variables }: any = {},
 ): Promise<object> {
-  const headers: {
-    'Content-Type': string;
-    Authorization?: string;
-  } = { 'Content-Type': 'application/json' };
+  // TODO: headers type
+  const headers: any = { 'Content-Type': 'application/json' };
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
     headers[

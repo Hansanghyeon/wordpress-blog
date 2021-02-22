@@ -10,7 +10,11 @@ import PostTitle from '@/post-title';
 import WpPost from '@template/Post/Wp';
 import Layout from '@template/Layout';
 
-export default function Post({ post, posts, preview }: any) {
+export default function Post({
+  post,
+  posts,
+}: // preview,
+any) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {

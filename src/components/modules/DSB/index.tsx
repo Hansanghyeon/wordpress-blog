@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 
-import PCSC from '@molecule/PCSC';
+// import PCSC from '@molecule/PCSC';
 
 const Wrap = styled.div`
   position: fixed;
@@ -11,16 +11,14 @@ const Wrap = styled.div`
   width: 400px;
   height: 100%;
   padding: 10px;
-  background-color: ${({ theme }) => theme.colors.bg[1]};
+  background-color: ${({ theme }) => theme.palette.bg[1]};
 `;
 
 const DSB = () => (
   <Wrap>
     <Container>
       <Row>
-        <Col col>
-          <PCSC />
-        </Col>
+        <Col col>{/* <PCSC /> */}</Col>
       </Row>
     </Container>
   </Wrap>

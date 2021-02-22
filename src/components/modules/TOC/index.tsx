@@ -62,7 +62,7 @@ const TOC = ({ data }: props) => {
   const tocEl = useRef<HTMLDivElement>(null);
   const [onModal, setOnModal] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const HeadingLevel = levelMap(data);
+  const HeadingLevel: any = levelMap(data);
   const size = useWindowSize();
 
   const _handleClick = (e: any) => {

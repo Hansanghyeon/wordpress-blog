@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const StyledLink = styled.div`
-  color: ${({ theme }) => theme.colors.text[0]};
-  fill: ${({ theme }) => theme.colors.text[0]};
+  color: ${({ theme }) => theme.palette.text[0]};
+  fill: ${({ theme }) => theme.palette.text[0]};
   display: flex;
   align-items: center;
   font-family: 'Fira Code';

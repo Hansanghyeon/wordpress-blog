@@ -9,10 +9,10 @@ const Code = styled.span<{ color?: string }>`
   background-color: ${({ color, theme }) =>
     color
       ? isLightnessColor(color)
-        ? theme.colors.grayscalesDark[0]
-        : theme.colors.grayscalesLight[0]
+        ? theme.palette.grayscalesDark[0]
+        : theme.palette.grayscalesLight[0]
       : '#EDEDEB'};
-  color: ${({ color, theme }) => color || theme.dimSpan};
+  color: ${({ color, theme }) => color || theme.palette.dimSpan};
   margin-right: 4px;
   margin-bottom: 4px;
   border-radius: 4px;

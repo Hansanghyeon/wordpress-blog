@@ -4,7 +4,10 @@ import { getAllDevPostsForHome } from '@api/wp/dev';
 // components
 import Layout from '@template/Layout';
 
-export default function Index({ allPosts, preview }: any) {
+export default function Index({
+  allPosts,
+}: // preview
+any) {
   return (
     <>
       <Head>

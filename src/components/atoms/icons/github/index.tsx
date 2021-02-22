@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 
 const LinkWrap = styled.a`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.text[0]};
+  color: ${({ theme }) => theme.palette.text[0]};
   line-height: 1;
 `;
 

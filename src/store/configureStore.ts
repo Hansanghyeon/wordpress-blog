@@ -3,14 +3,10 @@ import { createWrapper } from 'next-redux-wrapper';
 import { composeWithDevTools } from 'redux-devtools-extension';
 // store
 import rootReducers from '@store/rootReducer';
-import Menu, { MenuStateType } from '@store/Menu';
-import Layout, { LayoutStateType } from '@store/Layout';
+import Menu from '@store/Menu';
+import Layout from '@store/Layout';
 
-type InitialStateType = {
-  menuState: MenuStateType;
-  LayoutState: LayoutStateType;
-};
-const initialState: InitialStateType = {
+const initialState = {
   ...Menu.initialState,
   ...Layout.initialState,
 };

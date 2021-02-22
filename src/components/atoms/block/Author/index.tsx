@@ -10,6 +10,7 @@ type props = {
     avatar: {
       url: string;
     };
+    _acf_user_option: any;
   };
 };
 export default function Author({ author }: props) {

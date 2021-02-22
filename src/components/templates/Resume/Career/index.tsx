@@ -348,9 +348,9 @@ const Peterosea = () => {
 
 const CareerWrap = styled.div`
   a {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.palette.primary};
     &:visited {
-      color: ${({ theme }) => theme.colors.text[2]};
+      color: ${({ theme }) => theme.palette.text[2]};
     }
   }
 `;

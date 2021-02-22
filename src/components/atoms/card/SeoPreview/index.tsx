@@ -11,8 +11,6 @@ import {
   RootWrap,
   Description,
   Body,
-  Thumbnail,
-  Content,
 } from './style';
 
 interface reqData {
@@ -50,11 +48,9 @@ const Loaded = ({ data, mUrl }: reqData) => {
           <Url>{mUrl}</Url>
         </Col.Content>
         {image && (
-          <Col.Image
-            col={12}
-            sm={4}
-            url={image.replace('hapas.io', 'hyeon.pro')}
-          />
+          <Col.Image col={12} sm={4}>
+            <img src={image} />
+          </Col.Image>
         )}
       </Body>
     </>

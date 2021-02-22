@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GridThemeProvider } from 'styled-bootstrap-grid';
 // Components
 import Grid from '@style/Grid';
 import Profile from './Profile';
@@ -25,42 +26,44 @@ const Resume: React.FC = () => {
     setNotice(false);
   };
   return (
-    <Container>
-      <Row.Header />
-      {notice && (
-        <>
-          <Row>
-            <Col col>
-              <Alert onClick={handleNotice}>
-                리메이크되거나 제거된 홈페이지 기제하지 않았습니다.{' '}
-                <DimSpan
-                  style={{ fontSize: '0.6rem', display: 'inline-block' }}
-                >
-                  (2020-09-16)
-                </DimSpan>
-              </Alert>
-            </Col>
-          </Row>
-          <Row.Header />
-        </>
-      )}
-      <Row>
-        <Col col>
-          <Profile />
-        </Col>
-      </Row>
-      <Row>
-        <Col col>
-          <Introduce />
-        </Col>
-      </Row>
-      <Row>
-        <Col col>
-          <Career />
-        </Col>
-      </Row>
-      <Row.Footer />
-    </Container>
+    <GridThemeProvider gridTheme={_Grid}>
+      <Container>
+        <Row.Header />
+        {notice && (
+          <>
+            <Row>
+              <Col col>
+                <Alert onClick={handleNotice}>
+                  리메이크되거나 제거된 홈페이지 기제하지 않았습니다.{' '}
+                  <DimSpan
+                    style={{ fontSize: '0.6rem', display: 'inline-block' }}
+                  >
+                    (2020-09-16)
+                  </DimSpan>
+                </Alert>
+              </Col>
+            </Row>
+            <Row.Header />
+          </>
+        )}
+        <Row>
+          <Col col>
+            <Profile />
+          </Col>
+        </Row>
+        <Row>
+          <Col col>
+            <Introduce />
+          </Col>
+        </Row>
+        <Row>
+          <Col col>
+            <Career />
+          </Col>
+        </Row>
+        <Row.Footer />
+      </Container>
+    </GridThemeProvider>
   );
 };
 
