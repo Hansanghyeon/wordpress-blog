@@ -7,6 +7,7 @@ import Utterance from '@atom/Utterances';
 import SectionSeparator from '@/section-separator';
 import MoreStories from '@module/list/MoreStories';
 import Author from '@atom/block/Author';
+import Comment from '@atom/Comment';
 // import Bio from '@view/components/bio';
 // style
 import Grid from '@style/Grid';
@@ -78,7 +79,7 @@ export default function PostTemplate({ children, morePosts, post }: props) {
                 </Col>
               </Row.Comment>
             )}
-            <SectionSeparator />
+            <Comment />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </StyledContainer>
         </article>
