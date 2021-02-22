@@ -10,6 +10,7 @@ import { rhythm } from '@style/typography';
 export const Container = {
   Def: styled(_Container)``,
   Footer: styled(_Container)`
+    height: 72px;
     padding-top: ${rhythm(1)};
     padding-bottom: ${rhythm(1)};
     font-size: 0.8rem;
