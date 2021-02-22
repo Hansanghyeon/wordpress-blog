@@ -1,8 +1,11 @@
 import { useLayoutEffect } from 'react';
 
-const Comment = () => {
+type CommentProps = {
+  id: string;
+};
+const Comment: React.FC<CommentProps> = ({ id }) => {
   useLayoutEffect(() => {
-    (window as any).replybox = { site: process.env.REPLYBOX };
+    (window as any).replybox = { site: process.env.REPLYBOX, identifier: id };
     if (!document.getElementById('replyboxScript')) {
       const scriptReplybox = document.createElement('script');
       scriptReplybox.id = 'replyboxScript';

@@ -95,6 +95,7 @@ fragment DevFields on Dev {
   slug
   date
   uri
+  id
   featuredImage {
     node {
       mediaItemUrl

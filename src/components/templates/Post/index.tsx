@@ -33,7 +33,8 @@ export default function PostTemplate({ children, morePosts, post }: props) {
       },
     },
   };
-  const { title, date, featuredImage } = post;
+  console.log(post);
+  const { title, date, featuredImage, id } = post;
   return (
     <>
       <GridThemeProvider gridTheme={_Grid}>
@@ -73,7 +74,7 @@ export default function PostTemplate({ children, morePosts, post }: props) {
             {process.env.NODE_ENV === 'production' && (
               <Row.Comment>
                 <Col col>
-                  <Comment />
+                  <Comment id={id} />
                 </Col>
               </Row.Comment>
             )}
