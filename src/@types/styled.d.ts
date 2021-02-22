@@ -24,6 +24,7 @@ declare module 'styled-components' {
       codeBg: '#E1EBF2' | '#1d1f21';
       codeColor: '#5e6687' | '#f92672';
     };
-    styledBootstrapGrid: StyledBootstrapGrid;
+    dimSpan: '#9B9A97';
+    styledBootstrapGrid?: StyledBootstrapGrid;
   }
 }

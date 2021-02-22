@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import CCBox from '@atom/icons/CCBox';
 import PostTitleText from '@atom/text/PostTitle';
 import Utterance from '@atom/Utterances';
-import SectionSeparator from '@/section-separator';
 import MoreStories from '@module/list/MoreStories';
 import Author from '@atom/block/Author';
 import Comment from '@atom/Comment';

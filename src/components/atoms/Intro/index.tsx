@@ -18,7 +18,7 @@ export default function Intro() {
             하고 싶은 것을 하며 살아라
             <Typing.Delay ms={2000} />
             <br />
-            단, 후회라는 단어는 잊어버려라
+            단, 후회는 잊어버려라
           </Slogan>
         </Typing>
       </SloganWrap>

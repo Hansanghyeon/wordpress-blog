@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 const Comment = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     (window as any).replybox = { site: process.env.REPLYBOX };
     if (!document.getElementById('replyboxScript')) {
       const scriptReplybox = document.createElement('script');

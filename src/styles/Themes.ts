@@ -16,6 +16,7 @@ export const lightTheme: DefaultTheme = {
     codeBg: '#E1EBF2',
     codeColor: '#5e6687',
   },
+  dimSpan: '#9B9A97',
 };
 
 export const darkTheme: DefaultTheme = {
@@ -27,4 +28,5 @@ export const darkTheme: DefaultTheme = {
     codeBg: '#1d1f21',
     codeColor: '#f92672',
   },
+  dimSpan: '#9B9A97',
 };
