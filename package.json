@@ -1,6 +1,6 @@
 {
-  "name": "cms-wordpress",
-  "version": "1.0.0",
+  "name": "hansanghyeon",
+  "version": "2.0.0",
   "scripts": {
     "start": "next -p 3001",
     "build": "next build",

@@ -91,13 +91,18 @@ const ToggleBtn = styled.button`
   border: none;
   background-color: transparent;
   width: 50px;
+  height: 50px;
   position: absolute;
   bottom: 0;
   right: 0;
   outline: none;
   cursor: pointer;
   img {
-    margin: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
   }
 `;
 ToggleBtn.defaultProps = {

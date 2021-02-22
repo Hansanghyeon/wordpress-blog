@@ -18,15 +18,18 @@ export const Wrap = styled.div`
 
 export const Profile = styled.div`
   overflow: hidden;
-  display: flex;
-  align-items: center;
   margin-bottom: 0;
   margin-right: 20px;
   width: 50px;
   height: 50px;
   border-radius: 100%;
+  position: relative;
   img {
     margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
   }
 `;
 

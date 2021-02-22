@@ -4,9 +4,13 @@ import { rgba } from 'polished';
 import { Container, Row as _Row, Col, media } from 'styled-bootstrap-grid';
 
 const Wordpress = css`
-  * + .preWrap {
-    margin-top: -1.4rem;
+  section {
+    display: flex;
+    justify-content: center;
   }
+  /* * + .preWrap {
+    margin-top: -1.4rem;
+  } */
   .preWrap + *:not(.preWrap) {
     margin-top: 1.4rem;
   }
@@ -202,6 +206,7 @@ const BioRow = styled(_Row)`
 `;
 const CommentsRow = styled(_Row)`
   margin-bottom: ${rhythm(2)};
+  padding: 0 ${rhythm(1)};
 `;
 const FeaturedImgRow = styled(_Row)`
   margin-left: 0;

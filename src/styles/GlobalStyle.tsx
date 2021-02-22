@@ -3,6 +3,7 @@ import { rgba } from 'polished';
 
 const _GlobalStyle = css`
   body {
+    margin: 0;
     background-color: ${({ theme }) => theme.palette.bg[1]};
     color: ${({ theme }) => theme.palette.text[0]};
     a {

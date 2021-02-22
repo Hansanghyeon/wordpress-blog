@@ -14,7 +14,7 @@ const DefaultMainWrapper = css`
 
 const MainRWrapper = styled.div`
   ${media.xxl`
-    margin-left: auto;
+    margin-left: auto !important;
   `};
 `;
 export const MainWrapper = styled(MainRWrapper)<MainWrapperType>`

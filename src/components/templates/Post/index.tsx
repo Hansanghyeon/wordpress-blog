@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 // components
 import CCBox from '@atom/icons/CCBox';
 import PostTitleText from '@atom/text/PostTitle';
-import Utterance from '@atom/Utterances';
 import MoreStories from '@module/list/MoreStories';
 import Author from '@atom/block/Author';
 import Comment from '@atom/Comment';
@@ -74,11 +73,10 @@ export default function PostTemplate({ children, morePosts, post }: props) {
             {process.env.NODE_ENV === 'production' && (
               <Row.Comment>
                 <Col col>
-                  <Utterance />
+                  <Comment />
                 </Col>
               </Row.Comment>
             )}
-            <Comment />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </StyledContainer>
         </article>
