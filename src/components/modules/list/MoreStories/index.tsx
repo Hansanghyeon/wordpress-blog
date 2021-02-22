@@ -14,14 +14,17 @@ export default function MoreStories({ posts }: any) {
   function _handleClick() {
     setIsGrid(!isGrid);
   }
-  const breakpointColumnsObj = {
+  const gridBreakpointColumnsObj = {
     default: 3,
-    700: 2,
-    500: 1,
+    998: 2,
+    576: 1,
+  };
+  const ListBreakpointColumnsObj = {
+    default: 2,
+    768: 1,
   };
   return (
     <section>
-      <h2>More Stories</h2>
       {posts.length > 2 && (
         <GridAndListToggleWrap>
           <GridAndListToggle onClick={_handleClick} />
@@ -30,19 +33,21 @@ export default function MoreStories({ posts }: any) {
       <DittoWrap>
         <MasonryStyled>
           <Masonry
-            breakpointCols={isGrid ? breakpointColumnsObj : 0}
+            breakpointCols={
+              isGrid ? gridBreakpointColumnsObj : ListBreakpointColumnsObj
+            }
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >
             {posts.map(({ node }: any) => {
-              const { categories, slug, title } = node;
+              const { categories, title, uri } = node;
               const props = {
                 imgSrc: node.featuredImage?.node.mediaItemUrl,
                 excerpt: node.excerpt,
                 date: node.date,
                 footer: () => <CategoryList data={categories} />,
                 title: () => (
-                  <Link as={`/dev/posts/${slug}`} href="/dev/posts/[slug]">
+                  <Link as={uri} href="/dev/[slug]">
                     {title}
                   </Link>
                 ),

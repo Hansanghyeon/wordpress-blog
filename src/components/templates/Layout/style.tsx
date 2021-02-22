@@ -4,7 +4,7 @@ import { media } from 'styled-bootstrap-grid';
 import { SidebarStatueType, SidebarStatueStyle } from '@module/MSB/style';
 
 interface MainWrapperType extends SidebarStatueType {
-  msbType: string;
+  msbType?: string;
 }
 const DefaultMainWrapper = css`
   ${media.md`
@@ -12,9 +12,8 @@ const DefaultMainWrapper = css`
   `};
 `;
 export const MainWrapper = styled.div<MainWrapperType>`
-  /* ${SidebarStatueStyle.Def}; */
+  ${SidebarStatueStyle.Def};
   ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
-
   ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
   ${media.xxl`
     margin-left: auto;
@@ -22,6 +21,7 @@ export const MainWrapper = styled.div<MainWrapperType>`
 `;
 export const Main = styled.main`
   width: 100%;
+  margin: auto;
   @media (max-width: 1106px) and (min-width: 993px) {
     max-width: calc(100% - 146px);
   }

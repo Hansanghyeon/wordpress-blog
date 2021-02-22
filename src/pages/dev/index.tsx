@@ -1,6 +1,6 @@
 import Head from 'next/head';
 // API
-import { getAllPostsForHome } from '@src/lib/api';
+import { getAllDevPostsForHome } from '@api/wp/dev';
 // components
 import Layout from '@template/Layout';
 
@@ -8,15 +8,15 @@ export default function Index({ allPosts, preview }: any) {
   return (
     <>
       <Head>
-        <title>매일매일 1% | 4log</title>
+        <title>매일매일 1% | Dev</title>
       </Head>
-      <Layout.Main data={{ allPosts }} />
+      <Layout.Dev data={{ allPosts }} />
     </>
   );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+  const allPosts = await getAllDevPostsForHome('dev', preview);
   return {
     props: { allPosts, preview },
   };

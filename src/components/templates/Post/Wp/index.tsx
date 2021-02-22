@@ -20,9 +20,8 @@ export default function WpPost({ post, morePosts }: any) {
   const wpData = content.split('\n\n\n\n');
   const tocData: string[] = [];
   wpData.forEach((e: string, index: number) => {
-    if (e.search(/<h[0-4].+>/) !== -1) {
+    if (e.search(/<h[0-4].+>/) !== -1 && e.search(/<pre/) === -1) {
       tocData.push(e);
-
       const findHeadingRule = new RegExp(
         '<(s*h[0-9])([^>]*)>(.*?<s*/s*h[0-9]>)',
       );

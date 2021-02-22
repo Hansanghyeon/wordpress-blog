@@ -39,12 +39,15 @@ const _GlobalStyle = css`
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
     font-family: 'Fira Code', monospace;
-    color: ${({ theme }) => rgba(theme.colors.codeColor, 0.6)};
+    color: ${({ theme }) => theme.colors.codeColor};
     background-color: ${({ theme }) => theme.colors.codeBg};
-    transition: color 0.3s;
-    will-change: color;
-    &:hover {
+  }
+  pre {
+    color: ${({ theme }) => theme.colors.codeColor};
+    background-color: ${({ theme }) => theme.colors.codeBg} !important;
+    code {
       color: ${({ theme }) => theme.colors.codeColor};
+      background-color: ${({ theme }) => theme.colors.codeBg} !important;
     }
   }
   pre * {

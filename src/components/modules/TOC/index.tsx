@@ -68,13 +68,14 @@ const TOC = ({ data }: props) => {
   const _handleClick = (e: any) => {
     const { id } = e.target.dataset;
     const scrollTarget: any = document.querySelector(`#${id}`);
-    scrollTarget.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-    });
+    scrollTarget &&
+      scrollTarget.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+      });
   };
 
-  const _handleToggleClick = (e) => {
+  const _handleToggleClick = () => {
     setToggle(!toggle);
   };
 
@@ -89,7 +90,7 @@ const TOC = ({ data }: props) => {
   const TocList = () => (
     <>
       <Title>
-        <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+        <img src={`${process.env.FILE_SERVER}/005-archive.svg`} />
         <b> 목차</b>
       </Title>
       <List>
@@ -164,7 +165,7 @@ const TOC = ({ data }: props) => {
           <TocList />
         </TocModalListWrap>
         <ToggleBtn onClick={_handleToggleClick}>
-          <img src="https://wp.hyeon.pro/wp-content/uploads/005-archive.svg" />
+          <img src={`${process.env.FILE_SERVER}/005-archive.svg`} />
         </ToggleBtn>
       </TocModal>
     </>

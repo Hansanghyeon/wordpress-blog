@@ -37,7 +37,7 @@ const BaseThumnail = styled.div<{ imgSrc?: string }>`
   background-image: url(${({ imgSrc }) => imgSrc});
   background-color: var(--bg-blur-color, ${transparentize(0.75, '#fff')});
   width: 80px;
-  max-width: calc(280px + 2rem);
+  /* max-width: calc(280px + 2rem); */
   height: 100%;
   position: absolute;
   z-index: 100;
@@ -52,6 +52,7 @@ const BaseThumnail = styled.div<{ imgSrc?: string }>`
 `;
 
 const BaseMainInner = styled.div`
+  width: 100%;
   background-color: var(--bg-color, #fff);
   position: relative;
   z-index: 200;
@@ -66,14 +67,16 @@ const BaseBody = styled.div`
 `;
 export const BaseTitle = styled.div`
   margin-bottom: 8px;
+  font-family: 'NanumSquareRound', sans-serif;
   font-weight: bold;
+  word-break: keep-all;
 `;
 export const Footer = styled.div`
   display: flex;
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   > div {
     margin-right: 16px;
     &:last-child {
@@ -93,13 +96,22 @@ const BaseContent = styled.div`
 
 export const Date = styled.div`
   color: var(--color1, #4a4f57);
-  font-size: 0.75rem;
+  opacity: 0.5;
+  font-size: 0.5rem;
+  padding: 0.25rem 0;
 `;
 export const CategoryLabel = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @supports (gap: 0) {
+    gap: 8px;
+  }
+  @supports not (gap: 0) {
+    > * {
+      margin-right: 8px;
+    }
+  }
   > * {
-    margin-right: 8px;
     background-color: var(--bg1-color, #f6f8ff);
     border-radius: 8px;
     padding: 0.25rem 8px;
@@ -186,6 +198,12 @@ const Grid = {
   body: css`
     padding: 1rem;
   `,
+  content: css`
+    height: 100%;
+    max-height: 3.5rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+  `,
 };
 
 type IsThumnail = {
@@ -212,7 +230,9 @@ export const Main = styled(BaseMain)<Props>`
   ${({ isThumnail }) => !isThumnail && nonThumnail.main}
 `;
 
-export const Content = styled(BaseContent)<IsThumnail>``;
+export const Content = styled(BaseContent)<Props>`
+  ${({ isGrid }) => isGrid && Grid.content}
+`;
 
 export const Body = styled(BaseBody)<Props>`
   ${({ isGrid, isThumnail }) => isGrid && isThumnail && Grid.body}

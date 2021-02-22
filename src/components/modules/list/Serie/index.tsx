@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   FaCaretDown,
   FaCaretUp,
@@ -28,8 +28,8 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
   const _handleClick = () => {
     setToggle(!toggle);
   };
-  const prevNextPost = query.posts.edges.reduce(
-    (acc: accPostType, cur, idx, arr) => {
+  const prevNextPost = query.devs.edges.reduce(
+    (acc: accPostType, cur: any, idx: any, arr: any) => {
       const { node } = cur;
       if (arr.length <= 1) return acc;
       if (node.id === currentPostId) {
@@ -52,13 +52,13 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
       <Header toggle={toggle}>
         <Title>{query.name}</Title>
         <Img
-          src="https://wp.hyeon.pro/wp-content/uploads/4log/icons/book.svg"
+          src={`${process.env.FILE_SERVER}/4log/icons/book.svg`}
           alt="Series"
         />
       </Header>
       <Body toggle={toggle}>
         <Ol>
-          {query.posts.edges.map(({ node }) => {
+          {query.devs.edges.map(({ node }) => {
             if (node.id === currentPostId) {
               return (
                 <CurrentLi key={`${currentPostId}-${node.id}`}>
@@ -68,7 +68,7 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
             }
             return (
               <Li key={`${currentPostId}-${node.id}`}>
-                <Link as={`/dev/posts/${node.slug}`} href="/dev/posts/[slug]">
+                <Link as={`/dev/${node.slug}`} href="/dev/[slug]">
                   {node.title}
                 </Link>
               </Li>
@@ -83,7 +83,7 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
         </MoreBtn>
         <Controller>
           {prevNextPost.prev ? (
-            <Link to={`/post/${prevNextPost.prev.node.slug}`}>
+            <Link href={`/dev/${prevNextPost.prev.node.slug}`}>
               <ArrowBtn type="button">
                 <FaChevronLeft />
               </ArrowBtn>
@@ -94,10 +94,12 @@ const SerieList: React.FC<SerieListType> = ({ data }: SerieListType) => {
             </ArrowBtn>
           )}
           {prevNextPost.next ? (
-            <Link to={`/post/${prevNextPost.next.node.slug}`} direction="left">
-              <ArrowBtn type="button">
-                <FaChevronRight />
-              </ArrowBtn>
+            <Link href={`/dev/${prevNextPost.next.node.slug}`}>
+              <a>
+                <ArrowBtn type="button">
+                  <FaChevronRight />
+                </ArrowBtn>
+              </a>
             </Link>
           ) : (
             <ArrowBtn type="button" disable>

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const PreWrap = styled.div``;
+PreWrap.defaultProps = {
+  className: 'preWrap',
+};
+export { PreWrap };
+
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;

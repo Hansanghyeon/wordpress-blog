@@ -8,6 +8,8 @@ export const Wrap = styled.div`
   column-gap: 8px;
   > div {
     align-self: center;
+    font-size: 0.8rem;
+    font-family: 'Noto sans', 'sans-serif';
   }
 `;
 export const ImgWrap = styled.div`

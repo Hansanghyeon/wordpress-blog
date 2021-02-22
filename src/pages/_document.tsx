@@ -27,26 +27,34 @@ class _Document extends Document {
   }
 
   render() {
+    const GoogleFonts = [
+      'Cookie',
+      'Noto+Sans+KR:wght@100;300;400;500;700;900',
+      'Fira+Code:wght@300;400;500;600;700',
+      'Nanum+Gothic:wght@400;700;800',
+      'Noto+Sans:ital,wght@0,400;0,700;1,400;1,700',
+    ];
+
     return (
       <Html>
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+            href={`https://fonts.googleapis.com/css2?${GoogleFonts.map(
+              (font) => `family=${font}&`,
+            ).join('')}display=swap`}
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
-          ></link>
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
+          />
           <link
-            href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
             rel="stylesheet"
-          ></link>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Cookie&display=swap"
-            rel="stylesheet"
-          ></link>
+            type="text/css"
+            href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css"
+          />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css"

@@ -13,7 +13,7 @@ export const lightTheme: DefaultTheme = {
       '#303645',
     ],
     grayscalesLight: ['#ffffff', '#e6ecf8', '#9ba4b7', '#6d7484', '#404655'],
-    codeBg: '#f5f7ff',
+    codeBg: '#E1EBF2',
     codeColor: '#5e6687',
   },
 };

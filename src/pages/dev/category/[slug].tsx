@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 // API
-import { getAllCategoriesWithSlug, getCategoryAndPosts } from '@src/lib/api';
+import { getAllSlug } from '@api/wp';
+import { getCategoryAndPosts } from '@api/wp/dev';
 // components
 import { SITE_NAME } from '@src/lib/constants';
 import Layout from '@template/Layout';
@@ -44,7 +45,7 @@ export async function getStaticProps({ params }: any) {
 }
 
 export async function getStaticPaths() {
-  const allCat = await getAllCategoriesWithSlug();
+  const allCat = await getAllSlug('dev_categories');
 
   return {
     paths:

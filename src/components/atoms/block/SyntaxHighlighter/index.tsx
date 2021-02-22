@@ -4,7 +4,10 @@ import {
   atomDark,
   base16AteliersulphurpoolLight,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Header, Lang, FileName } from './style';
+// function
+import iconFilter from './iconFilter';
+// components
+import { PreWrap, Header, Lang, FileName } from './style';
 
 type Props = {
   data: {
@@ -19,32 +22,14 @@ export default function SyntaxHighlighter(props: Props) {
   const { value } = useDarkMode();
   const isDark = value;
   const { lang, fileName, isLineNumber } = data;
-  let icon = '';
-  switch (lang) {
-    case undefined:
-      break;
-    case 'nginx':
-      icon = 'settings';
-      break;
-    case 'bash':
-      icon = 'console';
-      break;
-    case 'sql':
-      icon = 'database';
-      break;
-    default:
-      icon = lang;
-      break;
-  }
+  const icon = iconFilter(lang || '');
+
   return (
-    <>
+    <PreWrap>
       <Header>
         {fileName ? <FileName>{fileName}</FileName> : <div />}
         {lang && (
-          <Lang
-            src={`https://wp.hyeon.pro/wp-content/uploads/${icon}.svg`}
-            alt={icon}
-          />
+          <Lang src={`${process.env.FILE_SERVER}/${icon}.svg`} alt={icon} />
         )}
       </Header>
       <ReactSyntaxHighlighter
@@ -52,9 +37,12 @@ export default function SyntaxHighlighter(props: Props) {
         showLineNumbers={isLineNumber}
         language={lang}
         style={isDark ? atomDark : base16AteliersulphurpoolLight}
+        customStyle={{
+          padding: 'none',
+        }}
       >
         {children}
       </ReactSyntaxHighlighter>
-    </>
+    </PreWrap>
   );
 }

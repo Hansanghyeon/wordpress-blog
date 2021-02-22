@@ -13,7 +13,7 @@ const InboxList = ({ data }: any) => {
         const { icon } = node._acf_post;
         return (
           <NotionListItem key={node.id} imgSrc={icon?.mediaItemUrl}>
-            <Link as={`/dev/posts/${node.slug}`} href="/dev/posts/[slug]">
+            <Link as={`/dev/${node.slug}`} href="/dev/[slug]">
               {node.title}
             </Link>
           </NotionListItem>

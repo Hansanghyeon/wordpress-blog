@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 // API
-import { getAllPostsWithSlug, getPostAndMorePosts } from '@src/lib/api';
+import { getAllSlug } from '@api/wp';
+import { getPostAndMorePosts } from '@api/wp/dev';
 // components
 import { SITE_NAME } from '@src/lib/constants';
 import PostTitle from '@/post-title';
@@ -43,23 +44,26 @@ export async function getStaticProps({
   preview = false,
   previewData,
 }: any) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData);
-
+  const data = await getPostAndMorePosts(
+    params.slug,
+    preview,
+    previewData,
+    'dev',
+  );
   return {
     props: {
       preview,
-      post: data.post,
-      posts: data.posts,
+      post: data.dev,
+      posts: data.devs,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const allPosts = await getAllSlug('devs');
 
   return {
-    paths:
-      allPosts.edges.map(({ node }: any) => `/dev/posts/${node.slug}`) || [],
+    paths: allPosts.edges.map(({ node }: any) => node.uri.slice(0, -1)) || [],
     fallback: true,
   };
 }

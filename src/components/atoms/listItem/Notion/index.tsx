@@ -15,7 +15,7 @@ const NotionListItem: React.FC<NotionStyleListItemProps> = ({
       <img
         src={
           imgSrc ||
-          'https://wp.hyeon.pro/wp-content/uploads/4log/icons/page-facing-up_1f4c4.png'
+          `${process.env.FILE_SERVER}/4log/icons/page-facing-up_1f4c4.png`
         }
         alt=""
       />
