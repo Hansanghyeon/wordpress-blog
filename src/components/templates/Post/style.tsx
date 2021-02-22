@@ -31,10 +31,10 @@ const Wordpress = css`
   }
   .fc-dim,
   .fc-dim * {
-    color: ${({ theme }) => theme.colors.text[3]};
+    color: ${({ theme }) => theme.palette.text[3]};
   }
   blockquote {
-    border-left: 4px solid ${({ theme }) => theme.colors.bg[1]};
+    border-left: 4px solid ${({ theme }) => theme.palette.bg[1]};
     padding-left: 18px;
     font-size: 0.8rem;
     * {
@@ -42,14 +42,14 @@ const Wordpress = css`
     }
   }
   .fc-highlight {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.palette.primary};
   }
   .how-block {
     margin-top: 0;
   }
   hr {
     max-width: 200px;
-    border-bottom: 3px dotted ${({ theme }) => theme.colors.text[3]};
+    border-bottom: 3px dotted ${({ theme }) => theme.palette.text[3]};
     background: transparent;
     margin: calc(3.2rem - 1px) auto;
   }
@@ -58,9 +58,9 @@ const Wordpress = css`
   }
   a {
     font-size: 0.9em;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.palette.primary};
     &:visited {
-      color: ${({ theme }) => theme.colors.text[3]};
+      color: ${({ theme }) => theme.palette.text[3]};
     }
     &:hover {
       text-decoration-line: underline;
@@ -69,7 +69,7 @@ const Wordpress = css`
 `;
 
 export const CardWrap = styled.div`
-  background: ${({ theme }) => theme.colors.bg[0]};
+  background: ${({ theme }) => theme.palette.bg[0]};
   border-radius: 3px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -107,7 +107,7 @@ export const CardWrap = styled.div`
   table {
     td,
     th {
-      border: 1px solid ${({ theme }) => theme.colors.bg[1]};
+      border: 1px solid ${({ theme }) => theme.palette.bg[1]};
       padding: 8px;
     }
     th {
@@ -142,27 +142,29 @@ export const CardWrap = styled.div`
       height: 4px;
     }
     &::-webkit-scrollbar-track {
-      background-color: ${({ theme }) => rgba(theme.colors.bg[1], 0.6)};
+      background-color: ${({ theme }) => rgba(theme.palette.bg[1], 0.6)};
     }
     &::-webkit-scrollbar-thumb {
-      background-color: ${({ theme }) => rgba(theme.colors.text[3], 0.6)};
+      background-color: ${({ theme }) => rgba(theme.palette.text[3], 0.6)};
       border-radius: 999px;
     }
   }
   ${Wordpress};
 `;
 
-export const FeaturedImg = styled(Col)<{ bgImg?: string }>`
+const _FeaturedImg = styled(Col)`
+  ${media.lg`
+    padding-top: calc(54% / 2);
+  `}
+`;
+export const FeaturedImg = styled(_FeaturedImg)<{ bgImg?: string }>`
   background-image: url(${({ bgImg }) => bgImg});
   background-size: cover;
   background-position: center;
   padding-top: 54%;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.bg[0]};
-  ${media.lg`
-    padding-top: calc(54% / 2);
-  `}
+  background-color: ${({ theme }) => theme.palette.bg[0]};
 `;
 
 export const StyledContainer = styled(Container)`

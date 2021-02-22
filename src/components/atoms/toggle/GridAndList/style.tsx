@@ -66,10 +66,10 @@ const grisListActive = css`
   --lines-delay: 0.3s;
 `;
 export const GridList = styled.button<animation>`
-  --color: ${({ theme }) => theme.colors.text[0]};
-  --background: ${({ theme }) => theme.colors.bg[0]};
-  --background-hover: ${({ theme }) => theme.colors.bg[0]};
-  --icon-color: ${({ theme }) => theme.colors.primary};
+  --color: ${({ theme }) => theme.palette.text[0]};
+  --background: ${({ theme }) => theme.palette.bg[0]};
+  --background-hover: ${({ theme }) => theme.palette.bg[0]};
+  --icon-color: ${({ theme }) => theme.palette.primary};
 
   padding: 6px 12px 6px 8px;
   margin: 0;

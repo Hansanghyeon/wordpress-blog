@@ -8,7 +8,7 @@ export const Img = styled.img`
 
 export const Wrap = styled.div`
   padding: ${rhythm(1 / 2)} ${rhythm(1)};
-  background-color: ${({ theme }) => theme.colors.bg[1]};
+  background-color: ${({ theme }) => theme.palette.bg[1]};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 1px inset;
   margin-bottom: 0.8rem;
   position: relative;
@@ -41,7 +41,7 @@ export const Li = styled.li`
     counter-increment: item 1;
     opacity: 0.5;
     font-style: italic;
-    color: ${({ theme }) => theme.colors.text[0]};
+    color: ${({ theme }) => theme.palette.text[0]};
     margin-right: ${rhythm(1 / 6)};
   }
 `;
@@ -70,10 +70,10 @@ export const MoreBtn = styled.button`
 
 const DisableArrowBtn = css`
   cursor: default;
-  color: ${({ theme }) => theme.colors.bg[1]};
+  color: ${({ theme }) => theme.palette.bg[1]};
   &:hover {
-    color: ${({ theme }) => theme.colors.bg[1]};
-    background-color: ${({ theme }) => theme.colors.bg[0]};
+    color: ${({ theme }) => theme.palette.bg[1]};
+    background-color: ${({ theme }) => theme.palette.bg[0]};
   }
 `;
 export const ArrowBtn = styled.button<{ disable?: boolean }>`
@@ -82,8 +82,8 @@ export const ArrowBtn = styled.button<{ disable?: boolean }>`
   align-items: center;
   justify-content: center;
   padding: ${rhythm(1 / 6)};
-  color: ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => theme.colors.bg[0]};
+  color: ${({ theme }) => theme.palette.primary};
+  background-color: ${({ theme }) => theme.palette.bg[0]};
   border-radius: 999px;
   font-size: 0.6rem;
   width: 18px;
@@ -93,13 +93,13 @@ export const ArrowBtn = styled.button<{ disable?: boolean }>`
   border: none;
   cursor: pointer;
   &:hover {
-    color: ${({ theme }) => theme.colors.bg[0]};
-    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.palette.bg[0]};
+    background-color: ${({ theme }) => theme.palette.primary};
   }
   ${({ disable }) => disable && DisableArrowBtn}
 `;
 
 export const CurrentLi = styled(Li)`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.palette.primary};
   font-weight: bold;
 `;

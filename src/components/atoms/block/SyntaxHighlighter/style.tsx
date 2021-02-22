@@ -16,7 +16,7 @@ export const Header = styled.div`
 export const FileName = styled.div`
   padding: 0.2em 1em;
   border-radius: 0.3em;
-  background-color: ${({ theme }) => theme.colors.bg[1]};
+  background-color: ${({ theme }) => theme.palette.bg[1]};
 `;
 export const Lang = styled.img`
   width: 1.4rem;

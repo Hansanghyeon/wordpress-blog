@@ -11,7 +11,7 @@ const blink = keyframes`
 
 export const CursorSpan = styled.span`
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.palette.primary};
   font-size: 1em;
   padding-left: 2px;
   animation: ${blink} 1s step-end infinite;
@@ -78,15 +78,15 @@ export const CatButtonWrap = styled.div`
       fill: #00b871;
     }
     .bg {
-      fill: ${({ theme }) => theme.colors.bg[0]};
+      fill: ${({ theme }) => theme.palette.bg[0]};
     }
     .body {
-      fill: ${({ theme }) => theme.colors.grayscalesLight[1]};
-      fill: ${({ theme }) => theme.colors.bg[1]};
+      fill: ${({ theme }) => theme.palette.grayscalesLight[1]};
+      fill: ${({ theme }) => theme.palette.bg[1]};
     }
     .bodyShadow {
-      fill: ${({ theme }) => theme.colors.grayscalesLight[2]};
-      fill: ${({ theme }) => theme.colors.bg[0]};
+      fill: ${({ theme }) => theme.palette.grayscalesLight[2]};
+      fill: ${({ theme }) => theme.palette.bg[0]};
     }
   }
 `;

@@ -11,13 +11,16 @@ const DefaultMainWrapper = css`
     margin-left: 200px;
   `};
 `;
-export const MainWrapper = styled.div<MainWrapperType>`
-  ${SidebarStatueStyle.Def};
-  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
-  ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
+
+const MainRWrapper = styled.div`
   ${media.xxl`
     margin-left: auto;
   `};
+`;
+export const MainWrapper = styled(MainRWrapper)<MainWrapperType>`
+  ${SidebarStatueStyle.Def};
+  ${({ sidebarOpen }) => sidebarOpen && SidebarStatueStyle.Open};
+  ${({ msbType }) => msbType !== 'hidden' && DefaultMainWrapper};
 `;
 export const Main = styled.main`
   width: 100%;
@@ -29,16 +32,16 @@ export const Main = styled.main`
 
 const _GlobalStyle = css`
   body {
-    background-color: ${({ theme }) => theme.colors.bg[1]};
-    color: ${({ theme }) => theme.colors.text[0]};
+    background-color: ${({ theme }) => theme.palette.bg[1]};
+    color: ${({ theme }) => theme.palette.text[0]};
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.text[0]};
+      color: ${({ theme }) => theme.palette.text[0]};
       &:hover,
       &.active {
-        color: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.palette.primary};
         > *:first-child {
-          --color: ${({ theme }) => theme.colors.primary};
+          --color: ${({ theme }) => theme.palette.primary};
         }
       }
     }

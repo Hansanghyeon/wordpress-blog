@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const DiglettRoot = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg[1]};
+  background-color: ${({ theme }) => theme.palette.bg[1]};
   overflow: hidden;
   position: relative;
 `;

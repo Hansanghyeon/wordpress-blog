@@ -23,7 +23,7 @@ export const Wrap = styled.div`
   height: 45px;
   overflow: hidden;
   padding: 0 ${rhythm(1 / 2)};
-  background: ${({ theme }) => theme.colors.bg[0]};
+  background: ${({ theme }) => theme.palette.bg[0]};
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 

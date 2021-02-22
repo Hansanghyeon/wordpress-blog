@@ -7,14 +7,14 @@ import MenuBtn from '@atom/toggle/Menu/container';
 // style
 import { GNBWrap, Wrap, Col, Row, Container } from './style';
 
-const GNB: React.FC<MenuStateType> = ({ isActive }: MenuStateType) => (
+const GNB: React.FC<{ isActive?: boolean }> = ({ isActive }) => (
   <GNBWrap sidebarOpen={isActive}>
     <Headroom>
       <Wrap>
         <Container.Inner fluid>
           <Row>
             <Col.Menu col={2}>
-              <MenuBtn />
+              <MenuBtn isActive={isActive || false} />
             </Col.Menu>
             <Col.Left auto>
               <SmLogo />

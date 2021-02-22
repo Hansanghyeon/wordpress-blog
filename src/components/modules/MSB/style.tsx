@@ -30,7 +30,14 @@ type SideBarProps = {
   isActive?: boolean;
   type?: string;
 };
-export const SideBar = styled.div<SideBarProps>`
+const RSideBar = styled.div`
+  ${media.md`
+    height: 100%;
+    background-color: transparent;
+    padding: 0 ${rhythm(1 / 2)};
+  `};
+`;
+export const SideBar = styled(RSideBar)<SideBarProps>`
   width: 200px;
   height: 100%;
   padding: calc(${rhythm(1)} + 45px) ${rhythm(1 / 2)} ${rhythm(1)};
@@ -40,7 +47,7 @@ export const SideBar = styled.div<SideBarProps>`
   z-index: 900;
   transition: transform 0.5s ease-out;
   will-change: transform;
-  background-color: ${({ theme }) => transparentize(0.05, theme.colors.bg[1])};
+  background-color: ${({ theme }) => transparentize(0.05, theme.palette.bg[1])};
 
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -53,11 +60,6 @@ export const SideBar = styled.div<SideBarProps>`
     all: unset;
   }
 
-  ${media.md`
-    height: 100%;
-    background-color: transparent;
-    padding: 0 ${rhythm(1 / 2)};
-  `};
   /* TODO: type 추가 */
   ${({ type }) => (type !== 'hidden' ? DefaultSideBar : mdHiddenSideBar)}
 

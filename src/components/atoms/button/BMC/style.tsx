@@ -16,7 +16,7 @@ export const Button = styled.a`
   display: flex;
   align-items: center;
   padding: 4px 12px 4px 8px;
-  color: ${({ theme }) => theme.colors.grayscalesDark[0]};
+  color: ${({ theme }) => theme.palette.grayscalesDark[0]};
   background-color: #ff813f;
   border-radius: 5px;
   border: 1px;

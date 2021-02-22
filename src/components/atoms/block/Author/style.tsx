@@ -11,7 +11,7 @@ export const RootWrap = styled.div`
 export const Wrap = styled.div`
   font-size: 0.7rem;
   word-break: keep-all;
-  color: ${({ theme }) => transparentize(0.2, theme.colors.text[0])};
+  color: ${({ theme }) => transparentize(0.2, theme.palette.text[0])};
   display: flex;
   align-items: center;
 `;

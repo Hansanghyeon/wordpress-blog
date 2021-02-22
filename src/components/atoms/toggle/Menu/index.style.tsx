@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Menu = styled.button`
-  --color: ${({ theme }) => theme.colors.primary};
+  --color: ${({ theme }) => theme.palette.primary};
   width: 36px;
   height: 36px;
   padding: 0;

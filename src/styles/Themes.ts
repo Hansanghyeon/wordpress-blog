@@ -1,6 +1,5 @@
-import { DefaultTheme } from 'styled-components';
-export const lightTheme: DefaultTheme = {
-  colors: {
+export const lightTheme = {
+  palette: {
     primary: '#0f4c81',
     bg: ['#fff', '#E1EBF2'],
     text: ['#333', '#4A4F57', '#868E96', '#dcdcdc'],
@@ -15,18 +14,17 @@ export const lightTheme: DefaultTheme = {
     grayscalesLight: ['#ffffff', '#e6ecf8', '#9ba4b7', '#6d7484', '#404655'],
     codeBg: '#E1EBF2',
     codeColor: '#5e6687',
+    dimSpan: '#9B9A97',
   },
-  dimSpan: '#9B9A97',
 };
 
-export const darkTheme: DefaultTheme = {
-  colors: {
-    ...lightTheme.colors,
+export const darkTheme = {
+  palette: {
+    ...lightTheme.palette,
     primary: '#fff46a',
     bg: ['#2C2F33', '#232326'],
     text: ['#C2BFB9', '#C2BFB9', '#9ba4b7', '#515151'],
     codeBg: '#1d1f21',
     codeColor: '#f92672',
   },
-  dimSpan: '#9B9A97',
 };

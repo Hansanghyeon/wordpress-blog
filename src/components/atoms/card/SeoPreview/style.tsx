@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Row as _Row, Col as _Col, media } from 'styled-bootstrap-grid';
 
 export const Header = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg[0]};
+  background-color: ${({ theme }) => theme.palette.bg[0]};
 
   display: flex;
   align-items: center;
@@ -49,11 +49,15 @@ const Col = _Col as typeof _Col & {
   Image: typeof _Col;
   Content: typeof _Col;
 };
-Col.Image = styled(_Col)<{ url: string }>`
-  background-image: ${({ url }) => `url(${url})`};
-  background-size: cover;
-  background-position: center;
+Col.Image = styled(_Col)`
+  position: relative;
   display: none;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   ${media.sm`
     display: block;
   `};
@@ -72,8 +76,8 @@ Col.Content = styled(_Col)`
 `;
 
 const BodyBase = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg[1]};
-  color: ${({ theme }) => theme.colors.text[2]};
+  background-color: ${({ theme }) => theme.palette.bg[1]};
+  color: ${({ theme }) => theme.palette.text[2]};
   font-size: 14px;
   border-radius: 4px;
   box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.1);
@@ -108,12 +112,12 @@ export const RootWrap = styled.div`
 
   &:hover {
     ${Header} {
-      background-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.colors.bg[1]};
+      background-color: ${({ theme }) => theme.palette.primary};
+      color: ${({ theme }) => theme.palette.bg[1]};
     }
     ${Body} {
-      color: ${({ theme }) => theme.colors.text[1]};
-      border: 1px solid ${({ theme }) => theme.colors.text[2]};
+      color: ${({ theme }) => theme.palette.text[1]};
+      border: 1px solid ${({ theme }) => theme.palette.text[2]};
     }
   }
 `;

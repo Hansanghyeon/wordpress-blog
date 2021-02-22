@@ -67,13 +67,13 @@ export const TocModalListWrap = styled.div<{ toggle: boolean }>`
   bottom: 64px;
   width: 320px;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.bg[0]};
+  background-color: ${({ theme }) => theme.palette.bg[0]};
   box-shadow: 0px 0px 5px 1px
-    ${({ theme }) => rgba(theme.colors.grayscalesDark[0], 0.2)};
+    ${({ theme }) => rgba(theme.palette.grayscalesDark[0], 0.2)};
   ${Title} {
     padding: 8px 12px;
     margin-bottom: 0;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.text[2]};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.text[2]};
   }
   ${List} {
     padding: 8px 12px 12px;

@@ -25,21 +25,21 @@ export const ImageTooltipFor = styled.div`
 export const ImageTooltip = styled(ReactTooltip)`
   padding: 0 !important;
   opacity: 1 !important;
-  background-color: ${({ theme }) => theme.colors.primary} !important;
+  background-color: ${({ theme }) => theme.palette.primary} !important;
   img {
     width: 100%;
     max-width: 360px;
   }
   &.place-top:after {
-    border-top-color: ${({ theme }) => theme.colors.primary} !important;
+    border-top-color: ${({ theme }) => theme.palette.primary} !important;
   }
   &.place-bottom:after {
-    border-bottom-color: ${({ theme }) => theme.colors.primary} !important;
+    border-bottom-color: ${({ theme }) => theme.palette.primary} !important;
   }
   &.place-right:after {
-    border-right-color: ${({ theme }) => theme.colors.primary} !important;
+    border-right-color: ${({ theme }) => theme.palette.primary} !important;
   }
   &.place-left:after {
-    border-left-color: ${({ theme }) => theme.colors.primary} !important;
+    border-left-color: ${({ theme }) => theme.palette.primary} !important;
   }
 `;
