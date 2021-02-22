@@ -24,6 +24,7 @@ const DownloadButton: React.FC<props> = ({ children }: props) => {
             <SVG.Span clicked={isClicked} />
           </div>
         </Icon>
+        {children}
         <Box.Link onClick={_handleClick}>{children}</Box.Link>
       </Box.Main>
     </Box.Wrap>
