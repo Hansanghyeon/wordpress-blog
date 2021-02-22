@@ -68,11 +68,25 @@ export const MotionImgWrap = styled.div`
 `;
 
 export const CatButtonWrap = styled.div`
+  display: flex;
   svg {
     width: 48px;
     height: 48px;
   }
-  .pointColor {
-    fill: #00b871;
+  .cpu {
+    .pointColor {
+      fill: #00b871;
+    }
+    .bg {
+      fill: ${({ theme }) => theme.colors.bg[0]};
+    }
+    .body {
+      fill: ${({ theme }) => theme.colors.grayscalesLight[1]};
+      fill: ${({ theme }) => theme.colors.bg[1]};
+    }
+    .bodyShadow {
+      fill: ${({ theme }) => theme.colors.grayscalesLight[2]};
+      fill: ${({ theme }) => theme.colors.bg[0]};
+    }
   }
 `;
