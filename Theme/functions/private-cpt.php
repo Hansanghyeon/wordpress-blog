@@ -8,7 +8,7 @@
  * @link         https://www.isitwp.com/force-custom-post-type-to-be-private/
  **/
 
-add_action('save_post', 'check_type_values', 10, 2);
+// add_action('save_post', 'check_type_values', 10, 2);
 
 function check_type_values($post_id, $post)
 {

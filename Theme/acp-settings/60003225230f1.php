@@ -5,7 +5,7 @@ return array (
   'title' => '개발 포스트',
   'type' => 'dev',
   'id' => '60003225230f1',
-  'updated' => 1610626312,
+  'updated' => 1612744883,
   'columns' => 
   array (
     '5ffa709b4a6ff' => 
@@ -35,7 +35,7 @@ return array (
       'bulk_edit' => 'on',
       'search' => 'on',
     ),
-    '600032fba1c33' => 
+    '60194d92601de' => 
     array (
       'type' => 'column-taxonomy',
       'label' => '카테고리',
@@ -71,6 +71,24 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
+    '6009a55198990' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => '🥝',
+      'width' => '50',
+      'width_unit' => 'px',
+      'field' => 'field_60002215d037b',
+      'image_size' => 'cpac-custom',
+      'image_size_w' => '24',
+      'image_size_h' => '24',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
     'date' => 
     array (
       'type' => 'date',
@@ -96,7 +114,7 @@ return array (
     'hide_smart_filters' => 'off',
     'hide_segments' => 'off',
     'hide_export' => 'off',
-    'hide_new_inline' => 'on',
+    'hide_new_inline' => 'off',
     'hide_submenu' => 'off',
     'hide_search' => 'off',
     'hide_bulk_actions' => 'off',

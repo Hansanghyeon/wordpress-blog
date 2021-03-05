@@ -17,6 +17,17 @@
         </div><!-- .entry-content -->
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <?php
+        var_dump(comments_open());
+        var_dump(get_comments_number());
+        if (comments_open() || get_comments_number()) {
+          comments_template();
+        }
+        ?>
+      </div>
+    </div>
   </div>
 </article><!-- #post-<?php the_ID(); ?> -->
 <?php get_footer();

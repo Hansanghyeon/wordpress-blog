@@ -2,6 +2,9 @@
 body .block-editor-editor-skeleton__body .empty-block {
   display: none;
 }
+.is-reusable .block-editor-writing-flow__click-redirect {
+  display: none;
+}
 
 @media (min-width: 576px) {
   body .block-editor {
@@ -12,4 +15,31 @@ body .block-editor-editor-skeleton__body .empty-block {
   body .block-editor {
     max-width: 720px;
   }
+}
+
+/* wp_block */
+ul.wp-block {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+ul.wp-block ul {
+  padding-left: 1.2rem;
+}
+.block-editor .editor-styles-wrapper ol > li > ul > li > ul > li > ul {
+  list-style-type: square;
+}
+.block-editor .editor-styles-wrapper ul > li > ul > li > ul {
+  list-style-type: square;
+}
+.block-editor .editor-styles-wrapper ol > li > ul > li > ul {
+  list-style-type: circle;
+}
+.block-editor .editor-styles-wrapper ul > li > ul {
+  list-style-type: circle;
+}
+.block-editor .editor-styles-wrapper ol > li > ul {
+  list-style: ;
+}
+.block-editor .editor-styles-wrapper ul {
+  list-style: initial;
 }
