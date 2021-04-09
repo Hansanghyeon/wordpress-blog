@@ -1,12 +1,12 @@
 module.exports = {
-  'extends': 'stylelint-config-standard',
-  'rules': {
+  extends: 'stylelint-config-standard',
+  rules: {
     'no-empty-source': null,
-    'string-quotes': 'double',
+    'string-quotes': 'single',
     'at-rule-no-unknown': [
       true,
       {
-        'ignoreAtRules': [
+        ignoreAtRules: [
           'extend',
           'at-root',
           'debug',
