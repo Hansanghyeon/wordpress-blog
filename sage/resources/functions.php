@@ -38,7 +38,7 @@ if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
  * Ensure dependencies are loaded
  */
 if (!class_exists('Roots\\Sage\\Container')) {
-    if (!file_exists($composer = __DIR__.'/../vendor/autoload.php')) {
+    if (!file_exists($composer = __DIR__ . '/../vendor/autoload.php')) {
         $sage_error(
             __('You must run <code>composer install</code> from the Sage directory.', 'sage'),
             __('Autoloader not found.', 'sage')
@@ -85,8 +85,18 @@ array_map(
 Container::getInstance()
     ->bindIf('config', function () {
         return new Config([
-            'assets' => require dirname(__DIR__).'/config/assets.php',
-            'theme' => require dirname(__DIR__).'/config/theme.php',
-            'view' => require dirname(__DIR__).'/config/view.php',
+            'assets' => require dirname(__DIR__) . '/config/assets.php',
+            'theme' => require dirname(__DIR__) . '/config/theme.php',
+            'view' => require dirname(__DIR__) . '/config/view.php',
         ]);
     }, true);
+
+function ajax_check_user_logged_in()
+{
+    echo is_user_logged_in();
+    die();
+}
+add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
+add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
+
+include_once('functions/index.php');
