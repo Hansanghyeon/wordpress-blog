@@ -5,3 +5,41 @@
 .banner .nav a {
   @extend .nav-link;
 }
+
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+
+  &--pinned {
+    transform: translateY(0%);
+  }
+
+  &--unpinned {
+    transform: translateY(-100%);
+  }
+}
+
+header.GNB {
+  height: 45px;
+  background-color: var(--bg1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .container-fluid {
+    position: relative;
+    height: 100%;
+
+    > .row {
+      height: 100%;
+    }
+  }
+}
+
+.siteIcon {
+  height: 32px;
+
+  img {
+    height: 100%;
+  }
+}

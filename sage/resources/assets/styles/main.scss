@@ -13,6 +13,7 @@
 
 /** Import theme styles */
 @import 'common/global';
+@import 'common/root';
 @import 'components/buttons';
 @import 'components/comments';
 @import 'components/forms';
@@ -23,3 +24,4 @@
 @import 'layouts/pages';
 @import 'layouts/posts';
 @import 'layouts/tinymce';
+@import 'components/sns-list';
