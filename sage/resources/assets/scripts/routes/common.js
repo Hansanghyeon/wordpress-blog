@@ -1,5 +1,9 @@
+import footer from '../footer';
+
 export default {
-  containerInit() {},
+  containerInit() {
+    footer();
+  },
   init() {
     // common code outside containers (header, menu, footer, etc.)
 

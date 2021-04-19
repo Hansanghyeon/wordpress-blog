@@ -1,42 +1,54 @@
+$base: (
+  dimSpan: #9b9,
+  gd1: #12171f,
+  gd2: #161a23,
+  gd3: #181c27,
+  gd4: #1f2330,
+  gd5: #252836,
+  gd6: #303645,
+  gl1: #fff,
+  gl2: #e6ecf8,
+  gl3: #9ba4b7,
+  gl4: #6d7484,
+  gl5: #404655,
+);
+
+$light: (
+  primary: #0f4c81,
+  bg1: #fff,
+  bg2: #e1ebf2,
+  text1: #333,
+  text2: #4a4f57,
+  text3: #868e96,
+  text4: #dcdcdc,
+  codeBg: #e1ebf2,
+  codeColor: #5e6687,
+);
+
+$dark: (
+  primary: #fff46a,
+  bg1: #2c2f33,
+  bg2: #232326,
+  text1: #c2bfb9,
+  text2: #c2bfb9,
+  text3: #9ba4b7,
+  text4: #515151,
+  codeBg: #1d1f21,
+  codeColor: #f92672,
+);
+
 :root {
-  --dimSpan: #9b9a97;
-  --gd1: #12171f;
-  --gd2: #161a23;
-  --gd3: #181c27;
-  --gd4: #1f2330;
-  --gd5: #252836;
-  --gd6: #303645;
-  --gl1: #fff;
-  --gl2: #e6ecf8;
-  --gl3: #9ba4b7;
-  --gl4: #6d7484;
-  --gl5: #404655;
+  @include generate_colors($base);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --primary: #0f4c81;
-    --bg1: #fff;
-    --bg2: #e1ebf2;
-    --text1: #333;
-    --text2: #4a4f57;
-    --text3: #868e96;
-    --text4: #dcdcdc;
-    --codeBg: #e1ebf2;
-    --codeColor: #5e6687;
+    @include generate_colors($light);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #fff46a;
-    --bg1: #2c2f33;
-    --bg2: #232326;
-    --text1: #c2bfb9;
-    --text2: #c2bfb9;
-    --text3: #9ba4b7;
-    --text4: #515151;
-    --codeBg: #1d1f21;
-    --codeColor: #f92672;
+    @include generate_colors($dark);
   }
 }
