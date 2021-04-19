@@ -32,4 +32,5 @@ module.exports = {
       },
     ],
   },
+  ignoreFiles: ['**/common/*.scss'],
 };
