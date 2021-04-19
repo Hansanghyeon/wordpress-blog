@@ -1,7 +1,7 @@
 <?php
 
 /**
- * fontawsome 😎
+ * highlightjs 😎
  *
  * @author       Hansanghyeon
  * @copyright    Hansanghyeon <999@hyeon.pro>
