@@ -3,11 +3,15 @@ body {
   scroll-padding-top: 65px;
 }
 
+body.admin-bar {
+  min-height: calc(100vh - 32px);
+}
 body {
   background: var(--bg2);
   color: var(--text1);
   font-size: 10px;
   padding-top: 45px;
+  min-height: 100vh;
 
   a {
     text-decoration: none;
@@ -24,6 +28,13 @@ body {
   }
 }
 
+.admin-bar [data-barba='container'] {
+  min-height: calc(100vh - 45px - 173px - 45px - 32px);
+}
+[data-barba='container'] {
+  min-height: calc(100vh - 45px - 173px - 45px);
+}
+
 * {
   box-sizing: border-box;
 
@@ -34,13 +45,13 @@ body {
   }
 
   &::-webkit-scrollbar-track {
-    background-color: rgba(var(--bg2), 0.6);
+    background-color: rgba(var(--RGB_bg2), 0.6);
   }
 
   &::-webkit-scrollbar-thumb {
     --text1: 240, 240, 240;
 
-    background-color: rgba(var(--text1), 0.6);
+    background-color: rgba(var(--RGB_text1), 0.6);
     border-radius: 999px;
   }
 }

@@ -1,3 +1,23 @@
+body.admin-bar .GNB {
+  top: 32px;
+
+  &.mobile {
+    top: 46px;
+
+    @media screen and (min-width: 783px) {
+      top: 32px;
+    }
+
+    &.shrink {
+      top: 0;
+
+      @media screen and (min-width: 600px) {
+        top: inherit;
+      }
+    }
+  }
+}
+
 .banner .nav li {
   @extend .nav-item;
 }
