@@ -5,19 +5,12 @@
 <body @php body_class() @endphp data-barba="wrapper">
   @php do_action('get_header') @endphp
   @include('partials.header')
-  <div class="wrap container" role="document" data-barba="container" data-barba-namespace="{{$post->ID}}"
+  <div class="wrap" role="document" data-barba="container" data-barba-namespace="{{$post->ID}}"
     data-postid="{{$post->ID}}">
     <div id="body-classes" @php body_class() @endphp>
-      <div class="content">
-        <main class="main">
-          @yield('content')
-        </main>
-        @if (App\display_sidebar())
-        <aside class="sidebar">
-          @include('partials.sidebar')
-        </aside>
-        @endif
-      </div>
+      <main class="main">
+        @yield('content')
+      </main>
     </div>
   </div>
   @php do_action('get_footer') @endphp

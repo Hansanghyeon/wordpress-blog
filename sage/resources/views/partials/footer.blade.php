@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="https://github.com/Hansanghyeon/4log/blob/master/LICENSE">Copyright (c) 2019-2020 999hyeon</a>
+        <a href="https://github.com/Hansanghyeon/4log/blob/master/LICENSE">Copyright (c) 2021 999hyeon</a>
       </div>
     </div>
     @php dynamic_sidebar('sidebar-footer') @endphp
