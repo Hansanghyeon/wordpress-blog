@@ -11,7 +11,7 @@ function wpblog_widget()
 {
     register_sidebar(array(
       'name' => __('글 첫번째 영역', 'wpb'),
-      'id' => '샟', // unique-sidebar-id
+      'id' => 'content_first', // unique-sidebar-id
       'description' => '',
       'class' => '',
       'before_widget' => '<li id="%1$s" class="widget %2$s">',
