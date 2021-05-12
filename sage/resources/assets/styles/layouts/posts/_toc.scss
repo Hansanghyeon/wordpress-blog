@@ -1,0 +1,21 @@
+.ez-toc-widget-container {
+  ul {
+    padding: 0;
+  }
+}
+.widget.ez-toc {
+  list-style: none;
+  position: sticky;
+  top: calc(45px + var(--bar));
+
+  .ez-toc-widget-container {
+    padding-top: 45px;
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    max-width: 360px;
+  }
+  + #{heading(1,6)} {
+    margin-top: 0;
+  }
+}
