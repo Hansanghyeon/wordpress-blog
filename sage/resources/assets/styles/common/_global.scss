@@ -4,15 +4,24 @@ body {
 }
 
 body.admin-bar {
-  min-height: calc(100vh - 32px);
+  --bar: 46px;
+
+  @media screen and (min-width: 783px) {
+    --bar: 32px;
+  }
 }
+
 body {
   background: var(--bg2);
   color: var(--text1);
-  font-size: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
   padding-top: 45px;
   min-height: 100vh;
 
+  &.admin-bar {
+    min-height: calc(100vh - var(--bar));
+  }
   a {
     text-decoration: none;
     color: var(--text1);
@@ -49,8 +58,6 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    --text1: 240, 240, 240;
-
     background-color: rgba(var(--RGB_text1), 0.6);
     border-radius: 999px;
   }
