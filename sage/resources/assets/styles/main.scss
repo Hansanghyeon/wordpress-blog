@@ -1,8 +1,9 @@
 @import 'common/variables';
-@import 'common/f_rgb';
+@import 'common/function/*';
 
 /** Import everything from autoload */
 @import './autoload/**/*';
+@import 'pages/**/*';
 
 /**
  * Import npm dependencies
@@ -15,14 +16,17 @@
 /** Import theme styles */
 @import 'common/global';
 @import 'common/root';
+// components
 @import 'components/buttons';
 @import 'components/comments';
 @import 'components/forms';
 @import 'components/wp-classes';
+@import 'components/sns-list';
+// layouts
+@import 'layouts/GNB';
 @import 'layouts/header';
 @import 'layouts/sidebar';
 @import 'layouts/footer';
 @import 'layouts/pages';
 @import 'layouts/posts';
 @import 'layouts/tinymce';
-@import 'components/sns-list';
