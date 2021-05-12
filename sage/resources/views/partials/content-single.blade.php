@@ -4,8 +4,12 @@
     @include('partials/entry-meta')
   </header>
   <div class="entry-content">
-    @php
+    <div class="toc-area">
+      @php 
       dynamic_sidebar('content_first');
+      @endphp
+    </div>
+    @php
       the_content();
     @endphp
   </div>
