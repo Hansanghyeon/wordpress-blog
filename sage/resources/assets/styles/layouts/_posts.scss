@@ -1,0 +1,39 @@
+@import 'posts/toc';
+@import 'posts/pre';
+
+.single-dev article {
+  --w: 800px;
+  --paddingX: 25px;
+
+  @include make-container();
+  max-width: var(--w);
+
+  line-height: 1.4;
+
+  header {
+    padding-top: calc(12px + 26px);
+    padding-bottom: 12px;
+    padding-left: var(--paddingX);
+    padding-right: var(--paddingX);
+  }
+  .entry-content > *:not(pre):not(ol):not(ul) {
+    padding-left: var(--paddingX);
+    padding-right: var(--paddingX);
+  }
+  .entry-content {
+    background-color: var(--bg1);
+
+    margin-top: 26px;
+    margin-bottom: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+
+    #{headings(1,6)} {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

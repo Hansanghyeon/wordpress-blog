@@ -46,6 +46,7 @@ html body.page-template-template-homepage .eapps-instagram-feed {
   left: 50%;
   transform: var(--transform);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  background-color: var(--bg2);
   transition: opacity 0.3s ease-in-out;
 
   &:hover {
@@ -69,5 +70,11 @@ html body.page-template-template-homepage .eapps-instagram-feed {
   &-2 {
     --y: 12.5%;
     --x: 12.5%;
+  }
+}
+
+body.page-template-template-homepage {
+  #{headings(1,6)} {
+    font-family: 'East Sea Dokdo', cursive;
   }
 }

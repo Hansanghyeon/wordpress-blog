@@ -1,0 +1,60 @@
+// syntax-highlighting-code-block
+.wp-block-code {
+  position: relative;
+}
+
+.wp-block-code .shcb-language {
+  clip: initial;
+  width: auto;
+  height: auto;
+  margin: auto;
+  clip-path: none;
+
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  line-height: 1em;
+  white-space: normal;
+  font-family: sans-serif;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.wp-block-code .shcb-language__label,
+.wp-block-code .shcb-language__paren,
+.wp-block-code .shcb-language__slug {
+  display: none;
+}
+
+pre {
+  padding: 0;
+  color: var(--text1);
+}
+
+code {
+  &.hljs {
+    background: var(--bg3);
+    padding: 0.8rem var(--paddingX);
+    padding-bottom: calc(0.8rem - 4px);
+    overflow-x: scroll;
+    white-space: pre;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgba(var(--RGB_bg3), 0.6);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(var(--RGB_text1), 0.1);
+      border-radius: 999px;
+    }
+  }
+  &:not(.hljs) {
+    background-color: var(--bg3);
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+  }
+}
