@@ -1,5 +1,5 @@
 @import 'common/variables';
-@import 'common/f_rgb';
+@import 'common/function/*';
 
 /** Import everything from autoload */
 @import './autoload/**/*';
@@ -21,9 +21,9 @@
 @import 'components/comments';
 @import 'components/forms';
 @import 'components/wp-classes';
-@import 'components/heading';
 @import 'components/sns-list';
 // layouts
+@import 'layouts/GNB';
 @import 'layouts/header';
 @import 'layouts/sidebar';
 @import 'layouts/footer';
