@@ -1,7 +1,3 @@
-{{--
-  Template Name: 홈페이지
---}}
-
 @extends('layouts.app')
 
 @section('content')
