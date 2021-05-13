@@ -1,6 +1,7 @@
 .single-dev article {
   --w: 800px;
   --paddingX: 25px;
+  --paddingY: 25px;
 
   @include make-container();
   max-width: var(--w);
@@ -26,7 +27,6 @@
     padding-bottom: 20px;
 
     border-radius: 4px;
-    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
 
     #{headings(1,6)} {
       margin-top: 2rem;

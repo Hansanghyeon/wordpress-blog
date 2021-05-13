@@ -1,0 +1,32 @@
+.pageNav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 45px;
+
+  .card {
+    background-color: var(--bg1);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: var(--paddingY) calc(var(--paddingX) * 2);
+    text-decoration: none;
+    color: var(--text1);
+    word-break: keep-all;
+
+    &.empty {
+      color: var(--dimSpan);
+    }
+  }
+
+  .card i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .prev i {
+    left: var(--paddingX);
+  }
+  .next i {
+    right: var(--paddingX);
+  }
+}
