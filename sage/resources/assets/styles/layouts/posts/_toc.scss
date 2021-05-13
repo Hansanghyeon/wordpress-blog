@@ -23,7 +23,7 @@
     }
 
     @media (max-width: 1540px) {
-      background-color: var(--bg1);
+      background-color: var(--bg0);
       border-radius: 4px;
       border: 1px solid rgba(0, 0, 0, 0.125);
       padding: 0;
@@ -42,8 +42,8 @@
     @mixin textGradient {
       background-image: linear-gradient(
         to right,
-        var(--pointColor1),
-        var(--pointColor2)
+        var(--pointColor0),
+        var(--pointColor1)
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

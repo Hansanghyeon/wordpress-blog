@@ -17,7 +17,7 @@ html body.page-template-template-homepage .eapps-instagram-feed {
 
   &-posts-item-text {
     width: auto;
-    color: var(--bg1);
+    color: var(--bg0);
     box-shadow: inset 0px -1.4em 0px 0px var(--primary);
     padding-left: 3px;
     padding-right: 3px;
@@ -46,7 +46,7 @@ html body.page-template-template-homepage .eapps-instagram-feed {
   left: 50%;
   transform: var(--transform);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
-  background-color: var(--bg2);
+  background-color: var(--bg1);
   transition: opacity 0.3s ease-in-out;
 
   &:hover {

@@ -28,12 +28,12 @@
 
 pre {
   padding: 0;
-  color: var(--text1);
+  color: var(--text0);
 }
 
 code {
   &.hljs {
-    background: var(--bg3);
+    background: var(--bg2);
     padding: 0.8rem var(--paddingX);
     padding-bottom: calc(0.8rem - 4px);
     overflow-x: scroll;
@@ -53,7 +53,7 @@ code {
     }
   }
   &:not(.hljs) {
-    background-color: var(--bg3);
+    background-color: var(--bg2);
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
   }
