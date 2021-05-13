@@ -1,7 +1,7 @@
 import barba from '@barba/core';
 import { gsap } from 'gsap';
-import common from './routes/common';
-import somePage from './routes/somePage';
+import common from '../routes/common';
+import somePage from '../routes/somePage';
 import replybox from './replybox';
 // import ...
 
