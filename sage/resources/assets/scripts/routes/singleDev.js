@@ -1,4 +1,8 @@
+import toc from '../toc';
+
 export default {
-  init() {},
+  init() {
+    toc();
+  },
   finalize() {},
 };
