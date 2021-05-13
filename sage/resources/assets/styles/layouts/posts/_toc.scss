@@ -1,17 +1,119 @@
-.toc-area.toc-area.toc-area {
+.toc-area {
   position: sticky;
   top: calc(45px + var(--bar));
-  .widget.ez-toc {
-    list-style: none;
+  z-index: 900;
+
+  &-inner {
     padding-top: 45px;
+    padding-left: 10px;
     position: absolute;
     left: 100%;
     width: 100%;
     max-width: 360px;
+    font-size: 90%;
+
+    .widget.ez-toc {
+      list-style: none;
+    }
+    .ez-toc-list {
+      padding: 10px 12px;
+    }
+    ul {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1540px) {
+      background-color: var(--bg1);
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      padding: 0;
+
+      position: fixed;
+      left: auto;
+      right: 10px;
+      bottom: 90px;
+      transform: translateX(120%);
+      transition: transform 0.3s;
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    @mixin textGradient {
+      background-image: linear-gradient(
+        to right,
+        var(--pointColor1),
+        var(--pointColor2)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    a {
+      text-decoration: none;
+      opacity: 0.8;
+      transition: all 0.3s;
+
+      &:hover {
+        opacity: 1;
+        color: currentColor;
+      }
+      &:before {
+        content: counters(item, '.') !important;
+        @include textGradient();
+        padding-right: 0.3em;
+      }
+    }
+
+    li.active {
+      &::before {
+        content: none !important;
+      }
+      > a {
+        font-weight: normal;
+        opacity: 1;
+        @include textGradient();
+      }
+    }
   }
   + {
     #{headings(1,6)} {
-      margin-top: 0;
+      margin-top: 0 !important;
+    }
+  }
+
+  // TOC Button
+  &-toggle {
+    display: block;
+    position: fixed;
+    z-index: 200;
+    bottom: 20px;
+    right: 20px;
+    transform: translate3d(0, 0, 0);
+
+    @media (min-width: 1540px) {
+      display: none;
+    }
+  }
+  .btn-toc {
+    display: flex;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    outline: none;
+    cursor: pointer;
+
+    img {
+      margin-bottom: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
     }
   }
 }

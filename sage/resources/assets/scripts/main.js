@@ -11,6 +11,7 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 import barba from './barba';
 import somePage from './routes/somePage';
+import singleDev from './routes/singleDev';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -22,6 +23,7 @@ const routes = new Router({
   aboutUs,
   // The new page we created
   somePage,
+  singleDev,
 });
 
 // Load Events
