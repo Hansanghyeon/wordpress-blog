@@ -4,7 +4,7 @@
     @include('partials/entry-meta')
   </header>
   <div class="entry-content card">
-    @include('partials.atom.toc')
+    @include('partials.components.toc')
     @php the_content() @endphp
   </div>
   <footer>
