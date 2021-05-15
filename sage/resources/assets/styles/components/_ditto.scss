@@ -1,0 +1,166 @@
+/**
+Ditto 섬네일이 있을때 리스트 형식의 컴포넌트 모션
+**/
+@mixin motion {
+  &[data-isthumb]:hover {
+    box-shadow: none;
+    .ditto {
+      &-thumbnail {
+        width: 120px;
+        background-color: transparent;
+        margin-right: 0;
+        z-index: 200;
+        box-shadow: 2px 0 22px -8px rgba(0, 0, 0, 0.4);
+      }
+      &-main-inner {
+        z-index: 100;
+        transform: scale(0.96);
+        box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+        margin-left: calc(80px + 2rem);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+.ditto-root {
+  display: flex;
+  flex-wrap: wrap;
+
+  @supports (gap: 0) {
+    gap: 2rem;
+  }
+}
+
+.ditto {
+  color: var(--text0);
+
+  min-height: 48px;
+  position: relative;
+  z-index: 0;
+  transition: z-index 0.45s;
+  will-change: z-index;
+  width: 50%;
+
+  @supports (gap: 0) {
+    width: calc(50% - 1rem);
+  }
+  @supports not (gap: 0) {
+    padding: 1rem;
+    width: 50%;
+  }
+  &:hover {
+    z-index: 200;
+  }
+  &-main {
+    border-radius: 8px;
+    box-shadow: 0 22px 24px -28px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.45s ease-in-out;
+    will-change: box-shadow, transform;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    @include motion();
+    &-inner {
+      width: 100%;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: var(--bg0, #fff);
+      position: relative;
+      z-index: 200;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+      will-change: padding-left, z-index, transform, margin-left, box-shadow;
+      &[data-isthumb] {
+        margin-left: calc(80px - 1rem);
+      }
+    }
+  }
+  &-thumbnail {
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    z-index: 100;
+    transition: all 0.45s ease-in-out;
+    will-change: width, background-color, margin-right, background-size, height,
+      transform;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Body section
+  &-title {
+    margin-bottom: 8px;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-weight: bold;
+    word-break: keep-all;
+    font-size: 16px;
+    a {
+      text-decoration: none;
+    }
+  }
+  &-body {
+    padding: 0.5rem 1rem;
+  }
+  &-content {
+    color: var(--text0);
+    height: 4rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+    transition: max-width 0.45s;
+  }
+  &-date {
+    color: var(--text0);
+    opacity: 0.5;
+    font-size: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  &-category {
+    display: flex;
+    flex-wrap: wrap;
+
+    @supports (gap: 0) {
+      gap: 8px;
+    }
+    @supports not (gap: 0) {
+      > * {
+        margin-right: 8px;
+      }
+    }
+    > * {
+      background-color: var(--1, #f6f8ff);
+      border-radius: 8px;
+      padding: 0.25rem 8px;
+    }
+  }
+  &-footer {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 0;
+      display: flex;
+      gap: 8px;
+      li {
+        background-color: var(--bg1);
+        border-radius: 8px;
+        padding: 0.25rem 8px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
