@@ -2,7 +2,15 @@
 
 @section('content')
   <div class="container">
-    @include('partials.page-header')
+    <div class="page-header">
+      <div class="imgWrap">
+        <img class="d-md-none" src="/wp-content/uploads/media/개발포스트/RLRlP6kQU.png" alt="">
+        <img class="d-none d-md-block" src="/wp-content/uploads/media/개발포스트/RLRlP6kQU-1.png" alt="">
+      </div>
+      <div class="titleWrap">
+        <h1>{!! App::title() !!}</h1>
+      </div>
+    </div>
   </div>
 
   <div class="container">

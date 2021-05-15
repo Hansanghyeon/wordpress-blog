@@ -1,0 +1,21 @@
+.page-header {
+  text-align: center;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  margin-bottom: 24px;
+}
+
+.post-type-archive {
+  &-dev {
+    .page-header {
+      .imgWrap {
+        margin-bottom: 45px;
+      }
+      img {
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 8px;
+      }
+    }
+  }
+}
