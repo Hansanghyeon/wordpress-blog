@@ -31,6 +31,9 @@
     #{headings(1,6)} {
       margin-top: 2rem;
       margin-bottom: 1rem;
+      .ez-toc-section {
+        scroll-snap-align: start;
+      }
     }
   }
 }

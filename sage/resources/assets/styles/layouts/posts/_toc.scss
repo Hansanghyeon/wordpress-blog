@@ -20,6 +20,10 @@
     }
     ul {
       margin-bottom: 0;
+      margin-left: 0 !important;
+      ul {
+        padding-left: 1rem;
+      }
     }
 
     @media (max-width: 1540px) {
@@ -72,7 +76,6 @@
       > a {
         font-weight: normal;
         opacity: 1;
-        @include textGradient();
       }
     }
   }
