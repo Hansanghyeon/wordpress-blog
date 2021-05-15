@@ -1,0 +1,49 @@
+// 노션스타일 리스트
+.iconList {
+  color: var(--text0);
+  display: grid;
+  width: 100%;
+  grid-template-columns: 16px auto;
+  column-gap: 8px;
+  > a {
+    align-self: center;
+    font-size: 0.8rem;
+    font-family: 'Noto sans', 'sans-serif';
+  }
+  .imgWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 3px;
+    text-align: center;
+    img {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// sns 리스트
+.snsList {
+  display: flex;
+
+  a:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .icon {
+    transition: color 300ms;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &-dribble {
+      &:hover {
+        color: #ea4c89;
+      }
+    }
+  }
+}
