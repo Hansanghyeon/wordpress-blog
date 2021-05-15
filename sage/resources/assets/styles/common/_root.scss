@@ -1,5 +1,4 @@
 $base: (
-  dimSpan: #9b9,
   gd0: #12171f,
   gd1: #161a23,
   gd2: #181c27,
@@ -16,10 +15,12 @@ $base: (
 );
 
 $light: (
+  dimSpan: #9b9,
   primary: #0f4c81,
   bg0: #fff,
   bg1: #e1ebf2,
   bg2: #ebf2f9,
+  text00: #000,
   text0: #333,
   text1: #4a4f57,
   text2: #868e96,
@@ -31,10 +32,12 @@ $light: (
 );
 
 $dark: (
+  dimSpan: #545954,
   primary: #fff46a,
   bg0: #2c2f33,
   bg1: #232326,
   bg2: #232326,
+  text00: #fff,
   text0: #c2bfb9,
   text1: #c2bfb9,
   text2: #9ba4b7,
@@ -47,6 +50,7 @@ $dark: (
 
 :root {
   @include generate_colors($base);
+  @include generate_colors($light);
 }
 
 @media (prefers-color-scheme: light) {
