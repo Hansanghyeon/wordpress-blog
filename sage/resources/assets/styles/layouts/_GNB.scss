@@ -39,8 +39,12 @@ body.admin-bar .GNB {
   }
 }
 
+body {
+  --gnbY: 45px;
+}
+
 header.GNB {
-  height: 45px;
+  height: var(--gnbY, 45px);
   background-color: var(--bg0);
   position: fixed;
   top: 0;
