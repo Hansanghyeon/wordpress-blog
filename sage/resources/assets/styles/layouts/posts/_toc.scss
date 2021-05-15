@@ -111,12 +111,12 @@
     outline: none;
     cursor: pointer;
 
-    img {
-      margin-bottom: 0;
+    svg {
       width: 100%;
       height: 100%;
-      position: absolute;
-      object-fit: cover;
+      .bg {
+        fill: var(--bg0);
+      }
     }
   }
 }
