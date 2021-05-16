@@ -3,8 +3,8 @@
     <h1 class="entry-title">{!! get_the_title() !!}</h1>
     @include('partials/entry-meta')
   </header>
-  <div class="entry-content card">
-    @include('partials.atom.toc')
+  <div class="entry-content">
+    @include('partials.components.toc')
     @php the_content() @endphp
   </div>
   <footer>

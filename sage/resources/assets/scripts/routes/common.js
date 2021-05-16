@@ -1,4 +1,4 @@
-import footer from '../footer';
+import footer from '../components/footer';
 
 export default {
   containerInit() {
