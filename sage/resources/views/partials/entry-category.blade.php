@@ -8,9 +8,11 @@
     @endphp
     <li>
       <a href="$term->slug" class="iconList">
+        @if (!empty($iconUrl))
         <div class="imgWrap">
           <img src="{{$iconUrl}}" alt="{{$iconTitle}}">
         </div>
+        @endif
         <span>{{$term->name}}</span>
       </a>
     </li>

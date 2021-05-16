@@ -1,9 +1,8 @@
 // 노션스타일 리스트
 .iconList {
   color: var(--text0);
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: 16px auto;
   column-gap: 8px;
   > a {
     align-self: center;
@@ -18,7 +17,7 @@
     border-radius: 3px;
     text-align: center;
     img {
-      width: 100%;
+      height: 1rem;
       margin-bottom: 0;
     }
   }

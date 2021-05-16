@@ -33,7 +33,7 @@ pre {
 
 code {
   &.hljs {
-    background: var(--bg2);
+    background: var(--preBg);
     padding: 0.8rem var(--paddingX);
     padding-bottom: calc(0.8rem - 4px);
     overflow-x: scroll;
@@ -53,7 +53,8 @@ code {
     }
   }
   &:not(.hljs) {
-    background-color: var(--bg2);
+    background-color: var(--codeBg);
+    color: var(--codeColor);
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
   }
