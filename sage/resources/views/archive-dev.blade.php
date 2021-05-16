@@ -28,6 +28,15 @@
   </div>
 
   <div class="container">
-    {!! get_the_posts_navigation() !!}
+    <div class="page-pagination">
+    @php
+      $pagination = get_the_posts_pagination( array(
+        'mid_size' => 2,
+        'prev_text' => __( '이전' ),
+        'next_text' => __( '다음' ),
+      ));
+      echo $pagination;
+    @endphp
+    </div>
   </div>
   @endsection
