@@ -1,4 +1,4 @@
-import toc from '../toc';
+import toc from '../components/toc';
 
 export default {
   init() {

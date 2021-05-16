@@ -10,7 +10,7 @@
       </div>
       <div class="col d-flex justify-content-end align-items-center">
         <div class="snsList">
-          @include('partials.atom.sns')
+          @include('partials.components.sns')
         </div>
       </div>
     </div>

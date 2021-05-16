@@ -19,7 +19,9 @@
     padding-right: var(--paddingX);
   }
   .entry-content {
-    background-color: var(--bg1);
+    background-color: var(--bg0);
+
+    border: 1px solid rgba(var(--RGB_gl3), 0.5);
 
     margin-top: 26px;
     margin-bottom: 45px;
@@ -31,6 +33,9 @@
     #{headings(1,6)} {
       margin-top: 2rem;
       margin-bottom: 1rem;
+      .ez-toc-section {
+        scroll-snap-align: start;
+      }
     }
   }
 }

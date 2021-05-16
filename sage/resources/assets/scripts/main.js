@@ -9,9 +9,11 @@ import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
-import barba from './barba';
 import somePage from './routes/somePage';
-import singleDev from './routes/singleDev';
+import singleDev from './routes/dev-single';
+import postTypeArchiveDev from './routes/dev-archive';
+// 기능
+import barba from './components/barba';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -24,6 +26,7 @@ const routes = new Router({
   // The new page we created
   somePage,
   singleDev,
+  postTypeArchiveDev,
 });
 
 // Load Events
