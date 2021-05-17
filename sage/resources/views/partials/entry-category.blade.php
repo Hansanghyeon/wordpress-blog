@@ -7,7 +7,7 @@
     $iconTItle = $icon['title'];
     @endphp
     <li>
-      <a href="$term->slug" class="iconList">
+      <a href="/{{get_post_type()}}/category/{{$term->slug}}" class="iconList">
         @if (!empty($iconUrl))
         <div class="imgWrap">
           <img src="{{$iconUrl}}" alt="{{$iconTitle}}">
