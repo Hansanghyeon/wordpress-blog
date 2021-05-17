@@ -24,6 +24,7 @@ HTML;
         } else {
           echo <<<HTML
             <div class="card prev empty">
+              <i class="fi-rs-angle-small-right"></i>
               <span>이전 글</span>
             </div>
 HTML;
@@ -43,6 +44,7 @@ HTML;
         } else {
           echo <<<HTML
             <div class="card next empty">
+              <i class="fi-rs-angle-small-right"></i>
               <span>다음 글</span>
             </div>
 HTML;
