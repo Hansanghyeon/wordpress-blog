@@ -1,5 +1,5 @@
 // instagram plugin
-html body.page-template-template-homepage .eapps-instagram-feed {
+html .frontPage .eapps-instagram-feed {
   transform: scale(1.05);
 
   &-posts-item-image-icon {
@@ -17,8 +17,6 @@ html body.page-template-template-homepage .eapps-instagram-feed {
 
   &-posts-item-text {
     width: auto;
-    color: var(--bg0);
-    box-shadow: inset 0px -1.4em 0px 0px var(--primary);
     padding-left: 3px;
     padding-right: 3px;
   }
@@ -73,7 +71,7 @@ html body.page-template-template-homepage .eapps-instagram-feed {
   }
 }
 
-body.page-template-template-homepage {
+.frontPage {
   #{headings(1,6)} {
     font-family: 'East Sea Dokdo', cursive;
   }
