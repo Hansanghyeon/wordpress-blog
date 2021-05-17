@@ -35,6 +35,13 @@ function barbaInit() {
           scripts.forEach((script) => {
             if (script.id.search(/instagram|toc|replybox/g) === -1) return;
             const newScript = document.createElement('script');
+
+            if (script.id === 'replybox-js-js-extra') {
+              newScript.textContent = script.textContent;
+              container.appendChild(newScript);
+              return;
+            }
+
             newScript.src = script.src;
             container.appendChild(newScript);
           });
