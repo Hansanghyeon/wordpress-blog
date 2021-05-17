@@ -2,8 +2,6 @@ import barba from '@barba/core';
 import { gsap } from 'gsap';
 import common from '../routes/common';
 import somePage from '../routes/somePage';
-import replybox from './replybox';
-// import ...
 
 function barbaInit() {
   barba.init({
@@ -24,10 +22,21 @@ function barbaInit() {
 
           data.current.container.remove();
           window.replybox.identifier = data.next.container.dataset.postid;
-          replybox();
           gsap.from(data.next.container, 1, {
             opacity: 0,
             onComplete: this.async(),
+          });
+        },
+        beforeEnter({ next }) {
+          // 새로 실행할 스크립트 가져오기
+          const container = next.container;
+          const scripts = container.querySelectorAll('#containerScript script');
+
+          scripts.forEach((script) => {
+            if (script.id.search(/instagram|toc|replybox/g) === -1) return;
+            const newScript = document.createElement('script');
+            newScript.src = script.src;
+            container.appendChild(newScript);
           });
         },
       },

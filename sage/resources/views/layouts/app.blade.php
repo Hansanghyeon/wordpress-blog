@@ -12,10 +12,15 @@
         @yield('content')
       </main>
     </div>
+    <slot id="containerScript">
+      @php wp_footer() @endphp
+    </slot>
   </div>
   @php do_action('get_footer') @endphp
   @include('partials.footer')
-  @php wp_footer() @endphp
+  <slot id="baseFooterScript">
+    @php wp_footer() @endphp
+  </slot>
 </body>
 
 </html>
