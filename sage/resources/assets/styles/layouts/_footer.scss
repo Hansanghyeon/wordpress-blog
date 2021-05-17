@@ -11,7 +11,7 @@ footer.FNB {
     transition: opacity 300ms ease-in-out, border-color 300ms;
 
     &:hover {
-      border-top-color: rgba(var(--RGB_text1), 0.1);
+      border-top-color: rgba(var(--RGB-text1), 0.1);
       opacity: 1;
 
       .icon.logo img {

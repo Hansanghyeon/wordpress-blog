@@ -7,10 +7,10 @@
   @each $color, $value in $colors {
     @if str-slice(#{$value}, 1, 1) == '#' {
       --#{$color}: #{$value};
-      --RGB_#{$color}: #{hexToRGB($value)};
+      --RGB-#{$color}: #{hexToRGB($value)};
     } @else {
       --#{$color}: var(--#{$value});
-      --RGB_#{$color}: var(--RGB_#{$value});
+      --RGB-#{$color}: var(--RGB-#{$value});
     }
   }
 }

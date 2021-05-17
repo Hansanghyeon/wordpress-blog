@@ -45,10 +45,10 @@ code {
       height: 4px;
     }
     &::-webkit-scrollbar-track {
-      background-color: rgba(var(--RGB_bg3), 0.6);
+      background-color: rgba(var(--RGB-bg3), 0.6);
     }
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(var(--RGB_text1), 0.1);
+      background-color: rgba(var(--RGB-text1), 0.1);
       border-radius: 999px;
     }
   }

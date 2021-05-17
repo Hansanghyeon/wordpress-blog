@@ -10,11 +10,13 @@
     justify-content: center;
     padding: var(--paddingY) calc(var(--paddingX) * 2);
     text-decoration: none;
-    color: var(--text0);
+    color: var(--text1);
     word-break: keep-all;
+    border: 1px solid rgba(var(--RGB-gl4), 0.125);
 
     &.empty {
-      color: var(--dimSpan);
+      background-color: rgba(var(--RGB-bg0), 0.5);
+      color: rgba(var(--RGB-text1), 0.5);
     }
   }
 

@@ -15,7 +15,7 @@ body {
   --bar: 0px;
 
   background: var(--bg1);
-  color: var(--text0);
+  color: var(--text-primary);
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
   padding-top: 45px;
@@ -40,10 +40,10 @@ body {
 }
 
 .admin-bar [data-barba='container'] {
-  min-height: calc(100vh - 45px - 173px - 45px - 32px);
+  min-height: calc(100vh - 45px - 179px - 45px - 32px);
 }
 [data-barba='container'] {
-  min-height: calc(100vh - 45px - 173px - 45px);
+  min-height: calc(100vh - 45px - 179px - 45px);
 }
 
 * {
@@ -56,11 +56,11 @@ body {
   }
 
   &::-webkit-scrollbar-track {
-    background-color: rgba(var(--RGB_bg2), 0.6);
+    background-color: rgba(var(--RGB-bg2), 0.6);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--RGB_text1), 0.6);
+    background-color: rgba(var(--RGB-text1), 0.6);
     border-radius: 999px;
   }
 }

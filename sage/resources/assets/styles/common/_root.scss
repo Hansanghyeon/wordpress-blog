@@ -7,12 +7,16 @@ $base: (
   gd4: #252836,
   gd5: #303645,
   // GrayScale Light
-  gl0: #fff,
-  gl1: #e6ecf8,
-  gl2: #b8becb,
-  gl3: #9ba4b7,
-  gl4: #6d7484,
-  gl5: #404655,
+  gl0: #cdd9e5,
+  gl1: #adbac7,
+  gl2: #909dab,
+  gl3: #768390,
+  gl4: #636e7b,
+  gl5: #545d68,
+  gl6: #444c56,
+  gl7: #373e47,
+  gl8: #2d333b,
+  gl9: #22272e,
   // Base PointColor
   ColoroftheYear1: #939597,
   ColoroftheYear2: #f5df4d
@@ -47,6 +51,7 @@ $cloudy: (
   bg0: #fff,
   bg1: #415865,
   // Text
+  text-primary: #333,
   text00: #000,
   text0: #333,
   text1: #4a4f57,
@@ -64,13 +69,14 @@ $dark: (
   pointColor0: #ffa500,
   pointColor1: #ff4500,
   // BG
-  bg0: #2c2f33,
-  bg1: #232326,
+  bg0: #2d333b,
+  bg1: #22272e,
   // Text
+  text-primary: #adbac7,
   text00: #fff,
-  text0: #c2bfb9,
-  text1: #c2bfb9,
-  text2: #9ba4b7,
+  text0: #768390,
+  text1: #adbac7,
+  text2: #cdd9e5,
   text3: #515151,
   // Code
   codeBg: #1d1f21,
