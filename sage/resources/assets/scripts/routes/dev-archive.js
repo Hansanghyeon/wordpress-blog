@@ -1,6 +1,4 @@
 export default {
-  init() {
-    console.log('arhcive dev');
-  },
+  init() {},
   finalize() {},
 };

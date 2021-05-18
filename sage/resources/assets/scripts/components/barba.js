@@ -5,6 +5,7 @@ import somePage from '../routes/somePage';
 
 function barbaInit() {
   barba.init({
+    timeout: 100,
     transitions: [
       {
         name: 'basic',
@@ -27,7 +28,7 @@ function barbaInit() {
             onComplete: this.async(),
           });
         },
-        beforeEnter({ next }) {
+        beforeEnter: ({ next }) => {
           // 새로 실행할 스크립트 가져오기
           const container = next.container;
           const scripts = container.querySelectorAll('#containerScript script');

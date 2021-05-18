@@ -1,15 +1,40 @@
 .page-header {
-  text-align: center;
   padding-top: 45px;
   padding-bottom: 45px;
-  margin-bottom: 24px;
+
+  .titleWrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    .icon {
+      max-width: 48px;
+      margin-right: 12px;
+      img {
+        width: 100%;
+      }
+    }
+    h1 {
+      font-family: 'East Sea Dokdo', cursive;
+      margin-bottom: 0;
+    }
+  }
+  .descriptionWrap {
+    .desc {
+      font-size: 90%;
+      color: var(--text0);
+    }
+  }
 }
 
 .post-type-archive {
   &-dev {
     .page-header {
+      text-align: center;
       .imgWrap {
         margin-bottom: 45px;
+      }
+      .imgWrap + .titleWrap {
+        margin-bottom: 24px;
       }
       img {
         max-width: 100%;
