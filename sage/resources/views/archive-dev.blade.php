@@ -27,16 +27,15 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="page-pagination">
-    @php
-      $pagination = get_the_posts_pagination( array(
-        'mid_size' => 2,
-        'prev_text' => __( '이전' ),
-        'next_text' => __( '다음' ),
-      ));
-      echo $pagination;
-    @endphp
+  @empty(!$pagination = get_the_posts_pagination( array(
+    'mid_size' => 2,
+    'prev_text' => __( '이전' ),
+    'next_text' => __( '다음' ),
+  )))
+    <div class="container">
+      <div class="page-pagination">
+        {!! $pagination !!}
+      </div>
     </div>
-  </div>
-  @endsection
+  @endempty
+@endsection
