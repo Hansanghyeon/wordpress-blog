@@ -30,4 +30,17 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public static function description()
+    {
+        if (is_home()) {
+        }
+        if (is_archive()) {
+            return category_description();
+        }
+        if (is_search()) {
+        }
+        if (is_404()) {
+        }
+    }
 }
