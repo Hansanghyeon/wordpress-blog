@@ -4,7 +4,11 @@
   <div class="container">
     <div class="page-header">
       <div class="titleWrap">
-        @empty(!$icon = get_field('icon', get_post_type().'_category_'.get_queried_object_id()))
+        @php
+          $icon = get_field('icon', get_post_type().'_category_'.get_queried_object_id());
+          if (!is_array($icon)) $icon = acf_get_attachment($icon);
+        @endphp
+        @empty(!$icon)
           <img class="icon" src="{{$icon['url']}}" alt="">
         @endempty
         <h1>{!! App::title() !!}</h1>
