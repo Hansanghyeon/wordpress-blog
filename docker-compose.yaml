@@ -17,10 +17,8 @@ services:
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
       - ./.wordpress:/var/www/html
-      - ./Theme:/var/www/html/wp-content/themes/hapas
-      - ./sage:/var/www/html/wp-content/themes/sage
+      - ./Theme:/var/www/html/wp-content/themes/sage
       - ./backup:/var/www/html/wp-content/ai1wm-backups
-      - ./plugins:/var/www/html/wp-content/plugins
     external_links:
       - DB__wordpress:mariadb
   node:
@@ -29,10 +27,10 @@ services:
     working_dir: /var/www/html/wp-content/themes/sage
     command: >
       bash -c "yarn
-      && yarn run build
+      && yarn run build:production
       && yarn run start"
     volumes:
-      - ./sage:/var/www/html/wp-content/themes/sage
+      - ./Theme:/var/www/html/wp-content/themes/sage
 
 networks:
   default:
