@@ -5,3 +5,4 @@ env.php
 plugins
 node_modules
 ignore-*
+acp-settings

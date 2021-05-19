@@ -13,7 +13,7 @@
         </div>
         <div class="neonAlert-content">
           <span>리메이크되거나 제거된 홈페이지 기제하지 않았습니다.</span>
-          <span class="dimSpan">2020-09-16</span>
+          <span class="dim">2020-09-16</span>
         </div>
         <div class="neonAlert-icon right">
           <i class="fi-rr-cross-small"></i>

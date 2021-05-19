@@ -1,6 +1,17 @@
 <div class="career">
-  <h5>피터오세아(peterosea)</h5>
-  <p class="dimSpan">퍼블리셔 2018-12 ~ 2020-03</p>
+  <h5 class="mb-4">피터오세아(peterosea)</h5>
+  <p>
+    <span class="dim">퍼블리셔 2018-12 ~ 2020-03</span>
+  </p>
+  <p>
+    <code>HTML5/CSS/JS</code>
+    <code>Bootstrap</code>
+    <code>ReactJS</code>
+    <code>Next.js</code>
+    <code>Redux.js</code>
+    <code>AWS EC2 (APM)</code>
+    <code>AWS Lightsail</code>
+  </p>
   <ul class="career-list">
     <li>
       <div class="title">코스콤 뉴스룸</div>

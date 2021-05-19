@@ -30,12 +30,9 @@ body {
       color: rgba(var(--RGB-primary), 0.4);
     }
 
-    &:hover {
-      color: rgba(var(--RGB-primary), 0.7);
-    }
-
-    > *:first-child {
-      color: var(--primary);
+    &:hover,
+    &:hover > *:first-child {
+      color: rgba(var(--RGB-primary), 0.8);
     }
   }
 }
