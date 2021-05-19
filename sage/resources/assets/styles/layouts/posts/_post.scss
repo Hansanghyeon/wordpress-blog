@@ -1,3 +1,4 @@
+.single-blog article,
 .single-dev article {
   --w: 800px;
   --paddingX: 25px;
@@ -38,5 +39,12 @@
         scroll-snap-align: start;
       }
     }
+  }
+
+  hr.wp-block-separator {
+    margin: calc(var(--paddingY) * 2) auto;
+    width: 60px;
+    height: 0;
+    border-top: 3px dotted var(--text2);
   }
 }
