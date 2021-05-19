@@ -1,3 +1,0 @@
-# MSB
-
-Main side bar

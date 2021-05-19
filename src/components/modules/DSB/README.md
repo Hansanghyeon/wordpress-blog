@@ -1,3 +1,0 @@
-# DSB
-
-Dynamic Side Bar
