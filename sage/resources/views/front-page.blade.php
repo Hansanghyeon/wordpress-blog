@@ -14,8 +14,35 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 py-5">
-        <div class="entry-content">
-          @php the_content() @endphp
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-12 contentCol">
+              <div class="entry-content">
+                @php the_content() @endphp
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-12">
+              <h1>#부캐</h1>
+              <ul class="cardList">
+                @foreach (wp_get_nav_menu_items(wp_get_nav_menu_object('main')) as $item)
+                  <li>
+                    <a href="{{$item->url}}" class="cardList-item">
+                      @empty(!$icon = get_field('menu_icon', $item->ID))
+                        <img class="icon-card" src="{{$icon}}" />
+                      @endempty
+                      <span class="title" style="
+                        @empty(!$labelColor = get_field('label_color', $item->ID))
+                          background-color: {{$labelColor}};
+                        @endempty
+                        ">
+                        {{$item->title}}
+                      </span>
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

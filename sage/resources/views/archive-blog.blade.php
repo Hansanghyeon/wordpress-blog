@@ -4,22 +4,11 @@
   <div class="container">
     <div class="page-header">
       <div class="titleWrap">
-        @php
-          $icon = get_field('icon', get_post_type().'_category_'.get_queried_object_id());
-          if (!is_array($icon)) $icon = acf_get_attachment($icon);
-        @endphp
-        @empty(!$icon)
-          <img class="icon" src="{{$icon['url']}}" alt="">
-        @endempty
         <h1>{!! App::title() !!}</h1>
-      </div>
-      <div class="descriptionWrap">
-        <div class="desc">
-          {!! App::description() !!}
-        </div>
       </div>
     </div>
   </div>
+
   <div class="container">
     @if (!have_posts())
       <div class="alert alert-warning">
@@ -27,13 +16,13 @@
       </div>
       {!! get_search_form(false) !!}
     @endif
-  
-    <div id="macy-container">
+    <div class="ditto-root">
       @while (have_posts()) @php the_post() @endphp
-        @include('partials.content-dev_category')
+        @include('partials.content-'.get_post_type())
       @endwhile
     </div>
   </div>
+
   @empty(!$pagination = get_the_posts_pagination( array(
     'mid_size' => 2,
     'prev_text' => __( '이전' ),
@@ -46,4 +35,3 @@
     </div>
   @endempty
 @endsection
-

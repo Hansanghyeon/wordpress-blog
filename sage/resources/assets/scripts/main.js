@@ -13,6 +13,7 @@ import somePage from './routes/somePage';
 import singleDev from './routes/dev-single';
 import postTypeArchiveDev from './routes/dev-archive';
 import taxDevCategory from './routes/dev-category';
+import resume from './routes/resume';
 // 기능
 import barba from './components/barba';
 
@@ -26,6 +27,8 @@ const routes = new Router({
   aboutUs,
   // The new page we created
   somePage,
+  resume,
+  // archive and single template
   singleDev,
   postTypeArchiveDev,
   taxDevCategory,

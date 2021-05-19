@@ -36,6 +36,9 @@
       .imgWrap + .titleWrap {
         margin-bottom: 24px;
       }
+      .titleWrap {
+        justify-content: center;
+      }
       img {
         max-width: 100%;
         margin: 0 auto;
