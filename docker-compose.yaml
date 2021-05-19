@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  wordpress:
+    env_file:
+      - ./.env
+    container_name: WP__${PROJECT_NAME}
+    # image: wordpress:php7.4
+    image: ghcr.io/hansanghyeon/wordpress-php8.0-docker-xdebug3.0:1.0.0
+    restart: always
+    ports:
+      - ${PROJECT_PORT}:80
+    environment:
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    volumes:
+      - ./.wordpress:/var/www/html
+      - ./Theme:/var/www/html/wp-content/themes/hapas
+      - ./sage:/var/www/html/wp-content/themes/sage
+      - ./backup:/var/www/html/wp-content/ai1wm-backups
+      - ./plugins:/var/www/html/wp-content/plugins
+    external_links:
+      - DB__wordpress:mariadb
+  node:
+    build: ./docker/node
+    restart: 'no'
+    working_dir: /var/www/html/wp-content/themes/sage
+    command: >
+      bash -c "yarn
+      && yarn run build
+      && yarn run start"
+    volumes:
+      - ./sage:/var/www/html/wp-content/themes/sage
+
+networks:
+  default:
+    external:
+      name: db_net

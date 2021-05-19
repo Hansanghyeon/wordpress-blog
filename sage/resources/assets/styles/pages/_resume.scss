@@ -1,0 +1,94 @@
+.template-resume {
+  .container {
+    max-width: 768px;
+  }
+}
+
+.profile {
+  &-humaninfo {
+    .imgWrap {
+      width: 125px;
+      height: 125px;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 16px;
+      img {
+        width: 100%;
+        position: absolute;
+        @supports (object-fit: cover) {
+          object-fit: cover;
+          height: 100%;
+        }
+        @supports not (object-fit: cover) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 0;
+      }
+    }
+    .infoList {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include media-breakpoint-up(sm) {
+        padding-left: 40px;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+        svg,
+        i {
+          margin-right: 8px;
+        }
+        a {
+          color: currentColor;
+        }
+        h3 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  &-stackinfo {
+    .infoList {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li:not(:last-child) {
+        margin-bottom: 8px;
+      }
+      code {
+        background-color: var(--gl0);
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--gd0);
+        }
+        &.point {
+          background-color: var(--gd4);
+        }
+      }
+    }
+  }
+}
+
+.career {
+  &-list {
+    li:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .links {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+}

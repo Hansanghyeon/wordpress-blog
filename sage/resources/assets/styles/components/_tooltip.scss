@@ -1,0 +1,39 @@
+.imgTooltip {
+  &.show {
+    opacity: 1;
+  }
+  .arrow::before {
+    color: var(--bg0);
+    border-bottom-color: currentColor;
+  }
+  &-inner {
+    width: 100%;
+    max-width: 360px;
+    padding: 0;
+    background-color: rgba(var(--RGB-bg0), 0.8);
+    padding: 3px;
+    img {
+      max-width: 100%;
+      border-radius: 3px;
+    }
+  }
+  &-btn {
+    color: var(--text0);
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    &[aria-describedby] {
+      color: var(--primary);
+    }
+  }
+}
+
+.imgTooltip.bs-tooltip {
+  &-top .imgTooltip-inner {
+    padding-bottom: 6px;
+  }
+  &-bottom .imgTooltip-inner {
+    padding-top: 6px;
+  }
+}

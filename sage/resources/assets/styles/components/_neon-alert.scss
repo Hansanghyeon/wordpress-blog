@@ -1,0 +1,69 @@
+.neonAlert {
+  position: relative;
+  padding-top: 28px;
+  display: inline-block;
+  margin-bottom: 0;
+  border-radius: 4px;
+  border: 1px solid;
+  @include media-breakpoint-up(md) {
+    padding: 0.5rem 40px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1em;
+    transform: translate(-50%, 0);
+    border-top: 1px solid;
+    border-bottom: 2px solid;
+    border-color: inherit;
+    border-radius: 0 0 3px 3px;
+    @include media-breakpoint-up(md) {
+      height: 1em;
+      width: 0;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      border-left: 1px solid;
+      border-right: 2px solid;
+      border-color: inherit;
+      border-radius: 0 3px 3px 0;
+    }
+  }
+  &-icon {
+    position: absolute;
+    top: 0;
+    line-height: 1;
+    @include media-breakpoint-up(md) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &.left {
+      left: 12px;
+    }
+    &.right {
+      right: 12px;
+    }
+  }
+  &-content {
+    padding-bottom: 0.2rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    span {
+      word-break: keep-all;
+    }
+    .dim {
+      font-size: 0.8rem;
+      opacity: 0.4;
+    }
+  }
+
+  // color
+  &.success {
+    border-color: #0ad406;
+    color: #0ad406;
+  }
+}
