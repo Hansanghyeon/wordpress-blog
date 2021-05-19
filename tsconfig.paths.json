@@ -2,43 +2,35 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@api/*": [
+        "src/lib/api/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
       "@src/*": [
         "src/*"
       ],
-      // Views
-      "@view/*": [
-        "src/views/*"
+      "@/*": [
+        "src/components/*"
       ],
       "@atom/*": [
-        "src/views/components/atoms/*"
+        "src/components/atoms/*"
       ],
-      "@molecule/*": [
-        "src/views/components/molecules/*"
-      ],
-      "@organism/*": [
-        "src/views/components/organisms/*"
+      "@module/*": [
+        "src/components/modules/*"
       ],
       "@template/*": [
-        "src/views/components/templates/*"
+        "src/components/templates/*"
       ],
       "@style/*": [
-        "src/views/styles/*"
+        "src/styles/*"
       ],
-      // Models
-      "@model/*": [
-        "src/models/*"
+      "@hook/*": [
+        "src/hook/*"
       ],
-      // Utilities
-      "@utile/*": [
-        "src/utilities/*"
-      ],
-      // Containers
-      "#/*": [
-        "src/views/containers/*"
-      ],
-      // store
       "@store/*": [
-        "src/stores/*"
+        "src/store/*"
       ]
     }
   }
