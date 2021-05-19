@@ -5,6 +5,7 @@ body {
 
 body.admin-bar {
   --bar: 46px;
+  min-height: calc(100vh - var(--bar));
 
   @media screen and (min-width: 783px) {
     --bar: 32px;
@@ -21,20 +22,20 @@ body {
   padding-top: 45px;
   min-height: 100vh;
 
-  &.admin-bar {
-    min-height: calc(100vh - var(--bar));
-  }
   a {
     text-decoration: none;
     color: var(--text0);
 
-    &:hover,
-    &.active {
-      color: var(--primary);
+    &:visited {
+      color: rgba(var(--RGB-primary), 0.4);
+    }
 
-      > *:first-child {
-        --color: var(--primary);
-      }
+    &:hover {
+      color: rgba(var(--RGB-primary), 0.7);
+    }
+
+    > *:first-child {
+      color: var(--primary);
     }
   }
 }
