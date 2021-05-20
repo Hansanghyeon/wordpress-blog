@@ -1,0 +1,9 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+.post-thumbnail {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
