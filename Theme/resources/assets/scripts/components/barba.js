@@ -5,7 +5,7 @@ import somePage from '../routes/somePage';
 
 function barbaInit() {
   barba.init({
-    timeout: 100,
+    timeout: 300,
     transitions: [
       {
         name: 'basic',
