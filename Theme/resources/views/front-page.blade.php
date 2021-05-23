@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-12">
-              <h1>#부캐</h1>
+              <h2>#부캐</h2>
               <ul class="cardList">
                 @foreach (wp_get_nav_menu_items(wp_get_nav_menu_object('main')) as $item)
                   <li>
