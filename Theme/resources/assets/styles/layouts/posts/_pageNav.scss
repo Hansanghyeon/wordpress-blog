@@ -12,10 +12,10 @@
     text-decoration: none;
     color: var(--text1);
     word-break: keep-all;
-    border: 1px solid rgba(var(--RGB-gl4), 0.125);
+    border: 1px solid rgba(var(--RGB-gl4), 0.25);
 
     &.empty {
-      background-color: rgba(var(--RGB-bg0), 0.5);
+      opacity: 0.5;
       color: rgba(var(--RGB-text1), 0.5);
     }
   }
@@ -24,6 +24,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    padding-top: 0.1rem;
   }
   .prev i {
     left: var(--paddingX);

@@ -4,16 +4,20 @@
 @import 'common/global';
 @import 'common/root';
 
+html body {
+  background-color: transparent;
+}
+
 .login-buttons div:nth-child(1) .btn:nth-child(1) {
   display: none !important;
 }
 
 body {
   header {
-    border-bottom: 1px solid rgba(var(--RGB-gl4), 0.125);
+    border-bottom: 1px solid rgba(var(--RGB-gl4), 0.25);
   }
   footer {
-    border-top: 1px solid rgba(var(--RGB-gl4), 0.125);
+    border-top: 1px solid rgba(var(--RGB-gl4), 0.25);
   }
   .login {
     &-container {
@@ -24,13 +28,13 @@ body {
   .comment {
     &-textarea {
       background-color: var(--bg0);
-      border: 1px solid rgba(var(--RGB-gl4), 0.125);
+      border: 1px solid rgba(var(--RGB-gl4), 0.25);
       color: var(--text-primary);
     }
     &-form {
       .btn {
         background-color: var(--bg0);
-        border: 1px solid rgba(var(--RGB-gl4), 0.125);
+        border: 1px solid rgba(var(--RGB-gl4), 0.25);
         &:hover {
           color: var(--text00);
         }

@@ -25,20 +25,20 @@ $base: (
 $light: (
   // PointColor
   primary: #0f4c81,
-  pointColor0: #9cd941,
-  pointColor1: #116ebf,
+  pointColor0: #ffa500,
+  pointColor1: #eb5757,
   // BG
   bg0: #fff,
-  bg1: #e1ebf2,
+  bg1: #e7e7e7,
   // Text
   text00: #000,
   text0: #333,
-  text1: #4a4f57,
-  text2: #868e96,
+  text1: #0c0c0c,
+  text2: #161616,
   text3: #dcdcdc,
   // Code
-  codeBg: #e1ebf2,
-  codeColor: #5e6687,
+  codeBg: #e2e2e2,
+  codeColor: #eb5757,
   preBg: #e2e2e2
 );
 
@@ -67,7 +67,7 @@ $dark: (
   // PointColor
   primary: #fff46a,
   pointColor0: #ffa500,
-  pointColor1: #ff4500,
+  pointColor1: #eb5757,
   // BG
   bg0: #2d333b,
   bg1: #22272e,
