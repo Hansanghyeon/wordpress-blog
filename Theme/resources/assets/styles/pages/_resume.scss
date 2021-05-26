@@ -2,6 +2,12 @@
   .container {
     max-width: 768px;
   }
+  code:not(.hljs) {
+    background-color: var(--bg0);
+    &.point {
+      background-color: var(--gd4);
+    }
+  }
 }
 
 .profile {
@@ -62,15 +68,6 @@
       padding: 0;
       li:not(:last-child) {
         margin-bottom: 8px;
-      }
-      code {
-        background-color: var(--gl0);
-        @media (prefers-color-scheme: dark) {
-          background-color: var(--gd0);
-        }
-        &.point {
-          background-color: var(--gd4);
-        }
       }
     }
   }

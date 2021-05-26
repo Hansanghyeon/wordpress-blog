@@ -3,13 +3,13 @@
     opacity: 1;
   }
   .arrow::before {
-    color: var(--bg0);
+    color: rgba(var(--RGB-gd2), 0.8);
   }
   &-inner {
     width: 100%;
     max-width: 360px;
     padding: 0;
-    background-color: rgba(var(--RGB-bg0), 0.8);
+    background-color: rgba(var(--RGB-gd2), 0.8);
     padding: 3px;
     img {
       max-width: 100%;
