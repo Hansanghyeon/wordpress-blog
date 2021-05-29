@@ -1,12 +1,12 @@
-version: '3.7'
+version: "3.7"
 
 services:
   wordpress:
     env_file:
       - ./.env
     container_name: WP__${PROJECT_NAME}
-    # Production mode
-    image: wordpress:php8.0
+    # development image
+    image: ghcr.io/hansanghyeon/wordpress-php8.0-docker-xdebug3.0:1.0.0
     restart: always
     ports:
       - ${PROJECT_PORT}:80

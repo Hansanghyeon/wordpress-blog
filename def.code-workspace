@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "./Theme"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "explorer.sortOrder": "type",
+  }
+}

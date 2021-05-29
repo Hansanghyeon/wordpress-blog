@@ -3,14 +3,13 @@
     opacity: 1;
   }
   .arrow::before {
-    color: var(--bg0);
-    border-bottom-color: currentColor;
+    color: rgba(var(--RGB-gd2), 0.8);
   }
   &-inner {
     width: 100%;
     max-width: 360px;
     padding: 0;
-    background-color: rgba(var(--RGB-bg0), 0.8);
+    background-color: rgba(var(--RGB-gd2), 0.8);
     padding: 3px;
     img {
       max-width: 100%;
@@ -23,6 +22,7 @@
     background-color: transparent;
     box-shadow: none;
     outline: none;
+    max-height: 1.5rem;
     &[aria-describedby] {
       color: var(--primary);
     }
@@ -30,10 +30,20 @@
 }
 
 .imgTooltip.bs-tooltip {
-  &-top .imgTooltip-inner {
-    padding-bottom: 6px;
+  &-top {
+    .arrow::before {
+      border-top-color: currentColor;
+    }
+    .imgTooltip-inner {
+      padding-bottom: 6px;
+    }
   }
-  &-bottom .imgTooltip-inner {
-    padding-top: 6px;
+  &-bottom {
+    .arrow::before {
+      border-bottom-color: currentColor;
+    }
+    .imgTooltip-inner {
+      padding-top: 6px;
+    }
   }
 }

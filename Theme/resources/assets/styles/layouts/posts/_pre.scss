@@ -39,6 +39,10 @@ code {
     overflow-x: scroll;
     white-space: pre;
 
+    &.shcb-wrap-lines {
+      white-space: pre-wrap;
+    }
+
     &::-webkit-scrollbar {
       background-color: transparent;
       width: 4px;

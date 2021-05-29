@@ -26,10 +26,6 @@ body {
     text-decoration: none;
     color: var(--text0);
 
-    &:visited {
-      color: rgba(var(--RGB-primary), 0.4);
-    }
-
     &:hover,
     &:hover > *:first-child {
       color: rgba(var(--RGB-primary), 0.8);

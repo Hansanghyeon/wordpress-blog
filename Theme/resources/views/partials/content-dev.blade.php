@@ -3,7 +3,7 @@ $isThumb = !empty(get_the_post_thumbnail());
 if (!empty(get_the_post_thumbnail())) $isThumb = 'data-isthumb';
 @endphp
 <div class="ditto">
-  <article @php post_class() @endphp>
+  <div @php post_class() @endphp>
     <div class="ditto-main" @php echo $isThumb @endphp>
       <div class="ditto-thumbnail">
         @php echo get_the_post_thumbnail() @endphp
@@ -21,5 +21,5 @@ if (!empty(get_the_post_thumbnail())) $isThumb = 'data-isthumb';
         </div>
       </div>
     </div>
-  </article>
+  </div>
 </div>

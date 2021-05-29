@@ -4,3 +4,4 @@
     {{ get_the_author() }}
   </a>
 </p>
+@include('partials.components.share')
