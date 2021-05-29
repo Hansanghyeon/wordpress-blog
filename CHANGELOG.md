@@ -3,6 +3,39 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v3.1.0-2w] 2021-05-30
+
+### Added
+
+- CHANGELOG.md 다시 작성하기 시작!
+
+### Chagned
+
+- SNS Share UI를 css로 숨김처리하였었다.<br/>
+  그래서 php 조건문을 통해서 에디터와 관리자만 보이게 수정
+
+## [v3.1.0-1w] 2021-05-29 (#641)
+
+### Added
+
+- SNS 공유기능 추가 (카카오톡)<br/>
+  관리자일때 모든 페이지를 공유할 수 있도록 admin sns share UI를 제작함
+- docker-compose dev 모드 prod 모드 파일추가
+- workspace 추가
+
+### Changed
+
+- css root (light)<br/>
+  라이트모드의 누런느낌의 색상을 변경
+- loader 페이드아웃 타이밍 수정
+- `a:visited` 색상 수정
+
+## [3.0.0]
+
+[roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)를 사용해서 워드프레스 laravel를 활용한 커스텀 테마 제작
+
+모든 react components, page를 전부 `*.blade.php` 코드로 변경
+
 ## [1.15.0 ~ 2.0.0]
 
 체인지 로그를 재대로 남기지 못함 😭

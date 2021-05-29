@@ -31,6 +31,11 @@
   </div>
   @php do_action('get_footer') @endphp
   @include('partials.footer')
+  @if (current_user_can('editor') || current_user_can('administrator'))
+    <div class="share-global">
+      @include('partials.components.share')
+    </div>
+  @endif
   <slot id="baseFooterScript">
     @php wp_footer() @endphp
   </slot>

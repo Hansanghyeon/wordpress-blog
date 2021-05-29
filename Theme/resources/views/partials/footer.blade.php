@@ -22,6 +22,3 @@
     @php dynamic_sidebar('sidebar-footer') @endphp
   </div>
 </footer>
-<div class="admin">
-  @include('partials.components.share')
-</div>
