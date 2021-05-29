@@ -11,5 +11,6 @@
   <link href="https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://hansanghyeon.github.io/NanumSquareRound/nanumsquareround.min.css">
   <script src="https://kit.fontawesome.com/a99f480b85.js" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
   @php wp_head() @endphp
 </head>
