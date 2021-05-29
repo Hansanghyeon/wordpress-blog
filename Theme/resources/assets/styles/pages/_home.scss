@@ -22,6 +22,39 @@ html .eapps-instagram-feed {
   }
 }
 
+.admin {
+  display: none;
+}
+.admin-bar .admin {
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 20px;
+  &:hover .share {
+    transform: translateY(-4px);
+  }
+  .share {
+    padding: 8px;
+    background-color: var(--gd3);
+    border-radius: 8px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    &:after {
+      content: 'admin share menu';
+      position: absolute;
+      top: -4px;
+      left: 0;
+      font-size: 8px;
+      white-space: nowrap;
+      transform: translateY(-100%);
+      color: var(--text0);
+    }
+    &-label {
+      display: none;
+    }
+  }
+}
+
 .instaWrap {
   width: 100%;
   height: 540px;
