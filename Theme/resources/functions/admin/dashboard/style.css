@@ -147,3 +147,16 @@ div[data-name='utile-link'].acf-field .acf-icon {
   opacity: 0.5;
   color: #a9a9a9;
 }
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(var(--RGB-bg2), 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--RGB-text1), 0.6);
+  border-radius: 999px;
+}
