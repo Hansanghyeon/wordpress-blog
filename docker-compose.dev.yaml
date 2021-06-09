@@ -1,4 +1,9 @@
-version: "3.7"
+version: '3.7'
+
+networks:
+  default:
+    external:
+      name: db_net
 
 services:
   wordpress:
@@ -21,8 +26,3 @@ services:
       - ./backup:/var/www/html/wp-content/ai1wm-backups
     external_links:
       - DB__wordpress:mariadb
-
-networks:
-  default:
-    external:
-      name: db_net

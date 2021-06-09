@@ -31,4 +31,3 @@ services:
       - traefik.http.routers.201912__hyeon.rule=Host(`hyeon.pro`)
       - traefik.http.routers.201912__hyeon.tls.certresolver=leresolver
       - traefik.http.services.201912__hyeon.loadbalancer.server.port=80
-
