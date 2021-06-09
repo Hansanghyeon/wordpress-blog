@@ -21,6 +21,12 @@ services:
       - ./backup:/var/www/html/wp-content/ai1wm-backups
     external_links:
       - DB__wordpress:mariadb
+    labels:
+      - traefik.enable=true
+      ## HTTP Routers
+      - traefik.http.routers.hyeon.entrypoints=https
+      - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
+      - traefik.http.routers.hyeon.tls.certresolver=myresolver
 
 networks:
   default:
