@@ -1,5 +1,10 @@
 version: '3.7'
 
+networks:
+  default:
+    external:
+      name: db_net
+
 services:
   wordpress:
     env_file:
@@ -8,27 +13,21 @@ services:
     # Production mode
     image: wordpress:php8.0
     restart: always
-    ports:
-      - ${PROJECT_PORT}:80
     environment:
       WORDPRESS_DB_HOST: mariadb:3306
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
-      - ./.wordpress:/var/www/html
-      - ./Theme:/var/www/html/wp-content/themes/sage
-      - ./backup:/var/www/html/wp-content/ai1wm-backups
+      - ../.wordpress:/var/www/html
+      - ../Theme:/var/www/html/wp-content/themes/sage
+      - ../backup:/var/www/html/wp-content/ai1wm-backups
     external_links:
       - DB__wordpress:mariadb
     labels:
       - traefik.enable=true
       ## HTTP Routers
-      - traefik.http.routers.hyeon.entrypoints=https
-      - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
-      - traefik.http.routers.hyeon.tls.certresolver=myresolver
-
-networks:
-  default:
-    external:
-      name: db_net
+      - traefik.http.routers.201912__hyeon.entrypoints=websecure
+      - traefik.http.routers.201912__hyeon.rule=Host(`hyeon.pro`)
+      - traefik.http.routers.201912__hyeon.tls.certresolver=leresolver
+      - traefik.http.services.201912__hyeon.loadbalancer.server.port=80
