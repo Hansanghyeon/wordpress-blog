@@ -29,3 +29,4 @@ require $composer;
 */
 
 require_once __DIR__ . '/bootstrap/app.php';
+include_once('wp-functions/index.php');
