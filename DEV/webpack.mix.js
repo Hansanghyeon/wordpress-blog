@@ -34,3 +34,14 @@ mix
   .copyDirectory('resources/fonts', 'public/fonts');
 
 mix.sourceMaps().version();
+
+mix.webpackConfig({
+  module: {
+    rules: [
+      {
+        test: /\.scss/,
+        loader: 'import-glob',
+      },
+    ],
+  },
+});
