@@ -33,6 +33,6 @@
         ]
       }
     ]
-  }
-  "ignoreFiles": ["**/common/*.scss"],
+  },
+  "ignoreFiles": ["**/common/*.scss"]
 }
