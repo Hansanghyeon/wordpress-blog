@@ -39,7 +39,7 @@ mix.webpackConfig({
   module: {
     rules: [
       {
-        test: /\.scss/,
+        test: /\.[scss|js]/,
         loader: 'import-glob',
       },
     ],
