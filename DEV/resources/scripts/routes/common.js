@@ -1,7 +1,10 @@
 import footer from '../components/footer';
+import share from '../components/share';
 
 export default {
-  containerInit() {},
+  containerInit() {
+    share();
+  },
   init() {
     // common code outside containers (header, menu, footer, etc.)
     footer();
