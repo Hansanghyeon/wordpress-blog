@@ -1,11 +1,8 @@
-<header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    {{ $siteName }}
-  </a>
-
-  <nav class="nav-primary">
-    @if (has_nav_menu('primary_navigation'))
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    @endif
-  </nav>
+<header id="global" class="global headroom px-10 flex items-center">
+  <div class="w-full flex justify-between">
+    <a href="{{ home_url('/') }}">
+      <img class="siteIcon" src="{{ get_site_icon_url() }}" alt="{{ get_bloginfo('name', 'display') }}">
+    </a>
+    @include('partials.sns')
+  </div>
 </header>

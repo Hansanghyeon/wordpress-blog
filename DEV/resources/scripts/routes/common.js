@@ -1,5 +1,6 @@
 import footer from '../components/footer';
 import share from '../components/share';
+import header from '../components/header';
 
 export default {
   containerInit() {
@@ -8,6 +9,7 @@ export default {
   init() {
     // common code outside containers (header, menu, footer, etc.)
     footer();
+    header();
     // container init
     this.containerInit();
   },
