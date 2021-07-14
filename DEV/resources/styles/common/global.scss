@@ -1,11 +1,57 @@
-body {
-  @apply font-sans;
-}
-
 html {
   font-size: 62.5%;
 }
 
-.brand {
-  @apply text-3xl font-medium text-indigo-500;
+body {
+  @apply font-sans;
+
+  &.admin-bar {
+    --bar: 46px;
+    min-height: calc(100vh - var(--bar));
+
+    @media screen and (min-width: 783px) {
+      --bar: 32px;
+    }
+  }
+
+  --bar: 0px;
+
+  background: var(--bg1);
+  color: var(--text-primary);
+  font-size: 16px;
+  padding-top: 45px;
+  min-height: 100vh;
+
+  a {
+    text-decoration: none;
+    color: var(--text0);
+
+    &:hover,
+    &:hover > *:first-child {
+      color: rgba(var(--RGB-primary), 0.8);
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(var(--RGB-bg2), 0.6);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--RGB-text1), 0.6);
+    border-radius: 999px;
+  }
+}
+
+#{headings(1,6)} {
+  color: var(--text00);
 }
