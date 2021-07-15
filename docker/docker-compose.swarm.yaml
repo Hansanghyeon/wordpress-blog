@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  wordpress:
+    image: wordpress:php8.0
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: DB_mariadb:3306
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    volumes:
+      - ../.wordpress:/var/www/html
+      - ../Theme:/var/www/html/wp-content/themes/sage
+      - ../backup:/var/www/html/wp-content/ai1wm-backups
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == ${HOSTNAME}
+      labels:
+        - traefik.enable=true
+        ## HTTP Routers
+        - traefik.http.routers.hyeon.entrypoints=websecure
+        - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
+        - traefik.http.routers.hyeon.tls.certresolver=leresolver
+        - traefik.http.services.hyeon.loadbalancer.server.port=80
+
+########################### NETWORKS
+networks:
+  default:
+    external:
+      name: DB_net
