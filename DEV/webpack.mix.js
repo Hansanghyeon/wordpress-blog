@@ -39,9 +39,16 @@ mix.webpackConfig({
   module: {
     rules: [
       {
-        test: /\.[scss|js]/,
+        enforce: 'pre',
+        test: /\.(js|s?[ca]ss)$/,
         loader: 'import-glob',
       },
     ],
   },
 });
+
+if (!mix.inProduction()) {
+  mix.webpackConfig({
+    devtool: 'inline-source-map',
+  });
+}
