@@ -3,18 +3,22 @@
   list-style: none;
   padding: 0;
   margin-bottom: 0;
+
   i {
     padding-top: 0.2rem;
   }
+
   &-item {
     display: flex;
     align-items: center;
     width: 32px;
+
     svg {
       width: 100%;
       height: 100%;
     }
   }
+
   &-label {
     margin-right: 12px;
     display: flex;
@@ -27,16 +31,19 @@
     display: block;
     bottom: 0;
     left: 20px;
+
     &:hover .share {
       transform: translateY(-4px);
     }
+
     .share {
       padding: 8px;
       background-color: var(--gd3);
       border-radius: 8px;
       transform: translateY(100%);
       transition: transform 0.3s;
-      &:after {
+
+      &::after {
         content: 'admin share menu';
         position: absolute;
         top: -4px;
@@ -46,6 +53,7 @@
         transform: translateY(-100%);
         color: var(--text0);
       }
+
       &-label {
         display: none;
       }
