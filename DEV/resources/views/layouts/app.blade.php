@@ -1,20 +1,11 @@
-<div class="max-w-3xl mx-auto">
+@include('partials.header')
 
-  <a class="sr-only focus:not-sr-only" href="#main">
-    {{ __('Skip to content') }}
-  </a>
+@yield('content')
 
-  @include('partials.header')
+{{-- @hasSection('sidebar')
+  <aside class="sidebar">
+    @yield('sidebar')
+  </aside>
+@endif --}}
 
-    <main id="main" class="py-8 prose main test">
-      @yield('content')
-    </main>
-
-    @hasSection('sidebar')
-      <aside class="sidebar">
-        @yield('sidebar')
-      </aside>
-    @endif
-
-  @include('partials.footer')
-</div>
+@include('partials.footer')
