@@ -14,6 +14,7 @@
       </div>
       <div class="ditto-footer">
         <x-categorylist type="notion" />
+        <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time>
       </div>
     </div>
   </div>
