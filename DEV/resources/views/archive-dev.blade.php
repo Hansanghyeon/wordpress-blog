@@ -34,7 +34,7 @@
     'next_text' => __( '다음' ),
   )))
     <div class="container mx-auto px-6">
-      <div class="page-pagination">
+      <div class="page-pagination-number">
         {!! $pagination !!}
       </div>
     </div>

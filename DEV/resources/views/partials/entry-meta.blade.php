@@ -8,3 +8,5 @@
     {{ get_the_author() }}
   </a>
 </p>
+
+<x-share />
