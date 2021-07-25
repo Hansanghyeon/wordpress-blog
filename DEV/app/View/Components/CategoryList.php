@@ -50,6 +50,10 @@ class CategoryList extends Component
     public function __construct($type = 'default')
     {
         $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_category');
+        if (is_wp_error($terms)) {
+            return;
+        }
+        
         if ($type === 'notion') {
             $this->terms = $this->setNotionDomData($terms);
         }

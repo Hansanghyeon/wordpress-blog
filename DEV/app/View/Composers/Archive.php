@@ -12,6 +12,7 @@ class Archive extends Composer
      * @var array
      */
     protected static $views = [
+        'archive',
         'archive-*',
     ];
 

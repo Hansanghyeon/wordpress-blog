@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container frontPage mx-auto px-6">
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap items-center py-12">
       <div class="w-full lg:w-4/6 flex items-center justify-center">
         <div class="instaWrap">
           <div class="insta insta-1" style="width: 360px">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full lg:w-2/6 py-5">
+      <div class="w-full lg:w-2/6 py-12">
         <div class="flex flex-wrap">
           <div class="w-full md:w-3/6 lg:w-full contentCol">
             <div class="entry-content prose-lg">
