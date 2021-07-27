@@ -25,7 +25,7 @@ class Archive extends Composer
     {
         return [
             'title' => $this->title(),
-            'description' => $this->description(),
+            'thumbnail' => $this->thumbnail(),
         ];
     }
 
@@ -35,8 +35,18 @@ class Archive extends Composer
         return get_the_archive_title();
     }
 
-    public static function description()
+    public function thumbnail()
     {
-        return category_description();
+        $thumbnailDom = '';
+        // def 모바일 사이즈
+        $data = get_field(get_post_type(), 'option');
+        if (!empty($data['def'])) {
+            $thumbnailDom = "<img class=\"md:hidden mx-auto\" src=\"{$data['def']}\" alt=\"\">";
+        }
+        if (!empty($data['md'])) {
+            $thumbnailDom .= "<img class=\"hidden md:block mx-auto\" src=\"{$data['md']}\" alt=\"\">";
+        }
+
+        return $thumbnailDom;
     }
 }

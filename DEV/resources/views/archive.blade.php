@@ -1,18 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container mx-auto px-6">
-    <div class="page-header prose-lg">
-      <div class="imgWrap">
-        <img class="md:hidden" src="/wp-content/uploads/media/개발포스트/RLRlP6kQU.png" alt="">
-        <img class="hidden md:block" src="/wp-content/uploads/media/개발포스트/RLRlP6kQU-1.png" alt="">
-      </div>
-      <div class="titleWrap">
-        <h1>{!! $title !!}</h1>
-      </div>
-    </div>
-  </div>
-
+  @include('partials.archive-header')
   <div class="container mx-auto px-6">
     @if (!have_posts())
       <div class="alert alert-warning">
