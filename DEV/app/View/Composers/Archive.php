@@ -12,6 +12,7 @@ class Archive extends Composer
      * @var array
      */
     protected static $views = [
+        'header-archive',
         'archive',
         'archive-*',
     ];
@@ -40,6 +41,7 @@ class Archive extends Composer
         $thumbnailDom = '';
         // def 모바일 사이즈
         $data = get_field(get_post_type(), 'option');
+
         if (!empty($data['def'])) {
             $thumbnailDom = "<img class=\"md:hidden mx-auto\" src=\"{$data['def']}\" alt=\"\">";
         }

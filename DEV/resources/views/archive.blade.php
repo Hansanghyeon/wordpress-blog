@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.archive-header')
+  @include('partials.header-archive')
   <div class="container mx-auto px-6">
     @if (!have_posts())
       <div class="alert alert-warning">

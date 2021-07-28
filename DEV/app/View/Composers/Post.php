@@ -12,7 +12,7 @@ class Post extends Composer
      * @var array
      */
     protected static $views = [
-        'partials.page-header',
+        'partials.header-page',
         'partials.content',
         'partials.content-*',
     ];
@@ -40,7 +40,7 @@ class Post extends Composer
      */
     public function title()
     {
-        if ($this->view->name() !== 'partials.page-header') {
+        if ($this->view->name() !== 'partials.header-page') {
             return get_the_title();
         }
 
