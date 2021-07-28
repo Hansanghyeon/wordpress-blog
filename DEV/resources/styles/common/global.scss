@@ -32,6 +32,10 @@ body {
   }
 }
 
+main {
+  min-height: calc(100vh - 45px - 223px - 45px);
+}
+
 * {
   box-sizing: border-box;
 

@@ -1,6 +1,8 @@
 @include('partials.header')
 
-@yield('content')
+<main>
+  @yield('content')
+</main>
 
 {{-- @hasSection('sidebar')
   <aside class="sidebar">
