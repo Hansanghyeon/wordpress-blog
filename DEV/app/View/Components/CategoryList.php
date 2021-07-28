@@ -31,10 +31,14 @@ class CategoryList extends Component
     {
         $result = [];
         foreach ($terms as $term) {
+            if (get_the_archive_title() === $term->name) {
+                continue;
+            }
+
             $_ = [
               'name' => $term->name,
               'link' => '/'.get_post_type().'/category/'.$term->slug
-          ];
+            ];
             if (!empty($icon_field_data = get_field('icon', get_post_type(). '_category_'. $term->term_id))) {
                 $_['icon'] = [
                 'src' => $icon_field_data['url'],
