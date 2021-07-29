@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container frontPage mx-auto px-6">
+  <div class="container max-w-screen-lg frontPage mx-auto px-6">
     <div class="flex flex-wrap items-center py-12">
       <div class="w-full lg:w-4/6 flex items-center justify-center">
         <div class="instaWrap">

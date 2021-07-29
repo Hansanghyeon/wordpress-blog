@@ -1,5 +1,5 @@
 <footer id="global" class="content-info global">
-  <div class="container mx-auto grid grid-flow-row auto-rows-max gap-3">
+  <div class="container max-w-screen-lg mx-auto grid grid-flow-row auto-rows-max gap-3">
     <div class="flex justify-center">
       <a class="logo icon" href="{{ home_url('/') }}">
         <img src="{{ get_site_icon_url() }}" alt="{{ get_bloginfo('name', 'display') }}">
