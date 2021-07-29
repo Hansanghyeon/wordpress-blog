@@ -1,31 +1,42 @@
 <?php
 
+use function Roots\public_path;
+
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Assets Manifest
+    | Default Assets Manifest
     |--------------------------------------------------------------------------
     |
-    | Your asset manifest is used by Sage to assist WordPress and your views
-    | with rendering the correct URLs for your assets. This is especially
-    | useful for statically referencing assets with dynamically changing names
-    | as in the case of cache-busting.
+    | Here you may specify the default asset manifest that should be used.
+    | The "theme" manifest is recommended as the default as it cedes ultimate
+    | authority of your application's assets to the theme.
     |
     */
 
-    'manifest' => get_theme_file_path().'/dist/assets.json',
+    'default' => 'theme',
 
     /*
     |--------------------------------------------------------------------------
-    | Assets Path URI
+    | Assets Manifests
     |--------------------------------------------------------------------------
     |
-    | The asset manifest contains relative paths to your assets. This URI will
-    | be prepended when using Sage's asset management system. Change this if
-    | you are using a CDN.
+    | Manifests contain lists of assets that are referenced by static keys that
+    | point to dynamic locations, such as a cache-busted location. We currently
+    | support two types of manifest:
+    |
+    | assets: key-value pairs to match assets to their revved counterparts
+    |
+    | bundles: a series of entrypoints for loading bundles
     |
     */
 
-    'uri' => get_theme_file_uri().'/dist',
+    'manifests' => [
+        'theme' => [
+            'path' => get_theme_file_path('public'),
+            'url' => get_theme_file_uri('public'),
+            'assets' => public_path('mix-manifest.json'),
+        ]
+    ]
 ];

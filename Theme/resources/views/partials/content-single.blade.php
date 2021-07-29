@@ -1,14 +1,16 @@
 <article @php post_class() @endphp>
   <header>
-    <h1 class="entry-title">{!! get_the_title() !!}</h1>
+    <h1 class="entry-title">{!! $title !!}</h1>
     @include('partials/entry-meta')
   </header>
   <div class="entry-content">
-    @include('partials.components.toc')
-    @php the_content() @endphp
+    @include('partials.toc')
+    <div class="prose">
+      @php the_content() @endphp
+    </div>
   </div>
   <footer>
-    <div class="pageNav">
+    <div class="page-pagination-arrow">
       @php
         // 이전글
         $prev_post = get_previous_post();
@@ -52,5 +54,5 @@ HTML;
       @endphp
     </div>
   </footer>
-  @php comments_template('/partials/comments.blade.php') @endphp
+  <x-Comment />
 </article>

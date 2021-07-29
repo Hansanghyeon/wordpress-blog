@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container frontPage">
-    <div class="row py-5">
-      <div class="col-12 col-lg-8 d-flex aling-items-center justify-content-center">
+  <div class="container max-w-screen-lg frontPage mx-auto px-6">
+    <div class="flex flex-wrap items-center py-12">
+      <div class="w-full lg:w-4/6 flex items-center justify-center">
         <div class="instaWrap">
           <div class="insta insta-1" style="width: 360px">
             @php echo do_shortcode('[elfsight_instagram_feed id="1"]'); @endphp
@@ -13,35 +13,35 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-4 py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-12 contentCol">
-              <div class="entry-content">
-                @php the_content() @endphp
-              </div>
+      <div class="w-full lg:w-2/6 py-12">
+        <div class="flex flex-wrap">
+          <div class="w-full md:w-3/6 lg:w-full contentCol">
+            <div class="entry-content prose-lg">
+              @php the_content() @endphp
             </div>
-            <div class="col-12 col-md-6 col-lg-12">
-              <h2>#부캐</h2>
-              <ul class="cardList">
-                @foreach (wp_get_nav_menu_items(wp_get_nav_menu_object('main')) as $item)
-                  <li>
-                    <a href="{{$item->url}}" class="cardList-item">
-                      @empty(!$icon = get_field('menu_icon', $item->ID))
-                        <img class="icon-card" src="{{$icon}}" />
+          </div>
+          <div class="w-full md:w-3/6 lg:w-full">
+            <div class="content prose-lg">
+              <h2 class="mb-4">#부캐</h2>
+            </div>
+            <ul class="list-card">
+              @foreach (wp_get_nav_menu_items(wp_get_nav_menu_object('main')) as $item)
+                <li>
+                  <a href="{{$item->url}}" class="list-card-item">
+                    @empty(!$icon = get_field('menu_icon', $item->ID))
+                      <img class="icon-card" src="{{$icon}}" />
+                    @endempty
+                    <span class="title" style="
+                      @empty(!$labelColor = get_field('label_color', $item->ID))
+                        background-color: {{$labelColor}};
                       @endempty
-                      <span class="title" style="
-                        @empty(!$labelColor = get_field('label_color', $item->ID))
-                          background-color: {{$labelColor}};
-                        @endempty
-                        ">
-                        {{$item->title}}
-                      </span>
-                    </a>
-                  </li>
-                @endforeach
-              </ul>
-            </div>
+                      ">
+                      {{$item->title}}
+                    </span>
+                  </a>
+                </li>
+              @endforeach
+            </ul>
           </div>
         </div>
       </div>

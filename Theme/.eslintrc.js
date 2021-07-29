@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   extends: 'eslint:recommended',
+  parser: 'babel-eslint',
   globals: {
     wp: true,
   },
@@ -16,7 +17,6 @@ module.exports = {
       globalReturn: true,
       generators: false,
       objectLiteralDuplicateProperties: false,
-      experimentalObjectRestSpread: true,
     },
     ecmaVersion: 2017,
     sourceType: 'module',
@@ -31,7 +31,6 @@ module.exports = {
   },
   rules: {
     'no-console': 0,
-    quotes: ['error', 'single'],
     'comma-dangle': [
       'error',
       {

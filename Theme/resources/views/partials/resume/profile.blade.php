@@ -1,6 +1,6 @@
 
 <div class="profile">
-  <div class="profile-humaninfo d-flex mb-4">
+  <div class="profile-humaninfo flex mb-4">
     <div class="imgWrap">
       <img src="/wp-content/uploads/media/4log/profile/IMG_0221-scaled.jpg" alt="hansanghyeon">
     </div>

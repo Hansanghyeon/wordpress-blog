@@ -1,5 +1,8 @@
 <?php
 
+use function Roots\resource_path;
+use function Roots\storage_path;
+
 return [
 
     /*
@@ -13,10 +16,10 @@ return [
     */
 
     'paths' => [
-        get_theme_file_path().'/resources/views',
-        get_parent_theme_file_path().'/resources/views',
+        get_theme_file_path('/resources/views'),
+        get_parent_theme_file_path('/resources/views'),
+        resource_path('views'),
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -29,8 +32,21 @@ return [
     |
     */
 
-    'compiled' => wp_upload_dir()['basedir'].'/cache',
+    'compiled' => storage_path('framework/views'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | View Debugger
+    |--------------------------------------------------------------------------
+    |
+    | Enabling this option will display the current view name and data. Giving
+    | it a value of 'view' will only display view names. Giving it a value of
+    | 'data' will only display current data. Giving it any other truthy value
+    | will display both.
+    |
+    */
+
+    'debug' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +61,24 @@ return [
     */
 
     'namespaces' => [
-        /* Given the below example, in your views use something like: @include('WC::some.view.or.partial.here') */
-        // 'WC' => WP_PLUGIN_DIR.'/woocommerce/templates/',
+        /*
+         | Given the below example, in your views use something like:
+         |     @include('MyPlugin::some.view.or.partial.here')
+         */
+        // 'MyPlugin' => WP_PLUGIN_DIR . '/my-plugin/resources/views',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | View Directives
+    |--------------------------------------------------------------------------
+    |
+    | The namespaces where view components reside. Components can be referenced
+    | with camelCase & dot notation.
+    |
+    */
+
+    'directives' => [
+        // 'foo'  => App\View\FooDirective::class,
     ],
 ];
