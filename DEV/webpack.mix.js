@@ -17,6 +17,7 @@ mix.setPublicPath('./public').browserSync('hyeon.local:10000');
 mix
   .sass('resources/styles/app.scss', 'styles')
   .sass('resources/styles/editor.scss', 'styles')
+  .sass('resources/styles/replybox.scss', 'styles')
   .options({
     processCssUrls: false,
     postCss: [require('tailwindcss')],
