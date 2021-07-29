@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "dayjs": "^1.10.6",
-    "headroom.js": "^0.12.0"
+    "headroom.js": "^0.12.0",
+    "macy": "^2.5.1"
   }
 }
