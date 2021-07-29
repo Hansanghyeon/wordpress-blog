@@ -1,0 +1,38 @@
+& {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+
+  @supports (gap: 0) {
+    gap: 12px;
+  }
+
+  .icon-card {
+    max-width: 125px;
+    margin-bottom: 8px;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none !important;
+
+    &:hover {
+      color: var(--text0);
+
+      .title {
+        border: 2px solid rgba(var(--RGB-gl4), 0.5);
+      }
+    }
+
+    .title {
+      padding: 0.075rem 0.5rem 0.125rem;
+      border-radius: 4px;
+      border: 2px solid rgba(var(--RGB-gl4), 0.125);
+      transition: border 0.3s;
+      color: var(--gd0);
+    }
+  }
+}

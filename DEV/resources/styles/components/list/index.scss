@@ -1,0 +1,13 @@
+.list {
+  &-notion {
+    @import 'notion';
+  }
+
+  &-sns {
+    @import 'sns';
+  }
+
+  &-card {
+    @import 'card';
+  }
+}

@@ -1,0 +1,84 @@
+// instagram plugin
+html .eapps-instagram-feed {
+  transform: scale(1.05);
+
+  &-posts-item-image-icon {
+    transform: scale(0.6);
+  }
+
+  &-posts-item:hover {
+    &.eapps-instagram-feed-posts-item-template-tile {
+      .eapps-instagram-feed-posts-item-image {
+        filter: none !important;
+      }
+    }
+  }
+
+  &-popup-item-share-label {
+    display: none !important;
+  }
+
+  &-posts-item-text {
+    width: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+.instaWrap {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  max-width: 540px;
+}
+
+.insta {
+  --calcY: calc(var(--y, 0) + -50%);
+  --calcX: calc(var(--x, 0) + -50%);
+  --transform: translate(var(--calcX), var(--calcY));
+
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: var(--transform);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  background-color: var(--bg1);
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    z-index: 9;
+  }
+
+  &-1 {
+    --y: -12.5%;
+    --x: -12.5%;
+
+    opacity: 0.3;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-1:hover + &-2 {
+    opacity: 0.3;
+  }
+
+  &-2 {
+    --y: 12.5%;
+    --x: 12.5%;
+  }
+}
+
+.frontPage {
+  #{headings(1,6)} {
+    font-family: 'East Sea Dokdo', cursive;
+  }
+
+  .contentCol {
+    margin-bottom: 45px;
+  }
+}
