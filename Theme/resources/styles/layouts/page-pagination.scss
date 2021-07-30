@@ -16,12 +16,14 @@
     .card {
       background-color: var(--bg0);
       width: 100%;
-      text-align: center;
       padding: var(--paddingY) calc(var(--paddingX) * 2);
       text-decoration: none;
       color: var(--text1);
       word-break: keep-all;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &.empty {
         opacity: 0.5;
