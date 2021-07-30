@@ -1,5 +1,9 @@
-version: '3.7'
+#####################################
+# single docker-compose
+#####################################
+version: '3.8'
 
+########################### SERVICES
 services:
   wordpress:
     env_file:
@@ -26,6 +30,7 @@ services:
       - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
       - traefik.http.routers.hyeon.tls.certresolver=leresolver
 
+########################### NETWORKS
 networks:
   default:
     external:

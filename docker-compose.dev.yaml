@@ -1,4 +1,8 @@
-version: "3.7"
+#####################################
+# Local Development
+#####################################
+version: '3.8'
+########################### SERVICES
 
 services:
   wordpress:
@@ -22,6 +26,7 @@ services:
     external_links:
       - DB__wordpress:mariadb
 
+########################### NETWORKS
 networks:
   default:
     external:
