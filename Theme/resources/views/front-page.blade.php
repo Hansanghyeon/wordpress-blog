@@ -5,10 +5,10 @@
     <div class="flex flex-wrap items-center py-12">
       <div class="w-full lg:w-4/6 flex items-center justify-center">
         <div class="instaWrap">
-          <div class="insta insta-1" style="width: 360px">
+          <div class="insta insta-1">
             @php echo do_shortcode('[elfsight_instagram_feed id="1"]'); @endphp
           </div>
-          <div class="insta insta-2" style="width: 360px">
+          <div class="insta insta-2">
             @php echo do_shortcode('[elfsight_instagram_feed id="2"]'); @endphp
           </div>
         </div>
