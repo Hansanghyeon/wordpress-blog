@@ -7,7 +7,7 @@ import 'jquery';
 // import './autoload/**/*';
 
 // import local dependencies
-import Router from './util/Router';
+import Router from './util/router';
 import common from './routes/common';
 import singleDev from './routes/single-dev';
 import singleBlog from './routes/single-blog';
@@ -20,6 +20,7 @@ const routes = new Router({
   singleDev,
   singleBlog,
   taxDevCategory: taxonomy,
+  taxBlogCategory: taxonomy,
 });
 
 // Load Events
