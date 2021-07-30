@@ -20,6 +20,8 @@ module.exports = {
             },
             pre: null,
             code: null,
+            'code::after': null,
+            'code::before': null,
             'pre code': null,
           },
         },
