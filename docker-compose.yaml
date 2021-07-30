@@ -1,19 +1,15 @@
 #####################################
-# single docker-compose
+# swarm에서 작동하는 docker-compose
 #####################################
 version: '3.8'
 
 ########################### SERVICES
 services:
   wordpress:
-    env_file:
-      - ./.env
-    container_name: WP__${PROJECT_NAME}
-    # Production mode
     image: wordpress:php8.0
     restart: always
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: DB_mariadb:3306
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
@@ -21,17 +17,20 @@ services:
       - ../.wordpress:/var/www/html
       - ../Theme:/var/www/html/wp-content/themes/sage
       - ../backup:/var/www/html/wp-content/ai1wm-backups
-    external_links:
-      - DB__wordpress:mariadb
-    labels:
-      - traefik.enable=true
-      ## HTTP Routers
-      - traefik.http.routers.hyeon.entrypoints=websecure
-      - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
-      - traefik.http.routers.hyeon.tls.certresolver=leresolver
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == ${HOSTNAME}
+      labels:
+        - traefik.enable=true
+        ## HTTP Routers
+        - traefik.http.routers.hyeon.entrypoints=websecure
+        - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
+        - traefik.http.routers.hyeon.tls.certresolver=leresolver
+        - traefik.http.services.hyeon.loadbalancer.server.port=80
 
 ########################### NETWORKS
 networks:
   default:
     external:
-      name: db_net
+      name: DB_net
