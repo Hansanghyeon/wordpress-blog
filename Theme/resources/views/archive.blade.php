@@ -2,7 +2,7 @@
 
 @section('content')
   @include('partials.header-archive')
-  <div class="container max-w-screen-lg mx-auto px-6">
+  <div class="container lg:max-w-screen-lg mx-auto px-6">
     @if (!have_posts())
       <div class="alert alert-warning">
         {{ __('Sorry, no results were found.', 'sage') }}
@@ -23,7 +23,7 @@
     'prev_text' => __( '이전' ),
     'next_text' => __( '다음' ),
   )))
-    <div class="container max-w-screen-lg mx-auto px-6">
+    <div class="container lg:max-w-screen-lg mx-auto px-6">
       <div class="page-pagination-number">
         {!! $pagination !!}
       </div>

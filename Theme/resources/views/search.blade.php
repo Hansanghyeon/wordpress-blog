@@ -4,7 +4,7 @@
   @include('partials.header-page')
 
   @if (!have_posts())
-    <div class="container max-w-screen-lg mx-auto">
+    <div class="container lg:max-w-screen-lg mx-auto">
       <x-Alert type="warning">
         {!! __('Sorry, no results were found.', 'sage') !!}
       </x-Alert>
@@ -13,7 +13,7 @@
     </div>
   @endif
 
-  <div class="container max-w-screen-lg mx-auto">
+  <div class="container lg:max-w-screen-lg mx-auto">
     @while(have_posts()) @php(the_post())
       @include('partials.content-search')
     @endwhile
@@ -24,7 +24,7 @@
     'prev_text' => __( '이전' ),
     'next_text' => __( '다음' ),
   )))
-    <div class="container max-w-screen-lg mx-auto">
+    <div class="container lg:max-w-screen-lg mx-auto">
       <div class="page-pagination">
         {!! $pagination !!}
       </div>

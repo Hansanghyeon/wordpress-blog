@@ -1,4 +1,4 @@
-<div class="container max-w-screen-lg mx-auto px-6">
+<div class="container lg:max-w-screen-lg mx-auto px-6">
   <div class="page-header prose-lg">
     <div class="imgWrap">
       {!! $thumbnail !!}
