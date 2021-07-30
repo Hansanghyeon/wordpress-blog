@@ -27,9 +27,13 @@ html .eapps-instagram-feed {
 
 .instaWrap {
   width: 100%;
-  height: 540px;
   position: relative;
-  max-width: 540px;
+  height: 340px;
+  max-width: 340px;
+  @media (min-width: theme('screens.sm')) {
+    height: 540px;
+    max-width: 540px;
+  }
 }
 
 .insta {
