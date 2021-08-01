@@ -6,3 +6,5 @@ plugins
 node_modules
 ignore-*
 acp-settings
+.DS_Store
+key/

@@ -1,0 +1,50 @@
+.page-pagination {
+  &-number {
+    margin-top: 45px;
+    margin-bottom: 45px;
+
+    .screen-reader-text {
+      display: none;
+    }
+  }
+
+  &-arrow {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 45px;
+
+    .card {
+      background-color: var(--bg0);
+      width: 100%;
+      padding: var(--paddingY) calc(var(--paddingX) * 2);
+      text-decoration: none;
+      color: var(--text1);
+      word-break: keep-all;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.empty {
+        opacity: 0.5;
+        color: rgba(var(--RGB-text1), 0.5);
+      }
+
+      i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-top: 0.1rem;
+        line-height: 0;
+      }
+
+      &.prev i {
+        left: var(--paddingX);
+      }
+
+      &.next i {
+        right: var(--paddingX);
+      }
+    }
+  }
+}

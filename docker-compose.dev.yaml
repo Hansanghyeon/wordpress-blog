@@ -1,9 +1,8 @@
-version: '3.7'
-
-networks:
-  default:
-    external:
-      name: db_net
+#####################################
+# Local Development
+#####################################
+version: '3.8'
+########################### SERVICES
 
 services:
   wordpress:
@@ -11,7 +10,7 @@ services:
       - ./.env
     container_name: WP__${PROJECT_NAME}
     # development image
-    image: ghcr.io/hansanghyeon/wordpress-php8.0-docker-xdebug3.0:1.0.0
+    image: ghcr.io/hansanghyeon/wordpress-php8.0-docker-xdebug3.0:amd64
     restart: always
     ports:
       - ${PROJECT_PORT}:80
@@ -26,3 +25,9 @@ services:
       - ./backup:/var/www/html/wp-content/ai1wm-backups
     external_links:
       - DB__wordpress:mariadb
+
+########################### NETWORKS
+networks:
+  default:
+    external:
+      name: db_net

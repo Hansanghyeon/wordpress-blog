@@ -3,6 +3,17 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.1.0] 2021-08-01
+
+- Google client 패키지를 활용해서 today 위젯 구현 #118
+
+## [v8.0.0] 2021-07-31
+
+### Changed
+
+- roots/sage 10버전으로 `dev`이지만 모두 변경
+  - #659
+
 ## [v7.1.0-2w] 2021-05-30
 
 ### Added

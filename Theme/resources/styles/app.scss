@@ -1,0 +1,21 @@
+@import 'tailwindcss/base';
+
+@import 'functions/*';
+@import 'common/root';
+
+@import 'common/global';
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// components
+@import 'components/modules/*';
+@import 'components/list';
+@import 'components/alert/*';
+
+// layout
+@import 'layouts/*';
+
+// page
+@import 'pages/home';
+@import 'pages/resume';

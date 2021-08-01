@@ -1,0 +1,72 @@
+article {
+  --w: 800px;
+  --paddingX: 25px;
+  --paddingY: 25px;
+
+  margin: 0 auto;
+  max-width: var(--w);
+  line-height: 1.4;
+
+  header {
+    padding-top: calc(12px + 26px);
+    padding-bottom: 12px;
+    padding-left: calc(var(--paddingX) / 2);
+    padding-right: calc(var(--paddingX) / 2);
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: bold;
+      word-break: keep-all;
+      margin-bottom: 0.5rem;
+    }
+
+    .byline {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .prose > *:not(pre):not(ol):not(ul) {
+    padding-left: var(--paddingX);
+    padding-right: var(--paddingX);
+  }
+
+  .prose > ol,
+  .prose > ul {
+    margin-left: var(--paddingX);
+  }
+
+  .entry-content {
+    background-color: var(--bg0);
+    margin-top: 26px;
+    margin-bottom: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    #{headings(1,6)} {
+      color: var(--text2);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      .ez-toc-section {
+        scroll-snap-align: start;
+      }
+    }
+
+    .prose {
+      max-width: unset;
+    }
+
+    a {
+      text-decoration: underline;
+      word-break: break-all;
+    }
+  }
+
+  hr.wp-block-separator {
+    margin: calc(var(--paddingY) * 2) auto;
+    width: 60px;
+    height: 0;
+    border-top: 3px dotted var(--text2);
+  }
+}

@@ -1,0 +1,33 @@
+body.admin-bar {
+  --bar: 46px;
+
+  min-height: calc(100vh - var(--bar));
+
+  @media screen and (min-width: 783px) {
+    --bar: 32px;
+  }
+
+  header.global {
+    top: 32px;
+
+    @media screen and (max-width: 782px) {
+      top: 46px;
+    }
+
+    &.mobile {
+      top: 46px;
+
+      @media screen and (min-width: 783px) {
+        top: 32px;
+      }
+
+      &.shrink {
+        top: 0;
+
+        @media screen and (min-width: 600px) {
+          top: inherit;
+        }
+      }
+    }
+  }
+}
