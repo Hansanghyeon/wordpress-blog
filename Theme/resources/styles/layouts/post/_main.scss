@@ -34,6 +34,7 @@ article {
   .prose > ol,
   .prose > ul {
     margin-left: var(--paddingX);
+    margin-right: var(--paddingX);
   }
 
   .entry-content {
