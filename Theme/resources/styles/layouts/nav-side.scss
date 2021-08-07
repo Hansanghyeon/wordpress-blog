@@ -1,0 +1,30 @@
+.nav-side {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  width: auto;
+  transform: translateY(calc(-50% - (var(--gnbY) / 2)));
+  margin-top: var(--gnbY);
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 1em;
+  max-height: calc(100vh - var(--gnbY));
+  overflow-y: scroll;
+  min-height: 50vh;
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(var(--RGB-text1), 0.1);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &-title {
+    font-size: 0.85em;
+    padding: 0.25em 1em;
+    margin-bottom: 0.2em;
+  }
+}

@@ -2,6 +2,7 @@
 
 @section('content')
   @include('partials.header-archive')
+  @include('partials.nav-side')
   <div class="container lg:max-w-screen-lg mx-auto px-6">
     @if (!have_posts())
       <div class="alert alert-warning">

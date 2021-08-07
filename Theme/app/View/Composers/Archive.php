@@ -15,6 +15,7 @@ class Archive extends Composer
         'header-archive',
         'archive',
         'archive-*',
+        'partials.nav-side'
     ];
 
     /**
@@ -27,6 +28,7 @@ class Archive extends Composer
         return [
             'title' => $this->title(),
             'thumbnail' => $this->thumbnail(),
+            'categories' => $this->categories(),
         ];
     }
 
@@ -50,5 +52,33 @@ class Archive extends Composer
         }
 
         return $thumbnailDom;
+    }
+
+    private function sort_terms_hierarchically(array &$cats, array &$into, $parentId = 0)
+    {
+        foreach ($cats as $i => $cat) {
+            $cat->link = '/'. get_post_type() . '/category/' . $cat->name;
+            if ($cat->parent == $parentId) {
+                $into[$cat->term_id] = $cat;
+                unset($cats[$i]);
+            }
+        }
+    
+        foreach ($into as $topCat) {
+            $topCat->children = array();
+            $this->sort_terms_hierarchically($cats, $topCat->children, $topCat->term_id);
+        }
+    }
+
+    public function categories()
+    {
+        $terms = get_terms(array(
+          "taxonomy" => get_post_type() .'_category',
+          "hide_empty" => false,
+        ));
+
+        $termsHierarchy = array();
+        $this->sort_terms_hierarchically($terms, $termsHierarchy);
+        return $termsHierarchy;
     }
 }

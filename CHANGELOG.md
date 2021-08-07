@@ -3,6 +3,37 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.2.0] 2021-08-07
+
+### Added
+
+- Blog, Dev 아카이브페이지에서 카테고리 리스트 추가
+
+### Chagned
+
+- scss에서 `_*.scs` 이런식으로 partials로 나눌때 하위 파일이름을
+  `index.scss`에서
+
+  ```diff
+  # index.scss
+  .list {
+  -  &-sub {
+  -    @import 'sub';
+  -  }
+  +  @import 'sub';
+  }
+
+  # sub.scss
+  - & {
+  + &-sub {
+    // sub.scss style code
+  }
+  ```
+
+  작성하던것을 `sub.scss`에서 작성하도록 변경
+
+- Notion list를 component > composer로 변경
+  component는 어떤 곳에 같혀있지않고 모든곳에서 사용할 수 있도록 해야하는데 데이터를 종속성으로 받아야함으로 컴포넌트에서 조건부로 데이터를 호출하기 애매해서 특정 템플릿에서 사용하려고 composer로 변경
 ## [v8.1.0] 2021-08-01
 
 - Google client 패키지를 활용해서 today 위젯 구현 #118
