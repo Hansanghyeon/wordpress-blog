@@ -4,7 +4,7 @@
   margin: 0;
 
   &-children {
-    padding-left: 0.5em;
+    --list-padding: 0.5em;
   }
 
   &-item {
@@ -12,6 +12,13 @@
     display: block;
     font-size: 0.7em;
     padding: 0.25em 1em;
+    padding-left: calc(1em + var(--list-padding, 0px));
+    border-radius: 0 999px 999px 0;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(var(--RGB-primary), 0.3);
+    }
 
     &.current::after {
       content: '';
