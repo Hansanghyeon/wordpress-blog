@@ -1,5 +1,5 @@
 <ul>
-  @foreach ($terms as $term)
+  @foreach ($categories as $term)
     <li>
       <a href="{!! $term['link'] !!}" class="list-notion">
         @if (!empty($term['icon'] ))
