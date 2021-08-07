@@ -1,0 +1,33 @@
+&-side {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &-children {
+    padding-left: 0.5em;
+  }
+
+  &-item {
+    position: relative;
+    display: block;
+    font-size: 0.7em;
+    padding: 0.25em 1em;
+
+    &.current::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      border-radius: 4px;
+      background-image: linear-gradient(
+        to bottom,
+        var(--pointColor0, #ffa500),
+        var(--pointColor1, #eb5757)
+      );
+      transform: translateY(-50%);
+    }
+  }
+}
