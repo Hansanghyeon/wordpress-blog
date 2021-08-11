@@ -18,6 +18,9 @@ module.exports = {
                 color: null,
               },
             },
+            string: {
+              color: null,
+            },
             pre: null,
             code: null,
             'code::after': null,
