@@ -3,6 +3,16 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.2.1] 2021-08-11
+
+### Fixed
+
+- `composer/Archive.php`에서 category 데이터를 넘길때 링크가 `term->name`으로 되어있던 것을 `term->slug`으로 변경
+
+### Added
+
+- post main에서 divider border-bottom이 기본값으로 설정된것 제거
+- strong 태그 color: null
 ## [v8.2.0] 2021-08-07
 
 ### Added
