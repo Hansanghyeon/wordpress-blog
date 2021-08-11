@@ -1,5 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+const colorReset = {
+  color: null,
+};
+
 module.exports = {
   purge: {
     content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
@@ -14,13 +18,15 @@ module.exports = {
             color: null,
             a: {
               color: null,
-              '&:hover': {
-                color: null,
-              },
+              '&:hover': colorReset,
             },
-            string: {
-              color: null,
-            },
+            string: colorReset,
+            h1: colorReset,
+            h2: colorReset,
+            h3: colorReset,
+            h4: colorReset,
+            h5: colorReset,
+            h6: colorReset,
             pre: null,
             code: null,
             'code::after': null,
