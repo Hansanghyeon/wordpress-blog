@@ -3,6 +3,24 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.3.0] 2021-08-11
+
+UI와 composer의 기능이 추가되어서 version 8.3.0으로 명명
+
+### Added
+
+- breadcrumbs의 기능을 Post header에 추가
+  `composer/Post.php`에서 menu 함수로 breadcrumbs 데이터가져오게 구성
+
+### Fixed
+
+- 포스트타입이 page인 것에 `composer/Post.php`에서 page-header의 view로 가져오게되어있어서 포스트의 데이터를 가져오는 함수에서 오류가났음
+  - categories
+  - archive, menu
+### Changed
+
+- `page.blade.php` 내부의 prose 부분을 max-width제거 wrap으로 container로 되게 설정
+
 ## [v8.2.1] 2021-08-11
 
 ### Fixed
