@@ -131,7 +131,7 @@ class Post extends Composer
         $menu = array_filter($menu, function ($k) {
             return $k->object == get_post_type();
         });
-        $menu = $menu[0];
+        $menu = $menu[array_key_first($menu)];
         $menu->bg_color = 'background-color: ';
         $menu->bg_color .= !empty($color = get_field('label_color', $menu->ID)) ? $color : 'transparent';
         $menu->icon = !empty($icon = get_field('menu_icon', $menu->ID)) ? $icon : '';
