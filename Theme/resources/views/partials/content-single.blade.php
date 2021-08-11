@@ -1,8 +1,5 @@
 <article @php post_class() @endphp>
-  <header>
-    <h1 class="entry-title">{!! $title !!}</h1>
-    @include('partials/entry-meta')
-  </header>
+  @include('partials/header-content')
   <div class="entry-content">
     @include('partials.toc')
     <div class="prose">

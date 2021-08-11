@@ -1,30 +1,18 @@
 article {
-  --w: 800px;
+  --w: 94%;
   --paddingX: 25px;
   --paddingY: 25px;
+
+  @media (min-width: theme('screens.md')) {
+    --w: 90%;
+  }
+  @media (min-width: theme('screens.lg')) {
+    --w: 800px;
+  }
 
   margin: 0 auto;
   max-width: var(--w);
   line-height: 1.4;
-
-  header {
-    padding-top: calc(12px + 26px);
-    padding-bottom: 12px;
-    padding-left: calc(var(--paddingX) / 2);
-    padding-right: calc(var(--paddingX) / 2);
-
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      font-weight: bold;
-      word-break: keep-all;
-      margin-bottom: 0.5rem;
-    }
-
-    .byline {
-      margin-bottom: 1rem;
-    }
-  }
 
   .prose > *:not(pre):not(ol):not(ul) {
     padding-left: var(--paddingX);

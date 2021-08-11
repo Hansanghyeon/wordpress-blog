@@ -31,6 +31,7 @@ class Post extends Composer
             'permalink' => $this->permalink(),
             'excerpt' => $this->excerpt(),
             'categories' => $this->categories(),
+            'archive' => $this->get_menu(),
         ];
     }
 
@@ -94,6 +95,9 @@ class Post extends Composer
 
     public function categories()
     {
+        if (get_post_type() === 'page') {
+            return;
+        }
         $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_category');
 
         $result = [];
@@ -116,5 +120,22 @@ class Post extends Composer
         }
         
         return $result;
+    }
+
+    public function get_menu()
+    {
+        if (get_post_type() === 'page') {
+            return;
+        }
+        $menu = wp_get_nav_menu_items(wp_get_nav_menu_object('main'));
+        $menu = array_filter($menu, function ($k) {
+            return $k->object == get_post_type();
+        });
+        $menu = $menu[array_key_first($menu)];
+        $menu->bg_color = 'background-color: ';
+        $menu->bg_color .= !empty($color = get_field('label_color', $menu->ID)) ? $color : 'transparent';
+        $menu->icon = !empty($icon = get_field('menu_icon', $menu->ID)) ? $icon : '';
+
+        return $menu;
     }
 }
