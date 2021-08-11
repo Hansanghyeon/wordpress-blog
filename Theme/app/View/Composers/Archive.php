@@ -57,7 +57,7 @@ class Archive extends Composer
     private function sort_terms_hierarchically(array &$cats, array &$into, $parentId = 0)
     {
         foreach ($cats as $i => $cat) {
-            $cat->link = '/'. get_post_type() . '/category/' . $cat->name;
+            $cat->link = '/'. get_post_type() . '/category/' . $cat->slug;
             if ($cat->parent == $parentId) {
                 $into[$cat->term_id] = $cat;
                 unset($cats[$i]);
