@@ -1,4 +1,4 @@
-<nav class="nav-side">
+<nav class="nav-side hidden xl:block">
   <div class="nav-side-title">🔖 카테고리</div>
   <ul class="list-side">
     @foreach ($categories as $term)
