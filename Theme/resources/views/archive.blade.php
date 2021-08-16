@@ -18,16 +18,9 @@
     </div>
   </div>
 
-
-  @empty(!$pagination = get_the_posts_pagination( array(
-    'mid_size' => 2,
-    'prev_text' => __( '이전' ),
-    'next_text' => __( '다음' ),
-  )))
-    <div class="container lg:max-w-screen-lg mx-auto px-6">
-      <div class="page-pagination-number">
-        {!! $pagination !!}
-      </div>
+  <div class="container lg:max-w-screen-lg mx-auto px-6">
+    <div class="page-pagination-number">
+      {!! $pagination !!}
     </div>
-  @endempty
+  </div>
 @endsection
