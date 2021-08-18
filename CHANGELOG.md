@@ -3,6 +3,18 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.5.0] 2021-08-18
+
+### Added
+
+- wp 어드민 대쉬보드에서 user 탭에보면 어떤 포스트의 몇개의 글을 작성했는지 볼 수 있는데 custom post type에 관한 카운트는 나와있지 않다. 이것을 추가!
+- tailwind css를 사용하면서 scss 내부에서 `@apply`라는 문법을 사용하는데 이 문법이 vscode에는 기본값으로 나와있는 것이 없어서 따로 커스텀으로 설명을 추가
+  SNS리스트에서 codepen 추가
+
+### Chagned
+
+- author/hansanghyeon 커스텀 페이지에서 alert의 라벨이 정렬을 중앙으로 변경하였다.
+
 ## [v8.4.0] 2021-08-15
 
 ### Added
