@@ -124,7 +124,7 @@ class Post extends Composer
 
     public function get_menu()
     {
-        if (get_post_type() === 'page') {
+        if (get_post_type() === 'page' || is_404()) {
             return;
         }
         $menu = wp_get_nav_menu_items(wp_get_nav_menu_object('main'));
