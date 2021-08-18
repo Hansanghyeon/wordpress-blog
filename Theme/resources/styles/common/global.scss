@@ -4,7 +4,7 @@ body {
   --bar: 0px;
 
   @media (prefers-color-scheme: light) {
-    @apply text-green-900;
+    @apply text-gray-900;
   }
 
   color: var(--text-primary);

@@ -2,7 +2,7 @@
 <div class="profile">
   <div class="profile-humaninfo flex mb-4">
     <div class="imgWrap">
-      <img src="/wp-content/uploads/media/4log/profile/IMG_0221-scaled.jpg" alt="hansanghyeon">
+      <img src="https://avatars.githubusercontent.com/u/42893446?v=4" alt="hansanghyeon">
     </div>
     <ul class="infoList">
       <li>

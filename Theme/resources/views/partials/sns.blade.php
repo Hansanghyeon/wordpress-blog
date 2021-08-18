@@ -1,5 +1,5 @@
 <div class="snsList flex items-center gap-2">
-  <a href="https://dribbble.com/Hansanghyeon" class="icon-dribble icon">
+  <a href="https://dribbble.com/Hansanghyeon" class="icon-dribble icon" alt="dribbble">
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"
       xmlns="http://www.w3.org/2000/svg">
       <path
@@ -7,7 +7,7 @@
       </path>
     </svg>
   </a>
-  <a href="https://codesandbox.io/u/Hansanghyeon" class="icon-codesandbox icon">
+  <a href="https://codesandbox.io/u/Hansanghyeon" class="icon-codesandbox icon" alt="code sandbox">
     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
       stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -20,7 +20,12 @@
       <line x1="12" y1="22.08" x2="12" y2="12"></line>
     </svg>
   </a>
-  <a href="https://github.com/hansanghyeon" class="icon-github icon">
+  <a href="https://codepen.io/999hyeon" class="icon-codepen icon" alt="codepen">
+    <svg fill="currentColor" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+      <path d="m.455 16.512 10.969 7.314c.374.23.774.233 1.152 0l10.969-7.314c.281-.187.455-.522.455-.857v-7.312c0-.335-.174-.67-.455-.857l-10.969-7.313c-.374-.23-.774-.232-1.152 0l-10.969 7.313c-.281.187-.455.522-.455.857v7.312c0 .335.174.67.455.857zm10.514 4.528-8.076-5.384 3.603-2.411 4.473 2.987zm2.062 0v-4.808l4.473-2.987 3.603 2.411zm8.907-7.314-2.585-1.727 2.585-1.728zm-8.907-10.767 8.076 5.384-3.603 2.411-4.473-2.987zm-1.031 6.602 3.643 2.438-3.643 2.438-3.643-2.438zm-1.031-6.602v4.808l-4.473 2.987-3.603-2.411zm-8.906 7.314v-.001l2.585 1.728-2.585 1.728z" />
+    </svg>
+  </a>
+  <a href="https://github.com/hansanghyeon" class="icon-github icon" alt="github">
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em"
       xmlns="http://www.w3.org/2000/svg">
       <path
