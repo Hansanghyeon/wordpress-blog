@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.5.1] 2021-08-18
+
+### Fixed
+
+- composer/Post.php 파일의 `get_menu()` 함수가 404 페이지에서 구할수없기 때문에 html이 로드되지 않는문제 404 페이지 if 분기로 수정
+
 ## [v8.5.0] 2021-08-18
 
 ### Added
