@@ -14,17 +14,6 @@ article {
   max-width: var(--w);
   line-height: 1.4;
 
-  .prose > *:not(pre):not(ol):not(ul) {
-    padding-left: var(--paddingX);
-    padding-right: var(--paddingX);
-  }
-
-  .prose > ol,
-  .prose > ul {
-    margin-left: var(--paddingX);
-    margin-right: var(--paddingX);
-  }
-
   .entry-content {
     background-color: var(--bg0);
     margin-top: 26px;
@@ -44,6 +33,25 @@ article {
 
     .prose {
       max-width: unset;
+
+      > *:not(pre):not(ol):not(ul) {
+        padding-left: var(--paddingX);
+        padding-right: var(--paddingX);
+      }
+
+      > ul,
+      > ol {
+        margin-left: var(--paddingX);
+        margin-right: var(--paddingX);
+      }
+
+      span[id*='more'] {
+        display: none;
+      }
+
+      > :first-child:is(span)[id*='more'] + * {
+        margin-top: 0;
+      }
     }
 
     a {
