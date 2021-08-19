@@ -47,10 +47,10 @@ article {
 
       span[id*='more'] {
         display: none;
+      }
 
-        + * {
-          margin-top: 0;
-        }
+      > :first-child:is(span)[id*='more'] + * {
+        margin-top: 0;
       }
     }
 

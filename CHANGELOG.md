@@ -3,6 +3,13 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.5.2] 2021-08-19
+
+### Added
+
+- 워드프레스의 READ MORE라해서 exceprt를 포스트 내부에서 지정하게 도와주는 블럭의 스타일을 지정
+
+- 워드프레스의 readmore라는
 ## [v8.5.1] 2021-08-18
 
 ### Fixed
