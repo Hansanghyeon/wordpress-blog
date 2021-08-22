@@ -141,7 +141,7 @@ HTML;
             for ($i=1; $i <= $pages; $i++) {
                 if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
                     if ($paged === $i) {
-                        $result .= "<span class=\"z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium\">{$i}</span>";
+                        $result .= "<span class=\"z-10 bg-indigo-50 border-gray-300 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium\">{$i}</span>";
                     } else {
                         $link = get_pagenum_link($i);
                         $result .= "<a href=\"{$link}\" class=\"bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium\">{$i}</a>";
