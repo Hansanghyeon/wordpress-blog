@@ -1,0 +1,27 @@
+name: task branch 자동 PR 만들기
+
+on:
+  push:
+    branches: [Hansanghyeon/issue*]
+
+jobs:
+  Auto-Cerate-PR:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo "##[set-output name=id;]$(echo ${GITHUB_REF#refs/heads/Hansanghyeon/issue})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "" # If blank, default: triggered branch
+          destination_branch: "develop" # If blank, default: master
+          pr_title: "${{ steps.extract_branch.outputs.branch }}" # Title of pull request
+          pr_body: "Resolves: #${{steps.extract_branch.outputs.id}}\n\n:crown: *An automated PR*" # Full markdown support, requires pr_title to be set
+          pr_draft: true # Creates pull request as draft
+          github_token: ${{ secrets.TOKEN }}
