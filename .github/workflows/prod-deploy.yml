@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DEPLOYSERVER_USERNAME }}
           port: ${{ secrets.DEPLOYSERVER_PORT }}
           script: |
-            cd ./@project/201912__hyeon
+            cd ./@project/${{ secrets.PROJECT_DIR }}
             git pull origin main
 
   build:
