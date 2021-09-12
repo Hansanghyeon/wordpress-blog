@@ -8,3 +8,5 @@ ignore-*
 acp-settings
 .DS_Store
 key/
+data/*
+!data/.gitkeep
