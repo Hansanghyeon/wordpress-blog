@@ -3,6 +3,16 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.6.4] 2021-09-12
+
+### Added
+
+- release git flow 자동화 스크립트 추가
+
+### Fixed
+
+- `docker-compose.yaml` 내용중에 `swarm.yaml`에서 옮길때 docker 폴더 내부에있어서 바인딩하는 볼륨들의 path가 모두다 `../`으로 되어있던 오류가있었다. 해당 path 오류 모두 수정
+
 ## [v8.6.3] 2021-09-12
 
 ### Added
