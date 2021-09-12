@@ -52,6 +52,24 @@ article {
       > :first-child:is(span)[id*='more'] + * {
         margin-top: 0;
       }
+
+      .blocks-gallery {
+        &-grid {
+          margin-top: 0;
+          margin-bottom: 0;
+          gap: 1em;
+        }
+
+        &-item {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          &::before {
+            content: none;
+          }
+        }
+      }
     }
 
     a {
