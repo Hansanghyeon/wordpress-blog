@@ -10,7 +10,7 @@ services:
       - ./.env
     container_name: WP__${PROJECT_NAME}
     # development image
-    image: ghcr.io/hansanghyeon/wordpress-php8.0-docker-xdebug3.0:amd64
+    image: wordpress:php8.0
     restart: always
     ports:
       - ${PROJECT_PORT}:80
@@ -23,11 +23,19 @@ services:
       - ./.wordpress:/var/www/html
       - ./Theme:/var/www/html/wp-content/themes/sage
       - ./backup:/var/www/html/wp-content/ai1wm-backups
+    links:
+      - redis
     external_links:
       - DB__wordpress:mariadb
+  redis:
+    image: redis:6.2.5
+    volumes:
+      - redis:/data
 
 ########################### NETWORKS
 networks:
   default:
     external:
       name: db_net
+volumes:
+  redis:
