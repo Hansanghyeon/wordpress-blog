@@ -30,9 +30,9 @@ class Post extends Composer
             'isThumbnail' => $this->isThumbnail(),
             'permalink' => $this->permalink(),
             'excerpt' => $this->excerpt(),
-            'categories' => $this->categories(),
+            'categories' => $this->getTaxonomy('category'),
             'archive' => $this->get_menu(),
-            'tags' => $this->tags(),
+            'tags' => $this->getTaxonomy('tag'),
         ];
     }
 
@@ -94,60 +94,38 @@ class Post extends Composer
         return get_the_excerpt();
     }
 
-    public function categories()
+    public function getTaxonomy($termName)
     {
         if (get_post_type() === 'page') {
             return;
         }
-        $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_category');
+        $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_' . $termName);
 
         $result = [];
+
+        if (is_wp_error($terms) || empty($terms)) {
+            return [];
+        }
+
         foreach ($terms as $term) {
             if (get_the_archive_title() === $term->name) {
                 continue;
             }
 
             $_ = [
-            'name' => $term->name,
-            'link' => '/'.get_post_type().'/category/'.$term->slug
-          ];
-            if (!empty($icon_field_data = get_field('icon', get_post_type(). '_category_'. $term->term_id))) {
+              'name' => $term->name,
+              'link' => '/'.get_post_type().'/'.$termName.'/'.$term->slug
+            ];
+
+            if (!empty($icon_field_data = get_field('icon', get_post_type(). '_'. $termName .'_'. $term->term_id))) {
                 $_['icon'] = [
-              'src' => $icon_field_data['url'],
-              'alt' => $icon_field_data['title'],
-          ];
+                    'src' => $icon_field_data['url'],
+                    'alt' => $icon_field_data['title'],
+                ];
             }
             array_push($result, $_);
         }
-        
-        return $result;
-    }
-
-    public function tags()
-    {
-        if (get_post_type() === 'page') {
-            return;
-        }
-        $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_tag');
-        $result = [];
-        foreach ($terms as $term) {
-            if (get_the_archive_title() === $term->name) {
-                continue;
-            }
-
-            $_ = [
-            'name' => $term->name,
-            'link' => '/'.get_post_type().'/tag/'.$term->slug
-          ];
-            if (!empty($icon_field_data = get_field('icon', get_post_type(). '_tag_'. $term->term_id))) {
-                $_['icon'] = [
-              'src' => $icon_field_data['url'],
-              'alt' => $icon_field_data['title'],
-          ];
-            }
-            array_push($result, $_);
-        }
-        
+      
         return $result;
     }
 
