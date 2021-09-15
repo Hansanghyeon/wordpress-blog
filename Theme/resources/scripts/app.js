@@ -2,6 +2,7 @@
  * External Dependencies
  */
 import 'jquery';
+import Alpine from 'alpinejs';
 
 // Import everything from autoload
 // import './autoload/**/*';
@@ -20,10 +21,12 @@ const routes = new Router({
   singleDev,
   singleBlog,
   taxDevCategory: taxonomy,
+  taxDevTag: taxonomy,
   taxBlogCategory: taxonomy,
 });
 
 // Load Events
 jQuery(document).ready(() => {
   routes.loadEvents();
+  Alpine.start();
 });
