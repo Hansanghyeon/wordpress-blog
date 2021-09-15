@@ -3,6 +3,12 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.8.0] 2021-09-15
+
+### Added
+
+- TAG taxnomy #695
+
 ## [v8.7.0] 2021-09-14
 
 prod의 폴더구조를 변경해야하고 데이터 이전으로인해서 중간단계 버전업

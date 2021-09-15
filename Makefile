@@ -7,3 +7,4 @@ release:
 	git push origin develop
 	git push origin main
 	git push origin $v
+	git branch -d release/$v
