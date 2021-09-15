@@ -1,4 +1,5 @@
 release:
+	git commit -m ":memo: $v changelog"
 	git checkout main
 	git merge --no-ff release/$v -m ":bookmark: $v"
 	git tag -a $v -m "Release $v"
