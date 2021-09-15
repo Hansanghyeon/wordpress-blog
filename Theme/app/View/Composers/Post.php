@@ -32,6 +32,7 @@ class Post extends Composer
             'excerpt' => $this->excerpt(),
             'categories' => $this->categories(),
             'archive' => $this->get_menu(),
+            'tags' => $this->tags(),
         ];
     }
 
@@ -111,6 +112,34 @@ class Post extends Composer
             'link' => '/'.get_post_type().'/category/'.$term->slug
           ];
             if (!empty($icon_field_data = get_field('icon', get_post_type(). '_category_'. $term->term_id))) {
+                $_['icon'] = [
+              'src' => $icon_field_data['url'],
+              'alt' => $icon_field_data['title'],
+          ];
+            }
+            array_push($result, $_);
+        }
+        
+        return $result;
+    }
+
+    public function tags()
+    {
+        if (get_post_type() === 'page') {
+            return;
+        }
+        $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_tag');
+        $result = [];
+        foreach ($terms as $term) {
+            if (get_the_archive_title() === $term->name) {
+                continue;
+            }
+
+            $_ = [
+            'name' => $term->name,
+            'link' => '/'.get_post_type().'/tag/'.$term->slug
+          ];
+            if (!empty($icon_field_data = get_field('icon', get_post_type(). '_tag_'. $term->term_id))) {
                 $_['icon'] = [
               'src' => $icon_field_data['url'],
               'alt' => $icon_field_data['title'],
