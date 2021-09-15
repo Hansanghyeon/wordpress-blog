@@ -49,3 +49,7 @@ main {
 #{headings(1,6)} {
   color: var(--text00);
 }
+
+[x-cloak] {
+  display: none !important;
+}
