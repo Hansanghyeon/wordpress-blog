@@ -3,6 +3,14 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.8.2] 2021-09-21
+
+### Changed
+
+- tailwind의 typography의 기본색상이 적용되서 dark모드에서 검은 색상으로 출력되는 것들을 환결설정에서 모두 제거
+  - strong
+  - blockquote
+
 ## [v8.8.1] 2021-09-15
 
 ### Added
