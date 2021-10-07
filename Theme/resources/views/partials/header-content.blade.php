@@ -9,7 +9,7 @@
   @include('partials/entry-meta')
   <div class="mb-6"></div>
   @if ($tags)
-    <ul class="flex gap-1 mt-2 mb-2">
+    <ul class="flex gap-1 mt-2 mb-2 flex-wrap">
       @foreach ($tags as $term)
         <li>
           <a href="{!! $term['link'] !!}" class="flex items-center">
