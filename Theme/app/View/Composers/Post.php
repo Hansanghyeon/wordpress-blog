@@ -119,9 +119,10 @@ class Post extends Composer
 
             if (!empty($icon_field_data = get_field('icon', get_post_type(). '_'. $termName .'_'. $term->term_id))) {
                 $_['icon'] = [
-                    'src' => $icon_field_data['url'],
-                    'alt' => $icon_field_data['title'],
-                ];
+                'src' => $icon_field_data['url'],
+                'alt' => $icon_field_data['title'],
+                'cover' => get_field('icon_full_cover', get_post_type(). '_'. $termName .'_'. $term->term_id),
+              ];
             }
             array_push($result, $_);
         }
