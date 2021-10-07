@@ -3,6 +3,14 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.9.0] 2021-10-07
+
+### Added
+
+- taxonomy ACF `icon_full_cover` 이름으로 아이콘 스케일업 옵션추가
+- tailwind css
+  - plugin중 aspect-ratio 플러그인 추가
+  - px 함수를 통해 padding px token 추가
 ## [v8.8.2] 2021-09-21
 
 ### Changed
