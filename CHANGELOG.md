@@ -3,6 +3,18 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.10.0] 2021-10-09
+
+### Changed
+
+- [syntax-highlighting-code-block](https://wordpress.org/plugins/syntax-highlighting-code-block/) 플러그인에서 [code-syntax-block](https://github.com/mkaz/code-syntax-block)으로 변경
+
+### Fixed
+
+- server render 플러그인 이용으로 코드의 불필요한 태그가 렌더링되는 문제가있었음
+  - 이전에 spa로 구성하면서 code-syntax-block의 스크립트를 매번 로딩할 수 없었던 문제가 spa를 제거하면으로서 변경가능했었다.
+- autoprefix를 추가로 도입 safari에서만 들어가는 css들이있어서 추가로 적용되지 않는 문제가 있는 것같아서 추가
+
 ## [v8.9.2] 2021-10-09
 
 ### Chagned
