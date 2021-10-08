@@ -10,7 +10,7 @@ pre.wp-block-code {
   padding: 0;
 }
 
-pre code {
+pre.wp-block-code code {
   @media (prefers-color-scheme: light) {
     @apply bg-gray-50;
   }
