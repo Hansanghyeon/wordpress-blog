@@ -3,6 +3,13 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.9.1] 2021-10-08
+
+### Changed
+
+- wordpress docker image를 오피셜이미지의 php 익스텐션을 추가한 wordpress & redis 이미지로 변경하였다.
+  - 해당 docker 이미지 참고 https://github.com/Hansanghyeon/wordpress-redis
+
 ## [v8.9.0] 2021-10-07
 
 ### Added
