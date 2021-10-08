@@ -22,6 +22,8 @@ module.exports = {
     extend: {
       colors: {},
       padding: px(0, 300),
+      gap: px(0, 100),
+      margin: px(0, 300),
       scale: {
         180: '1.8',
       },
