@@ -1,0 +1,50 @@
+// https://github.com/mkaz/code-syntax-block
+// Syntax: scss
+// Type: block
+// Group: post
+// Priority: high
+// Last Modification: 2020-01-10
+
+pre.wp-block-code {
+  position: relative;
+  padding: 0;
+}
+
+pre code {
+  @media (prefers-color-scheme: light) {
+    @apply bg-gray-50;
+  }
+
+  background-color: var(--preBg);
+  padding: 0.8rem var(--paddingX);
+  padding-bottom: calc(0.8rem - 4px);
+  overflow-x: scroll;
+  white-space: pre;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(var(--RGB-bg3), 0.6);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--RGB-text1), 0.1);
+    border-radius: 999px;
+  }
+}
+
+:not(pre) > code {
+  @apply bg-gray-50;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--codeBg);
+  }
+
+  color: var(--codeColor);
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+}
