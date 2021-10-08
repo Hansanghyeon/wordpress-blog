@@ -9,9 +9,11 @@
   }
 
   &-arrow {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 45px;
+    @apply grid
+      grid-cols-1
+      sm:grid-cols-2
+      gap-12px
+      mb-45px;
 
     .card {
       background-color: var(--bg0);
