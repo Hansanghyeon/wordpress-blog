@@ -20,6 +20,7 @@ pre.wp-block-code code {
   padding-bottom: calc(0.8rem - 4px);
   overflow-x: scroll;
   white-space: pre;
+  word-wrap: normal;
 
   &::-webkit-scrollbar {
     background-color: transparent;
