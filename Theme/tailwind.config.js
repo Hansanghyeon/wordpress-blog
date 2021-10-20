@@ -4,16 +4,8 @@ const colorReset = {
   color: null,
 };
 
-function px(min, max) {
-  let result = {};
-  for (let i = min; i < max + 1; i++) {
-    const key = i < 0 ? `-${i}px` : `${i}px`;
-    result[key] = `${i}px`;
-  }
-  return result;
-}
-
 module.exports = {
+  mode: 'jit',
   purge: {
     content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   },
@@ -21,9 +13,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {},
-      padding: px(0, 300),
-      gap: px(0, 100),
-      margin: px(0, 300),
       scale: {
         180: '1.8',
       },
