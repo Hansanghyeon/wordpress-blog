@@ -3,6 +3,21 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.10.3] 2021-10-10
+
+[#701](https://github.com/Hansanghyeon/Hansanghyeon/issues/701) 
+[#705](https://github.com/Hansanghyeon/Hansanghyeon/issues/705) 
+
+### Added
+
+- pre wrap `whitespace-pre-wrap` 코드를 통해 등록 가능하게
+- pre syntax code block 플러그인에서 등록한 border 제거
+- 시리즈 archive 페이지 대응 & 디스크립션 숏코드 실행가능하게 구성
+
+### Changed
+
+- taxonomy에 글리 없을때 나오는 레이아웃이 깨져있음 헤더부분과 동일한 레이아웃이 아님 이 것 수정
+
 ## [v8.10.2] 2021-10-10
 
 ### Changed
