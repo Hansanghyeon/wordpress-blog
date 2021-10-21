@@ -8,6 +8,11 @@
 pre.wp-block-code {
   position: relative;
   padding: 0;
+  border: none;
+
+  &.whitespace-pre-wrap code {
+    white-space: pre-wrap;
+  }
 }
 
 pre.wp-block-code code {
