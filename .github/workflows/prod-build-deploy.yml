@@ -1,30 +1,19 @@
-name: 🚛 prod server deploy
+name: 🛠 build code deploy
 on:
   release:
     types: [published]
+    paths:
+      - "Theme/resources/styles/**/*"
+      - "Theme/resources/scripts/**/*"
+      - "Theme/tailwind.config.js"
   push:
-    branches: [main]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [main, release/*]
+    paths:
+      - "Theme/resources/styles/**/*"
+      - "Theme/resources/scripts/**/*"
+      - "Theme/tailwind.config.js"
 
 jobs:
-  source:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}
-    name: 📮 Github 소스코드로 업데이트 `git pull origin main`
-    steps:
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          key: ${{ secrets.DEPLOYSERVER_KEY }}
-          host: ${{ secrets.DEPLOYSERVER_HOST }}
-          username: ${{ secrets.DEPLOYSERVER_USERNAME }}
-          port: ${{ secrets.DEPLOYSERVER_PORT }}
-          script: |
-            cd ./@project/${{ secrets.PROJECT_DIR }}
-            git pull origin main
-
   build:
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}

@@ -1,0 +1,28 @@
+name: 🚛 (release test) static code deploy
+on:
+  push:
+    branches: [release/*]
+    paths:
+      - "Theme/resources/views/**/*"
+      - "Theme/resources/fonts/**/*"
+      - "Theme/resources/images/**/*"
+      - "Theme/resources/video/**/*"
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.owner.name == 'peterosea' }}
+    name: 📮 Github 소스코드로 업데이트 `git checkout release/* && git pull origin release/*`
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.DEPLOYSERVER_KEY }}
+          host: ${{ secrets.DEPLOYSERVER_HOST }}
+          username: ${{ secrets.DEPLOYSERVER_USERNAME }}
+          port: ${{ secrets.DEPLOYSERVER_PORT }}
+          script: |
+            cd www
+            git fetch origin
+            git checkout ${GITHUB_REF##*/}
+            git pull origin ${GITHUB_REF##*/}
