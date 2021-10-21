@@ -5,7 +5,6 @@ const colorReset = {
 };
 
 module.exports = {
-  mode: 'jit',
   purge: {
     content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   },
