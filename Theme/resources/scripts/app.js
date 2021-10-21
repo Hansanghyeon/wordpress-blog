@@ -23,6 +23,7 @@ const routes = new Router({
   taxDevCategory: taxonomy,
   taxDevTag: taxonomy,
   taxBlogCategory: taxonomy,
+  taxDevSeries: taxonomy,
 });
 
 // Load Events
