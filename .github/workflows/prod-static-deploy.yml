@@ -1,0 +1,33 @@
+name: 🚛 static code deploy
+on:
+  release:
+    types: [published]
+    paths:
+      - "Theme/resources/views/**/*"
+      - "Theme/resources/fonts/**/*"
+      - "Theme/resources/images/**/*"
+      - "Theme/resources/video/**/*"
+  push:
+    branches: [main]
+    paths:
+      - "Theme/resources/views/**/*"
+      - "Theme/resources/fonts/**/*"
+      - "Theme/resources/images/**/*"
+      - "Theme/resources/video/**/*"
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}
+    name: 📮 Github 소스코드로 업데이트 `git pull origin main`
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.DEPLOYSERVER_KEY }}
+          host: ${{ secrets.DEPLOYSERVER_HOST }}
+          username: ${{ secrets.DEPLOYSERVER_USERNAME }}
+          port: ${{ secrets.DEPLOYSERVER_PORT }}
+          script: |
+            cd ./@project/${{ secrets.PROJECT_DIR }}
+            git pull origin main
