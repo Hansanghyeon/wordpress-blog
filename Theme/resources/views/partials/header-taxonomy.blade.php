@@ -8,7 +8,7 @@
     </div>
     <div class="descriptionWrap">
       <div class="desc">
-        {!! $description !!}
+        {!! do_shortcode($description) !!}
       </div>
     </div>
   </div>
