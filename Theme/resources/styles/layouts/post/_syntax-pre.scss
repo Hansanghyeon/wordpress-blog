@@ -9,6 +9,11 @@ pre.wp-block-code {
   position: relative;
   padding: 0;
   border: none;
+  color: var(--text0);
+
+  + pre {
+    margin-top: 1.25em;
+  }
 
   &.whitespace-pre-wrap code {
     white-space: pre-wrap;
@@ -26,6 +31,7 @@ pre.wp-block-code code {
   overflow-x: scroll;
   white-space: pre;
   word-wrap: normal;
+  font-family: 'Fira Code', 'D2Coding', monospace;
 
   &::-webkit-scrollbar {
     background-color: transparent;
