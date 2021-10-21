@@ -3,7 +3,21 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
-## [v8.10.3] 2021-10-10
+## [v8.10.4] 2021-10-21
+
+### Changed
+
+- github action의 종류를 변경
+
+### Added
+
+- github action
+  - 메뉴얼 배포
+  - `*.blade.php` 소스코드만 git pull
+  - release 브랜치 test git pull
+  - `*/styles/*.scss` `*/scripts/*.js` build 후 빌드 파일 업로드 배포
+
+## [v8.10.3] 2021-10-21
 
 [#701](https://github.com/Hansanghyeon/Hansanghyeon/issues/701) 
 [#705](https://github.com/Hansanghyeon/Hansanghyeon/issues/705) 
