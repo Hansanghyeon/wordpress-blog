@@ -11,7 +11,6 @@ on:
 jobs:
   source:
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.name == 'peterosea' }}
     name: 📮 Github 소스코드로 업데이트 `git checkout release/* && git pull origin release/*`
     steps:
       - name: executing remote ssh commands using password
@@ -22,7 +21,7 @@ jobs:
           username: ${{ secrets.DEPLOYSERVER_USERNAME }}
           port: ${{ secrets.DEPLOYSERVER_PORT }}
           script: |
-            cd www
+            cd ./@project/${{ secrets.PROJECT_DIR }}
             git fetch origin
             git checkout ${GITHUB_REF##*/}
             git pull origin ${GITHUB_REF##*/}

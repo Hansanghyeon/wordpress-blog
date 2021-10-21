@@ -18,7 +18,6 @@ on:
 jobs:
   source:
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}
     name: 📮 Github 소스코드로 업데이트 `git pull origin main`
     steps:
       - name: executing remote ssh commands using password
