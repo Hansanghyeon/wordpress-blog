@@ -16,7 +16,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.name == 'Hansanghyeon' }}
     name: 🗳 Theme source build & rsync
     steps:
       - uses: actions/checkout@v2
