@@ -1,8 +1,8 @@
-name: task branch 자동 PR 만들기
+name: ✅ task branch 자동 PR 만들기
 
 on:
   push:
-    branches: [Hansanghyeon/issue*]
+    branches: [*/issue*]
 
 jobs:
   Auto-Cerate-PR:

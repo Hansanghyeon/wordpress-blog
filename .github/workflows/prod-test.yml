@@ -1,9 +1,9 @@
-name: 🙆‍♂️ 수동 static & build code deploy
+name: 🛠 (release test) build code deploy
 on:
-  release:
-    types: [published]
   push:
-    branches: [main]
+    branches: [release/*]
+    paths:
+      - "${{ secrets.SRC }}/**/*"
   workflow_dispatch:
 
 jobs:
@@ -21,9 +21,8 @@ jobs:
           script: |
             cd ${{ secrets.PROJECT_DIR }}
             git fetch origin
-            git checkout main
-            git branch | grep 'release/*' | xargs git branch -D
-            git pull origin main
+            git checkout ${GITHUB_REF##*/}
+            git pull origin ${GITHUB_REF##*/}
 
   # secrets.SRC = Theme file name
   # secrets.PROJECT_DIR = PROJECT_DIR pwd로 루트부터 지정된 폴더 경로

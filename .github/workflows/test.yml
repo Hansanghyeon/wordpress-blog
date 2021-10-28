@@ -6,7 +6,7 @@ jobs:
     name: Let's go eslint, stylelint
     runs-on: ubuntu-latest
     env:
-      working-directory: ./Theme
+      working-directory: ./${{ secrets.SRC }}
     steps:
       - uses: actions/checkout@v2
       - name: Get yarn cache directory path
