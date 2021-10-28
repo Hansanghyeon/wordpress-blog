@@ -1,19 +1,32 @@
-name: 🛠 build code deploy
+name: 🛠 (release test) build code deploy
 on:
-  release:
-    types: [published]
-    paths:
-      - "Theme/resources/styles/**/*"
-      - "Theme/resources/scripts/**/*"
-      - "Theme/tailwind.config.js"
   push:
-    branches: [main]
+    branches: [release/*]
     paths:
-      - "Theme/resources/styles/**/*"
-      - "Theme/resources/scripts/**/*"
-      - "Theme/tailwind.config.js"
+      - "${{ secrets.SRC }}/**/*"
+  workflow_dispatch:
 
 jobs:
+  source:
+    runs-on: ubuntu-latest
+    name: 📮 Github 소스코드로 업데이트 `git pull origin main`
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.DEPLOYSERVER_KEY }}
+          host: ${{ secrets.DEPLOYSERVER_HOST }}
+          username: ${{ secrets.DEPLOYSERVER_USERNAME }}
+          port: ${{ secrets.DEPLOYSERVER_PORT }}
+          script: |
+            cd ${{ secrets.PROJECT_DIR }}
+            git fetch origin
+            git checkout ${GITHUB_REF##*/}
+            git pull origin ${GITHUB_REF##*/}
+
+  # secrets.SRC = Theme file name
+  # secrets.PROJECT_DIR = PROJECT_DIR pwd로 루트부터 지정된 폴더 경로
+
   build:
     runs-on: ubuntu-latest
     name: 🗳 Theme source build & rsync
@@ -40,11 +53,11 @@ jobs:
         if: ${{steps.yarn-cache.outputs.cache-hit}} != 'true'
         working-directory: ${{ env.working-directory }}
         run: |
-          cd Theme
+          cd ${{ secrets.SRC }}
           yarn install
       - name: 🔨 yarn install & build
         run: |
-          cd Theme
+          cd ${{ secrets.SRC }}
           yarn build:production
 
       - name: 📂 Sync files to Server
@@ -54,6 +67,6 @@ jobs:
           SERVER_PORT: ${{ secrets.DEPLOYSERVER_RSYNC_PORT }}
           SERVER_IP: ${{ secrets.DEPLOYSERVER_HOST }}
           USERNAME: ${{ secrets.DEPLOYSERVER_USERNAME }}
-          FOLDER: "./Theme/public"
+          FOLDER: "./${{ secrets.SRC }}/public"
           ARGS: "-rltgoDzvO --ignore-times"
-          SERVER_DESTINATION: "/volume1/docker/@project/${{ secrets.PROJECT_DIR }}/Theme"
+          SERVER_DESTINATION: "${{ secrets.PROJECT_DIR }}/${{ secrets.SRC }}"
