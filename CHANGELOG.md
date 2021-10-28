@@ -5,6 +5,12 @@
 
 ## [v8.11.0] 2021-10-28
 
+### Changed
+
+- github action의 변수화 필요한 것들 변수화하고 `*.blade.php` 업데이트에도 build가 필요해서 static과 build로 나눈 action을 통합
+
+## [v8.11.0] 2021-10-28
+
 ### Chagned
 
 - JIT모드 반영
