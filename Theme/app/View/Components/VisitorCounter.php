@@ -53,11 +53,11 @@ class VisitorCounter extends Component
 
         // Set the dimensions
         $dimension = new Dimension();
-        $dimension->setName("ga:visitorType");
+        $dimension->setName("ga:userType");
 
         // Create the Metrics object.
         $sessions = new Metric();
-        $sessions->setExpression("ga:visitors");
+        $sessions->setExpression("ga:users");
   
         // Create the ReportRequest object.
         $request = new ReportRequest();
