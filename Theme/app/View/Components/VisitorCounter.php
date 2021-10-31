@@ -32,9 +32,11 @@ class VisitorCounter extends Component
     public $allday;
     public $yesterday;
 
+    public $error = false;
+
     public function initializeAnalytics()
     {
-        $KEY_FILE_LOCATION = get_theme_file_path('/key/service-account-credentials.json');
+        $KEY_FILE_LOCATION = get_theme_file_path('/key/log-278509-f525776d2ba6.json');
 
         // Create and configure a new client object.
         $client = new Google_Client();
@@ -74,13 +76,19 @@ class VisitorCounter extends Component
 
     public function __construct()
     {
-        $this->initializeAnalytics();
-        $this->allday = $this->getReport('2017-07-22', 'today');
-        $this->today = $this->getReport();
-        $this->yesterday = $this->getReport('yesterday', 'yesterday');
+        try {
+            $this->initializeAnalytics();
+            $this->allday = $this->getReport('2017-07-22', 'today');
+            $this->today = $this->getReport();
+            $this->yesterday = $this->getReport('yesterday', 'yesterday');
+        } catch (\Throwable $th) {
+            $this->error = true;
+        }
     }
     public function render()
     {
-        return $this->view('components.visitor-counter');
+        if (!$this->error) {
+            return $this->view('components.visitor-counter');
+        }
     }
 }
