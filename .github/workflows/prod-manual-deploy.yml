@@ -56,7 +56,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         run: |
           cd ${{ secrets.SRC }}
-          yarn set version breey
+          yarn set version berry
           yarn install
 
       - name: 🔨 yarn install & build
