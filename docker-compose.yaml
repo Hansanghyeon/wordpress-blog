@@ -20,7 +20,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - ./content:/var/www/html/wp-content
-      - ./Theme:/var/www/html/wp-content/themes/sage
+      - ./src:/var/www/html/wp-content/themes/sage
     deploy:
       placement:
         constraints:
