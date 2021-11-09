@@ -21,6 +21,7 @@
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print"
   },
   "devDependencies": {
+    "@tailwindcss/jit": "^0.1.18",
     "@tailwindcss/typography": "^0.4.1",
     "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
     "@wordpress/babel-preset-default": "^6.1.0",
@@ -50,5 +51,6 @@
     "dayjs": "^1.10.6",
     "headroom.js": "^0.12.0",
     "macy": "^2.5.1"
-  }
+  },
+  "packageManager": "yarn@3.1.0"
 }

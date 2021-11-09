@@ -5,9 +5,6 @@
 
 @import 'common/global';
 
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 // components
 @import 'components/modules/*';
 @import 'components/list';
@@ -19,3 +16,7 @@
 // page
 @import 'pages/home';
 @import 'pages/resume';
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@tailwind variants;

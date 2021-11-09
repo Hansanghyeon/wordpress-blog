@@ -21,7 +21,7 @@ mix
   .sass('resources/styles/replybox.scss', 'styles')
   .options({
     processCssUrls: false,
-    postCss: [tailwindcss('./tailwind.config.js')],
+    postCss: [require('tailwindcss'), require('@tailwindcss/jit')],
     autoprefixer: {
       options: {
         browsers: ['last 6 versions'],
