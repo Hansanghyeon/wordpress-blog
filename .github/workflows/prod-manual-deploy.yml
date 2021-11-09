@@ -59,9 +59,10 @@ jobs:
           yarn set version berry
           yarn install
 
-      - name: 🔨 yarn install & build
+      - name: 🔨 yarn build
         run: |
           cd ${{ secrets.SRC }}
+          yarn set version berry
           yarn build:production
 
       - name: 📂 Sync files to Server
