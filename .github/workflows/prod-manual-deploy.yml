@@ -1,9 +1,9 @@
 name: 🙆‍♂️ 수동 static & build code deploy
 on:
-  release:
-    types: [published]
-  push:
-    branches: [main]
+  # release:
+  #   types: [published]
+  # push:
+  #   branches: [main]
   workflow_dispatch:
 
 jobs:

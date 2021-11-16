@@ -9,13 +9,13 @@ services:
     image: ghcr.io/hansanghyeon/wordpress-redis:php8.0-apache-redis
     restart: always
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: DB_mariadb:3306
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
-        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'TOY-hyeon_redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
     volumes:
       - wordpress:/var/www/html

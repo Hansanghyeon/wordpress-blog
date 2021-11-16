@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
 require('@tinypixelco/laravel-mix-wp-blocks');
 
 /**
@@ -21,7 +20,7 @@ mix
   .sass('resources/styles/replybox.scss', 'styles')
   .options({
     processCssUrls: false,
-    postCss: [require('tailwindcss'), require('@tailwindcss/jit')],
+    postCss: [require('tailwindcss')],
     autoprefixer: {
       options: {
         browsers: ['last 6 versions'],
