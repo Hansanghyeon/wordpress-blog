@@ -1,12 +1,10 @@
 &-card {
+  @apply gap-[20px];
+
   display: flex;
   list-style: none;
   padding: 0;
   margin-bottom: 0;
-
-  @supports (gap: 0) {
-    gap: 12px;
-  }
 
   .icon-card {
     max-width: 125px;

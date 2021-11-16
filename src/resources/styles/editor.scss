@@ -9,3 +9,16 @@
     @apply font-sans #{!important};
   }
 }
+
+html :where(.editor-styles-wrapper) {
+  pre,
+  .mkaz-code-syntax-block__lang_label {
+    font-size: revert;
+    line-height: revert;
+    margin: revert;
+  }
+}
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

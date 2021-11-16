@@ -12,13 +12,10 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {},
-      scale: {
-        180: '1.8',
-      },
       typography: {
         DEFAULT: {
           css: {
+            maxWidth: null,
             color: null,
             a: {
               color: null,
@@ -41,12 +38,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['"Noto Sans KR"', ...defaultTheme.fontFamily.sans],
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('@tailwindcss/typography'),

@@ -28,6 +28,7 @@
 pre {
   padding: 0;
   color: var(--text0);
+  font-size: 0.8em;
 
   + pre {
     margin-top: 1.25em;
@@ -64,6 +65,27 @@ code {
       background-color: rgba(var(--RGB-text1), 0.1);
       border-radius: 999px;
     }
+
+    mark {
+      background-color: transparent;
+
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      &:after {
+        @apply bg-black;
+        content: '';
+        opacity: 0.1;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 1.6em;
+        left: 0;
+        transform: translateY(-1.7em);
+      }
+    }
   }
 
   &:not(.hljs) {
@@ -73,6 +95,7 @@ code {
       background-color: var(--codeBg);
     }
 
+    font-size: 0.9em;
     color: var(--codeColor);
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
