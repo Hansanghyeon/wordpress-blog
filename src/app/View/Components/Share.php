@@ -44,7 +44,8 @@ class Share extends Component
         $this->title = get_the_title();
         $this->description = $value_helper->get_description();
         $this->link = $helper->get_canonical();
-        if ($this->get_imgurl($value_helper->get_images())) {
+
+        if ($this->get_imgurl($value_helper->get_images()) || get_the_ID() === 18) {
           $this->img = $this->get_imgurl($value_helper->get_images());
         } else {
           $this->img = (Post::get_menu())->icon;
