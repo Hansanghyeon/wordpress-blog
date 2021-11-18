@@ -14,7 +14,7 @@
   right: 6px;
   line-height: 1em;
   white-space: normal;
-  font-family: sans-serif;
+  font-family: 'D2Coding', monospace;
   font-weight: bold;
   opacity: 0.5;
 }
@@ -46,6 +46,7 @@ code {
     padding-bottom: calc(0.8rem - 4px);
     overflow-x: scroll;
     white-space: pre;
+    font-family: 'D2Coding', monospace;
 
     &.shcb-wrap-lines {
       white-space: pre-wrap;

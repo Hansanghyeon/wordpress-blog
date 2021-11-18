@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\View\Composers\Post;
 use Roots\Acorn\View\Component;
 use Smartcrawl_Canonical_Value_Helper;
 use Smartcrawl_OpenGraph_Value_Helper;
@@ -40,10 +41,14 @@ class Share extends Component
     {
         $value_helper = new Smartcrawl_OpenGraph_Value_Helper();
         $helper = new Smartcrawl_Canonical_Value_Helper();
-        $this->title = $value_helper->get_title();
+        $this->title = get_the_title();
         $this->description = $value_helper->get_description();
         $this->link = $helper->get_canonical();
-        $this->img = $this->get_imgurl($value_helper->get_images());
+        if ($this->get_imgurl($value_helper->get_images())) {
+          $this->img = $this->get_imgurl($value_helper->get_images());
+        } else {
+          $this->img = (Post::get_menu())->icon;
+        }
     }
 
     /**
