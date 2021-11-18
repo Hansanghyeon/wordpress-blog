@@ -130,7 +130,7 @@ class Post extends Composer
         return $result;
     }
 
-    public function get_menu()
+    public static function get_menu()
     {
         if (get_post_type() === 'page' || is_404()) {
             return;
