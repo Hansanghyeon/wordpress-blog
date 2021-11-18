@@ -75,7 +75,7 @@ Ditto 섬네일이 있을때 리스트 형식의 컴포넌트 모션
   // Default style (list)
   &-main {
     height: 100%;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: 0 22px 24px -28px rgba(var(--RGB-gd4), 0.2);
     transition: box-shadow 0.45s ease-in-out;
     will-change: box-shadow, transform;
@@ -94,7 +94,7 @@ Ditto 섬네일이 있을때 리스트 형식의 컴포넌트 모션
       background-color: var(--bg0, #fff);
       position: relative;
       z-index: 200;
-      border-radius: 8px;
+      border-radius: 6px;
       overflow: hidden;
       transition: all 0.3s ease-in-out;
       will-change: padding-left, z-index, transform, margin-left, box-shadow;
@@ -127,7 +127,7 @@ Ditto 섬네일이 있을때 리스트 형식의 컴포넌트 모션
     transition: all 0.45s ease-in-out;
     will-change: width, background-color, margin-right, background-size, height,
       transform;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
 
     img {
@@ -186,7 +186,7 @@ Ditto 섬네일이 있을때 리스트 형식의 컴포넌트 모션
 
     > * {
       background-color: var(--1, #f6f8ff);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 0.25rem 8px;
     }
   }

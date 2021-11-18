@@ -15,6 +15,8 @@ article {
   line-height: 1.4;
 
   .entry-content {
+    @apply border rounded-[6px] border-[#d0d7de] shadow-sm;
+
     background-color: var(--bg0);
     margin-bottom: 45px;
     padding-top: 20px;

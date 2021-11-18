@@ -10,7 +10,7 @@ pre.wp-block-code {
   padding: 0;
   border: none;
   color: var(--text0);
-  font-size: 0.8em;
+  font-size: 85%;
 
   + pre {
     margin-top: 1.25em;
@@ -22,17 +22,12 @@ pre.wp-block-code {
 }
 
 pre.wp-block-code code {
-  @media (prefers-color-scheme: light) {
-    @apply bg-gray-50;
-  }
-
-  background-color: var(--preBg);
   padding: 0.8rem var(--paddingX);
   padding-bottom: calc(0.8rem - 4px);
   overflow-x: scroll;
   white-space: pre;
   word-wrap: normal;
-  font-family: 'Fira Code', 'D2Coding', monospace;
+  font-family: 'D2Coding', monospace;
 
   &::-webkit-scrollbar {
     background-color: transparent;
@@ -51,14 +46,15 @@ pre.wp-block-code code {
 }
 
 :not(pre) > code {
-  @apply bg-gray-50;
+  @apply bg-bombay-500 dark:bg-shuttle-gray-500;
+  @apply bg-opacity-20 dark:bg-opacity-40;
 
   @media (prefers-color-scheme: dark) {
     background-color: var(--codeBg);
   }
 
-  font-size: 0.9em;
-  color: var(--codeColor);
-  padding: 0.1em 0.3em;
-  border-radius: 0.3em;
+  font-family: 'D2Coding', monospace;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
 }
