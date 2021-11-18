@@ -38,7 +38,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Noto Sans KR"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Arita"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

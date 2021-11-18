@@ -9,7 +9,6 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- D2Codnig -->
@@ -18,6 +17,9 @@
     <script src="https://kit.fontawesome.com/a99f480b85.js" crossorigin="anonymous"></script>
     <!-- Kakao -->
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <!-- Hansanghyeon Font -->
+    <link rel="stylesheet" type="text/css" href="https://hansanghyeon.github.io/Arita/font.min.css">
+
     <?php wp_head(); ?>
   </head>
 
