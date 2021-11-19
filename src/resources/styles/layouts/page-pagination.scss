@@ -17,6 +17,7 @@
 
     .card {
       @apply border border-[#d0d7de] sm:shadow-sm rounded-[6px];
+      @apply dark:border-[#444c56];
 
       background-color: var(--bg0);
       width: 100%;

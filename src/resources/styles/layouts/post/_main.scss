@@ -16,6 +16,7 @@ article {
 
   .entry-content {
     @apply border rounded-[6px] border-[#d0d7de] shadow-sm;
+    @apply dark:border-[#444c56];
 
     background-color: var(--bg0);
     margin-bottom: 45px;
