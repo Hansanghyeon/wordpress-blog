@@ -11,14 +11,28 @@
       ]
     },
     {
-    "name": "@apply",
-    "description": "@apply기존 유틸리티 클래스를 사용자 정의 CSS에 인라인하는 데 사용 합니다. 이것은 HTML에서 새 구성 요소로 추출하려는 공통 유틸리티 패턴을 찾을 때 유용합니다.",
-    "references": [
-      {
-        "name": "Tailwind’s “Functions & Directives” documentation",
-        "url": "https://tailwindcss.com/docs/functions-and-directives/#apply"
-      }
-    ]
-  }
+      "name": "@apply",
+      "description": "@apply기존 유틸리티 클래스를 사용자 정의 CSS에 인라인하는 데 사용 합니다. 이것은 HTML에서 새 구성 요소로 추출하려는 공통 유틸리티 패턴을 찾을 때 유용합니다.",
+      "references": [
+        {
+          "name": "기능및지시문 @apply",
+          "url": "https://tailwindcss.com/docs/functions-and-directives/#apply"
+        }
+      ]
+    },
+    {
+      "name": "@layer",
+      "description": "@layer지시문을 사용하여 Tailwind에 사용자 정의 스타일 집합이 속한 '버킷'을 알립니다. 유효 층이 있습니다 base, components그리고 utilities.",
+      "references": [
+        {
+          "name": "기능및지시문 @layer",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#layer"
+        },
+        {
+          "name": "핵심개념",
+          "url": "https://tailwindcss.com/docs/extracting-components#extracting-component-classes-with-apply"
+        }
+      ]
+    }
   ]
 }

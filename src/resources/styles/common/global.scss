@@ -18,7 +18,7 @@ body {
 
     &:hover,
     &:hover > *:first-child {
-      color: rgba(var(--RGB-primary), 0.8);
+      @apply text-shamrock-500;
     }
   }
 }
