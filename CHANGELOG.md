@@ -3,6 +3,21 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.0] 2021-11-19
+
+- #689
+
+### Changed
+
+- Point color 추가 & 변경
+- 타이틀에 적용하던 나눔스퀘어 폰트제거
+- FontAwesome 스크립트 프로필에서만 사용하게 변경
+- Admin dashboard에 적용하던 커스텀 워드프레스 함수들 제거
+
+### Added
+
+- tailwind clamp 플러그인 추가
+
 ## [v8.12.3] 2021-11-18
 
 ### Changed
