@@ -1,4 +1,4 @@
-@import 'tailwindcss/base';
+@tailwind base;
 
 @import 'functions/*';
 @import 'common/root';
@@ -17,6 +17,6 @@
 @import 'pages/home';
 @import 'pages/resume';
 
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind components;
+@tailwind utilities;
 @tailwind variants;
