@@ -1,3 +1,4 @@
+<script src="https://kit.fontawesome.com/a99f480b85.js" crossorigin="anonymous"></script>
 
 <div class="profile">
   <div class="profile-humaninfo flex mb-4">
