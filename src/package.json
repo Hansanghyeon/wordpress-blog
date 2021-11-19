@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.3.0",
+    "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
     "@wordpress/babel-preset-default": "^6.1.0",

@@ -13,8 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- D2Codnig -->
     <link href="https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://hansanghyeon.github.io/NanumSquareRound/nanumsquareround.min.css">
-    <script src="https://kit.fontawesome.com/a99f480b85.js" crossorigin="anonymous"></script>
     <!-- Kakao -->
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <!-- Hansanghyeon Font -->

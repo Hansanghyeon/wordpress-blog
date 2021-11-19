@@ -1440,6 +1440,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/line-clamp@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@tailwindcss/line-clamp@npm:0.2.2"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0-alpha.1"
+  checksum: c5873bf6cae7fff341dcf7df5de6b72c3ebc3eac4d50b27480d0e536c3e1b12afef75d1fde76e90e9f4bbd11c4ec32a9f7b18979398e83ee5889469bf7b9a2a9
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/typography@npm:^0.4.1":
   version: 0.4.1
   resolution: "@tailwindcss/typography@npm:0.4.1"
@@ -9201,6 +9210,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@tailwindcss/aspect-ratio": ^0.3.0
+    "@tailwindcss/line-clamp": ^0.2.2
     "@tailwindcss/typography": ^0.4.1
     "@tinypixelco/laravel-mix-wp-blocks": ^1.1.0
     "@wordpress/babel-preset-default": ^6.1.0
