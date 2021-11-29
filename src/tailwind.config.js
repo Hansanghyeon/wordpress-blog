@@ -76,6 +76,7 @@ module.exports = {
   theme: {
     extend: {
       colors,
+      borderColor: colors,
       typography: {
         DEFAULT: {
           css: {

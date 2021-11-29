@@ -46,7 +46,6 @@
       </div>
       <div class="ditto-footer">
         <div class="ditto-footer-more">
-          @include('partials.list-notion')
           @if ($tags)
             <button class="svgWrap" @mouseover="open = true">
               <svg viewBox="0 0 497 497">
@@ -56,6 +55,7 @@
               </svg>
             </button>
           @endif
+          @include('partials.list-notion')
         </div>
         <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time>
       </div>
