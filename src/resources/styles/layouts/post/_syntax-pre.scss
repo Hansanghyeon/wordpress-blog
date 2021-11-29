@@ -11,6 +11,7 @@ pre.wp-block-code {
   border: none;
   color: var(--text0);
   font-size: 85%;
+  border-radius: 0;
 
   + pre {
     margin-top: 1.25em;
@@ -18,6 +19,39 @@ pre.wp-block-code {
 
   &.whitespace-pre-wrap code {
     white-space: pre-wrap;
+  }
+
+  .prism-titlename {
+    @apply border-bombay-700 border-b border-opacity-10;
+
+    position: relative;
+    padding-top: 0.2em;
+    padding-left: var(--paddingX);
+    padding-bottom: 0.2em;
+    font-size: 90%;
+
+    &:after {
+      @apply bg-shamrock-500;
+
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 14px;
+
+      --triangle: 0.5em;
+
+      clip-path: polygon(
+        calc(100% - var(--triangle, 1em)) 0,
+        0% 0,
+        0% 100%,
+        calc(100% - var(--triangle, 1em)) 100%,
+        100% 50%
+      );
+      overflow: hidden;
+    }
   }
 }
 
