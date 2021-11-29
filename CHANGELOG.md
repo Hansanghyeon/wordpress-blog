@@ -3,6 +3,20 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.1] 2021-11-29
+
+### Changed
+
+- 포스트의 여백 조절
+
+### Remove
+
+- wp function 파일 중 일부 워드프레스 관리자 대쉬보드에서 관리하게 변경
+
+### Add
+
+- code block title style
+
 ## [v8.13.0] 2021-11-19
 
 - #689
