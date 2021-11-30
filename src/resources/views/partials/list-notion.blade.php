@@ -4,7 +4,7 @@
       <li>
         <a href="{!! $term['link'] !!}" class="list-notion">
           @isset($term['icon'])
-            <div class="imgWrap @isset ($term['icon']['cover'])transform scale-180 @endisset">
+            <div class="imgWrap @isset ($term['icon']['cover'])transform scale-[1.8] @endisset">
               <img src="{!! $term['icon']['src'] !!}" alt="{!! $term['icon']['alt'] !!}">
             </div>
           @endisset
