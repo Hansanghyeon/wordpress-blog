@@ -3,12 +3,7 @@
 @section('content')
   @include('partials.header-taxonomy')
   @if (!have_posts())
-    <div class="container mx-auto lg:max-w-screen-lg px-6">
-      <div class="alert alert-warning">
-        {{ __('Sorry, no results were found.', 'sage') }}
-      </div>
-      {!! get_search_form(false) !!}
-    </div>
+    <x-C404 />
   @endif
   <div class="container mx-auto">
     <div id="macy-container">
