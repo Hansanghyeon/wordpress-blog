@@ -8,5 +8,5 @@ ignore-*
 acp-settings
 .DS_Store
 key/
-content/*
-!content/.gitkeep
+wp-content/**/*
+!wp-content/.gitkeep
