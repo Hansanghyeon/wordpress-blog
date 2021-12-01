@@ -80,8 +80,10 @@ class Archive extends Composer
           "hide_empty" => false,
         ));
 
-        $termsHierarchy = array();
-        $this->sort_terms_hierarchically($terms, $termsHierarchy);
-        return $termsHierarchy;
+        if (!empty($terms) && !is_wp_error( $terms )) {
+          $termsHierarchy = array();
+          $this->sort_terms_hierarchically($terms, $termsHierarchy);
+          return $termsHierarchy;
+        }
     }
 }

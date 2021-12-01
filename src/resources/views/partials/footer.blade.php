@@ -7,11 +7,6 @@
     <span>
       Copyright (c) 2021 999hyeon
     </span>
-    @php dynamic_sidebar('sidebar-footer') @endphp
+    @php(dynamic_sidebar('sidebar-footer'))
   </div>
 </footer>
-@if (current_user_can('editor') || current_user_can('administrator')) 
-<div class="share-global">
-  <x-Share />
-</div>
-@endif
