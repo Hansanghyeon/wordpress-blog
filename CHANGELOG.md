@@ -3,6 +3,17 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.4] 2021-12-01
+
+### Added
+
+- dev 버전의 워드프레스
+
+### Fixed
+
+- styelint error
+- 몇년 몇달 몇일째 ui가 캐싱모드로 진입할때 재대로 보여지지않는문제 때문에 php로 값을 넘겨받고 js로 오버라이드하는 방식으로 구성
+
 ## [v8.13.3] 2021-12-01
 
 ### Added

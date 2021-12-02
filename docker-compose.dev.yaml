@@ -1,41 +1,52 @@
 #####################################
-# Local Development
+# swarm에서 작동하는 docker-compose
 #####################################
 version: '3.8'
-########################### SERVICES
 
+########################### SERVICES
 services:
   wordpress:
-    env_file:
-      - ./.env
-    container_name: WP__${PROJECT_NAME}
-    # development image
-    image: wordpress:php8.0
+    image: ghcr.io/hansanghyeon/wordpress-redis
     restart: always
-    ports:
-      - ${PROJECT_PORT}:80
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: DB_mariadb:3306
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}_dev
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Redis */
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'TOY-hyeon-dev_redis'));
+        define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
+        define( 'NIUI_HOST', 'https://dev.hyeon.pro');
     volumes:
-      - ./.wordpress:/var/www/html
-      - ./Theme:/var/www/html/wp-content/themes/sage
-      - ./backup:/var/www/html/wp-content/ai1wm-backups
-    links:
-      - redis
-    external_links:
-      - DB__wordpress:mariadb
+      - wordpress:/var/www/html
+      - ./dev:/var/www/html/wp-content/themes/sage
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == ${HOSTNAME}
+      labels:
+        - traefik.enable=true
+        ## HTTP Routers
+        - traefik.http.routers.hyeon_dev.entrypoints=websecure
+        - traefik.http.routers.hyeon_dev.rule=Host(`dev.hyeon.pro`)
+        - traefik.http.routers.hyeon_dev.tls.certresolver=leresolver
+        - traefik.http.services.hyeon_dev.loadbalancer.server.port=80
   redis:
-    image: redis:6.2.5
+    image: redis:latest
     volumes:
       - redis:/data
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == ${HOSTNAME}
 
 ########################### NETWORKS
 networks:
   default:
     external:
-      name: db_net
+      name: DB_net
 volumes:
   redis:
+  wordpress:
