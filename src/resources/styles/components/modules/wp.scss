@@ -9,31 +9,15 @@ body.admin-bar {
     }
   }
 
+  @media screen and (max-width: 782px) {
+    --wp-bar: 46px;
+  }
+
   @media screen and (min-width: 783px) {
     --wp-bar: 32px;
   }
 
   header.global {
-    top: 32px;
-
-    @media screen and (max-width: 782px) {
-      top: 46px;
-    }
-
-    &.mobile {
-      top: 46px;
-
-      @media screen and (min-width: 783px) {
-        top: 32px;
-      }
-
-      &.shrink {
-        top: 0;
-
-        @media screen and (min-width: 600px) {
-          top: inherit;
-        }
-      }
-    }
+    top: var(--wp-bar, 0px);
   }
 }
