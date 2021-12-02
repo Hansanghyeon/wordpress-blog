@@ -3,6 +3,7 @@
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
+use Carbon\Carbon;
 
 class App extends Composer
 {
@@ -24,6 +25,7 @@ class App extends Composer
     {
         return [
             'siteName' => $this->siteName(),
+            'history' => $this->history()
         ];
     }
 
@@ -35,5 +37,17 @@ class App extends Composer
     public function siteName()
     {
         return get_bloginfo('name', 'display');
+    }
+
+    public function history()
+    {
+      $dtCreateblog = Carbon::create(2014, 7, 22, 0, 0, 0, 'Asia/Seoul');
+      $dtNow = Carbon::now('Asia/Seoul');
+
+      $days = $dtNow->diffInDays($dtCreateblog);
+      $month = $dtNow->diffInMonths($dtCreateblog) % 12;
+      $year = $dtNow->diffInYears($dtCreateblog);
+
+      return "{$year}년 {$month}개월째 ({$days}일)";
     }
 }
