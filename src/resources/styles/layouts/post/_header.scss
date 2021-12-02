@@ -25,7 +25,7 @@
 
   @media (min-width: 1540px) {
     position: sticky;
-    top: calc(45px + var(--bar));
+    top: calc(45px + var(--wp-bar, 0px));
     margin-bottom: 0;
   }
 
