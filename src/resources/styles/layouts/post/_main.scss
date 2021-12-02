@@ -1,7 +1,12 @@
 article {
   --w: 94%;
-  --paddingX: 24px;
-  --paddingY: 24px;
+  --paddingX: 1rem;
+  --paddingY: 1rem;
+
+  @media (min-width: theme('screens.sm')) {
+    --paddingX: 1.5rem;
+    --paddingY: 1.5rem;
+  }
 
   @media (min-width: theme('screens.md')) {
     --w: 90%;
