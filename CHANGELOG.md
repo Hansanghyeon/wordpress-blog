@@ -3,6 +3,14 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.5] 2021-12-01
+
+### Changed
+
+- Pagination prev, next 버튼 제거, 넘버 중앙정렬
+- Container의 기본 패딩설정, 기존 설정된 패딩클래스 제거
+- wp 모바일에서는 상단 고정형 nav가 아닌 스타일 코드 수정
+
 ## [v8.13.4] 2021-12-01
 
 ### Added
