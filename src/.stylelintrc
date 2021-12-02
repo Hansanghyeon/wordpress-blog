@@ -12,6 +12,7 @@
       {
         "ignoreAtRules": [
           "extend",
+          "extends",
           "at-root",
           "debug",
           "warn",
@@ -30,7 +31,8 @@
           "responsive",
           "variants",
           "screen",
-          "function"
+          "function",
+          "layer"
         ]
       }
     ]

@@ -30,7 +30,7 @@ pre.wp-block-code {
     padding-bottom: 0.2em;
     font-size: 90%;
 
-    &:after {
+    &::after {
       @apply bg-shamrock-500;
 
       content: '';

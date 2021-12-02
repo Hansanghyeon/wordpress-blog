@@ -10,6 +10,7 @@
       @apply hover:bg-white;
       @apply dark:hover:bg-tuna-500;
     }
+
     &.active {
       @apply text-white;
       @apply bg-shamrock-700 hover:bg-shamrock-700;
