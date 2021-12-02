@@ -1,8 +1,6 @@
 body {
   @apply font-sans;
 
-  --bar: 0px;
-
   @media (prefers-color-scheme: light) {
     @apply text-gray-900;
   }

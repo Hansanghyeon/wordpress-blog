@@ -1,14 +1,6 @@
 
-<div class="py-3 flex items-center justify-center">
-  <div class="flex-1 flex justify-between sm:hidden">
-    <a href="{!! $prevlink !!}" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-      Previous
-    </a>
-    <a href="{!! $nextlink !!}" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-      Next
-    </a>
-  </div>
-  <div>
+<div class="py-3 grid grid-cols-1 gap-x-[18px] gap-y-[18px] items-center justify-center">
+  <div class="justify-self-center">
     <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
       <a href="{!! $prevlink !!}" class="relative inline-flex items-center px-2 py-2 rounded-l-md border text-sm font-medium btn-white">
         <span class="sr-only">Previous</span>
