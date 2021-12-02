@@ -6,7 +6,7 @@
   @if (!have_posts())
     <x-C404 />
   @else
-    <div class="container lg:max-w-screen-lg mx-auto px-6">
+    <div class="container lg:max-w-screen-lg mx-auto">
       <div class="ditto-root">
         @while (have_posts()) @php(the_post())
           {{-- @include('partials.content-'.get_post_type()) --}}
@@ -14,7 +14,7 @@
         @endwhile
       </div>
     </div>
-    <div class="container lg:max-w-screen-lg mx-auto px-6">
+    <div class="container lg:max-w-screen-lg mx-auto">
       <div class="page-pagination-number">
         {!! $pagination !!}
       </div>

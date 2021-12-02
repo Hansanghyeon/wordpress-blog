@@ -89,6 +89,12 @@ module.exports = {
     extend: {
       colors,
       borderColor: colors,
+      container: {
+        padding: {
+          DEFAULT: '1rem',
+          md: '2rem',
+        },
+      },
       typography: {
         DEFAULT: {
           css: {
