@@ -3,7 +3,15 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
-## [v8.13.5] 2021-12-01
+## [v8.13.6] 2021-12-02 wip2
+
+### Changed
+
+- [재수정] wp 모바일에서는 상단 고정형 nav가 아닌 스타일 코드 수정
+- Root Font size 설정
+- Root font size 설정에 대한 포스트 영역 패딩 설정
+
+## [v8.13.5] 2021-12-02
 
 ### Changed
 
