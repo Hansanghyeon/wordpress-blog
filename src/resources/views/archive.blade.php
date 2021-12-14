@@ -9,7 +9,6 @@
     <div class="container lg:max-w-screen-lg mx-auto">
       <div class="ditto-root">
         @while (have_posts()) @php(the_post())
-          {{-- @include('partials.content-'.get_post_type()) --}}
           @include('partials.content-ditto')
         @endwhile
       </div>
