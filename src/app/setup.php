@@ -24,6 +24,7 @@ add_action('wp_enqueue_scripts', function () {
     }
 
     wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), false, null);
+    wp_enqueue_style('fontello', asset('fonts/fontello/css/fontello.css')->uri(), false, null);
 }, 100);
 
 /**
