@@ -1,6 +1,6 @@
 <ul class="share">
   <li class="share-label">
-    <i class="fi-rr-share"></i>
+    <i class="icon-share-1"></i>
   </li>
   <li class="share-item">
     <a href="javascript:;" id="share-kakao"
