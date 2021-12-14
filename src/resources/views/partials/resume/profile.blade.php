@@ -1,5 +1,3 @@
-<script src="https://kit.fontawesome.com/a99f480b85.js" crossorigin="anonymous"></script>
-
 <div class="profile">
   <div class="profile-humaninfo flex mb-4">
     <div class="imgWrap">
@@ -10,13 +8,13 @@
         <h4>한상현</h4>
       </li>
       <li>
-        <i class="fi-rr-smartphone"></i> <a href="tel:01053929950">01053929950</a>
+        <i class="icon-mobile"></i> <a href="tel:01053929950">01053929950</a>
       </li>
       <li>
-        <i class="fi-rr-envelope"></i> <a href="melto: 999@hyeon.pro">999@hyeon.pro</a>
+        <i class="icon-mail-1"></i> <a href="melto: 999@hyeon.pro">999@hyeon.pro</a>
       </li>
       <li>
-        <i class="fab fa-github"></i> <a href="https://github.com/Hansanghyeon">999hyeon</a>
+        <i class="icon-github"></i> <a href="https://github.com/Hansanghyeon">999hyeon</a>
       </li>
     </ul>
   </div>
