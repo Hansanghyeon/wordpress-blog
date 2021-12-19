@@ -57,7 +57,7 @@
           @endif
           @include('partials.list-notion')
         </div>
-        <time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time>
+        <time class="updated" datetime="{{ get_post_time('c', true) }}">{!! $date !!}</time>
       </div>
     </div>
   </div>

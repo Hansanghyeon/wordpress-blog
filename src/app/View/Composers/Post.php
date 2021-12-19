@@ -2,6 +2,7 @@
 
 namespace App\View\Composers;
 
+use Carbon\Carbon;
 use Roots\Acorn\View\Composer;
 
 class Post extends Composer
@@ -33,6 +34,7 @@ class Post extends Composer
             'categories' => $this->getTaxonomy('category'),
             'archive' => $this->get_menu(),
             'tags' => $this->getTaxonomy('tag'),
+            'date' => $this->getDate(),
         ];
     }
 
@@ -147,5 +149,12 @@ class Post extends Composer
   
           return $menu;
         }
+    }
+
+    public function getDate()
+    {
+      $date = get_post_time('c', true);
+      $date = new Carbon($date, 'Asia/Seoul');
+      return $date->format('Y년 m월 d일');
     }
 }

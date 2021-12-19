@@ -11,11 +11,8 @@
 }
 
 html :where(.editor-styles-wrapper) {
-  pre,
-  .mkaz-code-syntax-block__lang_label {
-    font-size: revert;
-    line-height: revert;
-    margin: revert;
+  pre {
+    @apply bg-[#EEEEEE] p-[14px] rounded;
   }
 }
 

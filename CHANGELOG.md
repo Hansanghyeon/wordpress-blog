@@ -3,6 +3,20 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.9] 2021-12-19
+
+### Changed
+
+- footer에 적용하는 js 제거
+- (BE) pre 코드의 배경이 흰색이라 구분이 안되서 색상 적용
+
+### Fixed
+
+- aio-migration 문제를 파훼하면서 사이트의 백엔드에서 기본 언어를 en으로 변경하였다.
+  - content의 `get_the_date()`가 영어로 출력되는 문제
+  - Carbon으로 date의 값을 한국으로 출력 변경 (dayjs 사용하지 않음 백엔드에서 처리)
+- 메인페이지 각각의 아카이브 메뉴버튼이 `flex-wrap` 속성이 없어서 가로 스트롤리 생기는 문제
+
 ## [v8.13.8] 2021-12-14
 
 ### Changed
