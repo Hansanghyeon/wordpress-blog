@@ -4,7 +4,7 @@
   @include('partials.header-page')
 
   @if (!have_posts())
-    <div class="container lg:max-w-screen-lg mx-auto">
+    <div class="container lg:max-w-screen-lg">
       <x-Alert type="warning">
         {!! __('Sorry, no results were found.', 'sage') !!}
       </x-Alert>
@@ -13,7 +13,7 @@
     </div>
   @endif
 
-  <div class="container lg:max-w-screen-lg mx-auto">
+  <div class="container lg:max-w-screen-lg">
     <div id="ais-wrapper">
       <main id="ais-main">
         <div class="algolia-search-box-wrapper">
@@ -197,7 +197,7 @@
     'prev_text' => __( '이전' ),
     'next_text' => __( '다음' ),
   )))
-    <div class="container lg:max-w-screen-lg mx-auto">
+    <div class="container lg:max-w-screen-lg">
       <div class="page-pagination">
         {!! $pagination !!}
       </div>

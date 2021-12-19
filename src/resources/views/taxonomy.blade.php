@@ -5,7 +5,7 @@
   @if (!have_posts())
     <x-C404 />
   @endif
-  <div class="container mx-auto">
+  <div class="container">
     <div id="macy-container">
       @while (have_posts()) @php the_post() @endphp
         @include('partials.content-ditto')

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container max-w-screen-md mx-auto">
+  <div class="container max-w-screen-md">
     <div class="page-header">
       <div class="text-center" x-data="{show: true}" x-show="show">
         <div class="neonAlert success mx-auto">

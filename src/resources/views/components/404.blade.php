@@ -1,4 +1,4 @@
-<div class="container lg:max-w-screen-lg mx-auto">
+<div class="container lg:max-w-screen-lg">
   <div class="relative">
     <img src="{!! get_theme_file_uri('resources/images/not-found.png') !!}" />
     <div class="

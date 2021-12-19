@@ -70,7 +70,7 @@ const colors = {
 module.exports = {
   mode: 'jit',
   purge: {
-    content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
+    content: ['./app/**/*.php', './resources/**/*.{php,vue,js,jsx,ts,tsx}'],
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -90,6 +90,7 @@ module.exports = {
       colors,
       borderColor: colors,
       container: {
+        center: true,
         padding: {
           DEFAULT: '1rem',
           md: '2rem',
