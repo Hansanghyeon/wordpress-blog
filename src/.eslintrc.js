@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
   extends: 'eslint:recommended',
+  eslintConfig: {
+    extends: 'react-app',
+  },
   parser: 'babel-eslint',
   globals: {
     wp: true,

@@ -51,6 +51,10 @@ mix.webpackConfig({
   },
 });
 
+mix.options({
+  legacyNodePolyfills: false,
+});
+
 if (!mix.inProduction()) {
   mix.sourceMaps().version();
   mix.webpackConfig({
