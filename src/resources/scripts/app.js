@@ -8,26 +8,15 @@ import Alpine from 'alpinejs';
 // import './autoload/**/*';
 
 // import local dependencies
+
 import Router from './util/router';
-import common from './routes/common';
-import singleDev from './routes/single-dev';
-import singleBlog from './routes/single-blog';
-import taxonomy from './routes/taxonomy';
+import routes from './routes';
 
 /** Populate Router instance with DOM routes */
-const routes = new Router({
-  // All pages
-  common,
-  singleDev,
-  singleBlog,
-  taxDevCategory: taxonomy,
-  taxDevTag: taxonomy,
-  taxBlogCategory: taxonomy,
-  taxDevSeries: taxonomy,
-});
+const Routes = new Router(routes);
 
 // Load Events
 jQuery(document).ready(() => {
-  routes.loadEvents();
+  Routes.loadEvents();
   Alpine.start();
 });
