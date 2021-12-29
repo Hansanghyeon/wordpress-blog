@@ -13,6 +13,7 @@
 
 body {
   --gnbY: 45px;
+  --topAreaHeight: calc(var(--gnbY) + var(--wp-bar, 0px));
 }
 
 header.global {
