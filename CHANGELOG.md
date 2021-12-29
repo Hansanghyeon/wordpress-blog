@@ -3,6 +3,15 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.13.10] 2021-12-29
+
+### Changed
+
+- remark42 서비스 운용 replybox제거
+- (refactering) Routes를 Routes/index로 관리 변경
+- tailwindcss container 중앙정렬 기본값으로 변경
+- CHANGELOG 제목 포맷 싱크
+
 ## [v8.13.9] 2021-12-19
 
 ### Changed
