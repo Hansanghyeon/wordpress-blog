@@ -5,6 +5,13 @@ __metadata:
   version: 5
   cacheKey: 8
 
+"@alpinejs/intersect@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "@alpinejs/intersect@npm:3.7.1"
+  checksum: 8c8fd0977cee99bd6638b549a5f8fe0958f768174c885c1eeac9224b045166636eec37bb251c56f41f77e516e9388b324668931078e5b9f319fbf11f4fd7806a
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:7.12.11":
   version: 7.12.11
   resolution: "@babel/code-frame@npm:7.12.11"
@@ -9784,6 +9791,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@alpinejs/intersect": ^3.7.1
     "@tailwindcss/aspect-ratio": ^0.4.0
     "@tailwindcss/line-clamp": ^0.3.0
     "@tailwindcss/typography": ^0.5.0
