@@ -4,6 +4,7 @@
 @import 'common/root';
 
 @import 'common/global';
+@import 'common/prose';
 
 // components
 @import 'components/modules/*';
@@ -16,6 +17,7 @@
 // page
 @import 'pages/home';
 @import 'pages/resume';
+@import 'pages/history';
 
 @tailwind components;
 @tailwind utilities;

@@ -69,9 +69,7 @@ const colors = {
 
 module.exports = {
   mode: 'jit',
-  purge: {
-    content: ['./app/**/*.php', './resources/**/*.{php,vue,js,jsx,ts,tsx}'],
-  },
+  content: ['./app/**/*.php', './resources/**/*.{php,vue,js,jsx,ts,tsx}'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     screens: {
