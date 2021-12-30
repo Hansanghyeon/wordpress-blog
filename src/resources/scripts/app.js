@@ -3,11 +3,10 @@
  */
 import 'jquery';
 import Alpine from 'alpinejs';
+import intersect from '@alpinejs/intersect';
+import store from './store';
 
-// Import everything from autoload
-// import './autoload/**/*';
-
-// import local dependencies
+Alpine.plugin(intersect);
 
 import Router from './util/router';
 import routes from './routes';
@@ -18,5 +17,6 @@ const Routes = new Router(routes);
 // Load Events
 jQuery(document).ready(() => {
   Routes.loadEvents();
+  store();
   Alpine.start();
 });

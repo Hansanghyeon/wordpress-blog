@@ -3,6 +3,18 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.14.0] 2021-12-29
+
+### Added
+
+- history페이지에 CHANGELOG 추가 [[Feature] CHANGELOG · Issue #717 · Hansanghyeon/Hansanghyeon](https://github.com/Hansanghyeon/Hansanghyeon/issues/717)
+
+### Changed
+
+- tailwind.config.js colors로인해 코드 가독성 저해를 일으킴 해당 colors config 폴더로 분리
+- 자주사용하는 position center를 컴포넌트로 tailwind.config.js 정의추가
+- history - changelog의 current version 스타일 변경
+
 ## [v8.13.10] 2021-12-29
 
 ### Changed
@@ -489,7 +501,7 @@ UI와 composer의 기능이 추가되어서 version 8.3.0으로 명명
 
 모든 react components, page를 전부 `*.blade.php` 코드로 변경
 
-## [v5.15.0 ~ v6.0.0]
+## [v5.15.0 ... v6.0.0] 9999-99-99
 
 체인지 로그를 재대로 남기지 못함 😭
 

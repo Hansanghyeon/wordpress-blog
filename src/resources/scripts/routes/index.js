@@ -2,6 +2,7 @@ import common from './common';
 import singleDev from './single-dev';
 import singleBlog from './single-blog';
 import taxonomy from './taxonomy';
+import history from './history';
 
 export default {
   // All pages
@@ -12,4 +13,5 @@ export default {
   taxDevTag: taxonomy,
   taxBlogCategory: taxonomy,
   taxDevSeries: taxonomy,
+  history,
 };

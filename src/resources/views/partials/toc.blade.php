@@ -1,4 +1,4 @@
-<div class="toc-area">
+<div class="toc-area transition-opacity ease-linear duration-300" :class="{'opacity-0 z-0': $store.tocFixed}">
   <div id="toc" class="toc-area-inner">
     @php dynamic_sidebar('content_first') @endphp
   </div>
