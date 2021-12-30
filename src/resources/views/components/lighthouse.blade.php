@@ -1,0 +1,1 @@
+<div id="react-lighthouse-app" data-lottie-light="{!! $light !!}" data-lottie-dark="{!! $dark !!}"></div>

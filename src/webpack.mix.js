@@ -37,6 +37,7 @@ mix
 
 mix
   .copyDirectory('resources/images', 'public/images')
+  .copyDirectory('resources/assets', 'public/assets')
   .copyDirectory('resources/fonts', 'public/fonts');
 
 mix.webpackConfig({
