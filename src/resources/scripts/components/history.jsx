@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm';
 
 function Logs({logs}) {
   if (!logs) return <React.StrictMode></React.StrictMode>;
@@ -17,12 +17,12 @@ function Logs({logs}) {
           </div>
         </div>
         <div id={version} className="order-1 scroll-mt-[calc(var(--topAreaHeight)+20px)] flex flex-col items-center row-span-2 md:row-span-1">
-          <a href={`#${version}`} className={`circle w-[24px] h-[24px] border-4 rounded-full block relative ${index !== 0 && 'border-bombay-100'}`}>
+          <a href={`#${version}`} className={`circle w-[24px] h-[24px] rounded-full block relative ${index !== 0 && 'border-4 border-bombay-100 dark:border-[#444c56]'}`}>
           {index === 0 && <i className="icon-back-in-time position-center text-[24px] text-shamrock-500"></i>}
           </a>
-          <div className={`bar w-[4px] h-[calc(100%-24px)] rounded-full ${index === 0 ? 'bg-shamrock-500' : 'bg-bombay-100'}`}></div>
+          <div className={`bar w-[4px] h-[calc(100%-24px)] rounded-full ${index === 0 ? 'bg-shamrock-500' : 'bg-bombay-100 dark:bg-[#444c56]'}`}></div>
         </div>
-        <div className={`order-3 mb-[40px] p-[16px] border rounded-[6px] border-[#d0d7de] shadow-sm ${index === 0 ? 'bg-white' : 'bg-bombay-100'}`}>
+        <div className={`order-3 mb-[40px] p-[16px] border rounded-[6px] border-[#d0d7de] dark:border-[#444c56] shadow-sm bg-[color:var(--bg0)]`}>
           <div className="hidden md:block mb-[20px]">
             <ReactMarkdown children={log[0]} plugins={[remarkGfm]} />
           </div>
@@ -35,7 +35,7 @@ function Logs({logs}) {
   })
 }
 
-export default function History() {
+export default function History({ lottie }) {
   const [desc, setDesc] = useState('');
   const [logs, setLogs] = useState(null);
 
