@@ -17,8 +17,10 @@ function Logs({logs}) {
           </div>
         </div>
         <div id={version} className="order-1 scroll-mt-[calc(var(--topAreaHeight)+20px)] flex flex-col items-center row-span-2 md:row-span-1">
-          <a href={`#${version}`} className={`circle w-[24px] h-[24px] border-4 rounded-full block ${index === 0 ? 'border-shamrock-500' : 'border-bombay-100'}`}></a>
-          <div className={`bar w-[4px] h-full rounded-full ${index === 0 ? 'bg-shamrock-500' : 'bg-bombay-100'}`}></div>
+          <a href={`#${version}`} className={`circle w-[24px] h-[24px] border-4 rounded-full block relative ${index !== 0 && 'border-bombay-100'}`}>
+          {index === 0 && <i className="icon-back-in-time position-center text-[24px] text-shamrock-500"></i>}
+          </a>
+          <div className={`bar w-[4px] h-[calc(100%-24px)] rounded-full ${index === 0 ? 'bg-shamrock-500' : 'bg-bombay-100'}`}></div>
         </div>
         <div className={`order-3 mb-[40px] p-[16px] border rounded-[6px] border-[#d0d7de] shadow-sm ${index === 0 ? 'bg-white' : 'bg-bombay-100'}`}>
           <div className="hidden md:block mb-[20px]">
