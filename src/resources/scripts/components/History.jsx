@@ -35,7 +35,7 @@ function Logs({logs}) {
   })
 }
 
-export default function History({ lottie }) {
+export default function History() {
   const [desc, setDesc] = useState('');
   const [logs, setLogs] = useState(null);
 
