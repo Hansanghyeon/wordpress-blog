@@ -17,7 +17,7 @@
       <div id="changelog-start"></div>
     </article>
     <div class="max-w-[90%] mx-auto relative z-10 lg:max-w-[800px] lg:px-0">
-      <div id="react-app" x-intersect:enter="$store.tocFixed = true" x-intersect:leave="$store.tocFixed = false"></div>
+      <div id="react-history-app" x-intersect:enter="$store.tocFixed = true" x-intersect:leave="$store.tocFixed = false"></div>
     </div>
   @endwhile
 @endsection
