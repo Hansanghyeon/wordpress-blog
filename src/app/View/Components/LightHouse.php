@@ -24,6 +24,6 @@ class LightHouse extends Component
 
   public function lightHouse($isLight = true)
   {
-    return $isLight ? asset('assets/lottie/lf30_editor_f0ce7pjt.json') : asset('assets/lottie/lf30_editor_r9csabuc.json');
+    return $isLight ? asset('lottie/lf30_editor_f0ce7pjt.json') : asset('lottie/lf30_editor_r9csabuc.json');
   }
 }

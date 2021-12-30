@@ -28,6 +28,7 @@ const Box = styled.div`
   bottom: 0;
   right: 0;
   opacity: 0.5;
+  z-index: -1;
 `;
 
 function BaseHouse({path, play}) {
