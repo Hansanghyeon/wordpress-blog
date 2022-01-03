@@ -1,4 +1,7 @@
 <div class="snsList flex items-center gap-2">
+  <a href="/author/hansanghyeon#portfolio" class="w-[18px] h-[18px] inline-flex relative">
+    <img class="scale-[1.4] -translate-x-1/2 -translate-y-1/2 position-center w-full" src="/wp-content/uploads/2022/01/giphy.gif" alt="portfolio">
+  </a>
   <a href="https://dribbble.com/Hansanghyeon" class="icon-dribble icon" alt="dribbble">
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"
       xmlns="http://www.w3.org/2000/svg">
