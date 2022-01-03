@@ -24,4 +24,7 @@
         @include('partials.resume.introduce')
     </div>
   </div>
+  <div class="container">
+    @include('partials.resume.portfolio')
+  </div>
 @endsection
