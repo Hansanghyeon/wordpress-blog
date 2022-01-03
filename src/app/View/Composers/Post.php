@@ -23,7 +23,7 @@ class Post extends Composer
      *
      * @return array
      */
-    public function override()
+    public function with()
     {
         return [
             'title' => $this->title(),
@@ -101,7 +101,7 @@ class Post extends Composer
         if (get_post_type() === 'page') {
             return;
         }
-        $terms = wp_get_post_terms(get_the_ID(), get_post_type(). '_' . $termName);
+        $terms = wp_get_post_terms(get_the_ID(), get_post_type() . '_' . $termName);
 
         $result = [];
 
@@ -115,20 +115,20 @@ class Post extends Composer
             }
 
             $_ = [
-              'name' => $term->name,
-              'link' => '/'.get_post_type().'/'.$termName.'/'.$term->slug
+                'name' => $term->name,
+                'link' => '/' . get_post_type() . '/' . $termName . '/' . $term->slug
             ];
 
-            if (!empty($icon_field_data = get_field('icon', get_post_type(). '_'. $termName .'_'. $term->term_id))) {
+            if (!empty($icon_field_data = get_field('icon', get_post_type() . '_' . $termName . '_' . $term->term_id))) {
                 $_['icon'] = [
-                'src' => $icon_field_data['url'],
-                'alt' => $icon_field_data['title'],
-                'cover' => get_field('icon_full_cover', get_post_type(). '_'. $termName .'_'. $term->term_id),
-              ];
+                    'src' => $icon_field_data['url'],
+                    'alt' => $icon_field_data['title'],
+                    'cover' => get_field('icon_full_cover', get_post_type() . '_' . $termName . '_' . $term->term_id),
+                ];
             }
             array_push($result, $_);
         }
-      
+
         return $result;
     }
 
@@ -142,19 +142,19 @@ class Post extends Composer
             return $k->object == get_post_type();
         });
         if ($menu) {
-          $menu = $menu[array_key_first($menu)];
-          $menu->bg_color = 'background-color: ';
-          $menu->bg_color .= !empty($color = get_field('label_color', $menu->ID)) ? $color : 'transparent';
-          $menu->icon = !empty($icon = get_field('menu_icon', $menu->ID)) ? $icon : '';
-  
-          return $menu;
+            $menu = $menu[array_key_first($menu)];
+            $menu->bg_color = 'background-color: ';
+            $menu->bg_color .= !empty($color = get_field('label_color', $menu->ID)) ? $color : 'transparent';
+            $menu->icon = !empty($icon = get_field('menu_icon', $menu->ID)) ? $icon : '';
+
+            return $menu;
         }
     }
 
     public function getDate()
     {
-      $date = get_post_time('c', true);
-      $date = new Carbon($date, 'Asia/Seoul');
-      return $date->format('Y년 m월 d일');
+        $date = get_post_time('c', true);
+        $date = new Carbon($date, 'Asia/Seoul');
+        return $date->format('Y년 m월 d일');
     }
 }
