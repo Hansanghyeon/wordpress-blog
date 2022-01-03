@@ -7,7 +7,6 @@ const colorReset = {
 };
 
 module.exports = {
-  mode: 'jit',
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js,jsx,ts,tsx}'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {

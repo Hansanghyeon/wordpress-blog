@@ -14,7 +14,7 @@
         <i class="icon-mail-1"></i> <a href="melto: 999@hyeon.pro">999@hyeon.pro</a>
       </li>
       <li>
-        <i class="icon-github"></i> <a href="https://github.com/Hansanghyeon">999hyeon</a>
+        <i class="icon-github"></i> <a href="https://github.com/Hansanghyeon">Hansanghyeon (999)</a>
       </li>
     </ul>
   </div>

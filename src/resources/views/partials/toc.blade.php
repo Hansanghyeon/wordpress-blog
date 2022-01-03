@@ -1,6 +1,6 @@
 <div class="toc-area transition-opacity ease-linear duration-300" :class="{'opacity-0 z-0': $store.tocFixed}">
   <div id="toc" class="toc-area-inner">
-    @php dynamic_sidebar('content_first') @endphp
+    @php(dynamic_sidebar('content_first'))
   </div>
   <div class="toc-area-toggle">
     <button id="toggle-toc" class='btn-toc'>

@@ -3,6 +3,27 @@
 이 프로젝트에서 주목할만한 모든 변경 사항이이 파일에 문서화됩니다.
 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)의 형식을 기본으로 구성됩니다. 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181)위와 같은 내용으로 구성됩니다.
 
+## [v8.15.0] 2022-01-03
+
+### Added
+
+- 포트폴리오 추가 [[Feature] 포트폴리오 · Issue #716 · Hansanghyeon/Hansanghyeon](https://github.com/Hansanghyeon/Hansanghyeon/issues/716)
+- lottie 비주얼요소 추가 테스트
+
+### Fixed
+
+- window에서 d2coding CDN 불량
+
+### Changed
+
+-  `resources/[image|script|styles]` 폴더구조에서 `resources/assets/**/*` assets 폴더 구조로 변경
+-  history ui 다크모드 스타일추가
+-  react-app 아이디값 고유명으로 사용하기 부적절 고유 아이디값으로 추가
+  
+### Removed
+
+- jit 설정 변수 제거
+
 ## [v8.14.0] 2021-12-29
 
 ### Added

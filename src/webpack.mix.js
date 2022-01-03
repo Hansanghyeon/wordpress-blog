@@ -1,6 +1,9 @@
 const mix = require('laravel-mix');
 require('@tinypixelco/laravel-mix-wp-blocks');
 
+// Source path helper
+const src = (path) => `resources/assets/${path}`;
+
 /**
   |--------------------------------------------------------------------------
   | Mix Asset Management
@@ -11,33 +14,42 @@ require('@tinypixelco/laravel-mix-wp-blocks');
   | for your application, as well as bundling up your JS files.
   |
   **/
+// Public Path
+mix.browserSync('hyeon.local:10000');
+// Browsersync
+mix.setPublicPath('./public');
 
-mix.setPublicPath('./public').browserSync('hyeon.local:10000');
-
+// Styles
 mix
-  .sass('resources/styles/app.scss', 'styles')
-  .sass('resources/styles/editor.scss', 'styles')
-  .sass('resources/styles/replybox.scss', 'styles')
-  .options({
-    processCssUrls: false,
-    postCss: [require('tailwindcss')],
-    autoprefixer: {
-      options: {
-        browsers: ['last 6 versions'],
-      },
-    },
-  });
+  .sass(src`styles/app.scss`, 'styles')
+  .sass(src`styles/editor.scss`, 'styles');
 
+// JavaScript
 mix
-  .js('resources/scripts/app.js', 'scripts')
-  .js('resources/scripts/customizer.js', 'scripts')
-  .blocks('resources/scripts/editor.js', 'scripts')
-  .autoload({ jquery: ['$', 'window.jQuery'] })
+  .js(src`scripts/app.js`, 'scripts')
+  .js(src`scripts/customizer.js`, 'scripts')
+  .blocks(src`scripts/editor.js`, 'scripts')
   .extract();
 
+// Autoload
+mix.autoload({ jquery: ['$', 'window.jQuery'] });
+
+// Options
+mix.options({
+  processCssUrls: false,
+  postCss: [require('tailwindcss')],
+  autoprefixer: {
+    options: {
+      browsers: ['last 6 versions'],
+    },
+  },
+  legacyNodePolyfills: false,
+});
+
 mix
-  .copyDirectory('resources/images', 'public/images')
-  .copyDirectory('resources/fonts', 'public/fonts');
+  .copyDirectory(src`images`, 'public/images')
+  .copyDirectory(src`lottie`, 'public/lottie')
+  .copyDirectory(src`fonts`, 'public/fonts');
 
 mix.webpackConfig({
   module: {
@@ -49,10 +61,6 @@ mix.webpackConfig({
       },
     ],
   },
-});
-
-mix.options({
-  legacyNodePolyfills: false,
 });
 
 if (!mix.inProduction()) {
