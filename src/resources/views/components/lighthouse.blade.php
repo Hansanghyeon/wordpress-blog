@@ -1,1 +1,1 @@
-<div id="react-lighthouse-app" data-lottie-light="{!! $light !!}" data-lottie-dark="{!! $dark !!}"></div>
+<div id="react-lighthouse-app" data-lottie-light="{!! $light !!}" data-lottie-dark="{!! $dark !!}" style="translate3d(0,0,0)"></div>
