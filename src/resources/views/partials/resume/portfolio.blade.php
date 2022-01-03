@@ -26,7 +26,7 @@
       <div class="py-8"></div>
     </div>
     <div class="prose">
-      <h4>포트폴리오</h4>
+      <h4 id="portfolio" class="scroll-mt-[calc(var(--topAreaHeight)+20px)]">포트폴리오</h4>
     </div>
   </div>
   <div class="grid grid-cols-1 lg:grid-cols-2 xxl:grid-cols-3 gap-[32px]">
