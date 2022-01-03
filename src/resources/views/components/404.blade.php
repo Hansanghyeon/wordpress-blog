@@ -1,6 +1,6 @@
 <div class="container lg:max-w-screen-lg">
   <div class="relative">
-    <img src="{!! get_theme_file_uri('resources/images/not-found.png') !!}" />
+    <img src="{!! $bg !!}" />
     <div class="
       md:absolute max-w-[90%] md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:translate-y-[-100%] -translate-y-1/2 mx-auto
       shadow-sm rounded-[6px] bg-white bg-opacity-95 px-[24px] py-[20px] border-[#d0d7de]
