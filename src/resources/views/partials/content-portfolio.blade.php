@@ -15,7 +15,7 @@
         <a href="{!! $permalink !!}">{!! $title !!}</a>
       </div>
       <div class="justify-self-end">
-        {!! $date !!}
+        {!! $filterDate !!}
       </div>
     </div>
   </div>

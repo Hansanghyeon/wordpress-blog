@@ -25,7 +25,7 @@ class Portfolio extends Composer
     public function override()
     {
         return [
-            'date' => $this->getDate(),
+            'filterDate' => $this->getDate(),
             'links' => $this->getLink(),
         ];
     }
