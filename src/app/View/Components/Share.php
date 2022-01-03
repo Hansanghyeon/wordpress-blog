@@ -18,8 +18,8 @@ class Share extends Component
     public function get_imgurl($images)
     {
         $images = is_array($images) && !empty($images)
-        ? array_values($images)[0][0]
-        : '';
+            ? array_values($images)[0][0]
+            : '';
         return $images;
     }
     /**
@@ -46,9 +46,9 @@ class Share extends Component
         $this->link = $helper->get_canonical();
 
         if ($this->get_imgurl($value_helper->get_images()) || get_the_ID() === 18) {
-          $this->img = $this->get_imgurl($value_helper->get_images());
+            $this->img = $this->get_imgurl($value_helper->get_images());
         } else {
-          $this->img = (Post::get_menu())->icon;
+            $this->img = (Post::get_menu())?->icon;
         }
     }
 

@@ -29,6 +29,8 @@ article {
     padding-bottom: 20px;
 
     #{headings(1,6)} {
+      @apply scroll-mt-[calc(var(--topAreaHeight)+20px)];
+
       color: var(--text2);
       margin-top: 2rem;
       margin-bottom: 1rem;
