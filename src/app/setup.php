@@ -203,3 +203,11 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer'
     ] + $config);
 });
+
+add_action('pre_get_posts', function ($query) {
+    if (!is_author() || !$query->is_main_query())
+        return;
+
+    $query->set('posts_per_page', 9);
+    $query->set('post_type', 'portfolio');
+});
