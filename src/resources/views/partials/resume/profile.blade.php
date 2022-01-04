@@ -27,18 +27,23 @@
         <code class="point bg-slate-600 text-[color:#61DAFB]">ReactJS</code>
         <code class="point bg-slate-600 text-[color:#F0B5F2]">💅🏾 styled-component</code>
         <code class="point bg-slate-600 text-[color:#CD6899]">Sass(SCSS)</code>
+        <code class="point bg-slate-600 text-[color:#38BDF9]">tailwindcss</code>
+        <code class="point bg-slate-600 text-[color:#38BDF9]">🐳 Docker</code>
         <code>Storybook</code>
         <code>WordPress</code>
         <code>HTML/CSS/JS</code>
       </li>
       <li>그 외 다뤄본 기술 & 인프라 기타 등등</li>
       <li>
-        <code>AWS</code>
+        <code>Cloud (AWS, GCP, NCP)</code>
         <code>Vultr</code>
-        <code>GCP</code>
-        <code>Redux.js</code>
-        <code>react-redux</code>
+        <code>Redux</code>
         <code>Bootstrap 4</code>
+        <code>Vue 3</code>
+        <code>Next.js</code>
+        <code>Gatsby</code>
+        <code>docker swarm</code>
+        <code>k8s</code>
       </li>
     </ul>
   </div>
