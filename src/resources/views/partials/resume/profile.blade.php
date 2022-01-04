@@ -1,5 +1,5 @@
 <div class="profile">
-  <div class="profile-humaninfo flex mb-4">
+  <div class="profile-humaninfo grid grid-cols-[125px,auto] gap-x-[20px] lg:gap-x-[40px] mb-4">
     <div class="imgWrap">
       <img src="https://avatars.githubusercontent.com/u/42893446?v=4" alt="hansanghyeon">
     </div>
@@ -24,9 +24,9 @@
         주요 기술
       </li>
       <li>
-        <code class="point" style="color: #61DAFB">ReactJS</code>
-        <code class="point" style="color: #F0B5F2">💅🏾 styled-component</code>
-        <code class="point" style="color: #CD6899">Sass(SCSS)</code>
+        <code class="point bg-slate-600 text-[color:#61DAFB]">ReactJS</code>
+        <code class="point bg-slate-600 text-[color:#F0B5F2]">💅🏾 styled-component</code>
+        <code class="point bg-slate-600 text-[color:#CD6899]">Sass(SCSS)</code>
         <code>Storybook</code>
         <code>WordPress</code>
         <code>HTML/CSS/JS</code>
