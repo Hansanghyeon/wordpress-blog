@@ -6,7 +6,7 @@
       @include('partials.resume.profile')
     </div>
     <div class="prose max-w-none">
-        @include('partials.resume.introduce')
+        {!! $description !!}
     </div>
   </div>
   <div class="container">

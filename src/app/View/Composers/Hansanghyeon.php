@@ -25,10 +25,12 @@ class Hansanghyeon extends Composer
     {
         return [
             'pagination' => (new UI\Pagination())->render(),
+            'description' => $this->getDescription(),
         ];
     }
 
-    public function __construct()
+    public function getDescription()
     {
+        return do_shortcode('[insert page="5388" display="content"]');
     }
 }
