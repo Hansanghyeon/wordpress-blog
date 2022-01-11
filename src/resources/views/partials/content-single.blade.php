@@ -1,9 +1,9 @@
-<article @php post_class() @endphp>
+<article @php(post_class())>
   @include('partials/header-content')
   <div class="entry-content">
     @include('partials.toc')
     <div class="prose">
-      @php the_content() @endphp
+      @php(the_content())
     </div>
   </div>
   <footer>
