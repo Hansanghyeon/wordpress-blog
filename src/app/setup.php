@@ -25,6 +25,7 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), false, null);
     wp_enqueue_style('fontello', asset('fonts/fontello/css/fontello.css')->uri(), false, null);
+    wp_enqueue_style('pretendard', asset('fonts/pretendard/dist/web/static/pretendard.css')->uri(), false, null);
     wp_enqueue_style('fonts/독도폰트', 'https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap', false, null);
     wp_enqueue_style('fonts/firacode', 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap', false, null);
     wp_enqueue_style('d2coding-01', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css', false, null);

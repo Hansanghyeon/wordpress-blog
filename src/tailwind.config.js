@@ -58,7 +58,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Arita"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Pretendard"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
