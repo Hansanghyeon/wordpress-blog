@@ -4,8 +4,15 @@
   }
   table {
     @apply my-0;
+
     :where(tbody tr):not(:where([class~='not-prose'] *)) {
-      @apply border-b border-[color:var(--bg0)];
+      @apply border-none;
+    }
+    :where(tbody td:first-child):not(:where([class~='not-prose'] *)) {
+      padding-left: 0.5714286em;
+    }
+    :where(tbody td:last-child):not(:where([class~='not-prose'] *)) {
+      padding-right: 0.5714286em;
     }
   }
 
@@ -14,5 +21,12 @@
   }
   .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
     @apply border-b border-[color:var(--bg0)] bg-[color:var(--bg0)];
+  }
+
+  img {
+    margin: 0;
+  }
+  .blocks-gallery-grid {
+    padding: 0;
   }
 }
