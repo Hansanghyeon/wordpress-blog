@@ -1,6 +1,12 @@
+@php
+  ob_start();
+  dynamic_sidebar('content_first');
+  $sidebar = ob_get_clean();
+@endphp
+@if ($sidebar !== '')
 <div class="toc-area transition-opacity ease-linear duration-300" :class="{'opacity-0 z-0': $store.tocFixed}">
   <div id="toc" class="toc-area-inner">
-    @php(dynamic_sidebar('content_first'))
+    {!! $sidebar !!}
   </div>
   <div class="toc-area-toggle">
     <button id="toggle-toc" class='btn-toc'>
@@ -30,3 +36,4 @@
     </button>
   </div>
 </div>
+@endif
