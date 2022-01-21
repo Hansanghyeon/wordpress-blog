@@ -35,6 +35,7 @@ class Post extends Composer
             'archive' => $this->get_menu(),
             'tags' => $this->getTaxonomy('tag'),
             'date' => $this->getDate(),
+            'updateDate' => $this->getUpdateDate(),
         ];
     }
 
@@ -154,6 +155,13 @@ class Post extends Composer
     public function getDate()
     {
         $date = get_post_time('c', true);
+        $date = new Carbon($date, 'Asia/Seoul');
+        return $date->format('Y년 m월 d일');
+    }
+
+    public function getUpdateDate()
+    {
+        $date = get_the_modified_date('c');
         $date = new Carbon($date, 'Asia/Seoul');
         return $date->format('Y년 m월 d일');
     }
