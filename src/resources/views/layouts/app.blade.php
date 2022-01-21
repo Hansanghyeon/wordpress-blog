@@ -12,4 +12,4 @@
 
 @include('partials.footer')
 
-{{-- invisible !mt-0 --}}
+{{-- invisible !mt-0 text-[0px] --}}
