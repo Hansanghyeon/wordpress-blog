@@ -14,7 +14,11 @@
           @if ($paged == $i)
             <span class="z-10 relative inline-flex items-center px-4 py-2 border text-sm font-medium btn-white active">{!! $i !!}</span>
           @else
-            <a href="{!! get_pagenum_link($i) !!}" class="btn-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">{!! $i !!}</a>
+            @if ($anchor !== '')
+              <a href="{!! get_pagenum_link($i) !!}{!! $anchor !!}" class="btn-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">{!! $i !!}</a>
+            @else
+              <a href="{!! get_pagenum_link($i) !!}" class="btn-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">{!! $i !!}</a>
+            @endif
           @endif
         @endif
       @endfor

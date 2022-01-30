@@ -24,7 +24,7 @@ class Hansanghyeon extends Composer
     public function with()
     {
         return [
-            'pagination' => (new UI\Pagination())->render(),
+            'pagination' => (new UI\Pagination())->render(2, '#portfolio'),
             'description' => $this->getDescription(),
         ];
     }

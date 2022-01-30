@@ -6,7 +6,7 @@ use function Roots\view;
 
 class Pagination
 {
-    public function render($range = 2)
+    public function render($range = 2, $anchor = '')
     {
         $showitems = ($range * 2) + 1;
 
@@ -36,6 +36,7 @@ class Pagination
                 'nextlink' => $nextlink,
                 'lastlink' => $lastlink,
                 'showitems' => $showitems,
+                'anchor' => $anchor,
             ]);
         }
     }
