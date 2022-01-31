@@ -97,40 +97,37 @@ class Post extends Composer
         return get_the_excerpt();
     }
 
-    public function getTaxonomy($termName)
+    public function setTerm($term, $termName = 'category')
+    {
+        $termId = get_post_type() . '_' . $termName . '_' . $term->term_id;
+        $term->permalink = get_term_link($term, get_post_type() . '_' . $termName);
+        if (!empty($icon_field_data = get_field('icon', $termId))) {
+            $term->icon_url = $icon_field_data['url'];
+            $term->icon_alt = $icon_field_data['alt'];
+            $term->icon_is_cover = get_field('icon_full_cover', $termId);
+        }
+    }
+
+    public static function getTaxonomy($termName = 'category', $setFilter = null)
     {
         if (get_post_type() === 'page') {
             return;
         }
         $terms = wp_get_post_terms(get_the_ID(), get_post_type() . '_' . $termName);
 
-        $result = [];
-
-        if (is_wp_error($terms) || empty($terms)) {
-            return [];
-        }
+        if (is_wp_error($terms) || empty($terms)) return [];
 
         foreach ($terms as $term) {
             if (get_the_archive_title() === $term->name) {
                 continue;
             }
 
-            $_ = [
-                'name' => $term->name,
-                'link' => '/' . get_post_type() . '/' . $termName . '/' . $term->slug
-            ];
-
-            if (!empty($icon_field_data = get_field('icon', get_post_type() . '_' . $termName . '_' . $term->term_id))) {
-                $_['icon'] = [
-                    'src' => $icon_field_data['url'],
-                    'alt' => $icon_field_data['title'],
-                    'cover' => get_field('icon_full_cover', get_post_type() . '_' . $termName . '_' . $term->term_id),
-                ];
-            }
-            array_push($result, $_);
+            self::setTerm($term);
+            if ($setFilter !== null)
+                $setFilter($term);
         }
 
-        return $result;
+        return $terms;
     }
 
     public static function get_menu()

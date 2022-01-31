@@ -3,13 +3,17 @@
   <div class="px-[12px] pt-[12px] rounded-t-[6px] bg-[color:var(--bg0)]">
     <div class="grid grid-cols-[auto,auto,auto] items-center">
       @if ($categories)
+      <div class="flex">
         <ul class="flex gap-[8px]">
           @foreach ($categories as $category)
-            <div class="w-[32px] h-[32px] rounded-full overflow-hidden">
-              <img src="{!! $category['icon']['src'] !!}" alt="{!! $category['icon']['alt'] !!}">
-            </div>
+            <li class="w-[16px] h-[32px] relative">
+              <div class="w-[32px] h-[32px] rounded-full overflow-hidden absolute">
+                <img src="{!! $category->icon_url !!}" alt="{!! $category->icon_alt !!}">
+              </div>
+            </li>
           @endforeach
         </ul>
+      </div>
       @endif
       <div class="justify-self-center">
         <a href="{!! $permalink !!}">{!! $title !!}</a>
