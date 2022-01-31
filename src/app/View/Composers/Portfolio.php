@@ -27,7 +27,13 @@ class Portfolio extends Composer
         return [
             'filterDate' => $this->getDate(),
             'links' => $this->getLink(),
+            'f_category' => $this->categories,
         ];
+    }
+
+    public function __construct()
+    {
+        $this->getTaxonomy();
     }
 
     public function getDate()
@@ -41,5 +47,16 @@ class Portfolio extends Composer
     {
         $urlTable = get_field('url-table');
         if (!empty($urlTable)) return $urlTable;
+    }
+
+    public $categories;
+    public function getTaxonomy($termName = 'category')
+    {
+        $terms = Post::getTaxonomy($termName, function ($term, $termName) {
+            $termId = get_post_type() . '_' . $termName . '_' . $term->term_id;
+            $term->homepage_url = get_field('homepage_url', $termId);
+        });
+
+        $this->categories = $terms;
     }
 }

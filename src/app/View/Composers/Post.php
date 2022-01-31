@@ -97,7 +97,7 @@ class Post extends Composer
         return get_the_excerpt();
     }
 
-    public function setTerm($term, $termName = 'category')
+    public static function setTerm($term, $termName = 'category')
     {
         $termId = get_post_type() . '_' . $termName . '_' . $term->term_id;
         $term->permalink = get_term_link($term, get_post_type() . '_' . $termName);
@@ -123,8 +123,10 @@ class Post extends Composer
             }
 
             self::setTerm($term);
-            if ($setFilter !== null)
-                $setFilter($term);
+
+            if ($setFilter !== null) {
+                $setFilter($term, $termName);
+            }
         }
 
         return $terms;
