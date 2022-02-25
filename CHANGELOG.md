@@ -3,6 +3,52 @@
 프로젝트의 변경 사항은 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/) 형식을 바탕으로 구성하였습니다.
 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181) 과 동일한 내용으로 구성됩니다.
 
+## [v8.16.0] 2022-01-03
+
+### Added
+
+- 2022-01-03
+  - 포트폴리오 글 하단 이전글, 다음글 네비게이션 추가되가
+- 2022-01-05
+  - 포트폴리오 상세페이지 route 스크립트 추가
+  - [[Featured] Image Light box · Issue #712 · Hansanghyeon/Hansanghyeon](https://github.com/Hansanghyeon/Hansanghyeon/issues/712)
+- 2022-01-11
+  - 기본폰트 Pretendard 변경
+  - PR에 변경된 사항 diff tree 코멘트 액션 추가
+- 2022-01-21
+  - 포스트 마지막 업데이트 날짜 표시
+- 2022-01-30
+  - 페이지네이션에 앵커추가
+
+### Changed
+
+- 2022-01-03
+  - 프로필 사용하는 스택 반영
+  - 자기소개 워드프레스 컨텐츠로 마이그레이션
+  - 경력표시 워드프레스 컨텐츠로 마이그레이션
+- 2022-01-05
+  - [CHANGELOG 오타 및 피드백 · Issue #727 · Hansanghyeon/Hansanghyeon](https://github.com/Hansanghyeon/Hansanghyeon/issues/727)
+- 2022-01-11
+  - `index.php` 내부의 폰트 wp 함수로 이전
+  - toc의 목록이 비어있을때 ui가 보여지지 않게 수정
+- 2022-01-31
+  - 포트폴리오 카테고리(브랜드) 링크 적용
+
+### Refactoring
+
+- 2022-01-31
+  - [[Refactoring] Post Category 로직변경 · Issue #729 · Hansanghyeon/Hansanghyeon](https://github.com/Hansanghyeon/Hansanghyeon/issues/729)
+
+### Fixed
+
+- 2022-01-03
+  - 이전글, 다음글 네비게이션 아이콘 CDN오류 아이콘추가로 해결
+
+### Removed
+
+- 2022-01-03
+  - 리메이크, 삭제된 홈페이지 게시하지 않는 알림 ui 제거 (피드백 반영)
+
 ## [v8.15.0] 2022-01-03
 
 ### Added
