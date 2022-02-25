@@ -1,7 +1,7 @@
 .toc-area {
   position: sticky;
+  z-index: 200;
   top: calc(45px + var(--wp-bar, 0px));
-  z-index: 900;
 
   &-inner {
     padding-top: 45px;
@@ -96,7 +96,6 @@
   &-toggle {
     display: block;
     position: fixed;
-    z-index: 200;
     bottom: 20px;
     right: 20px;
     transform: translate3d(0, 0, 0);

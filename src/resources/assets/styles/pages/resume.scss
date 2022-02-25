@@ -44,10 +44,6 @@
       margin: 0;
       padding: 0;
 
-      @media (min-width: theme('screens.sm')) {
-        padding-left: 40px;
-      }
-
       li {
         display: flex;
         align-items: center;

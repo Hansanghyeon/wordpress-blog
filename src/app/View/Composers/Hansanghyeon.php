@@ -24,11 +24,13 @@ class Hansanghyeon extends Composer
     public function with()
     {
         return [
-            'pagination' => (new UI\Pagination())->render(),
+            'pagination' => (new UI\Pagination())->render(2, '#portfolio'),
+            'description' => $this->getDescription(),
         ];
     }
 
-    public function __construct()
+    public function getDescription()
     {
+        return do_shortcode('[insert page="5388" display="content"]');
     }
 }

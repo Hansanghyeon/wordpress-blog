@@ -43,6 +43,10 @@ article {
     .prose {
       max-width: unset;
 
+      > *:not(p):first-child {
+        margin-top: 1rem;
+      }
+
       > *:not(pre):not(ol):not(ul) {
         padding-left: var(--paddingX);
         padding-right: var(--paddingX);

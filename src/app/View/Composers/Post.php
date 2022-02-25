@@ -35,6 +35,7 @@ class Post extends Composer
             'archive' => $this->get_menu(),
             'tags' => $this->getTaxonomy('tag'),
             'date' => $this->getDate(),
+            'updateDate' => $this->getUpdateDate(),
         ];
     }
 
@@ -96,40 +97,39 @@ class Post extends Composer
         return get_the_excerpt();
     }
 
-    public function getTaxonomy($termName)
+    public static function setTerm($term, $termName = 'category')
+    {
+        $termId = get_post_type() . '_' . $termName . '_' . $term->term_id;
+        $term->permalink = get_term_link($term, get_post_type() . '_' . $termName);
+        if (!empty($icon_field_data = get_field('icon', $termId))) {
+            $term->icon_url = $icon_field_data['url'];
+            $term->icon_alt = $icon_field_data['alt'];
+            $term->icon_is_cover = get_field('icon_full_cover', $termId);
+        }
+    }
+
+    public static function getTaxonomy($termName = 'category', $setFilter = null)
     {
         if (get_post_type() === 'page') {
             return;
         }
         $terms = wp_get_post_terms(get_the_ID(), get_post_type() . '_' . $termName);
 
-        $result = [];
-
-        if (is_wp_error($terms) || empty($terms)) {
-            return [];
-        }
+        if (is_wp_error($terms) || empty($terms)) return [];
 
         foreach ($terms as $term) {
             if (get_the_archive_title() === $term->name) {
                 continue;
             }
 
-            $_ = [
-                'name' => $term->name,
-                'link' => '/' . get_post_type() . '/' . $termName . '/' . $term->slug
-            ];
+            self::setTerm($term);
 
-            if (!empty($icon_field_data = get_field('icon', get_post_type() . '_' . $termName . '_' . $term->term_id))) {
-                $_['icon'] = [
-                    'src' => $icon_field_data['url'],
-                    'alt' => $icon_field_data['title'],
-                    'cover' => get_field('icon_full_cover', get_post_type() . '_' . $termName . '_' . $term->term_id),
-                ];
+            if ($setFilter !== null) {
+                $setFilter($term, $termName);
             }
-            array_push($result, $_);
         }
 
-        return $result;
+        return $terms;
     }
 
     public static function get_menu()
@@ -154,6 +154,13 @@ class Post extends Composer
     public function getDate()
     {
         $date = get_post_time('c', true);
+        $date = new Carbon($date, 'Asia/Seoul');
+        return $date->format('Y년 m월 d일');
+    }
+
+    public function getUpdateDate()
+    {
+        $date = get_the_modified_date('c');
         $date = new Carbon($date, 'Asia/Seoul');
         return $date->format('Y년 m월 d일');
     }

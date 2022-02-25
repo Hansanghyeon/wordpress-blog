@@ -2,14 +2,18 @@
   {{-- content --}}
   <div class="px-[12px] pt-[12px] rounded-t-[6px] bg-[color:var(--bg0)]">
     <div class="grid grid-cols-[auto,auto,auto] items-center">
-      @if ($categories)
+      @if ($f_category)
+      <div class="flex">
         <ul class="flex gap-[8px]">
-          @foreach ($categories as $category)
-            <div class="w-[32px] h-[32px] rounded-full overflow-hidden">
-              <img src="{!! $category['icon']['src'] !!}" alt="{!! $category['icon']['alt'] !!}">
-            </div>
+          @foreach ($f_category as $key => $term)
+            <li class="w-[16px] h-[32px] relative">
+              <a href="{!! $term->homepage_url !!}" target="_blank" class="w-[32px] h-[32px] rounded-full overflow-hidden absolute shadow-md d-block @if($key == 0) z-10 @endif" rel="noopener noreferrer">
+                <img src="{!! $term->icon_url !!}" alt="{!! $term->icon_alt !!}">
+              </a>
+            </li>
           @endforeach
         </ul>
+      </div>
       @endif
       <div class="justify-self-center">
         <a href="{!! $permalink !!}">{!! $title !!}</a>
