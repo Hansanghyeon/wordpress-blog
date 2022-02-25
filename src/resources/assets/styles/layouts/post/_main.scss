@@ -43,7 +43,7 @@ article {
     .prose {
       max-width: unset;
 
-      > *:first-child {
+      > *:not(p):first-child {
         margin-top: 1rem;
       }
 
