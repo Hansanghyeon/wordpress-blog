@@ -15,7 +15,7 @@ services:
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
-        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'TOY-hyeon_redis'));
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', '${TYPE}-${PROJECT_NAME}_redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
     volumes:
       - wordpress:/var/www/html
@@ -28,10 +28,10 @@ services:
       labels:
         - traefik.enable=true
         ## HTTP Routers
-        - traefik.http.routers.hyeon.entrypoints=websecure
-        - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
-        - traefik.http.routers.hyeon.tls.certresolver=leresolver
-        - traefik.http.services.hyeon.loadbalancer.server.port=80
+        - traefik.http.routers.${PROJECT_NAME}.entrypoints=websecure
+        - traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`)
+        - traefik.http.routers.${PROJECT_NAME}.tls.certresolver=leresolver
+        - traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=80
   redis:
     image: redis:latest
     volumes:
