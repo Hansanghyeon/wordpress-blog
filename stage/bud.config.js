@@ -19,7 +19,7 @@ module.exports = async (app) => {
      * These files should be processed as part of the build
      * even if they are not explicitly imported in application assets.
      */
-    .assets('images')
+    .assets(['images', 'fonts'])
 
     /**
      * These files will trigger a full page reload
@@ -32,10 +32,10 @@ module.exports = async (app) => {
      *
      * This is your local dev server.
      */
-    .proxy('http://example.test')
+    .proxy('https://stage.hyeon.pro')
 
     /**
      * Development URL
      */
-    .serve('http://example.test:3000');
+    .serve('http://localhost:3000');
 };

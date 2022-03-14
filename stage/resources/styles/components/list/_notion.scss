@@ -1,0 +1,25 @@
+&-notion {
+  color: var(--text0);
+  display: flex;
+  width: 100%;
+  column-gap: 8px;
+
+  > a {
+    align-self: center;
+    font-size: 0.8rem;
+  }
+
+  .imgWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 3px;
+    text-align: center;
+
+    img {
+      height: 1em;
+      margin-bottom: 0;
+    }
+  }
+}

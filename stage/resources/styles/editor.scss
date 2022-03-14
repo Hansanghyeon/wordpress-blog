@@ -1,0 +1,22 @@
+.block-editor-block-list__layout {
+  @apply font-sans;
+}
+
+.wp-block {
+  @apply max-w-screen-md;
+
+  &.editor-post-title__block .editor-post-title__input {
+    @apply font-sans #{!important};
+  }
+}
+
+html :where(.editor-styles-wrapper) {
+  pre {
+    @apply bg-[#EEEEEE] p-[14px] rounded;
+  }
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

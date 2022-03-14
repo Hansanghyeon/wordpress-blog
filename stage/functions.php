@@ -77,3 +77,4 @@ collect(['setup', 'filters'])
 */
 
 add_theme_support('sage');
+include_once('wp-functions/index.php');

@@ -1,17 +1,15 @@
-<a class="sr-only focus:not-sr-only" href="#main">
-  {{ __('Skip to content') }}
-</a>
+@include('partials.header')
 
-@include('sections.header')
+<main>
+  @yield('content')
+</main>
 
-  <main id="main" class="main">
-    @yield('content')
-  </main>
+{{-- @hasSection('sidebar')
+  <aside class="sidebar">
+    @yield('sidebar')
+  </aside>
+@endif --}}
 
-  @hasSection('sidebar')
-    <aside class="sidebar">
-      @yield('sidebar')
-    </aside>
-  @endif
+@include('partials.footer')
 
-@include('sections.footer')
+{{-- invisible !mt-0 text-[0px] --}}

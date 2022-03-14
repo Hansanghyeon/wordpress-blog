@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+  @include('partials.header-page')
 
   @if (! have_posts())
-    <x-alert type="warning">
+    <x-Alert type="warning">
       {!! __('Sorry, no results were found.', 'sage') !!}
-    </x-alert>
+    </x-Alert>
 
     {!! get_search_form(false) !!}
   @endif
@@ -19,5 +19,5 @@
 @endsection
 
 @section('sidebar')
-  @include('sections.sidebar')
+  @include('partials.sidebar')
 @endsection

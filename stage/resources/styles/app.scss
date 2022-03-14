@@ -1,0 +1,34 @@
+@tailwind base;
+
+@import 'functions/heading';
+@import 'functions/rgb';
+@import 'common/root';
+
+@import 'common/global';
+@import 'common/prose';
+
+// components
+@import 'components/modules/wp';
+@import 'components/modules/btn';
+@import 'components/modules/ditto';
+@import 'components/modules/footer';
+@import 'components/modules/header';
+@import 'components/modules/share';
+@import 'components/modules/visitorCounter';
+@import 'components/list';
+@import 'components/alert/neon';
+
+// layout
+@import 'layouts/post';
+@import 'layouts/nav-side';
+@import 'layouts/page-pagination';
+@import 'layouts/page-header';
+
+// page
+@import 'pages/home';
+@import 'pages/resume';
+@import 'pages/history';
+
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
