@@ -60,14 +60,14 @@ class VisitorCounter extends Component
         // Create the Metrics object.
         $sessions = new Metric();
         $sessions->setExpression("ga:users");
-  
+
         // Create the ReportRequest object.
         $request = new ReportRequest();
         $request->setViewId($this->VIEW_ID);
         $request->setDateRanges($dateRange);
         $request->setMetrics(array($sessions));
         $request->setDimensions(array($dimension));
-  
+
         $body = new GetReportsRequest();
         $body->setReportRequests(array( $request));
         $response = $this->analytics->reports->batchGet($body);

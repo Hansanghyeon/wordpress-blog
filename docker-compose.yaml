@@ -21,7 +21,6 @@ services:
       - wordpress:/var/www/html
       - ./wp-content:/var/www/html/wp-content
       - ./src:/var/www/html/wp-content/themes/sage
-      - ./stage:/var/www/html/wp-content/themes/stage
     deploy:
       placement:
         constraints:

@@ -66,7 +66,7 @@ class Archive extends Composer
                 unset($cats[$i]);
             }
         }
-    
+
         foreach ($into as $topCat) {
             $topCat->children = array();
             $this->sort_terms_hierarchically($cats, $topCat->children, $topCat->term_id);
