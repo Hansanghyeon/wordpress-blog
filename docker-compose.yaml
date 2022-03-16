@@ -6,7 +6,7 @@ version: '3.8'
 ########################### SERVICES
 services:
   wordpress:
-    image: ghcr.io/hansanghyeon/wordpress-redis
+    image: ghcr.io/hansanghyeon/wordpress-redis:5.9.1-php8.1-apache
     restart: always
     environment:
       WORDPRESS_DB_HOST: DB_mariadb:3306
@@ -28,10 +28,10 @@ services:
       labels:
         - traefik.enable=true
         ## HTTP Routers
-        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.entrypoints=websecure
-        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.rule=Host(`${DOMAIN}`)
-        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.tls.certresolver=leresolver
-        - traefik.http.services.${TYPE}_${PROJECT_NAME}.loadbalancer.server.port=80
+        - traefik.http.routers.201912__${TYPE}_${PROJECT_NAME}.entrypoints=websecure
+        - traefik.http.routers.201912__${TYPE}_${PROJECT_NAME}.rule=Host(`${DOMAIN}`)
+        - traefik.http.routers.201912__${TYPE}_${PROJECT_NAME}.tls.certresolver=leresolver
+        - traefik.http.services.201912__${TYPE}_${PROJECT_NAME}.loadbalancer.server.port=80
   redis:
     image: redis:latest
     volumes:
