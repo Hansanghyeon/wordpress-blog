@@ -9,6 +9,18 @@ namespace App;
 use function Roots\bundle;
 
 /**
+ * Register 프론트, 대쉬보드 모두사용할 aasets
+ *
+ * @return void
+ */
+function commonAssets () {
+    wp_enqueue_style('pretendard', \Roots\asset('fonts/pretendard/dist/web/static/pretendard.css')->uri(), false, null);
+    wp_enqueue_style('d2coding-01', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css', false, null);
+    wp_enqueue_style('d2coding-02', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css', false, null);
+    wp_enqueue_style('d2coding-03', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css', false, null);
+    wp_enqueue_style('d2coding-04', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-subset.css', false, null);
+}
+/**
  * Register the theme assets.
  *
  * @return void
@@ -20,14 +32,10 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('comment-reply');
     }
     wp_enqueue_style('fontello', \Roots\asset('fonts/fontello/css/fontello.css')->uri(), false, null);
-    wp_enqueue_style('pretendard', \Roots\asset('fonts/pretendard/dist/web/static/pretendard.css')->uri(), false, null);
     wp_enqueue_style('fonts/독도폰트', 'https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap', false, null);
     wp_enqueue_style('fonts/firacode', 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap', false, null);
-    wp_enqueue_style('d2coding-01', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css', false, null);
-    wp_enqueue_style('d2coding-02', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css', false, null);
-    wp_enqueue_style('d2coding-03', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css', false, null);
-    wp_enqueue_style('d2coding-04', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-subset.css', false, null);
     wp_enqueue_script('kakao', 'https://developers.kakao.com/sdk/js/kakao.min.js', false, null);
+    commonAssets();
 }, 100);
 
 /**
@@ -37,6 +45,8 @@ add_action('wp_enqueue_scripts', function () {
  */
 add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
+
+    commonAssets();
 }, 100);
 
 /**
