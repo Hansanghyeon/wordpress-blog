@@ -36,7 +36,7 @@ class VisitorCounter extends Component
 
     public function initializeAnalytics()
     {
-        $KEY_FILE_LOCATION = get_theme_file_path('/key/log-278509-f525776d2ba6.json');
+        $KEY_FILE_LOCATION = get_theme_file_path('/key/log-278509-7de64d610f0f.json');
 
         // Create and configure a new client object.
         $client = new Google_Client();
@@ -60,14 +60,14 @@ class VisitorCounter extends Component
         // Create the Metrics object.
         $sessions = new Metric();
         $sessions->setExpression("ga:users");
-  
+
         // Create the ReportRequest object.
         $request = new ReportRequest();
         $request->setViewId($this->VIEW_ID);
         $request->setDateRanges($dateRange);
         $request->setMetrics(array($sessions));
         $request->setDimensions(array($dimension));
-  
+
         $body = new GetReportsRequest();
         $body->setReportRequests(array( $request));
         $response = $this->analytics->reports->batchGet($body);
