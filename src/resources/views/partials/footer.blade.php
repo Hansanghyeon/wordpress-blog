@@ -11,7 +11,4 @@
     </span>
     @php(dynamic_sidebar('sidebar-footer'))
   </div>
-  <div class="hidden lg:block">
-    <x-LightHouse />
-  </div>
 </footer>

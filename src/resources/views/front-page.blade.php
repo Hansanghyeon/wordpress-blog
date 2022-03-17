@@ -3,17 +3,7 @@
 @section('content')
   <div class="container lg:max-w-screen-lg frontPage">
     <div class="flex flex-wrap items-center py-12">
-      <div class="w-full lg:w-4/6 flex items-center justify-center">
-        <div class="instaWrap">
-          <div class="insta insta-1">
-            @php echo do_shortcode('[elfsight_instagram_feed id="1"]'); @endphp
-          </div>
-          <div class="insta insta-2">
-            @php echo do_shortcode('[elfsight_instagram_feed id="2"]'); @endphp
-          </div>
-        </div>
-      </div>
-      <div class="w-full lg:w-2/6 py-12">
+      <div class="py-12">
         <div class="flex flex-wrap">
           <div class="w-full md:w-3/6 lg:w-full contentCol">
             <div class="entry-content prose-lg">
