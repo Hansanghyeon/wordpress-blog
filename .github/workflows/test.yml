@@ -1,8 +1,9 @@
 name: 🧑‍⚕️ 에러 테스트
-on: []
+on: [pull_request]
 
 jobs:
   asset:
+    if: github.repository == 'disable'
     name: Let's go eslint, stylelint
     runs-on: ubuntu-latest
     env:
