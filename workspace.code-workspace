@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "✨ hansanghyeon",
+			"path": "."
+		},
+		{
+			"name": "🚀 docs",
+			"path": "apps/docs"
+		},
+		{
+			"name": "🚀 web",
+			"path": "apps/web"
+		},
+		{
+			"name": "📦 eslint-config-custom",
+			"path": "packages/eslint-config-acme"
+		},
+		{
+			"name": "📦 tsconfig",
+			"path": "packages/tsconfig"
+		},
+		{
+			"name": "📦 ui",
+			"path": "packages/ui"
+		}
+	],
+	"settings": {}
+}
