@@ -18,8 +18,8 @@ services:
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
     volumes:
       - wordpress:/var/www/html
-      - ./wp-content:/var/www/html/wp-content
-      - ./src:/var/www/html/wp-content/themes/sage
+      - ./app/wp/wp-content:/var/www/html/wp-content
+      - ./app/wp/src:/var/www/html/wp-content/themes/headless
     deploy:
       placement:
         constraints:
