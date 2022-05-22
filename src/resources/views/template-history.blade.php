@@ -1,5 +1,5 @@
 {{--
-  Template Name: 히스토리
+  Template Name: history
 --}}
 
 @extends('layouts.app')
