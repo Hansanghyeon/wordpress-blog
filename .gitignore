@@ -8,6 +8,8 @@ ignore-*
 acp-settings
 .DS_Store
 key/
+wp-content/**/*
+!wp-content/.gitkeep
 app/wp/wp-content/**/*
 !app/wp/wp-content/.gitkeep
 .mysql
