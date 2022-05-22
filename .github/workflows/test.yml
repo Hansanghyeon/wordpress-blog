@@ -1,5 +1,5 @@
 name: 🧑‍⚕️ 에러 테스트
-on: [pull_request]
+on: []
 
 jobs:
   asset:
