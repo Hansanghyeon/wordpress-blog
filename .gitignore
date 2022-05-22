@@ -10,3 +10,4 @@ acp-settings
 key/
 wp-content/**/*
 !wp-content/.gitkeep
+.mysql
