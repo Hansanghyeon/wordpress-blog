@@ -7,15 +7,14 @@ version: '3.8'
 services:
   wordpress:
     image: ghcr.io/hansanghyeon/wordpress-redis:5.8.2-php8.0-apache-redis
-    restart: always
     environment:
-      WORDPRESS_DB_HOST: DB_mariadb:3306
-      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_NAME: wp
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
-        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'TOY-hyeon_redis'));
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', '${TYPE}-${PROJECT_NAME}_redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
     volumes:
       - wordpress:/var/www/html
@@ -28,10 +27,17 @@ services:
       labels:
         - traefik.enable=true
         ## HTTP Routers
-        - traefik.http.routers.hyeon.entrypoints=websecure
-        - traefik.http.routers.hyeon.rule=Host(`hyeon.pro`)
-        - traefik.http.routers.hyeon.tls.certresolver=leresolver
-        - traefik.http.services.hyeon.loadbalancer.server.port=80
+        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.entrypoints=websecure
+        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.rule=Host(`${DOMAIN}`)
+        - traefik.http.routers.${TYPE}_${PROJECT_NAME}.tls.certresolver=leresolver
+        - traefik.http.services.${TYPE}_${PROJECT_NAME}.loadbalancer.server.port=80
+  db:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: wp
+      MARIADB_ROOT_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    volumes:
+      - ./.mysql:/var/lib/mysql
   redis:
     image: redis:latest
     volumes:
@@ -45,7 +51,7 @@ services:
 networks:
   default:
     external:
-      name: DB_net
+      name: proxy-main
 volumes:
   redis:
   wordpress:
