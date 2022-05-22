@@ -7,6 +7,9 @@ version: '3.8'
 services:
   wordpress:
     image: ghcr.io/hansanghyeon/wordpress-redis:5.8.2-php8.0-apache-redis
+    networks:
+      - default
+      - proxy-main
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
@@ -14,7 +17,7 @@ services:
       WORDPRESS_DB_NAME: wp
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
-        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', '${TYPE}-${PROJECT_NAME}_redis'));
+        define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
     volumes:
       - wordpress:/var/www/html
@@ -49,9 +52,9 @@ services:
 
 ########################### NETWORKS
 networks:
-  default:
-    external:
-      name: proxy-main
+  proxy-main:
+    external: true
+
 volumes:
   redis:
   wordpress:
