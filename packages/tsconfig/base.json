@@ -19,6 +19,9 @@
     "paths": {
       "~ui/*": [
         "../../packages/ui/components/*"
+      ],
+      "~web/*": [
+        "../../apps/web/src/*"
       ]
     }
   },
