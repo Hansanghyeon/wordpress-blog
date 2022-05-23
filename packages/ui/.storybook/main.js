@@ -30,17 +30,6 @@ module.exports = {
     builder: "@storybook/builder-vite",
   },
   async viteFinal(config) {
-    config.define.global = "window";
-
-    // config.plugins.push(
-    //   /** @see https://github.com/aleclarson/vite-tsconfig-paths */
-    //   tsconfigPaths({
-    //     // My tsconfig.json isn't simply in viteConfig.root,
-    //     // so I've passed an explicit path to it:
-    //     projects: [path.resolve(path.dirname(__dirname), "tsconfig.json")],
-    //   })
-    // );
-
     config.resolve = {
       alias: [
         {

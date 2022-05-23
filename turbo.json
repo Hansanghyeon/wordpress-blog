@@ -6,7 +6,8 @@
       ],
       "outputs": [
         "dist/**",
-        ".next/**"
+        ".next/**",
+        "storybook-static/**"
       ]
     },
     "lint": {
@@ -18,7 +19,7 @@
     "storybook": {
       "cache": false,
       "dependsOn": [
-        "^storybook"
+        "storybook"
       ]
     }
   }
