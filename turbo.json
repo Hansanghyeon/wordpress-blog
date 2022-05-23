@@ -17,10 +17,7 @@
       "cache": false
     },
     "storybook": {
-      "cache": false,
-      "dependsOn": [
-        "storybook"
-      ]
+      "cache": false
     }
   }
 }
