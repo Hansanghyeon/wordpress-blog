@@ -1,0 +1,15 @@
+{
+    "name": "hansanghyeon/headless-app",
+    "description": "headless app",
+    "autoload": {
+        "psr-4": {
+            "Hansanghyeon\\HeadlessApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hansanghyeon"
+        }
+    ],
+    "require": {}
+}
