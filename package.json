@@ -10,12 +10,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" \"!apps/wp\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "prettier": "latest",
+    "prettier-plugin-tailwindcss": "^0.1.11",
     "tailwindcss": "^3.0.24",
     "turbo": "latest"
   },

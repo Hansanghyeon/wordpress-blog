@@ -69,10 +69,10 @@
 
 ### Changed
 
--  `resources/[image|script|styles]` 폴더구조에서 `resources/assets/**/*` assets 폴더 구조로 변경
--  history ui 다크모드 스타일추가
--  react-app 아이디값 고유명으로 사용하기 부적절 고유 아이디값으로 추가
-  
+- `resources/[image|script|styles]` 폴더구조에서 `resources/assets/**/*` assets 폴더 구조로 변경
+- history ui 다크모드 스타일추가
+- react-app 아이디값 고유명으로 사용하기 부적절 고유 아이디값으로 추가
+
 ### Removed
 
 - jit 설정 변수 제거
@@ -306,8 +306,8 @@
 
 ## [v8.10.3] 2021-10-21
 
-[#701](https://github.com/Hansanghyeon/Hansanghyeon/issues/701) 
-[#705](https://github.com/Hansanghyeon/Hansanghyeon/issues/705) 
+[#701](https://github.com/Hansanghyeon/Hansanghyeon/issues/701)
+[#705](https://github.com/Hansanghyeon/Hansanghyeon/issues/705)
 
 ### Added
 
@@ -359,6 +359,7 @@
 - tailwind css
   - plugin중 aspect-ratio 플러그인 추가
   - px 함수를 통해 padding px token 추가
+
 ## [v8.8.2] 2021-09-21
 
 ### Changed
@@ -408,6 +409,7 @@ prod의 폴더구조를 변경해야하고 데이터 이전으로인해서 중�
 
 - Nav - side 최소 넓이 지정
 - Post prose의 wordpress gallery 블럭의 ul 태그에서 기본 list style 제거 css 오버라이드
+
 ## [v8.6.2] 2021-09-06
 
 ### Changed
@@ -439,6 +441,7 @@ prod의 폴더구조를 변경해야하고 데이터 이전으로인해서 중�
 - 워드프레스의 READ MORE라해서 exceprt를 포스트 내부에서 지정하게 도와주는 블럭의 스타일을 지정
 
 - 워드프레스의 readmore라는
+
 ## [v8.5.1] 2021-08-18
 
 ### Fixed
@@ -481,6 +484,7 @@ UI와 composer의 기능이 추가되어서 version 8.3.0으로 명명
 - 포스트타입이 page인 것에 `composer/Post.php`에서 page-header의 view로 가져오게되어있어서 포스트의 데이터를 가져오는 함수에서 오류가났음
   - categories
   - archive, menu
+
 ### Changed
 
 - `page.blade.php` 내부의 prose 부분을 max-width제거 wrap으로 container로 되게 설정
@@ -495,6 +499,7 @@ UI와 composer의 기능이 추가되어서 version 8.3.0으로 명명
 
 - post main에서 divider border-bottom이 기본값으로 설정된것 제거
 - strong 태그 color: null
+
 ## [v8.2.0] 2021-08-07
 
 ### Added
@@ -765,7 +770,6 @@ UI와 composer의 기능이 추가되어서 version 8.3.0으로 명명
 ### Fixed
 
 - AniLink 플러그인 인자 스펠링오타 수정
-
 
 ## [v5.2.4] 2020-05-14
 
