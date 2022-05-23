@@ -14,7 +14,10 @@
     "storybook": "turbo run storybook"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
     "prettier": "latest",
+    "tailwindcss": "^3.0.24",
     "turbo": "latest"
   },
   "engines": {

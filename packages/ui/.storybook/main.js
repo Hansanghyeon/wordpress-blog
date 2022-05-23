@@ -1,4 +1,3 @@
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -28,16 +27,28 @@ module.exports = {
   ],
   framework: "@storybook/react",
   core: {
-    builder: "@storybook/builder-webpack5",
+    builder: "@storybook/builder-vite",
   },
-  webpackFinal: async (config, { configType }) => {
-    config.resolve.plugins = [new TsconfigPathsPlugin({})];
+  async viteFinal(config) {
+    config.define.global = "window";
 
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
-      include: path.resolve(__dirname, "../"),
-    });
+    // config.plugins.push(
+    //   /** @see https://github.com/aleclarson/vite-tsconfig-paths */
+    //   tsconfigPaths({
+    //     // My tsconfig.json isn't simply in viteConfig.root,
+    //     // so I've passed an explicit path to it:
+    //     projects: [path.resolve(path.dirname(__dirname), "tsconfig.json")],
+    //   })
+    // );
+
+    config.resolve = {
+      alias: [
+        {
+          find: "~ui",
+          replacement: path.resolve(__dirname, "../components"),
+        },
+      ],
+    };
 
     return config;
   },
