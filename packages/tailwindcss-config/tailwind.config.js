@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["../../packages/ui/components/**/*.{tsx,scss}"],
+  content: [
+    "../../packages/ui/components/**/*.{tsx,scss}",
+    "../../app/web/src/**/*.{tsx,scss}"
+  ],
   theme: {
     extend: {
       container: {
