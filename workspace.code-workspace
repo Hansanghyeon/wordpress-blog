@@ -13,6 +13,10 @@
       "path": "apps/web"
     },
     {
+      "name": "🚀 headless-wp",
+      "path": "apps/wp"
+    },
+    {
       "name": "📦 eslint-config-custom",
       "path": "packages/eslint-config-acme"
     },

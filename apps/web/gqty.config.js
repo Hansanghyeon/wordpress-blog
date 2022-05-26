@@ -1,16 +1,16 @@
-require('dotenv-flow').config();
+require("dotenv-flow").config();
 
 /**
  * @type {import("@gqty/cli").GQtyConfig}
  */
 const config = {
   react: false,
-  scalarTypes: { DateTime: 'string' },
+  scalarTypes: { DateTime: "string" },
   introspection: {
     endpoint: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/graphql`,
     headers: {},
   },
-  destination: './src/client/index.ts',
+  destination: "./src/client/index.ts",
   subscriptions: false,
   javascriptOutput: false,
 };

@@ -4734,11 +4734,6 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     user: { __type: "User" },
   },
-  CustomType: {
-    __typename: { __type: "String!" },
-    count: { __type: "Int" },
-    testField: { __type: "String" },
-  },
   DatabaseIdentifier: {
     __typename: { __type: "String!" },
     databaseId: { __type: "Int!" },
@@ -8251,7 +8246,6 @@ export const generatedSchema = {
       __type: "RootQueryToContentTypeConnection",
       __args: { after: "String", before: "String", first: "Int", last: "Int" },
     },
-    customField: { __type: "CustomType" },
     dev: {
       __type: "Dev",
       __args: { asPreview: "Boolean", id: "ID!", idType: "DevIdType" },
@@ -10282,21 +10276,6 @@ export interface CreateUserPayload {
    * The User object mutation type.
    */
   user?: Maybe<User>;
-}
-
-/**
- * Describe what a CustomType is
- */
-export interface CustomType {
-  __typename?: "CustomType";
-  /**
-   * Describe what the count field should be used for
-   */
-  count?: Maybe<ScalarsEnums["Int"]>;
-  /**
-   * Describe what testField should be used for
-   */
-  testField?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -16843,7 +16822,6 @@ export interface Query {
     first?: Maybe<Scalars["Int"]>;
     last?: Maybe<Scalars["Int"]>;
   }) => Maybe<RootQueryToContentTypeConnection>;
-  customField?: Maybe<CustomType>;
   dev: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
@@ -17109,7 +17087,6 @@ export interface SchemaObjectTypes {
   CreatePostPayload: CreatePostPayload;
   CreateTagPayload: CreateTagPayload;
   CreateUserPayload: CreateUserPayload;
-  CustomType: CustomType;
   DefaultTemplate: DefaultTemplate;
   DeleteBookPayload: DeleteBookPayload;
   DeleteCategoryPayload: DeleteCategoryPayload;
@@ -17339,7 +17316,6 @@ export type SchemaObjectTypesNames =
   | "CreatePostPayload"
   | "CreateTagPayload"
   | "CreateUserPayload"
-  | "CustomType"
   | "DefaultTemplate"
   | "DeleteBookPayload"
   | "DeleteCategoryPayload"
