@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import type { Post } from "client";
+import type { Post, Dev } from "~web/client";
 import styles from "./Posts.module.scss";
 import Heading, { HeadingProps } from "./Heading";
 
 interface Props {
-  posts: Post[] | undefined;
+  posts: Post[] | Dev[] | undefined;
   intro?: string;
   id?: string;
   heading?: string;
