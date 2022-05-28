@@ -1,12 +1,11 @@
 import { getNextStaticProps, is404 } from "@faustjs/next";
-import { client, Post } from "~web/client";
+import { client, Post, Dev } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
-import { useRouter } from "next/router";
 import Head from "next/head";
 
 export interface PostProps {
-  post: Post | Post["preview"]["node"] | null | undefined;
+  post: Dev | Dev["preview"]["node"] | null | undefined;
 }
 
 export function PostComponent({ post }: PostProps) {
@@ -43,11 +42,10 @@ export function PostComponent({ post }: PostProps) {
 }
 
 export default function Page() {
-  // const { usePost, useQuery } = client;
-  // const dev = useQuery().dev;
+  const { usePost, useQuery } = client;
+  const dev = useQuery().dev;
 
-  // return <PostComponent post={post} />;
-  return <>test</>;
+  return <PostComponent post={dev} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
@@ -56,7 +54,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    // notFound: await is404(context, { client }),
+    notFound: await is404(context, { client }),
   });
 }
 

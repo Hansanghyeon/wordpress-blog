@@ -6,9 +6,9 @@ import { client } from "~web/client";
 export default Page;
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const { cursor } = context.params;
+  const { id } = context.params;
 
-  if (!(cursor === "after" || cursor === "before")) {
+  if (!(id === "after" || id === "before")) {
     return {
       notFound: true,
     };
