@@ -1,5 +1,5 @@
 import { getNextStaticProps, is404 } from "@faustjs/next";
-import { client, Post, Dev } from "~web/client";
+import { client, Dev, DevIdType, Query } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
@@ -8,7 +8,7 @@ export interface PostProps {
   post: Dev | Dev["preview"]["node"] | null | undefined;
 }
 
-export function PostComponent({ post }: PostProps) {
+export function DevComponent({ post }: PostProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
@@ -41,20 +41,25 @@ export function PostComponent({ post }: PostProps) {
   );
 }
 
-export default function Page() {
-  const { usePost, useQuery } = client;
-  const dev = useQuery().dev;
+export default function Page({ slug }) {
+  const { useQuery } = client;
+  const dev = useQuery().dev({
+    id: slug,
+    idType: DevIdType.SLUG,
+  });
 
-  return <PostComponent post={dev} />;
+  return <DevComponent post={dev} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { slug } = context.params;
-  console.log(slug);
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: await is404(context, { client }),
+    notFound: null, //await is404(context, { client }),
+    props: {
+      slug,
+    },
   });
 }
 
