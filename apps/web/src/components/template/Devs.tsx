@@ -37,12 +37,12 @@ function Posts({
           {posts.map((post) => (
             <div
               className={styles.single}
-              key={post.id ?? ""}
-              id={`post-${post.id}`}
+              key={post.slug ?? ""}
+              id={`post-${post.slug}`}
             >
               <div>
                 <Heading level={postTitleLevel} className={styles.title}>
-                  <Link href={`/dev/${post.id}`}>
+                  <Link href={`/dev/${post.slug}`}>
                     <a>{post.title()}</a>
                   </Link>
                 </Heading>
@@ -51,7 +51,7 @@ function Posts({
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{ __html: post.excerpt() ?? "" }}
                 />
-                <Link href={`/devs/${post.id}`}>
+                <Link href={`/devs/${post.slug}`}>
                   <a aria-label={`Read more about ${post.title || "the post"}`}>
                     {readMoreText}
                   </a>
