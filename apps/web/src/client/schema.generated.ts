@@ -396,6 +396,8 @@ export enum ContentTypeEnum {
   PORTFOLIO = "PORTFOLIO",
   /** The Type of Content object */
   POST = "POST",
+  /** The Type of Content object */
+  STACKOVERFLOW = "STACKOVERFLOW",
 }
 
 /** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
@@ -450,6 +452,12 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
 export enum ContentTypesOfCategoryEnum {
   /** The Type of Content object */
   POST = "POST",
+}
+
+/** Allowed Content Types of the DevCategory taxonomy. */
+export enum ContentTypesOfDevCategoryEnum {
+  /** The Type of Content object */
+  DEV = "DEV",
 }
 
 /** Allowed Content Types of the PostFormat taxonomy. */
@@ -524,6 +532,22 @@ export interface CreateCommentInput {
   type?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the createDevCategory mutation */
+export interface CreateDevCategoryInput {
+  /** The slug that the dev_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the dev_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The name of the dev_category object to mutate */
+  name: Scalars["String"];
+  /** The ID of the dev_category that should be set as the parent */
+  parentId?: InputMaybe<Scalars["ID"]>;
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createDev mutation */
 export interface CreateDevInput {
   /** The userId to assign as the author of the object */
@@ -536,6 +560,8 @@ export interface CreateDevInput {
   content?: InputMaybe<Scalars["String"]>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Dev and DevCategories */
+  devCategories?: InputMaybe<DevDevCategoriesInput>;
   /** The excerpt of the object */
   excerpt?: InputMaybe<Scalars["String"]>;
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
@@ -682,6 +708,28 @@ export interface CreatePostInput {
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 }
 
+/** Input for the createStackoverflow mutation */
+export interface CreateStackoverflowInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The ID of the parent object */
+  parentId?: InputMaybe<Scalars["ID"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createTag mutation */
 export interface CreateTagInput {
   /** The slug that the post_tag will be an alias of */
@@ -804,6 +852,14 @@ export interface DeleteCommentInput {
   id: Scalars["ID"];
 }
 
+/** Input for the deleteDevCategory mutation */
+export interface DeleteDevCategoryInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The ID of the DevCategory to delete */
+  id: Scalars["ID"];
+}
+
 /** Input for the deleteDev mutation */
 export interface DeleteDevInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -862,6 +918,16 @@ export interface DeletePostInput {
   id: Scalars["ID"];
 }
 
+/** Input for the deleteStackoverflow mutation */
+export interface DeleteStackoverflowInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars["Boolean"]>;
+  /** The ID of the Stackoverflow to delete */
+  id: Scalars["ID"];
+}
+
 /** Input for the deleteTag mutation */
 export interface DeleteTagInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -878,6 +944,170 @@ export interface DeleteUserInput {
   id: Scalars["ID"];
   /** Reassign posts and links to new User ID. */
   reassignId?: InputMaybe<Scalars["ID"]>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum DevCategoryIdType {
+  /** The Database ID for the node */
+  DATABASE_ID = "DATABASE_ID",
+  /** The hashed Global ID */
+  ID = "ID",
+  /** The name of the node */
+  NAME = "NAME",
+  /** Url friendly name of the node */
+  SLUG = "SLUG",
+  /** The URI for the node */
+  URI = "URI",
+}
+
+/** Arguments for filtering the DevCategoryToContentNodeConnection connection */
+export interface DevCategoryToContentNodeConnectionWhereArgs {
+  /** The Types of content to filter */
+  contentTypes?: InputMaybe<Array<InputMaybe<ContentTypesOfDevCategoryEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the DevCategoryToDevCategoryConnection connection */
+export interface DevCategoryToDevCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Arguments for filtering the DevCategoryToDevConnection connection */
+export interface DevCategoryToDevConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Set relationships between the Dev to DevCategories */
+export interface DevDevCategoriesInput {
+  /** If true, this will append the DevCategory to existing related DevCategories. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars["Boolean"]>;
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<DevDevCategoriesNodeInput>>>;
+}
+
+/** List of DevCategories to connect the Dev to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface DevDevCategoriesNodeInput {
+  /** The description of the DevCategory. This field is used to set a description of the DevCategory if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the DevCategory. If present, this will be used to connect to the Dev. If no existing DevCategory exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars["ID"]>;
+  /** The name of the DevCategory. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The slug of the DevCategory. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars["String"]>;
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -952,6 +1182,50 @@ export interface DevToCommentConnectionWhereArgs {
   status?: InputMaybe<Scalars["String"]>;
   /** Include comments for a specific user ID. */
   userId?: InputMaybe<Scalars["ID"]>;
+}
+
+/** Arguments for filtering the DevToDevCategoryConnection connection */
+export interface DevToDevCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
 /** Arguments for filtering the DevToRevisionConnection connection */
@@ -2554,6 +2828,50 @@ export interface RootQueryToContentRevisionUnionConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Arguments for filtering the RootQueryToDevCategoryConnection connection */
+export interface RootQueryToDevCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
 /** Arguments for filtering the RootQueryToDevConnection connection */
 export interface RootQueryToDevConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -2872,6 +3190,44 @@ export interface RootQueryToPostFormatConnectionWhereArgs {
   updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
+/** Arguments for filtering the RootQueryToStackoverflowConnection connection */
+export interface RootQueryToStackoverflowConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the RootQueryToTagConnection connection */
 export interface RootQueryToTagConnectionWhereArgs {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
@@ -3007,6 +3363,16 @@ export interface SendPasswordResetEmailInput {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum StackoverflowIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = "DATABASE_ID",
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = "ID",
+  /** Identify a resource by the URI. */
+  URI = "URI",
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum TagIdType {
   /** The Database ID for the node */
   DATABASE_ID = "DATABASE_ID",
@@ -3130,6 +3496,8 @@ export interface TagToPostConnectionWhereArgs {
 export enum TaxonomyEnum {
   /** Taxonomy enum category */
   CATEGORY = "CATEGORY",
+  /** Taxonomy enum dev_category */
+  DEVCATEGORY = "DEVCATEGORY",
   /** Taxonomy enum post_format */
   POSTFORMAT = "POSTFORMAT",
   /** Taxonomy enum post_tag */
@@ -3242,6 +3610,24 @@ export interface UpdateCommentInput {
   type?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the UpdateDevCategory mutation */
+export interface UpdateDevCategoryInput {
+  /** The slug that the dev_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the dev_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the DevCategory object to update */
+  id: Scalars["ID"];
+  /** The name of the dev_category object to mutate */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The ID of the dev_category that should be set as the parent */
+  parentId?: InputMaybe<Scalars["ID"]>;
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the updateDev mutation */
 export interface UpdateDevInput {
   /** The userId to assign as the author of the object */
@@ -3254,6 +3640,8 @@ export interface UpdateDevInput {
   content?: InputMaybe<Scalars["String"]>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Dev and DevCategories */
+  devCategories?: InputMaybe<DevDevCategoriesInput>;
   /** The excerpt of the object */
   excerpt?: InputMaybe<Scalars["String"]>;
   /** The ID of the Dev object */
@@ -3452,6 +3840,30 @@ export interface UpdateSettingsInput {
   writingSettingsDefaultPostFormat?: InputMaybe<Scalars["String"]>;
   /** Convert emoticons like :-) and :-P to graphics on display. */
   writingSettingsUseSmilies?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Input for the updateStackoverflow mutation */
+export interface UpdateStackoverflowInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Stackoverflow object */
+  id: Scalars["ID"];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The ID of the parent object */
+  parentId?: InputMaybe<Scalars["ID"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the UpdateTag mutation */
@@ -3898,8 +4310,10 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   ContentTypeEnum: true,
   ContentTypeIdTypeEnum: true,
   ContentTypesOfCategoryEnum: true,
+  ContentTypesOfDevCategoryEnum: true,
   ContentTypesOfPostFormatEnum: true,
   ContentTypesOfTagEnum: true,
+  DevCategoryIdType: true,
   DevIdType: true,
   Float: true,
   ID: true,
@@ -3922,6 +4336,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   PostObjectsConnectionOrderbyEnum: true,
   PostStatusEnum: true,
   RelationEnum: true,
+  StackoverflowIdType: true,
   String: true,
   TagIdType: true,
   TaxonomyEnum: true,
@@ -4588,12 +5003,26 @@ export const generatedSchema = {
     comment: { __type: "Comment" },
     success: { __type: "Boolean" },
   },
+  CreateDevCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    name: { __type: "String!" },
+    parentId: { __type: "ID" },
+    slug: { __type: "String" },
+  },
+  CreateDevCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    devCategory: { __type: "DevCategory" },
+  },
   CreateDevInput: {
     authorId: { __type: "ID" },
     clientMutationId: { __type: "String" },
     commentStatus: { __type: "String" },
     content: { __type: "String" },
     date: { __type: "String" },
+    devCategories: { __type: "DevDevCategoriesInput" },
     excerpt: { __type: "String" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
@@ -4697,6 +5126,22 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
   },
+  CreateStackoverflowInput: {
+    clientMutationId: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    parentId: { __type: "ID" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  CreateStackoverflowPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    stackoverflow: { __type: "Stackoverflow" },
+  },
   CreateTagInput: {
     aliasOf: { __type: "String" },
     clientMutationId: { __type: "String" },
@@ -4795,6 +5240,16 @@ export const generatedSchema = {
     comment: { __type: "Comment" },
     deletedId: { __type: "ID" },
   },
+  DeleteDevCategoryInput: {
+    clientMutationId: { __type: "String" },
+    id: { __type: "ID!" },
+  },
+  DeleteDevCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    devCategory: { __type: "DevCategory" },
+  },
   DeleteDevInput: {
     clientMutationId: { __type: "String" },
     forceDelete: { __type: "Boolean" },
@@ -4860,6 +5315,17 @@ export const generatedSchema = {
     deletedId: { __type: "ID" },
     post: { __type: "Post" },
   },
+  DeleteStackoverflowInput: {
+    clientMutationId: { __type: "String" },
+    forceDelete: { __type: "Boolean" },
+    id: { __type: "ID!" },
+  },
+  DeleteStackoverflowPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    stackoverflow: { __type: "Stackoverflow" },
+  },
   DeleteTagInput: {
     clientMutationId: { __type: "String" },
     id: { __type: "ID!" },
@@ -4909,6 +5375,16 @@ export const generatedSchema = {
     date: { __type: "String" },
     dateGmt: { __type: "String" },
     desiredSlug: { __type: "String" },
+    devCategories: {
+      __type: "DevToDevCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "DevToDevCategoryConnectionWhereArgs",
+      },
+    },
     devId: { __type: "Int!" },
     editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
     enclosure: { __type: "String" },
@@ -4972,6 +5448,199 @@ export const generatedSchema = {
     },
     uri: { __type: "String" },
   },
+  DevCategory: {
+    __typename: { __type: "String!" },
+    ancestors: {
+      __type: "DevCategoryToAncestorsDevCategoryConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    children: {
+      __type: "DevCategoryToDevCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "DevCategoryToDevCategoryConnectionWhereArgs",
+      },
+    },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentNodes: {
+      __type: "DevCategoryToContentNodeConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "DevCategoryToContentNodeConnectionWhereArgs",
+      },
+    },
+    count: { __type: "Int" },
+    databaseId: { __type: "Int!" },
+    description: { __type: "String" },
+    devCategoryId: { __type: "Int" },
+    devs: {
+      __type: "DevCategoryToDevConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "DevCategoryToDevConnectionWhereArgs",
+      },
+    },
+    enqueuedScripts: {
+      __type: "TermNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "TermNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    link: { __type: "String" },
+    name: { __type: "String" },
+    parent: { __type: "DevCategoryToParentDevCategoryConnectionEdge" },
+    parentDatabaseId: { __type: "Int" },
+    parentId: { __type: "ID" },
+    slug: { __type: "String" },
+    taxonomy: { __type: "DevCategoryToTaxonomyConnectionEdge" },
+    taxonomyName: { __type: "String" },
+    templates: { __type: "[String]" },
+    termGroupId: { __type: "Int" },
+    termTaxonomyId: { __type: "Int" },
+    uri: { __type: "String" },
+  },
+  DevCategoryToAncestorsDevCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevCategoryToAncestorsDevCategoryConnectionEdge]" },
+    nodes: { __type: "[DevCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevCategoryToAncestorsDevCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "DevCategory" },
+  },
+  DevCategoryToContentNodeConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevCategoryToContentNodeConnectionEdge]" },
+    nodes: { __type: "[ContentNode]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevCategoryToContentNodeConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "ContentNode" },
+  },
+  DevCategoryToContentNodeConnectionWhereArgs: {
+    contentTypes: { __type: "[ContentTypesOfDevCategoryEnum]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  DevCategoryToDevCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevCategoryToDevCategoryConnectionEdge]" },
+    nodes: { __type: "[DevCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevCategoryToDevCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "DevCategory" },
+  },
+  DevCategoryToDevCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
+  DevCategoryToDevConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevCategoryToDevConnectionEdge]" },
+    nodes: { __type: "[Dev]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevCategoryToDevConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Dev" },
+  },
+  DevCategoryToDevConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  DevCategoryToParentDevCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "DevCategory" },
+  },
+  DevCategoryToTaxonomyConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Taxonomy" },
+  },
+  DevDevCategoriesInput: {
+    append: { __type: "Boolean" },
+    nodes: { __type: "[DevDevCategoriesNodeInput]" },
+  },
+  DevDevCategoriesNodeInput: {
+    description: { __type: "String" },
+    id: { __type: "ID" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
   DevToCommentConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[DevToCommentConnectionEdge]" },
@@ -5013,6 +5682,39 @@ export const generatedSchema = {
     search: { __type: "String" },
     status: { __type: "String" },
     userId: { __type: "ID" },
+  },
+  DevToDevCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevToDevCategoryConnectionEdge]" },
+    nodes: { __type: "[DevCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevToDevCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "DevCategory" },
+  },
+  DevToDevCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
   },
   DevToPreviewConnectionEdge: {
     __typename: { __type: "String!" },
@@ -6720,6 +7422,39 @@ export const generatedSchema = {
     cursor: { __type: "String" },
     node: { __type: "ContentType" },
   },
+  RootQueryToDevCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToDevCategoryConnectionEdge]" },
+    nodes: { __type: "[DevCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToDevCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "DevCategory" },
+  },
+  RootQueryToDevCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
   RootQueryToDevConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToDevConnectionEdge]" },
@@ -7000,6 +7735,36 @@ export const generatedSchema = {
     termTaxonomId: { __type: "[ID]" },
     updateTermMetaCache: { __type: "Boolean" },
   },
+  RootQueryToStackoverflowConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToStackoverflowConnectionEdge]" },
+    nodes: { __type: "[Stackoverflow]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToStackoverflowConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Stackoverflow" },
+  },
+  RootQueryToStackoverflowConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   RootQueryToTagConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToTagConnectionEdge]" },
@@ -7157,6 +7922,88 @@ export const generatedSchema = {
     writingSettingsDefaultCategory: { __type: "Int" },
     writingSettingsDefaultPostFormat: { __type: "String" },
     writingSettingsUseSmilies: { __type: "Boolean" },
+  },
+  Stackoverflow: {
+    __typename: { __type: "String!" },
+    ancestors: {
+      __type: "HierarchicalContentNodeToContentNodeAncestorsConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where:
+          "HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs",
+      },
+    },
+    children: {
+      __type: "HierarchicalContentNodeToContentNodeChildrenConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where:
+          "HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs",
+      },
+    },
+    conditionalTags: { __type: "ConditionalTags" },
+    content: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
+    contentTypeName: { __type: "String!" },
+    databaseId: { __type: "Int!" },
+    date: { __type: "String" },
+    dateGmt: { __type: "String" },
+    desiredSlug: { __type: "String" },
+    editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
+    enclosure: { __type: "String" },
+    enqueuedScripts: {
+      __type: "ContentNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "ContentNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    featuredImage: { __type: "NodeWithFeaturedImageToMediaItemConnectionEdge" },
+    featuredImageDatabaseId: { __type: "Int" },
+    featuredImageId: { __type: "ID" },
+    guid: { __type: "String" },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isPreview: { __type: "Boolean" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    link: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    modified: { __type: "String" },
+    modifiedGmt: { __type: "String" },
+    parent: {
+      __type: "HierarchicalContentNodeToParentContentNodeConnectionEdge",
+    },
+    parentDatabaseId: { __type: "Int" },
+    parentId: { __type: "ID" },
+    preview: { __type: "StackoverflowToPreviewConnectionEdge" },
+    previewRevisionDatabaseId: { __type: "Int" },
+    previewRevisionId: { __type: "ID" },
+    slug: { __type: "String" },
+    stackoverflowId: { __type: "Int!" },
+    status: { __type: "String" },
+    template: { __type: "ContentTemplate" },
+    templates: { __type: "[String]" },
+    title: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    uri: { __type: "String" },
+  },
+  StackoverflowToPreviewConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Stackoverflow" },
   },
   Tag: {
     __typename: { __type: "String!" },
@@ -7446,12 +8293,27 @@ export const generatedSchema = {
     comment: { __type: "Comment" },
     success: { __type: "Boolean" },
   },
+  UpdateDevCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    id: { __type: "ID!" },
+    name: { __type: "String" },
+    parentId: { __type: "ID" },
+    slug: { __type: "String" },
+  },
+  UpdateDevCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    devCategory: { __type: "DevCategory" },
+  },
   UpdateDevInput: {
     authorId: { __type: "ID" },
     clientMutationId: { __type: "String" },
     commentStatus: { __type: "String" },
     content: { __type: "String" },
     date: { __type: "String" },
+    devCategories: { __type: "DevDevCategoriesInput" },
     excerpt: { __type: "String" },
     id: { __type: "ID!" },
     menuOrder: { __type: "Int" },
@@ -7590,6 +8452,23 @@ export const generatedSchema = {
     generalSettings: { __type: "GeneralSettings" },
     readingSettings: { __type: "ReadingSettings" },
     writingSettings: { __type: "WritingSettings" },
+  },
+  UpdateStackoverflowInput: {
+    clientMutationId: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    id: { __type: "ID!" },
+    menuOrder: { __type: "Int" },
+    parentId: { __type: "ID" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  UpdateStackoverflowPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    stackoverflow: { __type: "Stackoverflow" },
   },
   UpdateTagInput: {
     aliasOf: { __type: "String" },
@@ -8031,6 +8910,10 @@ export const generatedSchema = {
       __type: "CreateDevPayload",
       __args: { input: "CreateDevInput!" },
     },
+    createDevCategory: {
+      __type: "CreateDevCategoryPayload",
+      __args: { input: "CreateDevCategoryInput!" },
+    },
     createMediaItem: {
       __type: "CreateMediaItemPayload",
       __args: { input: "CreateMediaItemInput!" },
@@ -8050,6 +8933,10 @@ export const generatedSchema = {
     createPostFormat: {
       __type: "CreatePostFormatPayload",
       __args: { input: "CreatePostFormatInput!" },
+    },
+    createStackoverflow: {
+      __type: "CreateStackoverflowPayload",
+      __args: { input: "CreateStackoverflowInput!" },
     },
     createTag: {
       __type: "CreateTagPayload",
@@ -8075,6 +8962,10 @@ export const generatedSchema = {
       __type: "DeleteDevPayload",
       __args: { input: "DeleteDevInput!" },
     },
+    deleteDevCategory: {
+      __type: "DeleteDevCategoryPayload",
+      __args: { input: "DeleteDevCategoryInput!" },
+    },
     deleteMediaItem: {
       __type: "DeleteMediaItemPayload",
       __args: { input: "DeleteMediaItemInput!" },
@@ -8094,6 +8985,10 @@ export const generatedSchema = {
     deletePostFormat: {
       __type: "DeletePostFormatPayload",
       __args: { input: "DeletePostFormatInput!" },
+    },
+    deleteStackoverflow: {
+      __type: "DeleteStackoverflowPayload",
+      __args: { input: "DeleteStackoverflowInput!" },
     },
     deleteTag: {
       __type: "DeleteTagPayload",
@@ -8140,6 +9035,10 @@ export const generatedSchema = {
       __type: "UpdateDevPayload",
       __args: { input: "UpdateDevInput!" },
     },
+    updateDevCategory: {
+      __type: "UpdateDevCategoryPayload",
+      __args: { input: "UpdateDevCategoryInput!" },
+    },
     updateMediaItem: {
       __type: "UpdateMediaItemPayload",
       __args: { input: "UpdateMediaItemInput!" },
@@ -8163,6 +9062,10 @@ export const generatedSchema = {
     updateSettings: {
       __type: "UpdateSettingsPayload",
       __args: { input: "UpdateSettingsInput!" },
+    },
+    updateStackoverflow: {
+      __type: "UpdateStackoverflowPayload",
+      __args: { input: "UpdateStackoverflowInput!" },
     },
     updateTag: {
       __type: "UpdateTagPayload",
@@ -8253,6 +9156,20 @@ export const generatedSchema = {
     devBy: {
       __type: "Dev",
       __args: { devId: "Int", id: "ID", slug: "String", uri: "String" },
+    },
+    devCategories: {
+      __type: "RootQueryToDevCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToDevCategoryConnectionWhereArgs",
+      },
+    },
+    devCategory: {
+      __type: "DevCategory",
+      __args: { id: "ID!", idType: "DevCategoryIdType" },
     },
     devs: {
       __type: "RootQueryToDevConnection",
@@ -8415,6 +9332,28 @@ export const generatedSchema = {
         where: "RootQueryToContentRevisionUnionConnectionWhereArgs",
       },
     },
+    stackoverflow: {
+      __type: "Stackoverflow",
+      __args: {
+        asPreview: "Boolean",
+        id: "ID!",
+        idType: "StackoverflowIdType",
+      },
+    },
+    stackoverflowBy: {
+      __type: "Stackoverflow",
+      __args: { id: "ID", stackoverflowId: "Int", uri: "String" },
+    },
+    stackoverflows: {
+      __type: "RootQueryToStackoverflowConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToStackoverflowConnectionWhereArgs",
+      },
+    },
     tag: { __type: "Tag", __args: { id: "ID!", idType: "TagIdType" } },
     tags: {
       __type: "RootQueryToTagConnection",
@@ -8481,12 +9420,21 @@ export const generatedSchema = {
   },
   subscription: {},
   [SchemaUnionsKey]: {
-    ContentNode: ["Book", "Dev", "MediaItem", "Page", "Portfolio", "Post"],
+    ContentNode: [
+      "Book",
+      "Dev",
+      "MediaItem",
+      "Page",
+      "Portfolio",
+      "Post",
+      "Stackoverflow",
+    ],
     DatabaseIdentifier: [
       "Book",
       "Category",
       "Comment",
       "Dev",
+      "DevCategory",
       "MediaItem",
       "Menu",
       "MenuItem",
@@ -8494,6 +9442,7 @@ export const generatedSchema = {
       "Portfolio",
       "Post",
       "PostFormat",
+      "Stackoverflow",
       "Tag",
       "User",
     ],
@@ -8501,9 +9450,11 @@ export const generatedSchema = {
       "Book",
       "Category",
       "Dev",
+      "DevCategory",
       "Page",
       "Portfolio",
       "Post",
+      "Stackoverflow",
       "Tag",
     ],
     Node: [
@@ -8513,6 +9464,7 @@ export const generatedSchema = {
       "CommentAuthor",
       "ContentType",
       "Dev",
+      "DevCategory",
       "EnqueuedScript",
       "EnqueuedStylesheet",
       "MediaItem",
@@ -8523,31 +9475,64 @@ export const generatedSchema = {
       "Portfolio",
       "Post",
       "PostFormat",
+      "Stackoverflow",
       "Tag",
       "Taxonomy",
       "Theme",
       "User",
       "UserRole",
     ],
-    NodeWithContentEditor: ["Book", "Dev", "Page", "Portfolio", "Post"],
-    NodeWithFeaturedImage: ["Book", "Dev", "Page", "Portfolio", "Post"],
-    NodeWithTemplate: ["Book", "Dev", "MediaItem", "Page", "Portfolio", "Post"],
-    NodeWithTitle: ["Book", "Dev", "MediaItem", "Page", "Portfolio", "Post"],
-    UniformResourceIdentifiable: [
+    NodeWithContentEditor: [
       "Book",
-      "Category",
-      "ContentType",
+      "Dev",
+      "Page",
+      "Portfolio",
+      "Post",
+      "Stackoverflow",
+    ],
+    NodeWithFeaturedImage: [
+      "Book",
+      "Dev",
+      "Page",
+      "Portfolio",
+      "Post",
+      "Stackoverflow",
+    ],
+    NodeWithTemplate: [
+      "Book",
       "Dev",
       "MediaItem",
       "Page",
       "Portfolio",
       "Post",
+      "Stackoverflow",
+    ],
+    NodeWithTitle: [
+      "Book",
+      "Dev",
+      "MediaItem",
+      "Page",
+      "Portfolio",
+      "Post",
+      "Stackoverflow",
+    ],
+    UniformResourceIdentifiable: [
+      "Book",
+      "Category",
+      "ContentType",
+      "Dev",
+      "DevCategory",
+      "MediaItem",
+      "Page",
+      "Portfolio",
+      "Post",
       "PostFormat",
+      "Stackoverflow",
       "Tag",
       "User",
     ],
-    HierarchicalTermNode: ["Category"],
-    TermNode: ["Category", "PostFormat", "Tag"],
+    HierarchicalTermNode: ["Category", "DevCategory"],
+    TermNode: ["Category", "DevCategory", "PostFormat", "Tag"],
     Commenter: ["CommentAuthor", "User"],
     ContentRevisionUnion: ["Dev", "Page", "Post"],
     ContentTemplate: ["DefaultTemplate"],
@@ -8556,17 +9541,19 @@ export const generatedSchema = {
     NodeWithExcerpt: ["Dev", "Post"],
     NodeWithRevisions: ["Dev", "Page", "Post"],
     EnqueuedAsset: ["EnqueuedScript", "EnqueuedStylesheet"],
-    HierarchicalContentNode: ["MediaItem", "Page"],
+    HierarchicalContentNode: ["MediaItem", "Page", "Stackoverflow"],
     MenuItemObjectUnion: [
       "Book",
       "Category",
       "Dev",
+      "DevCategory",
       "Page",
       "Portfolio",
       "Post",
+      "Stackoverflow",
       "Tag",
     ],
-    NodeWithPageAttributes: ["Page"],
+    NodeWithPageAttributes: ["Page", "Stackoverflow"],
     NodeWithTrackbacks: ["Post"],
   },
 } as const;
@@ -9591,7 +10578,14 @@ export interface ConditionalTags {
  * Nodes used to manage content
  */
 export interface ContentNode {
-  __typename?: "Book" | "Dev" | "MediaItem" | "Page" | "Portfolio" | "Post";
+  __typename?:
+    | "Book"
+    | "Dev"
+    | "MediaItem"
+    | "Page"
+    | "Portfolio"
+    | "Post"
+    | "Stackoverflow";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -10159,6 +11153,21 @@ export interface CreateCommentPayload {
 }
 
 /**
+ * The payload for the createDevCategory mutation
+ */
+export interface CreateDevCategoryPayload {
+  __typename?: "CreateDevCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created dev_category
+   */
+  devCategory?: Maybe<DevCategory>;
+}
+
+/**
  * The payload for the createDev mutation
  */
 export interface CreateDevPayload {
@@ -10249,6 +11258,21 @@ export interface CreatePostPayload {
 }
 
 /**
+ * The payload for the createStackoverflow mutation
+ */
+export interface CreateStackoverflowPayload {
+  __typename?: "CreateStackoverflowPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  stackoverflow?: Maybe<Stackoverflow>;
+}
+
+/**
  * The payload for the createTag mutation
  */
 export interface CreateTagPayload {
@@ -10287,6 +11311,7 @@ export interface DatabaseIdentifier {
     | "Category"
     | "Comment"
     | "Dev"
+    | "DevCategory"
     | "MediaItem"
     | "Menu"
     | "MenuItem"
@@ -10294,6 +11319,7 @@ export interface DatabaseIdentifier {
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "Stackoverflow"
     | "Tag"
     | "User";
   /**
@@ -10369,6 +11395,25 @@ export interface DeleteCommentPayload {
    * The deleted comment ID
    */
   deletedId?: Maybe<ScalarsEnums["ID"]>;
+}
+
+/**
+ * The payload for the deleteDevCategory mutation
+ */
+export interface DeleteDevCategoryPayload {
+  __typename?: "DeleteDevCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The deteted term object
+   */
+  devCategory?: Maybe<DevCategory>;
 }
 
 /**
@@ -10483,6 +11528,25 @@ export interface DeletePostPayload {
    * The object before it was deleted
    */
   post?: Maybe<Post>;
+}
+
+/**
+ * The payload for the deleteStackoverflow mutation
+ */
+export interface DeleteStackoverflowPayload {
+  __typename?: "DeleteStackoverflowPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The object before it was deleted
+   */
+  stackoverflow?: Maybe<Stackoverflow>;
 }
 
 /**
@@ -10610,6 +11674,31 @@ export interface Dev {
    * The desired slug of the post
    */
   desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the Dev type and the DevCategory type
+   */
+  devCategories: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<DevToDevCategoryConnectionWhereArgs>;
+  }) => Maybe<DevToDevCategoryConnection>;
   /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
@@ -10825,6 +11914,391 @@ export interface Dev {
 }
 
 /**
+ * The DevCategory type
+ */
+export interface DevCategory {
+  __typename?: "DevCategory";
+  /**
+   * The ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<DevCategoryToAncestorsDevCategoryConnection>;
+  /**
+   * Connection between the DevCategory type and the DevCategory type
+   */
+  children: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<DevCategoryToDevCategoryConnectionWhereArgs>;
+  }) => Maybe<DevCategoryToDevCategoryConnection>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the DevCategory type and the ContentNode type
+   */
+  contentNodes: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<DevCategoryToContentNodeConnectionWhereArgs>;
+  }) => Maybe<DevCategoryToContentNodeConnection>;
+  /**
+   * The number of objects connected to the object
+   */
+  count?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * The description of the object
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of databaseId
+   */
+  devCategoryId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Connection between the DevCategory type and the Dev type
+   */
+  devs: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<DevCategoryToDevConnectionWhereArgs>;
+  }) => Maybe<DevCategoryToDevConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The unique resource identifier path
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The link to the term
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The human friendly name of the object.
+   */
+  name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the DevCategory type and the DevCategory type
+   */
+  parent?: Maybe<DevCategoryToParentDevCategoryConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * An alphanumeric identifier for the object unique to its type.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the DevCategory type and the Taxonomy type
+   */
+  taxonomy?: Maybe<DevCategoryToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums["String"]>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The ID of the term group that this term object belongs to
+   */
+  termGroupId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The taxonomy ID that the object is associated with
+   */
+  termTaxonomyId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the DevCategory type and the DevCategory type
+ */
+export interface DevCategoryToAncestorsDevCategoryConnection {
+  __typename?: "DevCategoryToAncestorsDevCategoryConnection";
+  /**
+   * Edges for the DevCategoryToAncestorsDevCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevCategoryToAncestorsDevCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<DevCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevCategoryToAncestorsDevCategoryConnectionEdge {
+  __typename?: "DevCategoryToAncestorsDevCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<DevCategory>;
+}
+
+/**
+ * Connection between the DevCategory type and the ContentNode type
+ */
+export interface DevCategoryToContentNodeConnection {
+  __typename?: "DevCategoryToContentNodeConnection";
+  /**
+   * Edges for the DevCategoryToContentNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevCategoryToContentNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<ContentNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevCategoryToContentNodeConnectionEdge {
+  __typename?: "DevCategoryToContentNodeConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<ContentNode>;
+}
+
+/**
+ * Connection between the DevCategory type and the DevCategory type
+ */
+export interface DevCategoryToDevCategoryConnection {
+  __typename?: "DevCategoryToDevCategoryConnection";
+  /**
+   * Edges for the DevCategoryToDevCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevCategoryToDevCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<DevCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevCategoryToDevCategoryConnectionEdge {
+  __typename?: "DevCategoryToDevCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<DevCategory>;
+}
+
+/**
+ * Connection between the DevCategory type and the Dev type
+ */
+export interface DevCategoryToDevConnection {
+  __typename?: "DevCategoryToDevConnection";
+  /**
+   * Edges for the DevCategoryToDevConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevCategoryToDevConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Dev>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevCategoryToDevConnectionEdge {
+  __typename?: "DevCategoryToDevConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Dev>;
+}
+
+/**
+ * Connection between the DevCategory type and the DevCategory type
+ */
+export interface DevCategoryToParentDevCategoryConnectionEdge {
+  __typename?: "DevCategoryToParentDevCategoryConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<DevCategory>;
+}
+
+/**
+ * Connection between the DevCategory type and the Taxonomy type
+ */
+export interface DevCategoryToTaxonomyConnectionEdge {
+  __typename?: "DevCategoryToTaxonomyConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Taxonomy>;
+}
+
+/**
  * Connection between the Dev type and the Comment type
  */
 export interface DevToCommentConnection {
@@ -10856,6 +12330,40 @@ export interface DevToCommentConnectionEdge {
    * The item at the end of the edge
    */
   node?: Maybe<Comment>;
+}
+
+/**
+ * Connection between the Dev type and the DevCategory type
+ */
+export interface DevToDevCategoryConnection {
+  __typename?: "DevToDevCategoryConnection";
+  /**
+   * Edges for the DevToDevCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevToDevCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<DevCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevToDevCategoryConnectionEdge {
+  __typename?: "DevToDevCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<DevCategory>;
 }
 
 /**
@@ -11124,7 +12632,7 @@ export interface GenerateAuthorizationCodePayload {
  * Content node with hierarchical (parent/child) relationships
  */
 export interface HierarchicalContentNode {
-  __typename?: "MediaItem" | "Page";
+  __typename?: "MediaItem" | "Page" | "Stackoverflow";
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -11277,7 +12785,7 @@ export interface HierarchicalContentNodeToParentContentNodeConnectionEdge {
  * Term node with hierarchical (parent/child) relationships
  */
 export interface HierarchicalTermNode {
-  __typename?: "Category";
+  __typename?: "Category" | "DevCategory";
   /**
    * Database id of the parent node
    */
@@ -11972,9 +13480,11 @@ export interface MenuItemLinkable {
     | "Book"
     | "Category"
     | "Dev"
+    | "DevCategory"
     | "Page"
     | "Portfolio"
     | "Post"
+    | "Stackoverflow"
     | "Tag";
   /**
    * The unique resource identifier path
@@ -11999,9 +13509,11 @@ export interface MenuItemObjectUnion {
     | "Book"
     | "Category"
     | "Dev"
+    | "DevCategory"
     | "Page"
     | "Portfolio"
     | "Post"
+    | "Stackoverflow"
     | "Tag";
   $on: $MenuItemObjectUnion;
 }
@@ -12107,6 +13619,7 @@ export interface Node {
     | "CommentAuthor"
     | "ContentType"
     | "Dev"
+    | "DevCategory"
     | "EnqueuedScript"
     | "EnqueuedStylesheet"
     | "MediaItem"
@@ -12117,6 +13630,7 @@ export interface Node {
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "Stackoverflow"
     | "Tag"
     | "Taxonomy"
     | "Theme"
@@ -12180,7 +13694,7 @@ export interface NodeWithComments {
  * A node that supports the content editor
  */
 export interface NodeWithContentEditor {
-  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post";
+  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post" | "Stackoverflow";
   /**
    * The content of the post.
    */
@@ -12214,7 +13728,7 @@ export interface NodeWithExcerpt {
  * A node that can have a featured image set
  */
 export interface NodeWithFeaturedImage {
-  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post";
+  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post" | "Stackoverflow";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -12388,7 +13902,7 @@ export interface NodeWithFeaturedImageToMediaItemConnectionEdge {
  * A node that can have page attributes
  */
 export interface NodeWithPageAttributes {
-  __typename?: "Page";
+  __typename?: "Page" | "Stackoverflow";
   /**
    * A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
    */
@@ -12427,7 +13941,14 @@ export interface NodeWithRevisionsToContentNodeConnectionEdge {
  * A node that can have a template associated with it
  */
 export interface NodeWithTemplate {
-  __typename?: "Book" | "Dev" | "MediaItem" | "Page" | "Portfolio" | "Post";
+  __typename?:
+    | "Book"
+    | "Dev"
+    | "MediaItem"
+    | "Page"
+    | "Portfolio"
+    | "Post"
+    | "Stackoverflow";
   /**
    * The template assigned to the node
    */
@@ -12439,7 +13960,14 @@ export interface NodeWithTemplate {
  * A node that NodeWith a title
  */
 export interface NodeWithTitle {
-  __typename?: "Book" | "Dev" | "MediaItem" | "Page" | "Portfolio" | "Post";
+  __typename?:
+    | "Book"
+    | "Dev"
+    | "MediaItem"
+    | "Page"
+    | "Portfolio"
+    | "Post"
+    | "Stackoverflow";
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -14437,6 +15965,40 @@ export interface RootQueryToContentTypeConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the DevCategory type
+ */
+export interface RootQueryToDevCategoryConnection {
+  __typename?: "RootQueryToDevCategoryConnection";
+  /**
+   * Edges for the RootQueryToDevCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToDevCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<DevCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToDevCategoryConnectionEdge {
+  __typename?: "RootQueryToDevCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<DevCategory>;
+}
+
+/**
  * Connection between the RootQuery type and the Dev type
  */
 export interface RootQueryToDevConnection {
@@ -14811,6 +16373,40 @@ export interface RootQueryToPostFormatConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the Stackoverflow type
+ */
+export interface RootQueryToStackoverflowConnection {
+  __typename?: "RootQueryToStackoverflowConnection";
+  /**
+   * Edges for the RootQueryToStackoverflowConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToStackoverflowConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Stackoverflow>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToStackoverflowConnectionEdge {
+  __typename?: "RootQueryToStackoverflowConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Stackoverflow>;
+}
+
+/**
  * Connection between the RootQuery type and the tag type
  */
 export interface RootQueryToTagConnection {
@@ -15106,6 +16702,272 @@ export interface Settings {
    * Settings of the the boolean Settings Group
    */
   writingSettingsUseSmilies?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * The Stackoverflow type
+ */
+export interface Stackoverflow {
+  __typename?: "Stackoverflow";
+  /**
+   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Connection between the HierarchicalContentNode type and the ContentNode type
+   */
+  children: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * The content of the post.
+   */
+  content: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums["String"];
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * Connection between the NodeWithFeaturedImage type and the MediaItem type
+   */
+  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
+  /**
+   * The database identifier for the featured image node assigned to the content node
+   */
+  featuredImageDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Globally unique ID of the featured image assigned to the node
+   */
+  featuredImageId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The globally unique identifier of the stackoverflow object.
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
+   */
+  menuOrder?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The parent of the node. The parent object can be of various types
+   */
+  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Connection between the Stackoverflow type and the Stackoverflow type
+   */
+  preview?: Maybe<StackoverflowToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  stackoverflowId: ScalarsEnums["Int"];
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The template assigned to a node of content
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the Stackoverflow type and the Stackoverflow type
+ */
+export interface StackoverflowToPreviewConnectionEdge {
+  __typename?: "StackoverflowToPreviewConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Stackoverflow>;
 }
 
 /**
@@ -15498,7 +17360,7 @@ export interface TaxonomyToContentTypeConnectionEdge {
  * Terms are nodes within a Taxonomy, used to group and relate other nodes.
  */
 export interface TermNode {
-  __typename?: "Category" | "PostFormat" | "Tag";
+  __typename?: "Category" | "DevCategory" | "PostFormat" | "Tag";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -15733,11 +17595,13 @@ export interface UniformResourceIdentifiable {
     | "Category"
     | "ContentType"
     | "Dev"
+    | "DevCategory"
     | "MediaItem"
     | "Page"
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "Stackoverflow"
     | "Tag"
     | "User";
   /**
@@ -15811,6 +17675,21 @@ export interface UpdateCommentPayload {
    * Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache
    */
   success?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * The payload for the UpdateDevCategory mutation
+ */
+export interface UpdateDevCategoryPayload {
+  __typename?: "UpdateDevCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created dev_category
+   */
+  devCategory?: Maybe<DevCategory>;
 }
 
 /**
@@ -15932,6 +17811,21 @@ export interface UpdateSettingsPayload {
    * Update the WritingSettings setting.
    */
   writingSettings?: Maybe<WritingSettings>;
+}
+
+/**
+ * The payload for the updateStackoverflow mutation
+ */
+export interface UpdateStackoverflowPayload {
+  __typename?: "UpdateStackoverflowPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  stackoverflow?: Maybe<Stackoverflow>;
 }
 
 /**
@@ -16681,6 +18575,9 @@ export interface Mutation {
     input: CreateCommentInput;
   }) => Maybe<CreateCommentPayload>;
   createDev: (args: { input: CreateDevInput }) => Maybe<CreateDevPayload>;
+  createDevCategory: (args: {
+    input: CreateDevCategoryInput;
+  }) => Maybe<CreateDevCategoryPayload>;
   createMediaItem: (args: {
     input: CreateMediaItemInput;
   }) => Maybe<CreateMediaItemPayload>;
@@ -16692,6 +18589,9 @@ export interface Mutation {
   createPostFormat: (args: {
     input: CreatePostFormatInput;
   }) => Maybe<CreatePostFormatPayload>;
+  createStackoverflow: (args: {
+    input: CreateStackoverflowInput;
+  }) => Maybe<CreateStackoverflowPayload>;
   createTag: (args: { input: CreateTagInput }) => Maybe<CreateTagPayload>;
   createUser: (args: { input: CreateUserInput }) => Maybe<CreateUserPayload>;
   deleteBook: (args: { input: DeleteBookInput }) => Maybe<DeleteBookPayload>;
@@ -16702,6 +18602,9 @@ export interface Mutation {
     input: DeleteCommentInput;
   }) => Maybe<DeleteCommentPayload>;
   deleteDev: (args: { input: DeleteDevInput }) => Maybe<DeleteDevPayload>;
+  deleteDevCategory: (args: {
+    input: DeleteDevCategoryInput;
+  }) => Maybe<DeleteDevCategoryPayload>;
   deleteMediaItem: (args: {
     input: DeleteMediaItemInput;
   }) => Maybe<DeleteMediaItemPayload>;
@@ -16713,6 +18616,9 @@ export interface Mutation {
   deletePostFormat: (args: {
     input: DeletePostFormatInput;
   }) => Maybe<DeletePostFormatPayload>;
+  deleteStackoverflow: (args: {
+    input: DeleteStackoverflowInput;
+  }) => Maybe<DeleteStackoverflowPayload>;
   deleteTag: (args: { input: DeleteTagInput }) => Maybe<DeleteTagPayload>;
   deleteUser: (args: { input: DeleteUserInput }) => Maybe<DeleteUserPayload>;
   generateAuthorizationCode: (args: {
@@ -16741,6 +18647,9 @@ export interface Mutation {
     input: UpdateCommentInput;
   }) => Maybe<UpdateCommentPayload>;
   updateDev: (args: { input: UpdateDevInput }) => Maybe<UpdateDevPayload>;
+  updateDevCategory: (args: {
+    input: UpdateDevCategoryInput;
+  }) => Maybe<UpdateDevCategoryPayload>;
   updateMediaItem: (args: {
     input: UpdateMediaItemInput;
   }) => Maybe<UpdateMediaItemPayload>;
@@ -16755,6 +18664,9 @@ export interface Mutation {
   updateSettings: (args: {
     input: UpdateSettingsInput;
   }) => Maybe<UpdateSettingsPayload>;
+  updateStackoverflow: (args: {
+    input: UpdateStackoverflowInput;
+  }) => Maybe<UpdateStackoverflowPayload>;
   updateTag: (args: { input: UpdateTagInput }) => Maybe<UpdateTagPayload>;
   updateUser: (args: { input: UpdateUserInput }) => Maybe<UpdateUserPayload>;
 }
@@ -16833,6 +18745,17 @@ export interface Query {
     slug?: Maybe<Scalars["String"]>;
     uri?: Maybe<Scalars["String"]>;
   }) => Maybe<Dev>;
+  devCategories: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToDevCategoryConnectionWhereArgs>;
+  }) => Maybe<RootQueryToDevCategoryConnection>;
+  devCategory: (args: {
+    id: Scalars["ID"];
+    idType?: Maybe<DevCategoryIdType>;
+  }) => Maybe<DevCategory>;
   devs: (args?: {
     after?: Maybe<Scalars["String"]>;
     before?: Maybe<Scalars["String"]>;
@@ -16978,6 +18901,23 @@ export interface Query {
     last?: Maybe<Scalars["Int"]>;
     where?: Maybe<RootQueryToContentRevisionUnionConnectionWhereArgs>;
   }) => Maybe<RootQueryToContentRevisionUnionConnection>;
+  stackoverflow: (args: {
+    asPreview?: Maybe<Scalars["Boolean"]>;
+    id: Scalars["ID"];
+    idType?: Maybe<StackoverflowIdType>;
+  }) => Maybe<Stackoverflow>;
+  stackoverflowBy: (args?: {
+    id?: Maybe<Scalars["ID"]>;
+    stackoverflowId?: Maybe<Scalars["Int"]>;
+    uri?: Maybe<Scalars["String"]>;
+  }) => Maybe<Stackoverflow>;
+  stackoverflows: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToStackoverflowConnectionWhereArgs>;
+  }) => Maybe<RootQueryToStackoverflowConnection>;
   tag: (args: { id: Scalars["ID"]; idType?: Maybe<TagIdType> }) => Maybe<Tag>;
   tags: (args?: {
     after?: Maybe<Scalars["String"]>;
@@ -17079,29 +19019,46 @@ export interface SchemaObjectTypes {
   CreateBookPayload: CreateBookPayload;
   CreateCategoryPayload: CreateCategoryPayload;
   CreateCommentPayload: CreateCommentPayload;
+  CreateDevCategoryPayload: CreateDevCategoryPayload;
   CreateDevPayload: CreateDevPayload;
   CreateMediaItemPayload: CreateMediaItemPayload;
   CreatePagePayload: CreatePagePayload;
   CreatePortfolioPayload: CreatePortfolioPayload;
   CreatePostFormatPayload: CreatePostFormatPayload;
   CreatePostPayload: CreatePostPayload;
+  CreateStackoverflowPayload: CreateStackoverflowPayload;
   CreateTagPayload: CreateTagPayload;
   CreateUserPayload: CreateUserPayload;
   DefaultTemplate: DefaultTemplate;
   DeleteBookPayload: DeleteBookPayload;
   DeleteCategoryPayload: DeleteCategoryPayload;
   DeleteCommentPayload: DeleteCommentPayload;
+  DeleteDevCategoryPayload: DeleteDevCategoryPayload;
   DeleteDevPayload: DeleteDevPayload;
   DeleteMediaItemPayload: DeleteMediaItemPayload;
   DeletePagePayload: DeletePagePayload;
   DeletePortfolioPayload: DeletePortfolioPayload;
   DeletePostFormatPayload: DeletePostFormatPayload;
   DeletePostPayload: DeletePostPayload;
+  DeleteStackoverflowPayload: DeleteStackoverflowPayload;
   DeleteTagPayload: DeleteTagPayload;
   DeleteUserPayload: DeleteUserPayload;
   Dev: Dev;
+  DevCategory: DevCategory;
+  DevCategoryToAncestorsDevCategoryConnection: DevCategoryToAncestorsDevCategoryConnection;
+  DevCategoryToAncestorsDevCategoryConnectionEdge: DevCategoryToAncestorsDevCategoryConnectionEdge;
+  DevCategoryToContentNodeConnection: DevCategoryToContentNodeConnection;
+  DevCategoryToContentNodeConnectionEdge: DevCategoryToContentNodeConnectionEdge;
+  DevCategoryToDevCategoryConnection: DevCategoryToDevCategoryConnection;
+  DevCategoryToDevCategoryConnectionEdge: DevCategoryToDevCategoryConnectionEdge;
+  DevCategoryToDevConnection: DevCategoryToDevConnection;
+  DevCategoryToDevConnectionEdge: DevCategoryToDevConnectionEdge;
+  DevCategoryToParentDevCategoryConnectionEdge: DevCategoryToParentDevCategoryConnectionEdge;
+  DevCategoryToTaxonomyConnectionEdge: DevCategoryToTaxonomyConnectionEdge;
   DevToCommentConnection: DevToCommentConnection;
   DevToCommentConnectionEdge: DevToCommentConnectionEdge;
+  DevToDevCategoryConnection: DevToDevCategoryConnection;
+  DevToDevCategoryConnectionEdge: DevToDevCategoryConnectionEdge;
   DevToPreviewConnectionEdge: DevToPreviewConnectionEdge;
   DevToRevisionConnection: DevToRevisionConnection;
   DevToRevisionConnectionEdge: DevToRevisionConnectionEdge;
@@ -17184,6 +19141,8 @@ export interface SchemaObjectTypes {
   RootQueryToContentRevisionUnionConnectionEdge: RootQueryToContentRevisionUnionConnectionEdge;
   RootQueryToContentTypeConnection: RootQueryToContentTypeConnection;
   RootQueryToContentTypeConnectionEdge: RootQueryToContentTypeConnectionEdge;
+  RootQueryToDevCategoryConnection: RootQueryToDevCategoryConnection;
+  RootQueryToDevCategoryConnectionEdge: RootQueryToDevCategoryConnectionEdge;
   RootQueryToDevConnection: RootQueryToDevConnection;
   RootQueryToDevConnectionEdge: RootQueryToDevConnectionEdge;
   RootQueryToEnqueuedScriptConnection: RootQueryToEnqueuedScriptConnection;
@@ -17206,6 +19165,8 @@ export interface SchemaObjectTypes {
   RootQueryToPostConnectionEdge: RootQueryToPostConnectionEdge;
   RootQueryToPostFormatConnection: RootQueryToPostFormatConnection;
   RootQueryToPostFormatConnectionEdge: RootQueryToPostFormatConnectionEdge;
+  RootQueryToStackoverflowConnection: RootQueryToStackoverflowConnection;
+  RootQueryToStackoverflowConnectionEdge: RootQueryToStackoverflowConnectionEdge;
   RootQueryToTagConnection: RootQueryToTagConnection;
   RootQueryToTagConnectionEdge: RootQueryToTagConnectionEdge;
   RootQueryToTaxonomyConnection: RootQueryToTaxonomyConnection;
@@ -17220,6 +19181,8 @@ export interface SchemaObjectTypes {
   RootQueryToUserRoleConnectionEdge: RootQueryToUserRoleConnectionEdge;
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   Settings: Settings;
+  Stackoverflow: Stackoverflow;
+  StackoverflowToPreviewConnectionEdge: StackoverflowToPreviewConnectionEdge;
   Subscription: Subscription;
   Tag: Tag;
   TagToContentNodeConnection: TagToContentNodeConnection;
@@ -17238,6 +19201,7 @@ export interface SchemaObjectTypes {
   UpdateBookPayload: UpdateBookPayload;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
+  UpdateDevCategoryPayload: UpdateDevCategoryPayload;
   UpdateDevPayload: UpdateDevPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
   UpdatePagePayload: UpdatePagePayload;
@@ -17245,6 +19209,7 @@ export interface SchemaObjectTypes {
   UpdatePostFormatPayload: UpdatePostFormatPayload;
   UpdatePostPayload: UpdatePostPayload;
   UpdateSettingsPayload: UpdateSettingsPayload;
+  UpdateStackoverflowPayload: UpdateStackoverflowPayload;
   UpdateTagPayload: UpdateTagPayload;
   UpdateUserPayload: UpdateUserPayload;
   User: User;
@@ -17308,29 +19273,46 @@ export type SchemaObjectTypesNames =
   | "CreateBookPayload"
   | "CreateCategoryPayload"
   | "CreateCommentPayload"
+  | "CreateDevCategoryPayload"
   | "CreateDevPayload"
   | "CreateMediaItemPayload"
   | "CreatePagePayload"
   | "CreatePortfolioPayload"
   | "CreatePostFormatPayload"
   | "CreatePostPayload"
+  | "CreateStackoverflowPayload"
   | "CreateTagPayload"
   | "CreateUserPayload"
   | "DefaultTemplate"
   | "DeleteBookPayload"
   | "DeleteCategoryPayload"
   | "DeleteCommentPayload"
+  | "DeleteDevCategoryPayload"
   | "DeleteDevPayload"
   | "DeleteMediaItemPayload"
   | "DeletePagePayload"
   | "DeletePortfolioPayload"
   | "DeletePostFormatPayload"
   | "DeletePostPayload"
+  | "DeleteStackoverflowPayload"
   | "DeleteTagPayload"
   | "DeleteUserPayload"
   | "Dev"
+  | "DevCategory"
+  | "DevCategoryToAncestorsDevCategoryConnection"
+  | "DevCategoryToAncestorsDevCategoryConnectionEdge"
+  | "DevCategoryToContentNodeConnection"
+  | "DevCategoryToContentNodeConnectionEdge"
+  | "DevCategoryToDevCategoryConnection"
+  | "DevCategoryToDevCategoryConnectionEdge"
+  | "DevCategoryToDevConnection"
+  | "DevCategoryToDevConnectionEdge"
+  | "DevCategoryToParentDevCategoryConnectionEdge"
+  | "DevCategoryToTaxonomyConnectionEdge"
   | "DevToCommentConnection"
   | "DevToCommentConnectionEdge"
+  | "DevToDevCategoryConnection"
+  | "DevToDevCategoryConnectionEdge"
   | "DevToPreviewConnectionEdge"
   | "DevToRevisionConnection"
   | "DevToRevisionConnectionEdge"
@@ -17413,6 +19395,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToContentRevisionUnionConnectionEdge"
   | "RootQueryToContentTypeConnection"
   | "RootQueryToContentTypeConnectionEdge"
+  | "RootQueryToDevCategoryConnection"
+  | "RootQueryToDevCategoryConnectionEdge"
   | "RootQueryToDevConnection"
   | "RootQueryToDevConnectionEdge"
   | "RootQueryToEnqueuedScriptConnection"
@@ -17435,6 +19419,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToPostConnectionEdge"
   | "RootQueryToPostFormatConnection"
   | "RootQueryToPostFormatConnectionEdge"
+  | "RootQueryToStackoverflowConnection"
+  | "RootQueryToStackoverflowConnectionEdge"
   | "RootQueryToTagConnection"
   | "RootQueryToTagConnectionEdge"
   | "RootQueryToTaxonomyConnection"
@@ -17449,6 +19435,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToUserRoleConnectionEdge"
   | "SendPasswordResetEmailPayload"
   | "Settings"
+  | "Stackoverflow"
+  | "StackoverflowToPreviewConnectionEdge"
   | "Subscription"
   | "Tag"
   | "TagToContentNodeConnection"
@@ -17467,6 +19455,7 @@ export type SchemaObjectTypesNames =
   | "UpdateBookPayload"
   | "UpdateCategoryPayload"
   | "UpdateCommentPayload"
+  | "UpdateDevCategoryPayload"
   | "UpdateDevPayload"
   | "UpdateMediaItemPayload"
   | "UpdatePagePayload"
@@ -17474,6 +19463,7 @@ export type SchemaObjectTypesNames =
   | "UpdatePostFormatPayload"
   | "UpdatePostPayload"
   | "UpdateSettingsPayload"
+  | "UpdateStackoverflowPayload"
   | "UpdateTagPayload"
   | "UpdateUserPayload"
   | "User"
@@ -17511,6 +19501,7 @@ export interface $ContentNode {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $ContentRevisionUnion {
@@ -17528,6 +19519,7 @@ export interface $DatabaseIdentifier {
   Category?: Category;
   Comment?: Comment;
   Dev?: Dev;
+  DevCategory?: DevCategory;
   MediaItem?: MediaItem;
   Menu?: Menu;
   MenuItem?: MenuItem;
@@ -17535,6 +19527,7 @@ export interface $DatabaseIdentifier {
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   User?: User;
 }
@@ -17547,19 +19540,23 @@ export interface $EnqueuedAsset {
 export interface $HierarchicalContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $HierarchicalTermNode {
   Category?: Category;
+  DevCategory?: DevCategory;
 }
 
 export interface $MenuItemLinkable {
   Book?: Book;
   Category?: Category;
   Dev?: Dev;
+  DevCategory?: DevCategory;
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
   Tag?: Tag;
 }
 
@@ -17567,9 +19564,11 @@ export interface $MenuItemObjectUnion {
   Book?: Book;
   Category?: Category;
   Dev?: Dev;
+  DevCategory?: DevCategory;
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
   Tag?: Tag;
 }
 
@@ -17580,6 +19579,7 @@ export interface $Node {
   CommentAuthor?: CommentAuthor;
   ContentType?: ContentType;
   Dev?: Dev;
+  DevCategory?: DevCategory;
   EnqueuedScript?: EnqueuedScript;
   EnqueuedStylesheet?: EnqueuedStylesheet;
   MediaItem?: MediaItem;
@@ -17590,6 +19590,7 @@ export interface $Node {
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   Taxonomy?: Taxonomy;
   Theme?: Theme;
@@ -17617,6 +19618,7 @@ export interface $NodeWithContentEditor {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $NodeWithExcerpt {
@@ -17630,10 +19632,12 @@ export interface $NodeWithFeaturedImage {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $NodeWithPageAttributes {
   Page?: Page;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $NodeWithRevisions {
@@ -17649,6 +19653,7 @@ export interface $NodeWithTemplate {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $NodeWithTitle {
@@ -17658,6 +19663,7 @@ export interface $NodeWithTitle {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  Stackoverflow?: Stackoverflow;
 }
 
 export interface $NodeWithTrackbacks {
@@ -17666,6 +19672,7 @@ export interface $NodeWithTrackbacks {
 
 export interface $TermNode {
   Category?: Category;
+  DevCategory?: DevCategory;
   PostFormat?: PostFormat;
   Tag?: Tag;
 }
@@ -17675,11 +19682,13 @@ export interface $UniformResourceIdentifiable {
   Category?: Category;
   ContentType?: ContentType;
   Dev?: Dev;
+  DevCategory?: DevCategory;
   MediaItem?: MediaItem;
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   User?: User;
 }
@@ -17703,8 +19712,10 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   ContentTypeEnum: ContentTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
   ContentTypesOfCategoryEnum: ContentTypesOfCategoryEnum | undefined;
+  ContentTypesOfDevCategoryEnum: ContentTypesOfDevCategoryEnum | undefined;
   ContentTypesOfPostFormatEnum: ContentTypesOfPostFormatEnum | undefined;
   ContentTypesOfTagEnum: ContentTypesOfTagEnum | undefined;
+  DevCategoryIdType: DevCategoryIdType | undefined;
   DevIdType: DevIdType | undefined;
   MediaItemIdType: MediaItemIdType | undefined;
   MediaItemSizeEnum: MediaItemSizeEnum | undefined;
@@ -17728,6 +19739,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | undefined;
   PostStatusEnum: PostStatusEnum | undefined;
   RelationEnum: RelationEnum | undefined;
+  StackoverflowIdType: StackoverflowIdType | undefined;
   TagIdType: TagIdType | undefined;
   TaxonomyEnum: TaxonomyEnum | undefined;
   TaxonomyIdTypeEnum: TaxonomyIdTypeEnum | undefined;
