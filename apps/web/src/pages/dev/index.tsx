@@ -1,7 +1,6 @@
 import { getNextStaticProps } from "@faustjs/next";
 import { client } from "~web/client";
-import { Footer, Header, Pagination } from "~web/components";
-import { Posts } from "~web/components/template";
+import { Footer, Header, Pagination, Posts } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -17,13 +16,6 @@ export default function Page() {
   const generalSettings = useQuery().generalSettings;
   const isBefore = id === "before";
   const devs = useQuery().devs({
-    after: !isBefore ? (cursor as string) : undefined,
-    before: isBefore ? (cursor as string) : undefined,
-    first: !isBefore ? POSTS_PER_PAGE : undefined,
-    last: isBefore ? POSTS_PER_PAGE : undefined,
-  });
-
-  console.log({
     after: !isBefore ? (cursor as string) : undefined,
     before: isBefore ? (cursor as string) : undefined,
     first: !isBefore ? POSTS_PER_PAGE : undefined,
