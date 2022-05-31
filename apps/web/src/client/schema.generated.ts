@@ -675,6 +675,8 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   POST = "POST",
   /** The Type of Content object */
+  SHORTCUT_POST = "SHORTCUT_POST",
+  /** The Type of Content object */
   STACKOVERFLOW = "STACKOVERFLOW",
 }
 
@@ -1032,6 +1034,26 @@ export interface CreatePostInput {
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 }
 
+/** Input for the createShortcutPost mutation */
+export interface CreateShortcutPostInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createStackoverflow mutation */
 export interface CreateStackoverflowInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -1257,6 +1279,16 @@ export interface DeletePostInput {
   /** Whether the object should be force deleted instead of being moved to the trash */
   forceDelete?: InputMaybe<Scalars["Boolean"]>;
   /** The ID of the post to delete */
+  id: Scalars["ID"];
+}
+
+/** Input for the deleteShortcutPost mutation */
+export interface DeleteShortcutPostInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars["Boolean"]>;
+  /** The ID of the ShortcutPost to delete */
   id: Scalars["ID"];
 }
 
@@ -3614,6 +3646,44 @@ export interface RootQueryToPostFormatConnectionWhereArgs {
   updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
+/** Arguments for filtering the RootQueryToShortcutPostConnection connection */
+export interface RootQueryToShortcutPostConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the RootQueryToStackoverflowConnection connection */
 export interface RootQueryToStackoverflowConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -3784,6 +3854,18 @@ export interface SendPasswordResetEmailInput {
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** A string that contains the user's username or email address. */
   username: Scalars["String"];
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum ShortcutPostIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = "DATABASE_ID",
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = "ID",
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  SLUG = "SLUG",
+  /** Identify a resource by the URI. */
+  URI = "URI",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -4312,6 +4394,28 @@ export interface UpdateSettingsInput {
   writingSettingsUseSmilies?: InputMaybe<Scalars["Boolean"]>;
 }
 
+/** Input for the updateShortcutPost mutation */
+export interface UpdateShortcutPostInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** The ID of the ShortcutPost object */
+  id: Scalars["ID"];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the updateStackoverflow mutation */
 export interface UpdateStackoverflowInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -4809,6 +4913,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   PostObjectsConnectionOrderbyEnum: true,
   PostStatusEnum: true,
   RelationEnum: true,
+  ShortcutPostIdType: true,
   StackoverflowIdType: true,
   String: true,
   TagIdType: true,
@@ -5952,6 +6057,21 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
   },
+  CreateShortcutPostInput: {
+    clientMutationId: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  CreateShortcutPostPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    shortcutPost: { __type: "ShortcutPost" },
+  },
   CreateStackoverflowInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
@@ -6161,6 +6281,17 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     deletedId: { __type: "ID" },
     post: { __type: "Post" },
+  },
+  DeleteShortcutPostInput: {
+    clientMutationId: { __type: "String" },
+    forceDelete: { __type: "Boolean" },
+    id: { __type: "ID!" },
+  },
+  DeleteShortcutPostPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    shortcutPost: { __type: "ShortcutPost" },
   },
   DeleteStackoverflowInput: {
     clientMutationId: { __type: "String" },
@@ -8645,6 +8776,36 @@ export const generatedSchema = {
     termTaxonomId: { __type: "[ID]" },
     updateTermMetaCache: { __type: "Boolean" },
   },
+  RootQueryToShortcutPostConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToShortcutPostConnectionEdge]" },
+    nodes: { __type: "[ShortcutPost]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToShortcutPostConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "ShortcutPost" },
+  },
+  RootQueryToShortcutPostConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   RootQueryToStackoverflowConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToStackoverflowConnectionEdge]" },
@@ -8832,6 +8993,57 @@ export const generatedSchema = {
     writingSettingsDefaultCategory: { __type: "Int" },
     writingSettingsDefaultPostFormat: { __type: "String" },
     writingSettingsUseSmilies: { __type: "Boolean" },
+  },
+  ShortcutPost: {
+    __typename: { __type: "String!" },
+    conditionalTags: { __type: "ConditionalTags" },
+    content: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
+    contentTypeName: { __type: "String!" },
+    databaseId: { __type: "Int!" },
+    date: { __type: "String" },
+    dateGmt: { __type: "String" },
+    desiredSlug: { __type: "String" },
+    editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
+    enclosure: { __type: "String" },
+    enqueuedScripts: {
+      __type: "ContentNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "ContentNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    guid: { __type: "String" },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isPreview: { __type: "Boolean" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    link: { __type: "String" },
+    modified: { __type: "String" },
+    modifiedGmt: { __type: "String" },
+    preview: { __type: "ShortcutPostToPreviewConnectionEdge" },
+    previewRevisionDatabaseId: { __type: "Int" },
+    previewRevisionId: { __type: "ID" },
+    shortcutPostId: { __type: "Int!" },
+    slug: { __type: "String" },
+    status: { __type: "String" },
+    template: { __type: "ContentTemplate" },
+    templates: { __type: "[String]" },
+    title: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    uri: { __type: "String" },
+  },
+  ShortcutPostToPreviewConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "ShortcutPost" },
   },
   Stackoverflow: {
     __typename: { __type: "String!" },
@@ -9395,6 +9607,22 @@ export const generatedSchema = {
     readingSettings: { __type: "ReadingSettings" },
     writingSettings: { __type: "WritingSettings" },
   },
+  UpdateShortcutPostInput: {
+    clientMutationId: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    id: { __type: "ID!" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  UpdateShortcutPostPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    shortcutPost: { __type: "ShortcutPost" },
+  },
   UpdateStackoverflowInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
@@ -9884,6 +10112,10 @@ export const generatedSchema = {
       __type: "CreatePostFormatPayload",
       __args: { input: "CreatePostFormatInput!" },
     },
+    createShortcutPost: {
+      __type: "CreateShortcutPostPayload",
+      __args: { input: "CreateShortcutPostInput!" },
+    },
     createStackoverflow: {
       __type: "CreateStackoverflowPayload",
       __args: { input: "CreateStackoverflowInput!" },
@@ -9943,6 +10175,10 @@ export const generatedSchema = {
     deletePostFormat: {
       __type: "DeletePostFormatPayload",
       __args: { input: "DeletePostFormatInput!" },
+    },
+    deleteShortcutPost: {
+      __type: "DeleteShortcutPostPayload",
+      __args: { input: "DeleteShortcutPostInput!" },
     },
     deleteStackoverflow: {
       __type: "DeleteStackoverflowPayload",
@@ -10028,6 +10264,10 @@ export const generatedSchema = {
     updateSettings: {
       __type: "UpdateSettingsPayload",
       __args: { input: "UpdateSettingsInput!" },
+    },
+    updateShortcutPost: {
+      __type: "UpdateShortcutPostPayload",
+      __args: { input: "UpdateShortcutPostInput!" },
     },
     updateStackoverflow: {
       __type: "UpdateStackoverflowPayload",
@@ -10330,6 +10570,29 @@ export const generatedSchema = {
         where: "RootQueryToContentRevisionUnionConnectionWhereArgs",
       },
     },
+    shortcutPost: {
+      __type: "ShortcutPost",
+      __args: { asPreview: "Boolean", id: "ID!", idType: "ShortcutPostIdType" },
+    },
+    shortcutPostBy: {
+      __type: "ShortcutPost",
+      __args: {
+        id: "ID",
+        shortcutPostId: "Int",
+        slug: "String",
+        uri: "String",
+      },
+    },
+    shortcutPosts: {
+      __type: "RootQueryToShortcutPostConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToShortcutPostConnectionWhereArgs",
+      },
+    },
     stackoverflow: {
       __type: "Stackoverflow",
       __args: {
@@ -10426,6 +10689,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
     ],
     DatabaseIdentifier: [
@@ -10443,6 +10707,7 @@ export const generatedSchema = {
       "Portfolio",
       "Post",
       "PostFormat",
+      "ShortcutPost",
       "Stackoverflow",
       "Tag",
       "User",
@@ -10457,6 +10722,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
       "Tag",
     ],
@@ -10480,6 +10746,7 @@ export const generatedSchema = {
       "Portfolio",
       "Post",
       "PostFormat",
+      "ShortcutPost",
       "Stackoverflow",
       "Tag",
       "Taxonomy",
@@ -10495,6 +10762,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
     ],
     NodeWithExcerpt: ["Blog", "Dev", "Post"],
@@ -10515,6 +10783,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
     ],
     NodeWithTitle: [
@@ -10525,6 +10794,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
     ],
     UniformResourceIdentifiable: [
@@ -10540,6 +10810,7 @@ export const generatedSchema = {
       "Portfolio",
       "Post",
       "PostFormat",
+      "ShortcutPost",
       "Stackoverflow",
       "Tag",
       "User",
@@ -10563,6 +10834,7 @@ export const generatedSchema = {
       "Page",
       "Portfolio",
       "Post",
+      "ShortcutPost",
       "Stackoverflow",
       "Tag",
     ],
@@ -12241,6 +12513,7 @@ export interface ContentNode {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
@@ -12944,6 +13217,21 @@ export interface CreatePostPayload {
 }
 
 /**
+ * The payload for the createShortcutPost mutation
+ */
+export interface CreateShortcutPostPayload {
+  __typename?: "CreateShortcutPostPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  shortcutPost?: Maybe<ShortcutPost>;
+}
+
+/**
  * The payload for the createStackoverflow mutation
  */
 export interface CreateStackoverflowPayload {
@@ -13007,6 +13295,7 @@ export interface DatabaseIdentifier {
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
     | "User";
@@ -13254,6 +13543,25 @@ export interface DeletePostPayload {
    * The object before it was deleted
    */
   post?: Maybe<Post>;
+}
+
+/**
+ * The payload for the deleteShortcutPost mutation
+ */
+export interface DeleteShortcutPostPayload {
+  __typename?: "DeleteShortcutPostPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The object before it was deleted
+   */
+  shortcutPost?: Maybe<ShortcutPost>;
 }
 
 /**
@@ -15212,6 +15520,7 @@ export interface MenuItemLinkable {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow"
     | "Tag";
   /**
@@ -15243,6 +15552,7 @@ export interface MenuItemObjectUnion {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow"
     | "Tag";
   $on: $MenuItemObjectUnion;
@@ -15362,6 +15672,7 @@ export interface Node {
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
     | "Taxonomy"
@@ -15433,6 +15744,7 @@ export interface NodeWithContentEditor {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow";
   /**
    * The content of the post.
@@ -15695,6 +16007,7 @@ export interface NodeWithTemplate {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow";
   /**
    * The template assigned to the node
@@ -15715,6 +16028,7 @@ export interface NodeWithTitle {
     | "Page"
     | "Portfolio"
     | "Post"
+    | "ShortcutPost"
     | "Stackoverflow";
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
@@ -18189,6 +18503,40 @@ export interface RootQueryToPostFormatConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the ShortcutPost type
+ */
+export interface RootQueryToShortcutPostConnection {
+  __typename?: "RootQueryToShortcutPostConnection";
+  /**
+   * Edges for the RootQueryToShortcutPostConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToShortcutPostConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<ShortcutPost>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToShortcutPostConnectionEdge {
+  __typename?: "RootQueryToShortcutPostConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<ShortcutPost>;
+}
+
+/**
  * Connection between the RootQuery type and the Stackoverflow type
  */
 export interface RootQueryToStackoverflowConnection {
@@ -18518,6 +18866,194 @@ export interface Settings {
    * Settings of the the boolean Settings Group
    */
   writingSettingsUseSmilies?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * The ShortcutPost type
+ */
+export interface ShortcutPost {
+  __typename?: "ShortcutPost";
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * The content of the post.
+   */
+  content: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums["String"];
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The globally unique identifier of the shortcut_post object.
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ShortcutPost type and the ShortcutPost type
+   */
+  preview?: Maybe<ShortcutPostToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  shortcutPostId: ScalarsEnums["Int"];
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the ShortcutPost type and the ShortcutPost type
+ */
+export interface ShortcutPostToPreviewConnectionEdge {
+  __typename?: "ShortcutPostToPreviewConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<ShortcutPost>;
 }
 
 /**
@@ -19424,6 +19960,7 @@ export interface UniformResourceIdentifiable {
     | "Portfolio"
     | "Post"
     | "PostFormat"
+    | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
     | "User";
@@ -19664,6 +20201,21 @@ export interface UpdateSettingsPayload {
    * Update the WritingSettings setting.
    */
   writingSettings?: Maybe<WritingSettings>;
+}
+
+/**
+ * The payload for the updateShortcutPost mutation
+ */
+export interface UpdateShortcutPostPayload {
+  __typename?: "UpdateShortcutPostPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  shortcutPost?: Maybe<ShortcutPost>;
 }
 
 /**
@@ -20446,6 +20998,9 @@ export interface Mutation {
   createPostFormat: (args: {
     input: CreatePostFormatInput;
   }) => Maybe<CreatePostFormatPayload>;
+  createShortcutPost: (args: {
+    input: CreateShortcutPostInput;
+  }) => Maybe<CreateShortcutPostPayload>;
   createStackoverflow: (args: {
     input: CreateStackoverflowInput;
   }) => Maybe<CreateStackoverflowPayload>;
@@ -20477,6 +21032,9 @@ export interface Mutation {
   deletePostFormat: (args: {
     input: DeletePostFormatInput;
   }) => Maybe<DeletePostFormatPayload>;
+  deleteShortcutPost: (args: {
+    input: DeleteShortcutPostInput;
+  }) => Maybe<DeleteShortcutPostPayload>;
   deleteStackoverflow: (args: {
     input: DeleteStackoverflowInput;
   }) => Maybe<DeleteStackoverflowPayload>;
@@ -20529,6 +21087,9 @@ export interface Mutation {
   updateSettings: (args: {
     input: UpdateSettingsInput;
   }) => Maybe<UpdateSettingsPayload>;
+  updateShortcutPost: (args: {
+    input: UpdateShortcutPostInput;
+  }) => Maybe<UpdateShortcutPostPayload>;
   updateStackoverflow: (args: {
     input: UpdateStackoverflowInput;
   }) => Maybe<UpdateStackoverflowPayload>;
@@ -20795,6 +21356,24 @@ export interface Query {
     last?: Maybe<Scalars["Int"]>;
     where?: Maybe<RootQueryToContentRevisionUnionConnectionWhereArgs>;
   }) => Maybe<RootQueryToContentRevisionUnionConnection>;
+  shortcutPost: (args: {
+    asPreview?: Maybe<Scalars["Boolean"]>;
+    id: Scalars["ID"];
+    idType?: Maybe<ShortcutPostIdType>;
+  }) => Maybe<ShortcutPost>;
+  shortcutPostBy: (args?: {
+    id?: Maybe<Scalars["ID"]>;
+    shortcutPostId?: Maybe<Scalars["Int"]>;
+    slug?: Maybe<Scalars["String"]>;
+    uri?: Maybe<Scalars["String"]>;
+  }) => Maybe<ShortcutPost>;
+  shortcutPosts: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToShortcutPostConnectionWhereArgs>;
+  }) => Maybe<RootQueryToShortcutPostConnection>;
   stackoverflow: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
@@ -20936,6 +21515,7 @@ export interface SchemaObjectTypes {
   CreatePortfolioPayload: CreatePortfolioPayload;
   CreatePostFormatPayload: CreatePostFormatPayload;
   CreatePostPayload: CreatePostPayload;
+  CreateShortcutPostPayload: CreateShortcutPostPayload;
   CreateStackoverflowPayload: CreateStackoverflowPayload;
   CreateTagPayload: CreateTagPayload;
   CreateUserPayload: CreateUserPayload;
@@ -20952,6 +21532,7 @@ export interface SchemaObjectTypes {
   DeletePortfolioPayload: DeletePortfolioPayload;
   DeletePostFormatPayload: DeletePostFormatPayload;
   DeletePostPayload: DeletePostPayload;
+  DeleteShortcutPostPayload: DeleteShortcutPostPayload;
   DeleteStackoverflowPayload: DeleteStackoverflowPayload;
   DeleteTagPayload: DeleteTagPayload;
   DeleteUserPayload: DeleteUserPayload;
@@ -21081,6 +21662,8 @@ export interface SchemaObjectTypes {
   RootQueryToPostConnectionEdge: RootQueryToPostConnectionEdge;
   RootQueryToPostFormatConnection: RootQueryToPostFormatConnection;
   RootQueryToPostFormatConnectionEdge: RootQueryToPostFormatConnectionEdge;
+  RootQueryToShortcutPostConnection: RootQueryToShortcutPostConnection;
+  RootQueryToShortcutPostConnectionEdge: RootQueryToShortcutPostConnectionEdge;
   RootQueryToStackoverflowConnection: RootQueryToStackoverflowConnection;
   RootQueryToStackoverflowConnectionEdge: RootQueryToStackoverflowConnectionEdge;
   RootQueryToTagConnection: RootQueryToTagConnection;
@@ -21097,6 +21680,8 @@ export interface SchemaObjectTypes {
   RootQueryToUserRoleConnectionEdge: RootQueryToUserRoleConnectionEdge;
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   Settings: Settings;
+  ShortcutPost: ShortcutPost;
+  ShortcutPostToPreviewConnectionEdge: ShortcutPostToPreviewConnectionEdge;
   Stackoverflow: Stackoverflow;
   StackoverflowToPreviewConnectionEdge: StackoverflowToPreviewConnectionEdge;
   Subscription: Subscription;
@@ -21127,6 +21712,7 @@ export interface SchemaObjectTypes {
   UpdatePostFormatPayload: UpdatePostFormatPayload;
   UpdatePostPayload: UpdatePostPayload;
   UpdateSettingsPayload: UpdateSettingsPayload;
+  UpdateShortcutPostPayload: UpdateShortcutPostPayload;
   UpdateStackoverflowPayload: UpdateStackoverflowPayload;
   UpdateTagPayload: UpdateTagPayload;
   UpdateUserPayload: UpdateUserPayload;
@@ -21214,6 +21800,7 @@ export type SchemaObjectTypesNames =
   | "CreatePortfolioPayload"
   | "CreatePostFormatPayload"
   | "CreatePostPayload"
+  | "CreateShortcutPostPayload"
   | "CreateStackoverflowPayload"
   | "CreateTagPayload"
   | "CreateUserPayload"
@@ -21230,6 +21817,7 @@ export type SchemaObjectTypesNames =
   | "DeletePortfolioPayload"
   | "DeletePostFormatPayload"
   | "DeletePostPayload"
+  | "DeleteShortcutPostPayload"
   | "DeleteStackoverflowPayload"
   | "DeleteTagPayload"
   | "DeleteUserPayload"
@@ -21359,6 +21947,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToPostConnectionEdge"
   | "RootQueryToPostFormatConnection"
   | "RootQueryToPostFormatConnectionEdge"
+  | "RootQueryToShortcutPostConnection"
+  | "RootQueryToShortcutPostConnectionEdge"
   | "RootQueryToStackoverflowConnection"
   | "RootQueryToStackoverflowConnectionEdge"
   | "RootQueryToTagConnection"
@@ -21375,6 +21965,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToUserRoleConnectionEdge"
   | "SendPasswordResetEmailPayload"
   | "Settings"
+  | "ShortcutPost"
+  | "ShortcutPostToPreviewConnectionEdge"
   | "Stackoverflow"
   | "StackoverflowToPreviewConnectionEdge"
   | "Subscription"
@@ -21405,6 +21997,7 @@ export type SchemaObjectTypesNames =
   | "UpdatePostFormatPayload"
   | "UpdatePostPayload"
   | "UpdateSettingsPayload"
+  | "UpdateShortcutPostPayload"
   | "UpdateStackoverflowPayload"
   | "UpdateTagPayload"
   | "UpdateUserPayload"
@@ -21444,6 +22037,7 @@ export interface $ContentNode {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
 }
 
@@ -21472,6 +22066,7 @@ export interface $DatabaseIdentifier {
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   User?: User;
@@ -21503,6 +22098,7 @@ export interface $MenuItemLinkable {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
 }
@@ -21517,6 +22113,7 @@ export interface $MenuItemObjectUnion {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
 }
@@ -21541,6 +22138,7 @@ export interface $Node {
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   Taxonomy?: Taxonomy;
@@ -21571,6 +22169,7 @@ export interface $NodeWithContentEditor {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
 }
 
@@ -21609,6 +22208,7 @@ export interface $NodeWithTemplate {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
 }
 
@@ -21620,6 +22220,7 @@ export interface $NodeWithTitle {
   Page?: Page;
   Portfolio?: Portfolio;
   Post?: Post;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
 }
 
@@ -21648,6 +22249,7 @@ export interface $UniformResourceIdentifiable {
   Portfolio?: Portfolio;
   Post?: Post;
   PostFormat?: PostFormat;
+  ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
   User?: User;
@@ -21702,6 +22304,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | undefined;
   PostStatusEnum: PostStatusEnum | undefined;
   RelationEnum: RelationEnum | undefined;
+  ShortcutPostIdType: ShortcutPostIdType | undefined;
   StackoverflowIdType: StackoverflowIdType | undefined;
   TagIdType: TagIdType | undefined;
   TaxonomyEnum: TaxonomyEnum | undefined;

@@ -20,9 +20,9 @@ export const client = getClient<
   scalarsEnumsHash,
 });
 
-// if (process.env.NODE_ENV === "development") {
-//   logQueries(client);
-// }
+if (process.env.NODE_ENV === "development") {
+  logQueries(client);
+}
 
 export function serverClient(req: IncomingMessage) {
   return getClient<GeneratedSchema, SchemaObjectTypesNames, SchemaObjectTypes>({
