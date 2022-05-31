@@ -44,7 +44,7 @@ export default function Page() {
 
           <Pagination
             pageInfo={posts.pageInfo}
-            basePath={`/category/${slug}`}
+            basePath={`/dev/category/${slug}`}
           />
         </div>
       </main>
