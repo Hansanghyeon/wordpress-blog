@@ -1,0 +1,13 @@
+@tailwind base;
+
+@import "functions/heading";
+@import "functions/rgba";
+
+@import "common/root";
+@import "common/global";
+@import "common/prose";
+
+@import "modules/syntax-pre";
+
+@tailwind components;
+@tailwind utilities;
