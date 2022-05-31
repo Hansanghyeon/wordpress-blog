@@ -1,7 +1,8 @@
-import type { Page, Post } from "~web/client";
+import type { Page, Post, Dev } from "~web/client";
 import { client } from "~web/client";
 import { PostComponent } from "./posts/[postSlug]";
 import { PageComponent } from "./[...pageUri]";
+import { DevComponent } from "./dev/[slug]";
 
 export default function Preview() {
   const isLoading = client.useIsLoading();
@@ -23,6 +24,10 @@ export default function Preview() {
     case "Post": {
       const post = node as Post;
       return <PostComponent post={post} />;
+    }
+    case "Dev": {
+      const post = node as Dev;
+      return <DevComponent post={post} />;
     }
     // Add custom post types here as needed
     default: {

@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import type { Post, Dev } from "~web/client";
-import styles from "./Posts.module.scss";
-import Heading, { HeadingProps } from "./Heading";
+import type { Dev } from "~web/client";
+import styles from "./Devs.module.scss";
+import Heading, { HeadingProps } from "../Heading";
 
 interface Props {
-  posts: Post[] | Dev[] | undefined;
+  posts: Dev[] | undefined;
   intro?: string;
   id?: string;
   heading?: string;
@@ -37,12 +37,12 @@ function Posts({
           {posts.map((post) => (
             <div
               className={styles.single}
-              key={post.id ?? ""}
-              id={`post-${post.id}`}
+              key={post.slug ?? ""}
+              id={`post-${post.slug}`}
             >
               <div>
                 <Heading level={postTitleLevel} className={styles.title}>
-                  <Link href={`${post.uri}`}>
+                  <Link href={`/dev/${post.slug}`}>
                     <a>{post.title()}</a>
                   </Link>
                 </Heading>
@@ -51,7 +51,7 @@ function Posts({
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{ __html: post.excerpt() ?? "" }}
                 />
-                <Link href={`${post.uri}`}>
+                <Link href={`/devs/${post.slug}`}>
                   <a aria-label={`Read more about ${post.title || "the post"}`}>
                     {readMoreText}
                   </a>
