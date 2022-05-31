@@ -24,6 +24,13 @@ module.exports = {
         },
       },
     },
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+        transcludeMarkdown: true,
+      },
+    },
   ],
   framework: "@storybook/react",
   core: {
