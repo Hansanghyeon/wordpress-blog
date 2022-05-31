@@ -43,12 +43,12 @@ export function DevComponent({ post }: PostProps) {
 
 export default function Page({ slug }) {
   const { useQuery } = client;
-  const dev = useQuery().dev({
+  const post = useQuery().dev({
     id: slug,
     idType: DevIdType.SLUG,
   });
 
-  return <DevComponent post={dev} />;
+  return <DevComponent post={post} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
