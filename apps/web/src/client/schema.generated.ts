@@ -36,6 +36,282 @@ export enum AvatarRatingEnum {
   X = "X",
 }
 
+/** Set relationships between the Blog to BlogCategory */
+export interface BlogBlogCategoryInput {
+  /** If true, this will append the BlogCategory to existing related BlogCategory. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars["Boolean"]>;
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<BlogBlogCategoryNodeInput>>>;
+}
+
+/** List of BlogCategory to connect the Blog to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface BlogBlogCategoryNodeInput {
+  /** The description of the BlogCategory. This field is used to set a description of the BlogCategory if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the BlogCategory. If present, this will be used to connect to the Blog. If no existing BlogCategory exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars["ID"]>;
+  /** The name of the BlogCategory. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The slug of the BlogCategory. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum BlogCategoryIdType {
+  /** The Database ID for the node */
+  DATABASE_ID = "DATABASE_ID",
+  /** The hashed Global ID */
+  ID = "ID",
+  /** The name of the node */
+  NAME = "NAME",
+  /** Url friendly name of the node */
+  SLUG = "SLUG",
+  /** The URI for the node */
+  URI = "URI",
+}
+
+/** Arguments for filtering the BlogCategoryToBlogConnection connection */
+export interface BlogCategoryToBlogConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the BlogCategoryToContentNodeConnection connection */
+export interface BlogCategoryToContentNodeConnectionWhereArgs {
+  /** The Types of content to filter */
+  contentTypes?: InputMaybe<Array<InputMaybe<ContentTypesOfBlogCategoryEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum BlogIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = "DATABASE_ID",
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = "ID",
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  SLUG = "SLUG",
+  /** Identify a resource by the URI. */
+  URI = "URI",
+}
+
+/** Arguments for filtering the BlogToBlogCategoryConnection connection */
+export interface BlogToBlogCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Arguments for filtering the BlogToCommentConnection connection */
+export interface BlogToCommentConnectionWhereArgs {
+  /** Comment author email address. */
+  authorEmail?: InputMaybe<Scalars["String"]>;
+  /** Array of author IDs to include comments for. */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of author IDs to exclude comments for. */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Comment author URL. */
+  authorUrl?: InputMaybe<Scalars["String"]>;
+  /** Array of comment IDs to include. */
+  commentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
+  commentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Include comments of a given type. */
+  commentType?: InputMaybe<Scalars["String"]>;
+  /** Include comments from a given array of comment types. */
+  commentTypeIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Exclude comments from a given array of comment types. */
+  commentTypeNotIn?: InputMaybe<Scalars["String"]>;
+  /** Content object author ID to limit results by. */
+  contentAuthor?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of author IDs to retrieve comments for. */
+  contentAuthorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of author IDs *not* to retrieve comments for. */
+  contentAuthorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Limit results to those affiliated with a given content object ID. */
+  contentId?: InputMaybe<Scalars["ID"]>;
+  /** Array of content object IDs to include affiliated comments for. */
+  contentIdIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of content object IDs to exclude affiliated comments for. */
+  contentIdNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Content object name to retrieve affiliated comments for. */
+  contentName?: InputMaybe<Scalars["String"]>;
+  /** Content Object parent ID to retrieve affiliated comments for. */
+  contentParent?: InputMaybe<Scalars["Int"]>;
+  /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
+  contentStatus?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
+  contentType?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>;
+  /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
+  includeUnapproved?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Karma score to retrieve matching comments for. */
+  karma?: InputMaybe<Scalars["Int"]>;
+  /** The cardinality of the order of the connection */
+  order?: InputMaybe<OrderEnum>;
+  /** Field to order the comments by. */
+  orderby?: InputMaybe<CommentsConnectionOrderbyEnum>;
+  /** Parent ID of comment to retrieve children of. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Array of parent IDs of comments to retrieve children for. */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of parent IDs of comments *not* to retrieve children for. */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Search term(s) to retrieve matching comments for. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Comment status to limit results by. */
+  status?: InputMaybe<Scalars["String"]>;
+  /** Include comments for a specific user ID. */
+  userId?: InputMaybe<Scalars["ID"]>;
+}
+
+/** Arguments for filtering the BlogToTermNodeConnection connection */
+export interface BlogToTermNodeConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The Taxonomy to filter terms by */
+  taxonomies?: InputMaybe<Array<InputMaybe<TaxonomyEnum>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum BookIdType {
   /** Identify a resource by the Database ID. */
@@ -387,6 +663,8 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   ATTACHMENT = "ATTACHMENT",
   /** The Type of Content object */
+  BLOG = "BLOG",
+  /** The Type of Content object */
   BOOK = "BOOK",
   /** The Type of Content object */
   DEV = "DEV",
@@ -448,6 +726,12 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Allowed Content Types of the BlogCategory taxonomy. */
+export enum ContentTypesOfBlogCategoryEnum {
+  /** The Type of Content object */
+  BLOG = "BLOG",
+}
+
 /** Allowed Content Types of the Category taxonomy. */
 export enum ContentTypesOfCategoryEnum {
   /** The Type of Content object */
@@ -470,6 +754,46 @@ export enum ContentTypesOfPostFormatEnum {
 export enum ContentTypesOfTagEnum {
   /** The Type of Content object */
   POST = "POST",
+}
+
+/** Input for the createBlogCategory mutation */
+export interface CreateBlogCategoryInput {
+  /** The slug that the blog_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the blog_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The name of the blog_category object to mutate */
+  name: Scalars["String"];
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
+/** Input for the createBlog mutation */
+export interface CreateBlogInput {
+  /** Set connections between the Blog and BlogCategory */
+  blogCategory?: InputMaybe<BlogBlogCategoryInput>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The comment status for the object */
+  commentStatus?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** The excerpt of the object */
+  excerpt?: InputMaybe<Scalars["String"]>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the createBook mutation */
@@ -822,6 +1146,24 @@ export interface DateQueryInput {
   week?: InputMaybe<Scalars["Int"]>;
   /** 4 digit year (e.g. 2017) */
   year?: InputMaybe<Scalars["Int"]>;
+}
+
+/** Input for the deleteBlogCategory mutation */
+export interface DeleteBlogCategoryInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The ID of the BlogCategory to delete */
+  id: Scalars["ID"];
+}
+
+/** Input for the deleteBlog mutation */
+export interface DeleteBlogInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars["Boolean"]>;
+  /** The ID of the Blog to delete */
+  id: Scalars["ID"];
 }
 
 /** Input for the deleteBook mutation */
@@ -2604,6 +2946,88 @@ export interface RestoreCommentInput {
   id: Scalars["ID"];
 }
 
+/** Arguments for filtering the RootQueryToBlogCategoryConnection connection */
+export interface RootQueryToBlogCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Arguments for filtering the RootQueryToBlogConnection connection */
+export interface RootQueryToBlogConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the RootQueryToBookConnection connection */
 export interface RootQueryToBookConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -3494,6 +3918,8 @@ export interface TagToPostConnectionWhereArgs {
 
 /** Allowed taxonomies */
 export enum TaxonomyEnum {
+  /** Taxonomy enum blog_category */
+  BLOGCATEGORY = "BLOGCATEGORY",
   /** Taxonomy enum category */
   CATEGORY = "CATEGORY",
   /** Taxonomy enum dev_category */
@@ -3542,6 +3968,50 @@ export enum TermObjectsConnectionOrderbyEnum {
   TERM_ID = "TERM_ID",
   /** Order the connection by term order. */
   TERM_ORDER = "TERM_ORDER",
+}
+
+/** Input for the UpdateBlogCategory mutation */
+export interface UpdateBlogCategoryInput {
+  /** The slug that the blog_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the blog_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the BlogCategory object to update */
+  id: Scalars["ID"];
+  /** The name of the blog_category object to mutate */
+  name?: InputMaybe<Scalars["String"]>;
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
+/** Input for the updateBlog mutation */
+export interface UpdateBlogInput {
+  /** Set connections between the Blog and BlogCategory */
+  blogCategory?: InputMaybe<BlogBlogCategoryInput>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The comment status for the object */
+  commentStatus?: InputMaybe<Scalars["String"]>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** The excerpt of the object */
+  excerpt?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Blog object */
+  id: Scalars["ID"];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the updateBook mutation */
@@ -4302,6 +4772,8 @@ export enum UsersConnectionSearchColumnEnum {
 
 export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   AvatarRatingEnum: true,
+  BlogCategoryIdType: true,
+  BlogIdType: true,
   BookIdType: true,
   Boolean: true,
   CategoryIdType: true,
@@ -4309,6 +4781,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   ContentNodeIdTypeEnum: true,
   ContentTypeEnum: true,
   ContentTypeIdTypeEnum: true,
+  ContentTypesOfBlogCategoryEnum: true,
   ContentTypesOfCategoryEnum: true,
   ContentTypesOfDevCategoryEnum: true,
   ContentTypesOfPostFormatEnum: true,
@@ -4362,6 +4835,329 @@ export const generatedSchema = {
     size: { __type: "Int" },
     url: { __type: "String" },
     width: { __type: "Int" },
+  },
+  Blog: {
+    __typename: { __type: "String!" },
+    blogCategory: {
+      __type: "BlogToBlogCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogToBlogCategoryConnectionWhereArgs",
+      },
+    },
+    blogId: { __type: "Int!" },
+    commentCount: { __type: "Int" },
+    commentStatus: { __type: "String" },
+    comments: {
+      __type: "BlogToCommentConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogToCommentConnectionWhereArgs",
+      },
+    },
+    conditionalTags: { __type: "ConditionalTags" },
+    content: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
+    contentTypeName: { __type: "String!" },
+    databaseId: { __type: "Int!" },
+    date: { __type: "String" },
+    dateGmt: { __type: "String" },
+    desiredSlug: { __type: "String" },
+    editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
+    enclosure: { __type: "String" },
+    enqueuedScripts: {
+      __type: "ContentNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "ContentNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    excerpt: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    featuredImage: { __type: "NodeWithFeaturedImageToMediaItemConnectionEdge" },
+    featuredImageDatabaseId: { __type: "Int" },
+    featuredImageId: { __type: "ID" },
+    guid: { __type: "String" },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isPreview: { __type: "Boolean" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    link: { __type: "String" },
+    modified: { __type: "String" },
+    modifiedGmt: { __type: "String" },
+    preview: { __type: "BlogToPreviewConnectionEdge" },
+    previewRevisionDatabaseId: { __type: "Int" },
+    previewRevisionId: { __type: "ID" },
+    slug: { __type: "String" },
+    status: { __type: "String" },
+    template: { __type: "ContentTemplate" },
+    templates: { __type: "[String]" },
+    terms: {
+      __type: "BlogToTermNodeConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogToTermNodeConnectionWhereArgs",
+      },
+    },
+    title: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    uri: { __type: "String" },
+  },
+  BlogBlogCategoryInput: {
+    append: { __type: "Boolean" },
+    nodes: { __type: "[BlogBlogCategoryNodeInput]" },
+  },
+  BlogBlogCategoryNodeInput: {
+    description: { __type: "String" },
+    id: { __type: "ID" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
+  BlogCategory: {
+    __typename: { __type: "String!" },
+    blogCategoryId: { __type: "Int" },
+    blogs: {
+      __type: "BlogCategoryToBlogConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogCategoryToBlogConnectionWhereArgs",
+      },
+    },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentNodes: {
+      __type: "BlogCategoryToContentNodeConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogCategoryToContentNodeConnectionWhereArgs",
+      },
+    },
+    count: { __type: "Int" },
+    databaseId: { __type: "Int!" },
+    description: { __type: "String" },
+    enqueuedScripts: {
+      __type: "TermNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "TermNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    link: { __type: "String" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+    taxonomy: { __type: "BlogCategoryToTaxonomyConnectionEdge" },
+    taxonomyName: { __type: "String" },
+    templates: { __type: "[String]" },
+    termGroupId: { __type: "Int" },
+    termTaxonomyId: { __type: "Int" },
+    uri: { __type: "String" },
+  },
+  BlogCategoryToBlogConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogCategoryToBlogConnectionEdge]" },
+    nodes: { __type: "[Blog]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogCategoryToBlogConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Blog" },
+  },
+  BlogCategoryToBlogConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  BlogCategoryToContentNodeConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogCategoryToContentNodeConnectionEdge]" },
+    nodes: { __type: "[ContentNode]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogCategoryToContentNodeConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "ContentNode" },
+  },
+  BlogCategoryToContentNodeConnectionWhereArgs: {
+    contentTypes: { __type: "[ContentTypesOfBlogCategoryEnum]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  BlogCategoryToTaxonomyConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Taxonomy" },
+  },
+  BlogToBlogCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogToBlogCategoryConnectionEdge]" },
+    nodes: { __type: "[BlogCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogToBlogCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "BlogCategory" },
+  },
+  BlogToBlogCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
+  BlogToCommentConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogToCommentConnectionEdge]" },
+    nodes: { __type: "[Comment]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogToCommentConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Comment" },
+  },
+  BlogToCommentConnectionWhereArgs: {
+    authorEmail: { __type: "String" },
+    authorIn: { __type: "[ID]" },
+    authorNotIn: { __type: "[ID]" },
+    authorUrl: { __type: "String" },
+    commentIn: { __type: "[ID]" },
+    commentNotIn: { __type: "[ID]" },
+    commentType: { __type: "String" },
+    commentTypeIn: { __type: "[String]" },
+    commentTypeNotIn: { __type: "String" },
+    contentAuthor: { __type: "[ID]" },
+    contentAuthorIn: { __type: "[ID]" },
+    contentAuthorNotIn: { __type: "[ID]" },
+    contentId: { __type: "ID" },
+    contentIdIn: { __type: "[ID]" },
+    contentIdNotIn: { __type: "[ID]" },
+    contentName: { __type: "String" },
+    contentParent: { __type: "Int" },
+    contentStatus: { __type: "[PostStatusEnum]" },
+    contentType: { __type: "[ContentTypeEnum]" },
+    includeUnapproved: { __type: "[ID]" },
+    karma: { __type: "Int" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "CommentsConnectionOrderbyEnum" },
+    parent: { __type: "Int" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    search: { __type: "String" },
+    status: { __type: "String" },
+    userId: { __type: "ID" },
+  },
+  BlogToPreviewConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Blog" },
+  },
+  BlogToTermNodeConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogToTermNodeConnectionEdge]" },
+    nodes: { __type: "[TermNode]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogToTermNodeConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "TermNode" },
+  },
+  BlogToTermNodeConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    taxonomies: { __type: "[TaxonomyEnum]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
   },
   Book: {
     __typename: { __type: "String!" },
@@ -4957,6 +5753,36 @@ export const generatedSchema = {
     cursor: { __type: "String" },
     node: { __type: "Taxonomy" },
   },
+  CreateBlogCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    name: { __type: "String!" },
+    slug: { __type: "String" },
+  },
+  CreateBlogCategoryPayload: {
+    __typename: { __type: "String!" },
+    blogCategory: { __type: "BlogCategory" },
+    clientMutationId: { __type: "String" },
+  },
+  CreateBlogInput: {
+    blogCategory: { __type: "BlogBlogCategoryInput" },
+    clientMutationId: { __type: "String" },
+    commentStatus: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    excerpt: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  CreateBlogPayload: {
+    __typename: { __type: "String!" },
+    blog: { __type: "Blog" },
+    clientMutationId: { __type: "String" },
+  },
   CreateBookInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
@@ -5207,6 +6033,27 @@ export const generatedSchema = {
   DefaultTemplate: {
     __typename: { __type: "String!" },
     templateName: { __type: "String" },
+  },
+  DeleteBlogCategoryInput: {
+    clientMutationId: { __type: "String" },
+    id: { __type: "ID!" },
+  },
+  DeleteBlogCategoryPayload: {
+    __typename: { __type: "String!" },
+    blogCategory: { __type: "BlogCategory" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+  },
+  DeleteBlogInput: {
+    clientMutationId: { __type: "String" },
+    forceDelete: { __type: "Boolean" },
+    id: { __type: "ID!" },
+  },
+  DeleteBlogPayload: {
+    __typename: { __type: "String!" },
+    blog: { __type: "Blog" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
   },
   DeleteBookInput: {
     clientMutationId: { __type: "String" },
@@ -7244,6 +8091,69 @@ export const generatedSchema = {
     comment: { __type: "Comment" },
     restoredId: { __type: "ID" },
   },
+  RootQueryToBlogCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToBlogCategoryConnectionEdge]" },
+    nodes: { __type: "[BlogCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToBlogCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "BlogCategory" },
+  },
+  RootQueryToBlogCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
+  RootQueryToBlogConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToBlogConnectionEdge]" },
+    nodes: { __type: "[Blog]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToBlogConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Blog" },
+  },
+  RootQueryToBlogConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   RootQueryToBookConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToBookConnectionEdge]" },
@@ -8244,6 +9154,38 @@ export const generatedSchema = {
     uri: { __type: "String" },
     $on: { __type: "$UniformResourceIdentifiable!" },
   },
+  UpdateBlogCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    id: { __type: "ID!" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
+  UpdateBlogCategoryPayload: {
+    __typename: { __type: "String!" },
+    blogCategory: { __type: "BlogCategory" },
+    clientMutationId: { __type: "String" },
+  },
+  UpdateBlogInput: {
+    blogCategory: { __type: "BlogBlogCategoryInput" },
+    clientMutationId: { __type: "String" },
+    commentStatus: { __type: "String" },
+    content: { __type: "String" },
+    date: { __type: "String" },
+    excerpt: { __type: "String" },
+    id: { __type: "ID!" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  UpdateBlogPayload: {
+    __typename: { __type: "String!" },
+    blog: { __type: "Blog" },
+    clientMutationId: { __type: "String" },
+  },
   UpdateBookInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
@@ -8894,6 +9836,14 @@ export const generatedSchema = {
   },
   mutation: {
     __typename: { __type: "String!" },
+    createBlog: {
+      __type: "CreateBlogPayload",
+      __args: { input: "CreateBlogInput!" },
+    },
+    createBlogCategory: {
+      __type: "CreateBlogCategoryPayload",
+      __args: { input: "CreateBlogCategoryInput!" },
+    },
     createBook: {
       __type: "CreateBookPayload",
       __args: { input: "CreateBookInput!" },
@@ -8945,6 +9895,14 @@ export const generatedSchema = {
     createUser: {
       __type: "CreateUserPayload",
       __args: { input: "CreateUserInput!" },
+    },
+    deleteBlog: {
+      __type: "DeleteBlogPayload",
+      __args: { input: "DeleteBlogInput!" },
+    },
+    deleteBlogCategory: {
+      __type: "DeleteBlogCategoryPayload",
+      __args: { input: "DeleteBlogCategoryInput!" },
     },
     deleteBook: {
       __type: "DeleteBookPayload",
@@ -9019,6 +9977,14 @@ export const generatedSchema = {
       __type: "SendPasswordResetEmailPayload",
       __args: { input: "SendPasswordResetEmailInput!" },
     },
+    updateBlog: {
+      __type: "UpdateBlogPayload",
+      __args: { input: "UpdateBlogInput!" },
+    },
+    updateBlogCategory: {
+      __type: "UpdateBlogCategoryPayload",
+      __args: { input: "UpdateBlogCategoryInput!" },
+    },
     updateBook: {
       __type: "UpdateBookPayload",
       __args: { input: "UpdateBookInput!" },
@@ -9078,7 +10044,39 @@ export const generatedSchema = {
   },
   query: {
     __typename: { __type: "String!" },
+    allBlogCategory: {
+      __type: "RootQueryToBlogCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToBlogCategoryConnectionWhereArgs",
+      },
+    },
     allSettings: { __type: "Settings" },
+    blog: {
+      __type: "Blog",
+      __args: { asPreview: "Boolean", id: "ID!", idType: "BlogIdType" },
+    },
+    blogBy: {
+      __type: "Blog",
+      __args: { blogId: "Int", id: "ID", slug: "String", uri: "String" },
+    },
+    blogCategory: {
+      __type: "BlogCategory",
+      __args: { id: "ID!", idType: "BlogCategoryIdType" },
+    },
+    blogs: {
+      __type: "RootQueryToBlogConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToBlogConnectionWhereArgs",
+      },
+    },
     book: {
       __type: "Book",
       __args: { asPreview: "Boolean", id: "ID!", idType: "BookIdType" },
@@ -9421,6 +10419,7 @@ export const generatedSchema = {
   subscription: {},
   [SchemaUnionsKey]: {
     ContentNode: [
+      "Blog",
       "Book",
       "Dev",
       "MediaItem",
@@ -9430,6 +10429,8 @@ export const generatedSchema = {
       "Stackoverflow",
     ],
     DatabaseIdentifier: [
+      "Blog",
+      "BlogCategory",
       "Book",
       "Category",
       "Comment",
@@ -9447,6 +10448,8 @@ export const generatedSchema = {
       "User",
     ],
     MenuItemLinkable: [
+      "Blog",
+      "BlogCategory",
       "Book",
       "Category",
       "Dev",
@@ -9458,6 +10461,8 @@ export const generatedSchema = {
       "Tag",
     ],
     Node: [
+      "Blog",
+      "BlogCategory",
       "Book",
       "Category",
       "Comment",
@@ -9482,7 +10487,9 @@ export const generatedSchema = {
       "User",
       "UserRole",
     ],
+    NodeWithComments: ["Blog", "Dev", "MediaItem", "Page", "Post"],
     NodeWithContentEditor: [
+      "Blog",
       "Book",
       "Dev",
       "Page",
@@ -9490,7 +10497,9 @@ export const generatedSchema = {
       "Post",
       "Stackoverflow",
     ],
+    NodeWithExcerpt: ["Blog", "Dev", "Post"],
     NodeWithFeaturedImage: [
+      "Blog",
       "Book",
       "Dev",
       "Page",
@@ -9499,6 +10508,7 @@ export const generatedSchema = {
       "Stackoverflow",
     ],
     NodeWithTemplate: [
+      "Blog",
       "Book",
       "Dev",
       "MediaItem",
@@ -9508,6 +10518,7 @@ export const generatedSchema = {
       "Stackoverflow",
     ],
     NodeWithTitle: [
+      "Blog",
       "Book",
       "Dev",
       "MediaItem",
@@ -9517,6 +10528,8 @@ export const generatedSchema = {
       "Stackoverflow",
     ],
     UniformResourceIdentifiable: [
+      "Blog",
+      "BlogCategory",
       "Book",
       "Category",
       "ContentType",
@@ -9531,18 +10544,18 @@ export const generatedSchema = {
       "Tag",
       "User",
     ],
+    TermNode: ["BlogCategory", "Category", "DevCategory", "PostFormat", "Tag"],
     HierarchicalTermNode: ["Category", "DevCategory"],
-    TermNode: ["Category", "DevCategory", "PostFormat", "Tag"],
     Commenter: ["CommentAuthor", "User"],
     ContentRevisionUnion: ["Dev", "Page", "Post"],
     ContentTemplate: ["DefaultTemplate"],
     NodeWithAuthor: ["Dev", "MediaItem", "Page", "Post"],
-    NodeWithComments: ["Dev", "MediaItem", "Page", "Post"],
-    NodeWithExcerpt: ["Dev", "Post"],
     NodeWithRevisions: ["Dev", "Page", "Post"],
     EnqueuedAsset: ["EnqueuedScript", "EnqueuedStylesheet"],
     HierarchicalContentNode: ["MediaItem", "Page", "Stackoverflow"],
     MenuItemObjectUnion: [
+      "Blog",
+      "BlogCategory",
       "Book",
       "Category",
       "Dev",
@@ -9607,6 +10620,648 @@ export interface Avatar {
    * Width of the avatar image.
    */
   width?: Maybe<ScalarsEnums["Int"]>;
+}
+
+/**
+ * The Blog type
+ */
+export interface Blog {
+  __typename?: "Blog";
+  /**
+   * Connection between the Blog type and the BlogCategory type
+   */
+  blogCategory: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogToBlogCategoryConnectionWhereArgs>;
+  }) => Maybe<BlogToBlogCategoryConnection>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  blogId: ScalarsEnums["Int"];
+  /**
+   * The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility.
+   */
+  commentCount?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the comments are open or closed for this particular post.
+   */
+  commentStatus?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the Blog type and the Comment type
+   */
+  comments: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogToCommentConnectionWhereArgs>;
+  }) => Maybe<BlogToCommentConnection>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * The content of the post.
+   */
+  content: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums["String"];
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The excerpt of the post.
+   */
+  excerpt: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the NodeWithFeaturedImage type and the MediaItem type
+   */
+  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
+  /**
+   * The database identifier for the featured image node assigned to the content node
+   */
+  featuredImageDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Globally unique ID of the featured image assigned to the node
+   */
+  featuredImageId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The globally unique identifier of the blog object.
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the Blog type and the Blog type
+   */
+  preview?: Maybe<BlogToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The template assigned to a node of content
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Connection between the Blog type and the TermNode type
+   */
+  terms: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogToTermNodeConnectionWhereArgs>;
+  }) => Maybe<BlogToTermNodeConnection>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The BlogCategory type
+ */
+export interface BlogCategory {
+  __typename?: "BlogCategory";
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of databaseId
+   */
+  blogCategoryId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Connection between the BlogCategory type and the Blog type
+   */
+  blogs: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogCategoryToBlogConnectionWhereArgs>;
+  }) => Maybe<BlogCategoryToBlogConnection>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the BlogCategory type and the ContentNode type
+   */
+  contentNodes: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogCategoryToContentNodeConnectionWhereArgs>;
+  }) => Maybe<BlogCategoryToContentNodeConnection>;
+  /**
+   * The number of objects connected to the object
+   */
+  count?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * The description of the object
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the TermNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The unique resource identifier path
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The link to the term
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The human friendly name of the object.
+   */
+  name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * An alphanumeric identifier for the object unique to its type.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the BlogCategory type and the Taxonomy type
+   */
+  taxonomy?: Maybe<BlogCategoryToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums["String"]>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The ID of the term group that this term object belongs to
+   */
+  termGroupId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The taxonomy ID that the object is associated with
+   */
+  termTaxonomyId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the BlogCategory type and the Blog type
+ */
+export interface BlogCategoryToBlogConnection {
+  __typename?: "BlogCategoryToBlogConnection";
+  /**
+   * Edges for the BlogCategoryToBlogConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogCategoryToBlogConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Blog>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogCategoryToBlogConnectionEdge {
+  __typename?: "BlogCategoryToBlogConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Blog>;
+}
+
+/**
+ * Connection between the BlogCategory type and the ContentNode type
+ */
+export interface BlogCategoryToContentNodeConnection {
+  __typename?: "BlogCategoryToContentNodeConnection";
+  /**
+   * Edges for the BlogCategoryToContentNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogCategoryToContentNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<ContentNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogCategoryToContentNodeConnectionEdge {
+  __typename?: "BlogCategoryToContentNodeConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<ContentNode>;
+}
+
+/**
+ * Connection between the BlogCategory type and the Taxonomy type
+ */
+export interface BlogCategoryToTaxonomyConnectionEdge {
+  __typename?: "BlogCategoryToTaxonomyConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Taxonomy>;
+}
+
+/**
+ * Connection between the Blog type and the BlogCategory type
+ */
+export interface BlogToBlogCategoryConnection {
+  __typename?: "BlogToBlogCategoryConnection";
+  /**
+   * Edges for the BlogToBlogCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogToBlogCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<BlogCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogToBlogCategoryConnectionEdge {
+  __typename?: "BlogToBlogCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<BlogCategory>;
+}
+
+/**
+ * Connection between the Blog type and the Comment type
+ */
+export interface BlogToCommentConnection {
+  __typename?: "BlogToCommentConnection";
+  /**
+   * Edges for the BlogToCommentConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogToCommentConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Comment>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogToCommentConnectionEdge {
+  __typename?: "BlogToCommentConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Comment>;
+}
+
+/**
+ * Connection between the Blog type and the Blog type
+ */
+export interface BlogToPreviewConnectionEdge {
+  __typename?: "BlogToPreviewConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Blog>;
+}
+
+/**
+ * Connection between the Blog type and the TermNode type
+ */
+export interface BlogToTermNodeConnection {
+  __typename?: "BlogToTermNodeConnection";
+  /**
+   * Edges for the BlogToTermNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogToTermNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<TermNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogToTermNodeConnectionEdge {
+  __typename?: "BlogToTermNodeConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<TermNode>;
 }
 
 /**
@@ -10579,6 +12234,7 @@ export interface ConditionalTags {
  */
 export interface ContentNode {
   __typename?:
+    | "Blog"
     | "Book"
     | "Dev"
     | "MediaItem"
@@ -11104,6 +12760,36 @@ export interface ContentTypeToTaxonomyConnectionEdge {
 }
 
 /**
+ * The payload for the createBlogCategory mutation
+ */
+export interface CreateBlogCategoryPayload {
+  __typename?: "CreateBlogCategoryPayload";
+  /**
+   * The created blog_category
+   */
+  blogCategory?: Maybe<BlogCategory>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The payload for the createBlog mutation
+ */
+export interface CreateBlogPayload {
+  __typename?: "CreateBlogPayload";
+  /**
+   * The Post object mutation type.
+   */
+  blog?: Maybe<Blog>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
  * The payload for the createBook mutation
  */
 export interface CreateBookPayload {
@@ -11307,6 +12993,8 @@ export interface CreateUserPayload {
  */
 export interface DatabaseIdentifier {
   __typename?:
+    | "Blog"
+    | "BlogCategory"
     | "Book"
     | "Category"
     | "Comment"
@@ -11338,6 +13026,44 @@ export interface DefaultTemplate {
    * The name of the template
    */
   templateName?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The payload for the deleteBlogCategory mutation
+ */
+export interface DeleteBlogCategoryPayload {
+  __typename?: "DeleteBlogCategoryPayload";
+  /**
+   * The deteted term object
+   */
+  blogCategory?: Maybe<BlogCategory>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+}
+
+/**
+ * The payload for the deleteBlog mutation
+ */
+export interface DeleteBlogPayload {
+  __typename?: "DeleteBlogPayload";
+  /**
+   * The object before it was deleted
+   */
+  blog?: Maybe<Blog>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
 }
 
 /**
@@ -13477,6 +15203,8 @@ export interface MenuItem {
  */
 export interface MenuItemLinkable {
   __typename?:
+    | "Blog"
+    | "BlogCategory"
     | "Book"
     | "Category"
     | "Dev"
@@ -13506,6 +15234,8 @@ export interface MenuItemLinkable {
  */
 export interface MenuItemObjectUnion {
   __typename?:
+    | "Blog"
+    | "BlogCategory"
     | "Book"
     | "Category"
     | "Dev"
@@ -13613,6 +15343,8 @@ export interface MenuToMenuItemConnectionEdge {
  */
 export interface Node {
   __typename?:
+    | "Blog"
+    | "BlogCategory"
     | "Book"
     | "Category"
     | "Comment"
@@ -13678,7 +15410,7 @@ export interface NodeWithAuthorToUserConnectionEdge {
  * A node that can have comments associated with it
  */
 export interface NodeWithComments {
-  __typename?: "Dev" | "MediaItem" | "Page" | "Post";
+  __typename?: "Blog" | "Dev" | "MediaItem" | "Page" | "Post";
   /**
    * The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility.
    */
@@ -13694,7 +15426,14 @@ export interface NodeWithComments {
  * A node that supports the content editor
  */
 export interface NodeWithContentEditor {
-  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post" | "Stackoverflow";
+  __typename?:
+    | "Blog"
+    | "Book"
+    | "Dev"
+    | "Page"
+    | "Portfolio"
+    | "Post"
+    | "Stackoverflow";
   /**
    * The content of the post.
    */
@@ -13711,7 +15450,7 @@ export interface NodeWithContentEditor {
  * A node that can have an excerpt
  */
 export interface NodeWithExcerpt {
-  __typename?: "Dev" | "Post";
+  __typename?: "Blog" | "Dev" | "Post";
   /**
    * The excerpt of the post.
    */
@@ -13728,7 +15467,14 @@ export interface NodeWithExcerpt {
  * A node that can have a featured image set
  */
 export interface NodeWithFeaturedImage {
-  __typename?: "Book" | "Dev" | "Page" | "Portfolio" | "Post" | "Stackoverflow";
+  __typename?:
+    | "Blog"
+    | "Book"
+    | "Dev"
+    | "Page"
+    | "Portfolio"
+    | "Post"
+    | "Stackoverflow";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -13942,6 +15688,7 @@ export interface NodeWithRevisionsToContentNodeConnectionEdge {
  */
 export interface NodeWithTemplate {
   __typename?:
+    | "Blog"
     | "Book"
     | "Dev"
     | "MediaItem"
@@ -13961,6 +15708,7 @@ export interface NodeWithTemplate {
  */
 export interface NodeWithTitle {
   __typename?:
+    | "Blog"
     | "Book"
     | "Dev"
     | "MediaItem"
@@ -15761,6 +17509,74 @@ export interface RestoreCommentPayload {
 }
 
 /**
+ * Connection between the RootQuery type and the BlogCategory type
+ */
+export interface RootQueryToBlogCategoryConnection {
+  __typename?: "RootQueryToBlogCategoryConnection";
+  /**
+   * Edges for the RootQueryToBlogCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToBlogCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<BlogCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToBlogCategoryConnectionEdge {
+  __typename?: "RootQueryToBlogCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<BlogCategory>;
+}
+
+/**
+ * Connection between the RootQuery type and the Blog type
+ */
+export interface RootQueryToBlogConnection {
+  __typename?: "RootQueryToBlogConnection";
+  /**
+   * Edges for the RootQueryToBlogConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToBlogConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Blog>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToBlogConnectionEdge {
+  __typename?: "RootQueryToBlogConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Blog>;
+}
+
+/**
  * Connection between the RootQuery type and the book type
  */
 export interface RootQueryToBookConnection {
@@ -17360,7 +19176,12 @@ export interface TaxonomyToContentTypeConnectionEdge {
  * Terms are nodes within a Taxonomy, used to group and relate other nodes.
  */
 export interface TermNode {
-  __typename?: "Category" | "DevCategory" | "PostFormat" | "Tag";
+  __typename?:
+    | "BlogCategory"
+    | "Category"
+    | "DevCategory"
+    | "PostFormat"
+    | "Tag";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -17591,6 +19412,8 @@ export interface Theme {
  */
 export interface UniformResourceIdentifiable {
   __typename?:
+    | "Blog"
+    | "BlogCategory"
     | "Book"
     | "Category"
     | "ContentType"
@@ -17626,6 +19449,36 @@ export interface UniformResourceIdentifiable {
    */
   uri?: Maybe<ScalarsEnums["String"]>;
   $on: $UniformResourceIdentifiable;
+}
+
+/**
+ * The payload for the UpdateBlogCategory mutation
+ */
+export interface UpdateBlogCategoryPayload {
+  __typename?: "UpdateBlogCategoryPayload";
+  /**
+   * The created blog_category
+   */
+  blogCategory?: Maybe<BlogCategory>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The payload for the updateBlog mutation
+ */
+export interface UpdateBlogPayload {
+  __typename?: "UpdateBlogPayload";
+  /**
+   * The Post object mutation type.
+   */
+  blog?: Maybe<Blog>;
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -18567,6 +20420,10 @@ export interface WritingSettings {
 
 export interface Mutation {
   __typename?: "Mutation";
+  createBlog: (args: { input: CreateBlogInput }) => Maybe<CreateBlogPayload>;
+  createBlogCategory: (args: {
+    input: CreateBlogCategoryInput;
+  }) => Maybe<CreateBlogCategoryPayload>;
   createBook: (args: { input: CreateBookInput }) => Maybe<CreateBookPayload>;
   createCategory: (args: {
     input: CreateCategoryInput;
@@ -18594,6 +20451,10 @@ export interface Mutation {
   }) => Maybe<CreateStackoverflowPayload>;
   createTag: (args: { input: CreateTagInput }) => Maybe<CreateTagPayload>;
   createUser: (args: { input: CreateUserInput }) => Maybe<CreateUserPayload>;
+  deleteBlog: (args: { input: DeleteBlogInput }) => Maybe<DeleteBlogPayload>;
+  deleteBlogCategory: (args: {
+    input: DeleteBlogCategoryInput;
+  }) => Maybe<DeleteBlogCategoryPayload>;
   deleteBook: (args: { input: DeleteBookInput }) => Maybe<DeleteBookPayload>;
   deleteCategory: (args: {
     input: DeleteCategoryInput;
@@ -18639,6 +20500,10 @@ export interface Mutation {
   sendPasswordResetEmail: (args: {
     input: SendPasswordResetEmailInput;
   }) => Maybe<SendPasswordResetEmailPayload>;
+  updateBlog: (args: { input: UpdateBlogInput }) => Maybe<UpdateBlogPayload>;
+  updateBlogCategory: (args: {
+    input: UpdateBlogCategoryInput;
+  }) => Maybe<UpdateBlogCategoryPayload>;
   updateBook: (args: { input: UpdateBookInput }) => Maybe<UpdateBookPayload>;
   updateCategory: (args: {
     input: UpdateCategoryInput;
@@ -18673,7 +20538,36 @@ export interface Mutation {
 
 export interface Query {
   __typename?: "Query";
+  allBlogCategory: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToBlogCategoryConnectionWhereArgs>;
+  }) => Maybe<RootQueryToBlogCategoryConnection>;
   allSettings?: Maybe<Settings>;
+  blog: (args: {
+    asPreview?: Maybe<Scalars["Boolean"]>;
+    id: Scalars["ID"];
+    idType?: Maybe<BlogIdType>;
+  }) => Maybe<Blog>;
+  blogBy: (args?: {
+    blogId?: Maybe<Scalars["Int"]>;
+    id?: Maybe<Scalars["ID"]>;
+    slug?: Maybe<Scalars["String"]>;
+    uri?: Maybe<Scalars["String"]>;
+  }) => Maybe<Blog>;
+  blogCategory: (args: {
+    id: Scalars["ID"];
+    idType?: Maybe<BlogCategoryIdType>;
+  }) => Maybe<BlogCategory>;
+  blogs: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToBlogConnectionWhereArgs>;
+  }) => Maybe<RootQueryToBlogConnection>;
   book: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
@@ -18983,6 +20877,20 @@ export interface Subscription {
 
 export interface SchemaObjectTypes {
   Avatar: Avatar;
+  Blog: Blog;
+  BlogCategory: BlogCategory;
+  BlogCategoryToBlogConnection: BlogCategoryToBlogConnection;
+  BlogCategoryToBlogConnectionEdge: BlogCategoryToBlogConnectionEdge;
+  BlogCategoryToContentNodeConnection: BlogCategoryToContentNodeConnection;
+  BlogCategoryToContentNodeConnectionEdge: BlogCategoryToContentNodeConnectionEdge;
+  BlogCategoryToTaxonomyConnectionEdge: BlogCategoryToTaxonomyConnectionEdge;
+  BlogToBlogCategoryConnection: BlogToBlogCategoryConnection;
+  BlogToBlogCategoryConnectionEdge: BlogToBlogCategoryConnectionEdge;
+  BlogToCommentConnection: BlogToCommentConnection;
+  BlogToCommentConnectionEdge: BlogToCommentConnectionEdge;
+  BlogToPreviewConnectionEdge: BlogToPreviewConnectionEdge;
+  BlogToTermNodeConnection: BlogToTermNodeConnection;
+  BlogToTermNodeConnectionEdge: BlogToTermNodeConnectionEdge;
   Book: Book;
   BookToPreviewConnectionEdge: BookToPreviewConnectionEdge;
   Category: Category;
@@ -19016,6 +20924,8 @@ export interface SchemaObjectTypes {
   ContentTypeToContentNodeConnectionEdge: ContentTypeToContentNodeConnectionEdge;
   ContentTypeToTaxonomyConnection: ContentTypeToTaxonomyConnection;
   ContentTypeToTaxonomyConnectionEdge: ContentTypeToTaxonomyConnectionEdge;
+  CreateBlogCategoryPayload: CreateBlogCategoryPayload;
+  CreateBlogPayload: CreateBlogPayload;
   CreateBookPayload: CreateBookPayload;
   CreateCategoryPayload: CreateCategoryPayload;
   CreateCommentPayload: CreateCommentPayload;
@@ -19030,6 +20940,8 @@ export interface SchemaObjectTypes {
   CreateTagPayload: CreateTagPayload;
   CreateUserPayload: CreateUserPayload;
   DefaultTemplate: DefaultTemplate;
+  DeleteBlogCategoryPayload: DeleteBlogCategoryPayload;
+  DeleteBlogPayload: DeleteBlogPayload;
   DeleteBookPayload: DeleteBookPayload;
   DeleteCategoryPayload: DeleteCategoryPayload;
   DeleteCommentPayload: DeleteCommentPayload;
@@ -19129,6 +21041,10 @@ export interface SchemaObjectTypes {
   RegisterUserPayload: RegisterUserPayload;
   ResetUserPasswordPayload: ResetUserPasswordPayload;
   RestoreCommentPayload: RestoreCommentPayload;
+  RootQueryToBlogCategoryConnection: RootQueryToBlogCategoryConnection;
+  RootQueryToBlogCategoryConnectionEdge: RootQueryToBlogCategoryConnectionEdge;
+  RootQueryToBlogConnection: RootQueryToBlogConnection;
+  RootQueryToBlogConnectionEdge: RootQueryToBlogConnectionEdge;
   RootQueryToBookConnection: RootQueryToBookConnection;
   RootQueryToBookConnectionEdge: RootQueryToBookConnectionEdge;
   RootQueryToCategoryConnection: RootQueryToCategoryConnection;
@@ -19198,6 +21114,8 @@ export interface SchemaObjectTypes {
   TermNodeToEnqueuedStylesheetConnection: TermNodeToEnqueuedStylesheetConnection;
   TermNodeToEnqueuedStylesheetConnectionEdge: TermNodeToEnqueuedStylesheetConnectionEdge;
   Theme: Theme;
+  UpdateBlogCategoryPayload: UpdateBlogCategoryPayload;
+  UpdateBlogPayload: UpdateBlogPayload;
   UpdateBookPayload: UpdateBookPayload;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
@@ -19237,6 +21155,20 @@ export interface SchemaObjectTypes {
 }
 export type SchemaObjectTypesNames =
   | "Avatar"
+  | "Blog"
+  | "BlogCategory"
+  | "BlogCategoryToBlogConnection"
+  | "BlogCategoryToBlogConnectionEdge"
+  | "BlogCategoryToContentNodeConnection"
+  | "BlogCategoryToContentNodeConnectionEdge"
+  | "BlogCategoryToTaxonomyConnectionEdge"
+  | "BlogToBlogCategoryConnection"
+  | "BlogToBlogCategoryConnectionEdge"
+  | "BlogToCommentConnection"
+  | "BlogToCommentConnectionEdge"
+  | "BlogToPreviewConnectionEdge"
+  | "BlogToTermNodeConnection"
+  | "BlogToTermNodeConnectionEdge"
   | "Book"
   | "BookToPreviewConnectionEdge"
   | "Category"
@@ -19270,6 +21202,8 @@ export type SchemaObjectTypesNames =
   | "ContentTypeToContentNodeConnectionEdge"
   | "ContentTypeToTaxonomyConnection"
   | "ContentTypeToTaxonomyConnectionEdge"
+  | "CreateBlogCategoryPayload"
+  | "CreateBlogPayload"
   | "CreateBookPayload"
   | "CreateCategoryPayload"
   | "CreateCommentPayload"
@@ -19284,6 +21218,8 @@ export type SchemaObjectTypesNames =
   | "CreateTagPayload"
   | "CreateUserPayload"
   | "DefaultTemplate"
+  | "DeleteBlogCategoryPayload"
+  | "DeleteBlogPayload"
   | "DeleteBookPayload"
   | "DeleteCategoryPayload"
   | "DeleteCommentPayload"
@@ -19383,6 +21319,10 @@ export type SchemaObjectTypesNames =
   | "RegisterUserPayload"
   | "ResetUserPasswordPayload"
   | "RestoreCommentPayload"
+  | "RootQueryToBlogCategoryConnection"
+  | "RootQueryToBlogCategoryConnectionEdge"
+  | "RootQueryToBlogConnection"
+  | "RootQueryToBlogConnectionEdge"
   | "RootQueryToBookConnection"
   | "RootQueryToBookConnectionEdge"
   | "RootQueryToCategoryConnection"
@@ -19452,6 +21392,8 @@ export type SchemaObjectTypesNames =
   | "TermNodeToEnqueuedStylesheetConnection"
   | "TermNodeToEnqueuedStylesheetConnectionEdge"
   | "Theme"
+  | "UpdateBlogCategoryPayload"
+  | "UpdateBlogPayload"
   | "UpdateBookPayload"
   | "UpdateCategoryPayload"
   | "UpdateCommentPayload"
@@ -19495,6 +21437,7 @@ export interface $Commenter {
 }
 
 export interface $ContentNode {
+  Blog?: Blog;
   Book?: Book;
   Dev?: Dev;
   MediaItem?: MediaItem;
@@ -19515,6 +21458,8 @@ export interface $ContentTemplate {
 }
 
 export interface $DatabaseIdentifier {
+  Blog?: Blog;
+  BlogCategory?: BlogCategory;
   Book?: Book;
   Category?: Category;
   Comment?: Comment;
@@ -19549,6 +21494,8 @@ export interface $HierarchicalTermNode {
 }
 
 export interface $MenuItemLinkable {
+  Blog?: Blog;
+  BlogCategory?: BlogCategory;
   Book?: Book;
   Category?: Category;
   Dev?: Dev;
@@ -19561,6 +21508,8 @@ export interface $MenuItemLinkable {
 }
 
 export interface $MenuItemObjectUnion {
+  Blog?: Blog;
+  BlogCategory?: BlogCategory;
   Book?: Book;
   Category?: Category;
   Dev?: Dev;
@@ -19573,6 +21522,8 @@ export interface $MenuItemObjectUnion {
 }
 
 export interface $Node {
+  Blog?: Blog;
+  BlogCategory?: BlogCategory;
   Book?: Book;
   Category?: Category;
   Comment?: Comment;
@@ -19606,6 +21557,7 @@ export interface $NodeWithAuthor {
 }
 
 export interface $NodeWithComments {
+  Blog?: Blog;
   Dev?: Dev;
   MediaItem?: MediaItem;
   Page?: Page;
@@ -19613,6 +21565,7 @@ export interface $NodeWithComments {
 }
 
 export interface $NodeWithContentEditor {
+  Blog?: Blog;
   Book?: Book;
   Dev?: Dev;
   Page?: Page;
@@ -19622,11 +21575,13 @@ export interface $NodeWithContentEditor {
 }
 
 export interface $NodeWithExcerpt {
+  Blog?: Blog;
   Dev?: Dev;
   Post?: Post;
 }
 
 export interface $NodeWithFeaturedImage {
+  Blog?: Blog;
   Book?: Book;
   Dev?: Dev;
   Page?: Page;
@@ -19647,6 +21602,7 @@ export interface $NodeWithRevisions {
 }
 
 export interface $NodeWithTemplate {
+  Blog?: Blog;
   Book?: Book;
   Dev?: Dev;
   MediaItem?: MediaItem;
@@ -19657,6 +21613,7 @@ export interface $NodeWithTemplate {
 }
 
 export interface $NodeWithTitle {
+  Blog?: Blog;
   Book?: Book;
   Dev?: Dev;
   MediaItem?: MediaItem;
@@ -19671,6 +21628,7 @@ export interface $NodeWithTrackbacks {
 }
 
 export interface $TermNode {
+  BlogCategory?: BlogCategory;
   Category?: Category;
   DevCategory?: DevCategory;
   PostFormat?: PostFormat;
@@ -19678,6 +21636,8 @@ export interface $TermNode {
 }
 
 export interface $UniformResourceIdentifiable {
+  Blog?: Blog;
+  BlogCategory?: BlogCategory;
   Book?: Book;
   Category?: Category;
   ContentType?: ContentType;
@@ -19705,12 +21665,15 @@ export type MakeNullable<T> = {
 
 export interface ScalarsEnums extends MakeNullable<Scalars> {
   AvatarRatingEnum: AvatarRatingEnum | undefined;
+  BlogCategoryIdType: BlogCategoryIdType | undefined;
+  BlogIdType: BlogIdType | undefined;
   BookIdType: BookIdType | undefined;
   CategoryIdType: CategoryIdType | undefined;
   CommentsConnectionOrderbyEnum: CommentsConnectionOrderbyEnum | undefined;
   ContentNodeIdTypeEnum: ContentNodeIdTypeEnum | undefined;
   ContentTypeEnum: ContentTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
+  ContentTypesOfBlogCategoryEnum: ContentTypesOfBlogCategoryEnum | undefined;
   ContentTypesOfCategoryEnum: ContentTypesOfCategoryEnum | undefined;
   ContentTypesOfDevCategoryEnum: ContentTypesOfDevCategoryEnum | undefined;
   ContentTypesOfPostFormatEnum: ContentTypesOfPostFormatEnum | undefined;
