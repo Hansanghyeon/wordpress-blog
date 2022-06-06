@@ -1,9 +1,10 @@
-import { getNextStaticProps, is404 } from "@faustjs/next";
+import { getNextStaticProps } from "@faustjs/next";
 import Head from "next/head";
 import { Header, Footer, Posts, Pagination } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
 import { client, DevCategoryIdType } from "~web/client";
+import { is404c } from "~web/lib";
 
 const POSTS_PER_PAGE = 10;
 
@@ -58,7 +59,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    // notFound: await is404(context, { client }),
+    notFound: await is404c(context, { client }, "devCategory"),
   });
 }
 

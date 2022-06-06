@@ -1,6 +1,7 @@
 import { getNextStaticProps, is404 } from "@faustjs/next";
 import { client, Dev, DevIdType } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
+import { is404c } from "~web/lib";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 
@@ -56,7 +57,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: null, //await is404(context, { client }),
+    notFound: await is404c(context, { client }, "dev"),
     props: {
       slug,
     },
