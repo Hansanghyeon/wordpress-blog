@@ -9,11 +9,12 @@ export interface Is404Config {
 /**
  * Checks if a post is available given a custom post type.
  * Temporary until Faust's is404() is adjusted to account for custom post types.
- * @param {string} slug The slug of the custom post type.
+ * @param {Context} context nextjs context
+ * @param {Is404Config} client faust client
  * @param {string} customPostType The WordPress custom post type.
  * @returns {bool}
  */
-export default async function is404Cpt<
+export default async function is404c<
   Context extends GetStaticPropsContext | GetServerSidePropsContext
 >({ params }: Context, { client }: Is404Config, customPostType) {
   if (!params) {
