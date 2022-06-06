@@ -160,6 +160,26 @@ export enum BlogIdType {
   URI = "URI",
 }
 
+/** Set relationships between the Blog to Seriess */
+export interface BlogSeriessInput {
+  /** If true, this will append the Series to existing related Seriess. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars["Boolean"]>;
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<BlogSeriessNodeInput>>>;
+}
+
+/** List of Seriess to connect the Blog to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface BlogSeriessNodeInput {
+  /** The description of the Series. This field is used to set a description of the Series if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Series. If present, this will be used to connect to the Blog. If no existing Series exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars["ID"]>;
+  /** The name of the Series. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The slug of the Series. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the BlogToBlogCategoryConnection connection */
 export interface BlogToBlogCategoryConnectionWhereArgs {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
@@ -264,6 +284,50 @@ export interface BlogToCommentConnectionWhereArgs {
   status?: InputMaybe<Scalars["String"]>;
   /** Include comments for a specific user ID. */
   userId?: InputMaybe<Scalars["ID"]>;
+}
+
+/** Arguments for filtering the BlogToSeriesConnection connection */
+export interface BlogToSeriesConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
 /** Arguments for filtering the BlogToTermNodeConnection connection */
@@ -746,10 +810,24 @@ export enum ContentTypesOfDevCategoryEnum {
   DEV = "DEV",
 }
 
+/** Allowed Content Types of the PortfolioCategory taxonomy. */
+export enum ContentTypesOfPortfolioCategoryEnum {
+  /** The Type of Content object */
+  PORTFOLIO = "PORTFOLIO",
+}
+
 /** Allowed Content Types of the PostFormat taxonomy. */
 export enum ContentTypesOfPostFormatEnum {
   /** The Type of Content object */
   POST = "POST",
+}
+
+/** Allowed Content Types of the Series taxonomy. */
+export enum ContentTypesOfSeriesEnum {
+  /** The Type of Content object */
+  BLOG = "BLOG",
+  /** The Type of Content object */
+  DEV = "DEV",
 }
 
 /** Allowed Content Types of the Tag taxonomy. */
@@ -790,6 +868,8 @@ export interface CreateBlogInput {
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Blog and Seriess */
+  seriess?: InputMaybe<BlogSeriessInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -894,6 +974,8 @@ export interface CreateDevInput {
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Dev and Seriess */
+  seriess?: InputMaybe<DevSeriessInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -962,6 +1044,20 @@ export interface CreatePageInput {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the createPortfolioCategory mutation */
+export interface CreatePortfolioCategoryInput {
+  /** The slug that the portfolio_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the portfolio_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The name of the portfolio_category object to mutate */
+  name: Scalars["String"];
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createPortfolio mutation */
 export interface CreatePortfolioInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -974,6 +1070,8 @@ export interface CreatePortfolioInput {
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Portfolio and PortfolioCategories */
+  portfolioCategories?: InputMaybe<PortfolioPortfolioCategoriesInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -1032,6 +1130,20 @@ export interface CreatePostInput {
   title?: InputMaybe<Scalars["String"]>;
   /** URLs queued to be pinged. */
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+}
+
+/** Input for the createSeries mutation */
+export interface CreateSeriesInput {
+  /** The slug that the series will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the series object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The name of the series object to mutate */
+  name: Scalars["String"];
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the createShortcutPost mutation */
@@ -1254,13 +1366,21 @@ export interface DeletePageInput {
   id: Scalars["ID"];
 }
 
+/** Input for the deletePortfolioCategory mutation */
+export interface DeletePortfolioCategoryInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The ID of the PortfolioCategory to delete */
+  id: Scalars["ID"];
+}
+
 /** Input for the deletePortfolio mutation */
 export interface DeletePortfolioInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** Whether the object should be force deleted instead of being moved to the trash */
   forceDelete?: InputMaybe<Scalars["Boolean"]>;
-  /** The ID of the portfolio to delete */
+  /** The ID of the Portfolio to delete */
   id: Scalars["ID"];
 }
 
@@ -1279,6 +1399,14 @@ export interface DeletePostInput {
   /** Whether the object should be force deleted instead of being moved to the trash */
   forceDelete?: InputMaybe<Scalars["Boolean"]>;
   /** The ID of the post to delete */
+  id: Scalars["ID"];
+}
+
+/** Input for the deleteSeries mutation */
+export interface DeleteSeriesInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Series to delete */
   id: Scalars["ID"];
 }
 
@@ -1496,6 +1624,26 @@ export enum DevIdType {
   URI = "URI",
 }
 
+/** Set relationships between the Dev to Seriess */
+export interface DevSeriessInput {
+  /** If true, this will append the Series to existing related Seriess. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars["Boolean"]>;
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<DevSeriessNodeInput>>>;
+}
+
+/** List of Seriess to connect the Dev to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface DevSeriessNodeInput {
+  /** The description of the Series. This field is used to set a description of the Series if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Series. If present, this will be used to connect to the Dev. If no existing Series exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars["ID"]>;
+  /** The name of the Series. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The slug of the Series. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the DevToCommentConnection connection */
 export interface DevToCommentConnectionWhereArgs {
   /** Comment author email address. */
@@ -1646,6 +1794,50 @@ export interface DevToRevisionConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the DevToSeriesConnection connection */
+export interface DevToSeriesConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
 /** Arguments for filtering the DevToTermNodeConnection connection */
@@ -2279,6 +2471,100 @@ export enum PluginStatusEnum {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum PortfolioCategoryIdType {
+  /** The Database ID for the node */
+  DATABASE_ID = "DATABASE_ID",
+  /** The hashed Global ID */
+  ID = "ID",
+  /** The name of the node */
+  NAME = "NAME",
+  /** Url friendly name of the node */
+  SLUG = "SLUG",
+  /** The URI for the node */
+  URI = "URI",
+}
+
+/** Arguments for filtering the PortfolioCategoryToContentNodeConnection connection */
+export interface PortfolioCategoryToContentNodeConnectionWhereArgs {
+  /** The Types of content to filter */
+  contentTypes?: InputMaybe<
+    Array<InputMaybe<ContentTypesOfPortfolioCategoryEnum>>
+  >;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the PortfolioCategoryToPortfolioConnection connection */
+export interface PortfolioCategoryToPortfolioConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum PortfolioIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = "DATABASE_ID",
@@ -2288,6 +2574,70 @@ export enum PortfolioIdType {
   SLUG = "SLUG",
   /** Identify a resource by the URI. */
   URI = "URI",
+}
+
+/** Set relationships between the Portfolio to PortfolioCategories */
+export interface PortfolioPortfolioCategoriesInput {
+  /** If true, this will append the PortfolioCategory to existing related PortfolioCategories. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars["Boolean"]>;
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<PortfolioPortfolioCategoriesNodeInput>>>;
+}
+
+/** List of PortfolioCategories to connect the Portfolio to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export interface PortfolioPortfolioCategoriesNodeInput {
+  /** The description of the PortfolioCategory. This field is used to set a description of the PortfolioCategory if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the PortfolioCategory. If present, this will be used to connect to the Portfolio. If no existing PortfolioCategory exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars["ID"]>;
+  /** The name of the PortfolioCategory. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars["String"]>;
+  /** The slug of the PortfolioCategory. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the PortfolioToPortfolioCategoryConnection connection */
+export interface PortfolioToPortfolioCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
 /** Arguments for filtering the PortfolioToTermNodeConnection connection */
@@ -3498,6 +3848,50 @@ export interface RootQueryToPluginConnectionWhereArgs {
   status?: InputMaybe<PluginStatusEnum>;
 }
 
+/** Arguments for filtering the RootQueryToPortfolioCategoryConnection connection */
+export interface RootQueryToPortfolioCategoryConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
 /** Arguments for filtering the RootQueryToPortfolioConnection connection */
 export interface RootQueryToPortfolioConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -3604,6 +3998,50 @@ export interface RootQueryToPostConnectionWhereArgs {
 
 /** Arguments for filtering the RootQueryToPostFormatConnection connection */
 export interface RootQueryToPostFormatConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars["String"]>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars["Int"]>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars["Boolean"]>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars["String"]>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars["Boolean"]>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars["Boolean"]>;
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars["String"]>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars["Boolean"]>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars["Int"]>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Arguments for filtering the RootQueryToSeriesConnection connection */
+export interface RootQueryToSeriesConnectionWhereArgs {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
   cacheDomain?: InputMaybe<Scalars["String"]>;
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
@@ -3857,6 +4295,144 @@ export interface SendPasswordResetEmailInput {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum SeriesIdType {
+  /** The Database ID for the node */
+  DATABASE_ID = "DATABASE_ID",
+  /** The hashed Global ID */
+  ID = "ID",
+  /** The name of the node */
+  NAME = "NAME",
+  /** Url friendly name of the node */
+  SLUG = "SLUG",
+  /** The URI for the node */
+  URI = "URI",
+}
+
+/** Arguments for filtering the SeriesToBlogConnection connection */
+export interface SeriesToBlogConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the SeriesToContentNodeConnection connection */
+export interface SeriesToContentNodeConnectionWhereArgs {
+  /** The Types of content to filter */
+  contentTypes?: InputMaybe<Array<InputMaybe<ContentTypesOfSeriesEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** Arguments for filtering the SeriesToDevConnection connection */
+export interface SeriesToDevConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum ShortcutPostIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = "DATABASE_ID",
@@ -4006,8 +4582,12 @@ export enum TaxonomyEnum {
   CATEGORY = "CATEGORY",
   /** Taxonomy enum dev_category */
   DEVCATEGORY = "DEVCATEGORY",
+  /** Taxonomy enum portfolio_category */
+  PORTFOLIOCATEGORY = "PORTFOLIOCATEGORY",
   /** Taxonomy enum post_format */
   POSTFORMAT = "POSTFORMAT",
+  /** Taxonomy enum series */
+  SERIES = "SERIES",
   /** Taxonomy enum post_tag */
   TAG = "TAG",
 }
@@ -4088,6 +4668,8 @@ export interface UpdateBlogInput {
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Blog and Seriess */
+  seriess?: InputMaybe<BlogSeriessInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -4202,6 +4784,8 @@ export interface UpdateDevInput {
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Dev and Seriess */
+  seriess?: InputMaybe<DevSeriessInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -4274,6 +4858,22 @@ export interface UpdatePageInput {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the UpdatePortfolioCategory mutation */
+export interface UpdatePortfolioCategoryInput {
+  /** The slug that the portfolio_category will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the portfolio_category object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the PortfolioCategory object to update */
+  id: Scalars["ID"];
+  /** The name of the portfolio_category object to mutate */
+  name?: InputMaybe<Scalars["String"]>;
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the updatePortfolio mutation */
 export interface UpdatePortfolioInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -4282,12 +4882,14 @@ export interface UpdatePortfolioInput {
   content?: InputMaybe<Scalars["String"]>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars["String"]>;
-  /** The ID of the portfolio object */
+  /** The ID of the Portfolio object */
   id: Scalars["ID"];
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
   menuOrder?: InputMaybe<Scalars["Int"]>;
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars["String"]>;
+  /** Set connections between the Portfolio and PortfolioCategories */
+  portfolioCategories?: InputMaybe<PortfolioPortfolioCategoriesInput>;
   /** The slug of the object */
   slug?: InputMaybe<Scalars["String"]>;
   /** The status of the object */
@@ -4350,6 +4952,22 @@ export interface UpdatePostInput {
   title?: InputMaybe<Scalars["String"]>;
   /** URLs queued to be pinged. */
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+}
+
+/** Input for the UpdateSeries mutation */
+export interface UpdateSeriesInput {
+  /** The slug that the series will be an alias of */
+  aliasOf?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The description of the series object */
+  description?: InputMaybe<Scalars["String"]>;
+  /** The ID of the Series object to update */
+  id: Scalars["ID"];
+  /** The name of the series object to mutate */
+  name?: InputMaybe<Scalars["String"]>;
+  /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
+  slug?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the updateSettings mutation */
@@ -4888,7 +5506,9 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   ContentTypesOfBlogCategoryEnum: true,
   ContentTypesOfCategoryEnum: true,
   ContentTypesOfDevCategoryEnum: true,
+  ContentTypesOfPortfolioCategoryEnum: true,
   ContentTypesOfPostFormatEnum: true,
+  ContentTypesOfSeriesEnum: true,
   ContentTypesOfTagEnum: true,
   DevCategoryIdType: true,
   DevIdType: true,
@@ -4905,6 +5525,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   OrderEnum: true,
   PageIdType: true,
   PluginStatusEnum: true,
+  PortfolioCategoryIdType: true,
   PortfolioIdType: true,
   PostFormatIdType: true,
   PostIdType: true,
@@ -4913,6 +5534,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   PostObjectsConnectionOrderbyEnum: true,
   PostStatusEnum: true,
   RelationEnum: true,
+  SeriesIdType: true,
   ShortcutPostIdType: true,
   StackoverflowIdType: true,
   String: true,
@@ -4943,6 +5565,7 @@ export const generatedSchema = {
   },
   Blog: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     blogCategory: {
       __type: "BlogToBlogCategoryConnection",
       __args: {
@@ -5007,6 +5630,16 @@ export const generatedSchema = {
     preview: { __type: "BlogToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seriess: {
+      __type: "BlogToSeriesConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "BlogToSeriesConnectionWhereArgs",
+      },
+    },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -5151,6 +5784,16 @@ export const generatedSchema = {
     __typename: { __type: "String!" },
     node: { __type: "Taxonomy" },
   },
+  BlogSeriessInput: {
+    append: { __type: "Boolean" },
+    nodes: { __type: "[BlogSeriessNodeInput]" },
+  },
+  BlogSeriessNodeInput: {
+    description: { __type: "String" },
+    id: { __type: "ID" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
   BlogToBlogCategoryConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[BlogToBlogCategoryConnectionEdge]" },
@@ -5230,6 +5873,39 @@ export const generatedSchema = {
     __typename: { __type: "String!" },
     node: { __type: "Blog" },
   },
+  BlogToSeriesConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[BlogToSeriesConnectionEdge]" },
+    nodes: { __type: "[Series]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  BlogToSeriesConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Series" },
+  },
+  BlogToSeriesConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
   BlogToTermNodeConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[BlogToTermNodeConnectionEdge]" },
@@ -5266,6 +5942,7 @@ export const generatedSchema = {
   },
   Book: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     bookId: { __type: "Int!" },
     conditionalTags: { __type: "ConditionalTags" },
     content: {
@@ -5687,6 +6364,7 @@ export const generatedSchema = {
   },
   ContentNode: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     conditionalTags: { __type: "ConditionalTags" },
     contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
     contentTypeName: { __type: "String!" },
@@ -5879,6 +6557,7 @@ export const generatedSchema = {
     excerpt: { __type: "String" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    seriess: { __type: "BlogSeriessInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -5957,6 +6636,7 @@ export const generatedSchema = {
     excerpt: { __type: "String" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    seriess: { __type: "DevSeriessInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -6006,12 +6686,25 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     page: { __type: "Page" },
   },
+  CreatePortfolioCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    name: { __type: "String!" },
+    slug: { __type: "String" },
+  },
+  CreatePortfolioCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    portfolioCategory: { __type: "PortfolioCategory" },
+  },
   CreatePortfolioInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
     date: { __type: "String" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    portfolioCategories: { __type: "PortfolioPortfolioCategoriesInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -6056,6 +6749,18 @@ export const generatedSchema = {
     __typename: { __type: "String!" },
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
+  },
+  CreateSeriesInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    name: { __type: "String!" },
+    slug: { __type: "String" },
+  },
+  CreateSeriesPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    series: { __type: "Series" },
   },
   CreateShortcutPostInput: {
     clientMutationId: { __type: "String" },
@@ -6250,6 +6955,16 @@ export const generatedSchema = {
     deletedId: { __type: "ID" },
     page: { __type: "Page" },
   },
+  DeletePortfolioCategoryInput: {
+    clientMutationId: { __type: "String" },
+    id: { __type: "ID!" },
+  },
+  DeletePortfolioCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    portfolioCategory: { __type: "PortfolioCategory" },
+  },
   DeletePortfolioInput: {
     clientMutationId: { __type: "String" },
     forceDelete: { __type: "Boolean" },
@@ -6281,6 +6996,16 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     deletedId: { __type: "ID" },
     post: { __type: "Post" },
+  },
+  DeleteSeriesInput: {
+    clientMutationId: { __type: "String" },
+    id: { __type: "ID!" },
+  },
+  DeleteSeriesPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    series: { __type: "Series" },
   },
   DeleteShortcutPostInput: {
     clientMutationId: { __type: "String" },
@@ -6330,6 +7055,7 @@ export const generatedSchema = {
     author: { __type: "NodeWithAuthorToUserConnectionEdge" },
     authorDatabaseId: { __type: "Int" },
     authorId: { __type: "ID" },
+    blocks: { __type: "String" },
     commentCount: { __type: "Int" },
     commentStatus: { __type: "String" },
     comments: {
@@ -6404,6 +7130,16 @@ export const generatedSchema = {
         first: "Int",
         last: "Int",
         where: "DevToRevisionConnectionWhereArgs",
+      },
+    },
+    seriess: {
+      __type: "DevToSeriesConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "DevToSeriesConnectionWhereArgs",
       },
     },
     slug: { __type: "String" },
@@ -6619,6 +7355,16 @@ export const generatedSchema = {
     name: { __type: "String" },
     slug: { __type: "String" },
   },
+  DevSeriessInput: {
+    append: { __type: "Boolean" },
+    nodes: { __type: "[DevSeriessNodeInput]" },
+  },
+  DevSeriessNodeInput: {
+    description: { __type: "String" },
+    id: { __type: "ID" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
   DevToCommentConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[DevToCommentConnectionEdge]" },
@@ -6731,6 +7477,39 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  DevToSeriesConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[DevToSeriesConnectionEdge]" },
+    nodes: { __type: "[Series]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  DevToSeriesConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Series" },
+  },
+  DevToSeriesConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
   },
   DevToTermNodeConnection: {
     __typename: { __type: "String!" },
@@ -6958,6 +7737,7 @@ export const generatedSchema = {
     author: { __type: "NodeWithAuthorToUserConnectionEdge" },
     authorDatabaseId: { __type: "Int" },
     authorId: { __type: "ID" },
+    blocks: { __type: "String" },
     caption: {
       __type: "String",
       __args: { format: "PostObjectFieldFormatEnum" },
@@ -7159,6 +7939,7 @@ export const generatedSchema = {
     parentId: { __type: "ID" },
     path: { __type: "String" },
     target: { __type: "String" },
+    thumbnail: { __type: "MenuItemThumbnail", __args: { test: "Boolean" } },
     title: { __type: "String" },
     uri: { __type: "String" },
     url: { __type: "String" },
@@ -7173,6 +7954,11 @@ export const generatedSchema = {
   MenuItemObjectUnion: {
     __typename: { __type: "String!" },
     $on: { __type: "$MenuItemObjectUnion!" },
+  },
+  MenuItemThumbnail: {
+    __typename: { __type: "String!" },
+    label_color: { __type: "String" },
+    menu_icon: { __type: "String" },
   },
   MenuItemToMenuConnectionEdge: {
     __typename: { __type: "String!" },
@@ -7256,6 +8042,7 @@ export const generatedSchema = {
   },
   NodeWithFeaturedImage: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     conditionalTags: { __type: "ConditionalTags" },
     contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
     contentTypeName: { __type: "String!" },
@@ -7350,6 +8137,7 @@ export const generatedSchema = {
     author: { __type: "NodeWithAuthorToUserConnectionEdge" },
     authorDatabaseId: { __type: "Int" },
     authorId: { __type: "ID" },
+    blocks: { __type: "String" },
     children: {
       __type: "HierarchicalContentNodeToContentNodeChildrenConnection",
       __args: {
@@ -7536,6 +8324,7 @@ export const generatedSchema = {
   },
   Portfolio: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     conditionalTags: { __type: "ConditionalTags" },
     content: {
       __type: "String",
@@ -7570,6 +8359,16 @@ export const generatedSchema = {
     link: { __type: "String" },
     modified: { __type: "String" },
     modifiedGmt: { __type: "String" },
+    portfolioCategories: {
+      __type: "PortfolioToPortfolioCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "PortfolioToPortfolioCategoryConnectionWhereArgs",
+      },
+    },
     portfolioId: { __type: "Int!" },
     preview: { __type: "PortfolioToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
@@ -7593,6 +8392,163 @@ export const generatedSchema = {
       __args: { format: "PostObjectFieldFormatEnum" },
     },
     uri: { __type: "String" },
+  },
+  PortfolioCategory: {
+    __typename: { __type: "String!" },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentNodes: {
+      __type: "PortfolioCategoryToContentNodeConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "PortfolioCategoryToContentNodeConnectionWhereArgs",
+      },
+    },
+    count: { __type: "Int" },
+    databaseId: { __type: "Int!" },
+    description: { __type: "String" },
+    enqueuedScripts: {
+      __type: "TermNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "TermNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    link: { __type: "String" },
+    name: { __type: "String" },
+    portfolioCategoryId: { __type: "Int" },
+    portfolios: {
+      __type: "PortfolioCategoryToPortfolioConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "PortfolioCategoryToPortfolioConnectionWhereArgs",
+      },
+    },
+    slug: { __type: "String" },
+    taxonomy: { __type: "PortfolioCategoryToTaxonomyConnectionEdge" },
+    taxonomyName: { __type: "String" },
+    templates: { __type: "[String]" },
+    termGroupId: { __type: "Int" },
+    termTaxonomyId: { __type: "Int" },
+    uri: { __type: "String" },
+  },
+  PortfolioCategoryToContentNodeConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[PortfolioCategoryToContentNodeConnectionEdge]" },
+    nodes: { __type: "[ContentNode]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  PortfolioCategoryToContentNodeConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "ContentNode" },
+  },
+  PortfolioCategoryToContentNodeConnectionWhereArgs: {
+    contentTypes: { __type: "[ContentTypesOfPortfolioCategoryEnum]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  PortfolioCategoryToPortfolioConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[PortfolioCategoryToPortfolioConnectionEdge]" },
+    nodes: { __type: "[Portfolio]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  PortfolioCategoryToPortfolioConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Portfolio" },
+  },
+  PortfolioCategoryToPortfolioConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  PortfolioCategoryToTaxonomyConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Taxonomy" },
+  },
+  PortfolioPortfolioCategoriesInput: {
+    append: { __type: "Boolean" },
+    nodes: { __type: "[PortfolioPortfolioCategoriesNodeInput]" },
+  },
+  PortfolioPortfolioCategoriesNodeInput: {
+    description: { __type: "String" },
+    id: { __type: "ID" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
+  PortfolioToPortfolioCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[PortfolioToPortfolioCategoryConnectionEdge]" },
+    nodes: { __type: "[PortfolioCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  PortfolioToPortfolioCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "PortfolioCategory" },
+  },
+  PortfolioToPortfolioCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
   },
   PortfolioToPreviewConnectionEdge: {
     __typename: { __type: "String!" },
@@ -7637,6 +8593,7 @@ export const generatedSchema = {
     author: { __type: "NodeWithAuthorToUserConnectionEdge" },
     authorDatabaseId: { __type: "Int" },
     authorId: { __type: "ID" },
+    blocks: { __type: "String" },
     categories: {
       __type: "PostToCategoryConnection",
       __args: {
@@ -8669,6 +9626,39 @@ export const generatedSchema = {
     stati: { __type: "[PluginStatusEnum]" },
     status: { __type: "PluginStatusEnum" },
   },
+  RootQueryToPortfolioCategoryConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToPortfolioCategoryConnectionEdge]" },
+    nodes: { __type: "[PortfolioCategory]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToPortfolioCategoryConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "PortfolioCategory" },
+  },
+  RootQueryToPortfolioCategoryConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
   RootQueryToPortfolioConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToPortfolioConnectionEdge]" },
@@ -8755,6 +9745,39 @@ export const generatedSchema = {
     node: { __type: "PostFormat" },
   },
   RootQueryToPostFormatConnectionWhereArgs: {
+    cacheDomain: { __type: "String" },
+    childOf: { __type: "Int" },
+    childless: { __type: "Boolean" },
+    descriptionLike: { __type: "String" },
+    exclude: { __type: "[ID]" },
+    excludeTree: { __type: "[ID]" },
+    hideEmpty: { __type: "Boolean" },
+    hierarchical: { __type: "Boolean" },
+    include: { __type: "[ID]" },
+    name: { __type: "[String]" },
+    nameLike: { __type: "String" },
+    objectIds: { __type: "[ID]" },
+    order: { __type: "OrderEnum" },
+    orderby: { __type: "TermObjectsConnectionOrderbyEnum" },
+    padCounts: { __type: "Boolean" },
+    parent: { __type: "Int" },
+    search: { __type: "String" },
+    slug: { __type: "[String]" },
+    termTaxonomId: { __type: "[ID]" },
+    updateTermMetaCache: { __type: "Boolean" },
+  },
+  RootQueryToSeriesConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToSeriesConnectionEdge]" },
+    nodes: { __type: "[Series]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToSeriesConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Series" },
+  },
+  RootQueryToSeriesConnectionWhereArgs: {
     cacheDomain: { __type: "String" },
     childOf: { __type: "Int" },
     childless: { __type: "Boolean" },
@@ -8973,6 +9996,164 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     user: { __type: "User" },
   },
+  Series: {
+    __typename: { __type: "String!" },
+    blogs: {
+      __type: "SeriesToBlogConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "SeriesToBlogConnectionWhereArgs",
+      },
+    },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentNodes: {
+      __type: "SeriesToContentNodeConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "SeriesToContentNodeConnectionWhereArgs",
+      },
+    },
+    count: { __type: "Int" },
+    databaseId: { __type: "Int!" },
+    description: { __type: "String" },
+    devs: {
+      __type: "SeriesToDevConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "SeriesToDevConnectionWhereArgs",
+      },
+    },
+    enqueuedScripts: {
+      __type: "TermNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "TermNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    link: { __type: "String" },
+    name: { __type: "String" },
+    seriesId: { __type: "Int" },
+    slug: { __type: "String" },
+    taxonomy: { __type: "SeriesToTaxonomyConnectionEdge" },
+    taxonomyName: { __type: "String" },
+    templates: { __type: "[String]" },
+    termGroupId: { __type: "Int" },
+    termTaxonomyId: { __type: "Int" },
+    uri: { __type: "String" },
+  },
+  SeriesToBlogConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[SeriesToBlogConnectionEdge]" },
+    nodes: { __type: "[Blog]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  SeriesToBlogConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Blog" },
+  },
+  SeriesToBlogConnectionWhereArgs: {
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  SeriesToContentNodeConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[SeriesToContentNodeConnectionEdge]" },
+    nodes: { __type: "[ContentNode]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  SeriesToContentNodeConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "ContentNode" },
+  },
+  SeriesToContentNodeConnectionWhereArgs: {
+    contentTypes: { __type: "[ContentTypesOfSeriesEnum]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  SeriesToDevConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[SeriesToDevConnectionEdge]" },
+    nodes: { __type: "[Dev]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  SeriesToDevConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "Dev" },
+  },
+  SeriesToDevConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  SeriesToTaxonomyConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "Taxonomy" },
+  },
   Settings: {
     __typename: { __type: "String!" },
     discussionSettingsDefaultCommentStatus: { __type: "String" },
@@ -8996,6 +10177,7 @@ export const generatedSchema = {
   },
   ShortcutPost: {
     __typename: { __type: "String!" },
+    blocks: { __type: "String" },
     conditionalTags: { __type: "ConditionalTags" },
     content: {
       __type: "String",
@@ -9058,6 +10240,7 @@ export const generatedSchema = {
           "HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs",
       },
     },
+    blocks: { __type: "String" },
     children: {
       __type: "HierarchicalContentNodeToContentNodeChildrenConnection",
       __args: {
@@ -9389,6 +10572,7 @@ export const generatedSchema = {
     id: { __type: "ID!" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    seriess: { __type: "BlogSeriessInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -9472,6 +10656,7 @@ export const generatedSchema = {
     id: { __type: "ID!" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    seriess: { __type: "DevSeriessInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -9523,6 +10708,19 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     page: { __type: "Page" },
   },
+  UpdatePortfolioCategoryInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    id: { __type: "ID!" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
+  UpdatePortfolioCategoryPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    portfolioCategory: { __type: "PortfolioCategory" },
+  },
   UpdatePortfolioInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
@@ -9530,6 +10728,7 @@ export const generatedSchema = {
     id: { __type: "ID!" },
     menuOrder: { __type: "Int" },
     password: { __type: "String" },
+    portfolioCategories: { __type: "PortfolioPortfolioCategoriesInput" },
     slug: { __type: "String" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
@@ -9576,6 +10775,19 @@ export const generatedSchema = {
     __typename: { __type: "String!" },
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
+  },
+  UpdateSeriesInput: {
+    aliasOf: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    description: { __type: "String" },
+    id: { __type: "ID!" },
+    name: { __type: "String" },
+    slug: { __type: "String" },
+  },
+  UpdateSeriesPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    series: { __type: "Series" },
   },
   UpdateSettingsInput: {
     clientMutationId: { __type: "String" },
@@ -10104,6 +11316,10 @@ export const generatedSchema = {
       __type: "CreatePortfolioPayload",
       __args: { input: "CreatePortfolioInput!" },
     },
+    createPortfolioCategory: {
+      __type: "CreatePortfolioCategoryPayload",
+      __args: { input: "CreatePortfolioCategoryInput!" },
+    },
     createPost: {
       __type: "CreatePostPayload",
       __args: { input: "CreatePostInput!" },
@@ -10111,6 +11327,10 @@ export const generatedSchema = {
     createPostFormat: {
       __type: "CreatePostFormatPayload",
       __args: { input: "CreatePostFormatInput!" },
+    },
+    createSeries: {
+      __type: "CreateSeriesPayload",
+      __args: { input: "CreateSeriesInput!" },
     },
     createShortcutPost: {
       __type: "CreateShortcutPostPayload",
@@ -10168,6 +11388,10 @@ export const generatedSchema = {
       __type: "DeletePortfolioPayload",
       __args: { input: "DeletePortfolioInput!" },
     },
+    deletePortfolioCategory: {
+      __type: "DeletePortfolioCategoryPayload",
+      __args: { input: "DeletePortfolioCategoryInput!" },
+    },
     deletePost: {
       __type: "DeletePostPayload",
       __args: { input: "DeletePostInput!" },
@@ -10175,6 +11399,10 @@ export const generatedSchema = {
     deletePostFormat: {
       __type: "DeletePostFormatPayload",
       __args: { input: "DeletePostFormatInput!" },
+    },
+    deleteSeries: {
+      __type: "DeleteSeriesPayload",
+      __args: { input: "DeleteSeriesInput!" },
     },
     deleteShortcutPost: {
       __type: "DeleteShortcutPostPayload",
@@ -10253,6 +11481,10 @@ export const generatedSchema = {
       __type: "UpdatePortfolioPayload",
       __args: { input: "UpdatePortfolioInput!" },
     },
+    updatePortfolioCategory: {
+      __type: "UpdatePortfolioCategoryPayload",
+      __args: { input: "UpdatePortfolioCategoryInput!" },
+    },
     updatePost: {
       __type: "UpdatePostPayload",
       __args: { input: "UpdatePostInput!" },
@@ -10260,6 +11492,10 @@ export const generatedSchema = {
     updatePostFormat: {
       __type: "UpdatePostFormatPayload",
       __args: { input: "UpdatePostFormatInput!" },
+    },
+    updateSeries: {
+      __type: "UpdateSeriesPayload",
+      __args: { input: "UpdateSeriesInput!" },
     },
     updateSettings: {
       __type: "UpdateSettingsPayload",
@@ -10295,6 +11531,7 @@ export const generatedSchema = {
       },
     },
     allSettings: { __type: "Settings" },
+    allUrls: { __type: "[String]" },
     blog: {
       __type: "Blog",
       __args: { asPreview: "Boolean", id: "ID!", idType: "BlogIdType" },
@@ -10509,6 +11746,20 @@ export const generatedSchema = {
       __type: "Portfolio",
       __args: { id: "ID", portfolioId: "Int", slug: "String", uri: "String" },
     },
+    portfolioCategories: {
+      __type: "RootQueryToPortfolioCategoryConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToPortfolioCategoryConnectionWhereArgs",
+      },
+    },
+    portfolioCategory: {
+      __type: "PortfolioCategory",
+      __args: { id: "ID!", idType: "PortfolioCategoryIdType" },
+    },
     portfolios: {
       __type: "RootQueryToPortfolioConnection",
       __args: {
@@ -10568,6 +11819,17 @@ export const generatedSchema = {
         first: "Int",
         last: "Int",
         where: "RootQueryToContentRevisionUnionConnectionWhereArgs",
+      },
+    },
+    series: { __type: "Series", __args: { id: "ID!", idType: "SeriesIdType" } },
+    seriess: {
+      __type: "RootQueryToSeriesConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToSeriesConnectionWhereArgs",
       },
     },
     shortcutPost: {
@@ -10705,8 +11967,10 @@ export const generatedSchema = {
       "MenuItem",
       "Page",
       "Portfolio",
+      "PortfolioCategory",
       "Post",
       "PostFormat",
+      "Series",
       "ShortcutPost",
       "Stackoverflow",
       "Tag",
@@ -10721,7 +11985,9 @@ export const generatedSchema = {
       "DevCategory",
       "Page",
       "Portfolio",
+      "PortfolioCategory",
       "Post",
+      "Series",
       "ShortcutPost",
       "Stackoverflow",
       "Tag",
@@ -10744,8 +12010,10 @@ export const generatedSchema = {
       "Page",
       "Plugin",
       "Portfolio",
+      "PortfolioCategory",
       "Post",
       "PostFormat",
+      "Series",
       "ShortcutPost",
       "Stackoverflow",
       "Tag",
@@ -10808,14 +12076,24 @@ export const generatedSchema = {
       "MediaItem",
       "Page",
       "Portfolio",
+      "PortfolioCategory",
       "Post",
       "PostFormat",
+      "Series",
       "ShortcutPost",
       "Stackoverflow",
       "Tag",
       "User",
     ],
-    TermNode: ["BlogCategory", "Category", "DevCategory", "PostFormat", "Tag"],
+    TermNode: [
+      "BlogCategory",
+      "Category",
+      "DevCategory",
+      "PortfolioCategory",
+      "PostFormat",
+      "Series",
+      "Tag",
+    ],
     HierarchicalTermNode: ["Category", "DevCategory"],
     Commenter: ["CommentAuthor", "User"],
     ContentRevisionUnion: ["Dev", "Page", "Post"],
@@ -10833,7 +12111,9 @@ export const generatedSchema = {
       "DevCategory",
       "Page",
       "Portfolio",
+      "PortfolioCategory",
       "Post",
+      "Series",
       "ShortcutPost",
       "Stackoverflow",
       "Tag",
@@ -10899,6 +12179,10 @@ export interface Avatar {
  */
 export interface Blog {
   __typename?: "Blog";
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * Connection between the Blog type and the BlogCategory type
    */
@@ -11122,6 +12406,31 @@ export interface Blog {
    * Whether the object is a node in the preview state
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Connection between the Blog type and the Series type
+   */
+  seriess: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<BlogToSeriesConnectionWhereArgs>;
+  }) => Maybe<BlogToSeriesConnection>;
   /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
@@ -11503,6 +12812,40 @@ export interface BlogToPreviewConnectionEdge {
 }
 
 /**
+ * Connection between the Blog type and the Series type
+ */
+export interface BlogToSeriesConnection {
+  __typename?: "BlogToSeriesConnection";
+  /**
+   * Edges for the BlogToSeriesConnection connection
+   */
+  edges?: Maybe<Array<Maybe<BlogToSeriesConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Series>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface BlogToSeriesConnectionEdge {
+  __typename?: "BlogToSeriesConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Series>;
+}
+
+/**
  * Connection between the Blog type and the TermNode type
  */
 export interface BlogToTermNodeConnection {
@@ -11541,6 +12884,10 @@ export interface BlogToTermNodeConnectionEdge {
  */
 export interface Book {
   __typename?: "Book";
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
@@ -12516,6 +13863,10 @@ export interface ContentNode {
     | "ShortcutPost"
     | "Stackoverflow";
   /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
+  /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
   conditionalTags?: Maybe<ConditionalTags>;
@@ -13172,6 +14523,21 @@ export interface CreatePagePayload {
 }
 
 /**
+ * The payload for the createPortfolioCategory mutation
+ */
+export interface CreatePortfolioCategoryPayload {
+  __typename?: "CreatePortfolioCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created portfolio_category
+   */
+  portfolioCategory?: Maybe<PortfolioCategory>;
+}
+
+/**
  * The payload for the createPortfolio mutation
  */
 export interface CreatePortfolioPayload {
@@ -13214,6 +14580,21 @@ export interface CreatePostPayload {
    * The Post object mutation type.
    */
   post?: Maybe<Post>;
+}
+
+/**
+ * The payload for the createSeries mutation
+ */
+export interface CreateSeriesPayload {
+  __typename?: "CreateSeriesPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created series
+   */
+  series?: Maybe<Series>;
 }
 
 /**
@@ -13293,8 +14674,10 @@ export interface DatabaseIdentifier {
     | "MenuItem"
     | "Page"
     | "Portfolio"
+    | "PortfolioCategory"
     | "Post"
     | "PostFormat"
+    | "Series"
     | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
@@ -13489,6 +14872,25 @@ export interface DeletePagePayload {
 }
 
 /**
+ * The payload for the deletePortfolioCategory mutation
+ */
+export interface DeletePortfolioCategoryPayload {
+  __typename?: "DeletePortfolioCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The deteted term object
+   */
+  portfolioCategory?: Maybe<PortfolioCategory>;
+}
+
+/**
  * The payload for the deletePortfolio mutation
  */
 export interface DeletePortfolioPayload {
@@ -13543,6 +14945,25 @@ export interface DeletePostPayload {
    * The object before it was deleted
    */
   post?: Maybe<Post>;
+}
+
+/**
+ * The payload for the deleteSeries mutation
+ */
+export interface DeleteSeriesPayload {
+  __typename?: "DeleteSeriesPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The deteted term object
+   */
+  series?: Maybe<Series>;
 }
 
 /**
@@ -13638,6 +15059,10 @@ export interface Dev {
    * The globally unique identifier of the author of the node
    */
   authorId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility.
    */
@@ -13894,6 +15319,31 @@ export interface Dev {
      */
     where?: Maybe<DevToRevisionConnectionWhereArgs>;
   }) => Maybe<DevToRevisionConnection>;
+  /**
+   * Connection between the Dev type and the Series type
+   */
+  seriess: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<DevToSeriesConnectionWhereArgs>;
+  }) => Maybe<DevToSeriesConnection>;
   /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
@@ -14446,6 +15896,40 @@ export interface DevToRevisionConnectionEdge {
 }
 
 /**
+ * Connection between the Dev type and the Series type
+ */
+export interface DevToSeriesConnection {
+  __typename?: "DevToSeriesConnection";
+  /**
+   * Edges for the DevToSeriesConnection connection
+   */
+  edges?: Maybe<Array<Maybe<DevToSeriesConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Series>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface DevToSeriesConnectionEdge {
+  __typename?: "DevToSeriesConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Series>;
+}
+
+/**
  * Connection between the Dev type and the TermNode type
  */
 export interface DevToTermNodeConnection {
@@ -14904,6 +16388,10 @@ export interface MediaItem {
    * The globally unique identifier of the author of the node
    */
   authorId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * The caption for the resource
    */
@@ -15493,6 +16981,12 @@ export interface MenuItem {
    */
   target?: Maybe<ScalarsEnums["String"]>;
   /**
+   * Link to edit the content
+   */
+  thumbnail: (args?: {
+    test?: Maybe<Scalars["Boolean"]>;
+  }) => Maybe<MenuItemThumbnail>;
+  /**
    * Title attribute for the menu item link
    */
   title?: Maybe<ScalarsEnums["String"]>;
@@ -15519,7 +17013,9 @@ export interface MenuItemLinkable {
     | "DevCategory"
     | "Page"
     | "Portfolio"
+    | "PortfolioCategory"
     | "Post"
+    | "Series"
     | "ShortcutPost"
     | "Stackoverflow"
     | "Tag";
@@ -15551,11 +17047,28 @@ export interface MenuItemObjectUnion {
     | "DevCategory"
     | "Page"
     | "Portfolio"
+    | "PortfolioCategory"
     | "Post"
+    | "Series"
     | "ShortcutPost"
     | "Stackoverflow"
     | "Tag";
   $on: $MenuItemObjectUnion;
+}
+
+/**
+ * Man&#039;s best friend
+ */
+export interface MenuItemThumbnail {
+  __typename?: "MenuItemThumbnail";
+  /**
+   * 메뉴 라벨 색상
+   */
+  label_color?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * 메뉴 아이콘 URL
+   */
+  menu_icon?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -15670,8 +17183,10 @@ export interface Node {
     | "Page"
     | "Plugin"
     | "Portfolio"
+    | "PortfolioCategory"
     | "Post"
     | "PostFormat"
+    | "Series"
     | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
@@ -15787,6 +17302,10 @@ export interface NodeWithFeaturedImage {
     | "Portfolio"
     | "Post"
     | "Stackoverflow";
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -16104,6 +17623,10 @@ export interface Page {
    * The globally unique identifier of the author of the node
    */
   authorId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * Connection between the HierarchicalContentNode type and the ContentNode type
    */
@@ -16530,10 +18053,14 @@ export interface Plugin {
 }
 
 /**
- * The portfolio type
+ * The Portfolio type
  */
 export interface Portfolio {
   __typename?: "Portfolio";
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -16674,12 +18201,37 @@ export interface Portfolio {
    */
   modifiedGmt?: Maybe<ScalarsEnums["String"]>;
   /**
+   * Connection between the Portfolio type and the PortfolioCategory type
+   */
+  portfolioCategories: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<PortfolioToPortfolioCategoryConnectionWhereArgs>;
+  }) => Maybe<PortfolioToPortfolioCategoryConnection>;
+  /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
    */
   portfolioId: ScalarsEnums["Int"];
   /**
-   * Connection between the portfolio type and the portfolio type
+   * Connection between the Portfolio type and the Portfolio type
    */
   preview?: Maybe<PortfolioToPreviewConnectionEdge>;
   /**
@@ -16704,7 +18256,7 @@ export interface Portfolio {
   template?: Maybe<ContentTemplate>;
   templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   /**
-   * Connection between the portfolio type and the TermNode type
+   * Connection between the Portfolio type and the TermNode type
    */
   terms: (args?: {
     /**
@@ -16744,7 +18296,289 @@ export interface Portfolio {
 }
 
 /**
- * Connection between the portfolio type and the portfolio type
+ * The PortfolioCategory type
+ */
+export interface PortfolioCategory {
+  __typename?: "PortfolioCategory";
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the PortfolioCategory type and the ContentNode type
+   */
+  contentNodes: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<PortfolioCategoryToContentNodeConnectionWhereArgs>;
+  }) => Maybe<PortfolioCategoryToContentNodeConnection>;
+  /**
+   * The number of objects connected to the object
+   */
+  count?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * The description of the object
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the TermNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The unique resource identifier path
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The link to the term
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The human friendly name of the object.
+   */
+  name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of databaseId
+   */
+  portfolioCategoryId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Connection between the PortfolioCategory type and the Portfolio type
+   */
+  portfolios: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<PortfolioCategoryToPortfolioConnectionWhereArgs>;
+  }) => Maybe<PortfolioCategoryToPortfolioConnection>;
+  /**
+   * An alphanumeric identifier for the object unique to its type.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the PortfolioCategory type and the Taxonomy type
+   */
+  taxonomy?: Maybe<PortfolioCategoryToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums["String"]>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The ID of the term group that this term object belongs to
+   */
+  termGroupId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The taxonomy ID that the object is associated with
+   */
+  termTaxonomyId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the PortfolioCategory type and the ContentNode type
+ */
+export interface PortfolioCategoryToContentNodeConnection {
+  __typename?: "PortfolioCategoryToContentNodeConnection";
+  /**
+   * Edges for the PortfolioCategoryToContentNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<PortfolioCategoryToContentNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<ContentNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface PortfolioCategoryToContentNodeConnectionEdge {
+  __typename?: "PortfolioCategoryToContentNodeConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<ContentNode>;
+}
+
+/**
+ * Connection between the PortfolioCategory type and the Portfolio type
+ */
+export interface PortfolioCategoryToPortfolioConnection {
+  __typename?: "PortfolioCategoryToPortfolioConnection";
+  /**
+   * Edges for the PortfolioCategoryToPortfolioConnection connection
+   */
+  edges?: Maybe<Array<Maybe<PortfolioCategoryToPortfolioConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Portfolio>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface PortfolioCategoryToPortfolioConnectionEdge {
+  __typename?: "PortfolioCategoryToPortfolioConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Portfolio>;
+}
+
+/**
+ * Connection between the PortfolioCategory type and the Taxonomy type
+ */
+export interface PortfolioCategoryToTaxonomyConnectionEdge {
+  __typename?: "PortfolioCategoryToTaxonomyConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Taxonomy>;
+}
+
+/**
+ * Connection between the Portfolio type and the PortfolioCategory type
+ */
+export interface PortfolioToPortfolioCategoryConnection {
+  __typename?: "PortfolioToPortfolioCategoryConnection";
+  /**
+   * Edges for the PortfolioToPortfolioCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<PortfolioToPortfolioCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<PortfolioCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface PortfolioToPortfolioCategoryConnectionEdge {
+  __typename?: "PortfolioToPortfolioCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<PortfolioCategory>;
+}
+
+/**
+ * Connection between the Portfolio type and the Portfolio type
  */
 export interface PortfolioToPreviewConnectionEdge {
   __typename?: "PortfolioToPreviewConnectionEdge";
@@ -16755,7 +18589,7 @@ export interface PortfolioToPreviewConnectionEdge {
 }
 
 /**
- * Connection between the portfolio type and the TermNode type
+ * Connection between the Portfolio type and the TermNode type
  */
 export interface PortfolioToTermNodeConnection {
   __typename?: "PortfolioToTermNodeConnection";
@@ -16805,6 +18639,10 @@ export interface Post {
    * The globally unique identifier of the author of the node
    */
   authorId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * Connection between the post type and the category type
    */
@@ -18401,7 +20239,41 @@ export interface RootQueryToPluginConnectionEdge {
 }
 
 /**
- * Connection between the RootQuery type and the portfolio type
+ * Connection between the RootQuery type and the PortfolioCategory type
+ */
+export interface RootQueryToPortfolioCategoryConnection {
+  __typename?: "RootQueryToPortfolioCategoryConnection";
+  /**
+   * Edges for the RootQueryToPortfolioCategoryConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToPortfolioCategoryConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<PortfolioCategory>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToPortfolioCategoryConnectionEdge {
+  __typename?: "RootQueryToPortfolioCategoryConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<PortfolioCategory>;
+}
+
+/**
+ * Connection between the RootQuery type and the Portfolio type
  */
 export interface RootQueryToPortfolioConnection {
   __typename?: "RootQueryToPortfolioConnection";
@@ -18500,6 +20372,40 @@ export interface RootQueryToPostFormatConnectionEdge {
    * The item at the end of the edge
    */
   node?: Maybe<PostFormat>;
+}
+
+/**
+ * Connection between the RootQuery type and the Series type
+ */
+export interface RootQueryToSeriesConnection {
+  __typename?: "RootQueryToSeriesConnection";
+  /**
+   * Edges for the RootQueryToSeriesConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToSeriesConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Series>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToSeriesConnectionEdge {
+  __typename?: "RootQueryToSeriesConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Series>;
 }
 
 /**
@@ -18790,6 +20696,313 @@ export interface SendPasswordResetEmailPayload {
 }
 
 /**
+ * The Series type
+ */
+export interface Series {
+  __typename?: "Series";
+  /**
+   * Connection between the Series type and the Blog type
+   */
+  blogs: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<SeriesToBlogConnectionWhereArgs>;
+  }) => Maybe<SeriesToBlogConnection>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the Series type and the ContentNode type
+   */
+  contentNodes: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<SeriesToContentNodeConnectionWhereArgs>;
+  }) => Maybe<SeriesToContentNodeConnection>;
+  /**
+   * The number of objects connected to the object
+   */
+  count?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * The description of the object
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the Series type and the Dev type
+   */
+  devs: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<SeriesToDevConnectionWhereArgs>;
+  }) => Maybe<SeriesToDevConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the TermNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The unique resource identifier path
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The link to the term
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The human friendly name of the object.
+   */
+  name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of databaseId
+   */
+  seriesId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * An alphanumeric identifier for the object unique to its type.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the Series type and the Taxonomy type
+   */
+  taxonomy?: Maybe<SeriesToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums["String"]>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The ID of the term group that this term object belongs to
+   */
+  termGroupId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The taxonomy ID that the object is associated with
+   */
+  termTaxonomyId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the Series type and the Blog type
+ */
+export interface SeriesToBlogConnection {
+  __typename?: "SeriesToBlogConnection";
+  /**
+   * Edges for the SeriesToBlogConnection connection
+   */
+  edges?: Maybe<Array<Maybe<SeriesToBlogConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Blog>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface SeriesToBlogConnectionEdge {
+  __typename?: "SeriesToBlogConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Blog>;
+}
+
+/**
+ * Connection between the Series type and the ContentNode type
+ */
+export interface SeriesToContentNodeConnection {
+  __typename?: "SeriesToContentNodeConnection";
+  /**
+   * Edges for the SeriesToContentNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<SeriesToContentNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<ContentNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface SeriesToContentNodeConnectionEdge {
+  __typename?: "SeriesToContentNodeConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<ContentNode>;
+}
+
+/**
+ * Connection between the Series type and the Dev type
+ */
+export interface SeriesToDevConnection {
+  __typename?: "SeriesToDevConnection";
+  /**
+   * Edges for the SeriesToDevConnection connection
+   */
+  edges?: Maybe<Array<Maybe<SeriesToDevConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Dev>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface SeriesToDevConnectionEdge {
+  __typename?: "SeriesToDevConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Dev>;
+}
+
+/**
+ * Connection between the Series type and the Taxonomy type
+ */
+export interface SeriesToTaxonomyConnectionEdge {
+  __typename?: "SeriesToTaxonomyConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Taxonomy>;
+}
+
+/**
  * All of the registered settings
  */
 export interface Settings {
@@ -18873,6 +21086,10 @@ export interface Settings {
  */
 export interface ShortcutPost {
   __typename?: "ShortcutPost";
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -19086,6 +21303,10 @@ export interface Stackoverflow {
      */
     where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Link to edit the content
+   */
+  blocks?: Maybe<ScalarsEnums["String"]>;
   /**
    * Connection between the HierarchicalContentNode type and the ContentNode type
    */
@@ -19716,7 +21937,9 @@ export interface TermNode {
     | "BlogCategory"
     | "Category"
     | "DevCategory"
+    | "PortfolioCategory"
     | "PostFormat"
+    | "Series"
     | "Tag";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
@@ -19958,8 +22181,10 @@ export interface UniformResourceIdentifiable {
     | "MediaItem"
     | "Page"
     | "Portfolio"
+    | "PortfolioCategory"
     | "Post"
     | "PostFormat"
+    | "Series"
     | "ShortcutPost"
     | "Stackoverflow"
     | "Tag"
@@ -20128,6 +22353,21 @@ export interface UpdatePagePayload {
 }
 
 /**
+ * The payload for the UpdatePortfolioCategory mutation
+ */
+export interface UpdatePortfolioCategoryPayload {
+  __typename?: "UpdatePortfolioCategoryPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created portfolio_category
+   */
+  portfolioCategory?: Maybe<PortfolioCategory>;
+}
+
+/**
  * The payload for the updatePortfolio mutation
  */
 export interface UpdatePortfolioPayload {
@@ -20170,6 +22410,21 @@ export interface UpdatePostPayload {
    * The Post object mutation type.
    */
   post?: Maybe<Post>;
+}
+
+/**
+ * The payload for the UpdateSeries mutation
+ */
+export interface UpdateSeriesPayload {
+  __typename?: "UpdateSeriesPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The created series
+   */
+  series?: Maybe<Series>;
 }
 
 /**
@@ -20994,10 +23249,16 @@ export interface Mutation {
   createPortfolio: (args: {
     input: CreatePortfolioInput;
   }) => Maybe<CreatePortfolioPayload>;
+  createPortfolioCategory: (args: {
+    input: CreatePortfolioCategoryInput;
+  }) => Maybe<CreatePortfolioCategoryPayload>;
   createPost: (args: { input: CreatePostInput }) => Maybe<CreatePostPayload>;
   createPostFormat: (args: {
     input: CreatePostFormatInput;
   }) => Maybe<CreatePostFormatPayload>;
+  createSeries: (args: {
+    input: CreateSeriesInput;
+  }) => Maybe<CreateSeriesPayload>;
   createShortcutPost: (args: {
     input: CreateShortcutPostInput;
   }) => Maybe<CreateShortcutPostPayload>;
@@ -21028,10 +23289,16 @@ export interface Mutation {
   deletePortfolio: (args: {
     input: DeletePortfolioInput;
   }) => Maybe<DeletePortfolioPayload>;
+  deletePortfolioCategory: (args: {
+    input: DeletePortfolioCategoryInput;
+  }) => Maybe<DeletePortfolioCategoryPayload>;
   deletePost: (args: { input: DeletePostInput }) => Maybe<DeletePostPayload>;
   deletePostFormat: (args: {
     input: DeletePostFormatInput;
   }) => Maybe<DeletePostFormatPayload>;
+  deleteSeries: (args: {
+    input: DeleteSeriesInput;
+  }) => Maybe<DeleteSeriesPayload>;
   deleteShortcutPost: (args: {
     input: DeleteShortcutPostInput;
   }) => Maybe<DeleteShortcutPostPayload>;
@@ -21080,10 +23347,16 @@ export interface Mutation {
   updatePortfolio: (args: {
     input: UpdatePortfolioInput;
   }) => Maybe<UpdatePortfolioPayload>;
+  updatePortfolioCategory: (args: {
+    input: UpdatePortfolioCategoryInput;
+  }) => Maybe<UpdatePortfolioCategoryPayload>;
   updatePost: (args: { input: UpdatePostInput }) => Maybe<UpdatePostPayload>;
   updatePostFormat: (args: {
     input: UpdatePostFormatInput;
   }) => Maybe<UpdatePostFormatPayload>;
+  updateSeries: (args: {
+    input: UpdateSeriesInput;
+  }) => Maybe<UpdateSeriesPayload>;
   updateSettings: (args: {
     input: UpdateSettingsInput;
   }) => Maybe<UpdateSettingsPayload>;
@@ -21107,6 +23380,7 @@ export interface Query {
     where?: Maybe<RootQueryToBlogCategoryConnectionWhereArgs>;
   }) => Maybe<RootQueryToBlogCategoryConnection>;
   allSettings?: Maybe<Settings>;
+  allUrls?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   blog: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
@@ -21300,6 +23574,17 @@ export interface Query {
     slug?: Maybe<Scalars["String"]>;
     uri?: Maybe<Scalars["String"]>;
   }) => Maybe<Portfolio>;
+  portfolioCategories: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToPortfolioCategoryConnectionWhereArgs>;
+  }) => Maybe<RootQueryToPortfolioCategoryConnection>;
+  portfolioCategory: (args: {
+    id: Scalars["ID"];
+    idType?: Maybe<PortfolioCategoryIdType>;
+  }) => Maybe<PortfolioCategory>;
   portfolios: (args?: {
     after?: Maybe<Scalars["String"]>;
     before?: Maybe<Scalars["String"]>;
@@ -21356,6 +23641,17 @@ export interface Query {
     last?: Maybe<Scalars["Int"]>;
     where?: Maybe<RootQueryToContentRevisionUnionConnectionWhereArgs>;
   }) => Maybe<RootQueryToContentRevisionUnionConnection>;
+  series: (args: {
+    id: Scalars["ID"];
+    idType?: Maybe<SeriesIdType>;
+  }) => Maybe<Series>;
+  seriess: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToSeriesConnectionWhereArgs>;
+  }) => Maybe<RootQueryToSeriesConnection>;
   shortcutPost: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
@@ -21468,6 +23764,8 @@ export interface SchemaObjectTypes {
   BlogToCommentConnection: BlogToCommentConnection;
   BlogToCommentConnectionEdge: BlogToCommentConnectionEdge;
   BlogToPreviewConnectionEdge: BlogToPreviewConnectionEdge;
+  BlogToSeriesConnection: BlogToSeriesConnection;
+  BlogToSeriesConnectionEdge: BlogToSeriesConnectionEdge;
   BlogToTermNodeConnection: BlogToTermNodeConnection;
   BlogToTermNodeConnectionEdge: BlogToTermNodeConnectionEdge;
   Book: Book;
@@ -21512,9 +23810,11 @@ export interface SchemaObjectTypes {
   CreateDevPayload: CreateDevPayload;
   CreateMediaItemPayload: CreateMediaItemPayload;
   CreatePagePayload: CreatePagePayload;
+  CreatePortfolioCategoryPayload: CreatePortfolioCategoryPayload;
   CreatePortfolioPayload: CreatePortfolioPayload;
   CreatePostFormatPayload: CreatePostFormatPayload;
   CreatePostPayload: CreatePostPayload;
+  CreateSeriesPayload: CreateSeriesPayload;
   CreateShortcutPostPayload: CreateShortcutPostPayload;
   CreateStackoverflowPayload: CreateStackoverflowPayload;
   CreateTagPayload: CreateTagPayload;
@@ -21529,9 +23829,11 @@ export interface SchemaObjectTypes {
   DeleteDevPayload: DeleteDevPayload;
   DeleteMediaItemPayload: DeleteMediaItemPayload;
   DeletePagePayload: DeletePagePayload;
+  DeletePortfolioCategoryPayload: DeletePortfolioCategoryPayload;
   DeletePortfolioPayload: DeletePortfolioPayload;
   DeletePostFormatPayload: DeletePostFormatPayload;
   DeletePostPayload: DeletePostPayload;
+  DeleteSeriesPayload: DeleteSeriesPayload;
   DeleteShortcutPostPayload: DeleteShortcutPostPayload;
   DeleteStackoverflowPayload: DeleteStackoverflowPayload;
   DeleteTagPayload: DeleteTagPayload;
@@ -21555,6 +23857,8 @@ export interface SchemaObjectTypes {
   DevToPreviewConnectionEdge: DevToPreviewConnectionEdge;
   DevToRevisionConnection: DevToRevisionConnection;
   DevToRevisionConnectionEdge: DevToRevisionConnectionEdge;
+  DevToSeriesConnection: DevToSeriesConnection;
+  DevToSeriesConnectionEdge: DevToSeriesConnectionEdge;
   DevToTermNodeConnection: DevToTermNodeConnection;
   DevToTermNodeConnectionEdge: DevToTermNodeConnectionEdge;
   DiscussionSettings: DiscussionSettings;
@@ -21575,6 +23879,7 @@ export interface SchemaObjectTypes {
   MediaSize: MediaSize;
   Menu: Menu;
   MenuItem: MenuItem;
+  MenuItemThumbnail: MenuItemThumbnail;
   MenuItemToMenuConnectionEdge: MenuItemToMenuConnectionEdge;
   MenuItemToMenuItemConnection: MenuItemToMenuItemConnection;
   MenuItemToMenuItemConnectionEdge: MenuItemToMenuItemConnectionEdge;
@@ -21593,6 +23898,14 @@ export interface SchemaObjectTypes {
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
   Plugin: Plugin;
   Portfolio: Portfolio;
+  PortfolioCategory: PortfolioCategory;
+  PortfolioCategoryToContentNodeConnection: PortfolioCategoryToContentNodeConnection;
+  PortfolioCategoryToContentNodeConnectionEdge: PortfolioCategoryToContentNodeConnectionEdge;
+  PortfolioCategoryToPortfolioConnection: PortfolioCategoryToPortfolioConnection;
+  PortfolioCategoryToPortfolioConnectionEdge: PortfolioCategoryToPortfolioConnectionEdge;
+  PortfolioCategoryToTaxonomyConnectionEdge: PortfolioCategoryToTaxonomyConnectionEdge;
+  PortfolioToPortfolioCategoryConnection: PortfolioToPortfolioCategoryConnection;
+  PortfolioToPortfolioCategoryConnectionEdge: PortfolioToPortfolioCategoryConnectionEdge;
   PortfolioToPreviewConnectionEdge: PortfolioToPreviewConnectionEdge;
   PortfolioToTermNodeConnection: PortfolioToTermNodeConnection;
   PortfolioToTermNodeConnectionEdge: PortfolioToTermNodeConnectionEdge;
@@ -21656,12 +23969,16 @@ export interface SchemaObjectTypes {
   RootQueryToPageConnectionEdge: RootQueryToPageConnectionEdge;
   RootQueryToPluginConnection: RootQueryToPluginConnection;
   RootQueryToPluginConnectionEdge: RootQueryToPluginConnectionEdge;
+  RootQueryToPortfolioCategoryConnection: RootQueryToPortfolioCategoryConnection;
+  RootQueryToPortfolioCategoryConnectionEdge: RootQueryToPortfolioCategoryConnectionEdge;
   RootQueryToPortfolioConnection: RootQueryToPortfolioConnection;
   RootQueryToPortfolioConnectionEdge: RootQueryToPortfolioConnectionEdge;
   RootQueryToPostConnection: RootQueryToPostConnection;
   RootQueryToPostConnectionEdge: RootQueryToPostConnectionEdge;
   RootQueryToPostFormatConnection: RootQueryToPostFormatConnection;
   RootQueryToPostFormatConnectionEdge: RootQueryToPostFormatConnectionEdge;
+  RootQueryToSeriesConnection: RootQueryToSeriesConnection;
+  RootQueryToSeriesConnectionEdge: RootQueryToSeriesConnectionEdge;
   RootQueryToShortcutPostConnection: RootQueryToShortcutPostConnection;
   RootQueryToShortcutPostConnectionEdge: RootQueryToShortcutPostConnectionEdge;
   RootQueryToStackoverflowConnection: RootQueryToStackoverflowConnection;
@@ -21679,6 +23996,14 @@ export interface SchemaObjectTypes {
   RootQueryToUserRoleConnection: RootQueryToUserRoleConnection;
   RootQueryToUserRoleConnectionEdge: RootQueryToUserRoleConnectionEdge;
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
+  Series: Series;
+  SeriesToBlogConnection: SeriesToBlogConnection;
+  SeriesToBlogConnectionEdge: SeriesToBlogConnectionEdge;
+  SeriesToContentNodeConnection: SeriesToContentNodeConnection;
+  SeriesToContentNodeConnectionEdge: SeriesToContentNodeConnectionEdge;
+  SeriesToDevConnection: SeriesToDevConnection;
+  SeriesToDevConnectionEdge: SeriesToDevConnectionEdge;
+  SeriesToTaxonomyConnectionEdge: SeriesToTaxonomyConnectionEdge;
   Settings: Settings;
   ShortcutPost: ShortcutPost;
   ShortcutPostToPreviewConnectionEdge: ShortcutPostToPreviewConnectionEdge;
@@ -21708,9 +24033,11 @@ export interface SchemaObjectTypes {
   UpdateDevPayload: UpdateDevPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
   UpdatePagePayload: UpdatePagePayload;
+  UpdatePortfolioCategoryPayload: UpdatePortfolioCategoryPayload;
   UpdatePortfolioPayload: UpdatePortfolioPayload;
   UpdatePostFormatPayload: UpdatePostFormatPayload;
   UpdatePostPayload: UpdatePostPayload;
+  UpdateSeriesPayload: UpdateSeriesPayload;
   UpdateSettingsPayload: UpdateSettingsPayload;
   UpdateShortcutPostPayload: UpdateShortcutPostPayload;
   UpdateStackoverflowPayload: UpdateStackoverflowPayload;
@@ -21753,6 +24080,8 @@ export type SchemaObjectTypesNames =
   | "BlogToCommentConnection"
   | "BlogToCommentConnectionEdge"
   | "BlogToPreviewConnectionEdge"
+  | "BlogToSeriesConnection"
+  | "BlogToSeriesConnectionEdge"
   | "BlogToTermNodeConnection"
   | "BlogToTermNodeConnectionEdge"
   | "Book"
@@ -21797,9 +24126,11 @@ export type SchemaObjectTypesNames =
   | "CreateDevPayload"
   | "CreateMediaItemPayload"
   | "CreatePagePayload"
+  | "CreatePortfolioCategoryPayload"
   | "CreatePortfolioPayload"
   | "CreatePostFormatPayload"
   | "CreatePostPayload"
+  | "CreateSeriesPayload"
   | "CreateShortcutPostPayload"
   | "CreateStackoverflowPayload"
   | "CreateTagPayload"
@@ -21814,9 +24145,11 @@ export type SchemaObjectTypesNames =
   | "DeleteDevPayload"
   | "DeleteMediaItemPayload"
   | "DeletePagePayload"
+  | "DeletePortfolioCategoryPayload"
   | "DeletePortfolioPayload"
   | "DeletePostFormatPayload"
   | "DeletePostPayload"
+  | "DeleteSeriesPayload"
   | "DeleteShortcutPostPayload"
   | "DeleteStackoverflowPayload"
   | "DeleteTagPayload"
@@ -21840,6 +24173,8 @@ export type SchemaObjectTypesNames =
   | "DevToPreviewConnectionEdge"
   | "DevToRevisionConnection"
   | "DevToRevisionConnectionEdge"
+  | "DevToSeriesConnection"
+  | "DevToSeriesConnectionEdge"
   | "DevToTermNodeConnection"
   | "DevToTermNodeConnectionEdge"
   | "DiscussionSettings"
@@ -21860,6 +24195,7 @@ export type SchemaObjectTypesNames =
   | "MediaSize"
   | "Menu"
   | "MenuItem"
+  | "MenuItemThumbnail"
   | "MenuItemToMenuConnectionEdge"
   | "MenuItemToMenuItemConnection"
   | "MenuItemToMenuItemConnectionEdge"
@@ -21878,6 +24214,14 @@ export type SchemaObjectTypesNames =
   | "PageToRevisionConnectionEdge"
   | "Plugin"
   | "Portfolio"
+  | "PortfolioCategory"
+  | "PortfolioCategoryToContentNodeConnection"
+  | "PortfolioCategoryToContentNodeConnectionEdge"
+  | "PortfolioCategoryToPortfolioConnection"
+  | "PortfolioCategoryToPortfolioConnectionEdge"
+  | "PortfolioCategoryToTaxonomyConnectionEdge"
+  | "PortfolioToPortfolioCategoryConnection"
+  | "PortfolioToPortfolioCategoryConnectionEdge"
   | "PortfolioToPreviewConnectionEdge"
   | "PortfolioToTermNodeConnection"
   | "PortfolioToTermNodeConnectionEdge"
@@ -21941,12 +24285,16 @@ export type SchemaObjectTypesNames =
   | "RootQueryToPageConnectionEdge"
   | "RootQueryToPluginConnection"
   | "RootQueryToPluginConnectionEdge"
+  | "RootQueryToPortfolioCategoryConnection"
+  | "RootQueryToPortfolioCategoryConnectionEdge"
   | "RootQueryToPortfolioConnection"
   | "RootQueryToPortfolioConnectionEdge"
   | "RootQueryToPostConnection"
   | "RootQueryToPostConnectionEdge"
   | "RootQueryToPostFormatConnection"
   | "RootQueryToPostFormatConnectionEdge"
+  | "RootQueryToSeriesConnection"
+  | "RootQueryToSeriesConnectionEdge"
   | "RootQueryToShortcutPostConnection"
   | "RootQueryToShortcutPostConnectionEdge"
   | "RootQueryToStackoverflowConnection"
@@ -21964,6 +24312,14 @@ export type SchemaObjectTypesNames =
   | "RootQueryToUserRoleConnection"
   | "RootQueryToUserRoleConnectionEdge"
   | "SendPasswordResetEmailPayload"
+  | "Series"
+  | "SeriesToBlogConnection"
+  | "SeriesToBlogConnectionEdge"
+  | "SeriesToContentNodeConnection"
+  | "SeriesToContentNodeConnectionEdge"
+  | "SeriesToDevConnection"
+  | "SeriesToDevConnectionEdge"
+  | "SeriesToTaxonomyConnectionEdge"
   | "Settings"
   | "ShortcutPost"
   | "ShortcutPostToPreviewConnectionEdge"
@@ -21993,9 +24349,11 @@ export type SchemaObjectTypesNames =
   | "UpdateDevPayload"
   | "UpdateMediaItemPayload"
   | "UpdatePagePayload"
+  | "UpdatePortfolioCategoryPayload"
   | "UpdatePortfolioPayload"
   | "UpdatePostFormatPayload"
   | "UpdatePostPayload"
+  | "UpdateSeriesPayload"
   | "UpdateSettingsPayload"
   | "UpdateShortcutPostPayload"
   | "UpdateStackoverflowPayload"
@@ -22064,8 +24422,10 @@ export interface $DatabaseIdentifier {
   MenuItem?: MenuItem;
   Page?: Page;
   Portfolio?: Portfolio;
+  PortfolioCategory?: PortfolioCategory;
   Post?: Post;
   PostFormat?: PostFormat;
+  Series?: Series;
   ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
@@ -22097,7 +24457,9 @@ export interface $MenuItemLinkable {
   DevCategory?: DevCategory;
   Page?: Page;
   Portfolio?: Portfolio;
+  PortfolioCategory?: PortfolioCategory;
   Post?: Post;
+  Series?: Series;
   ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
@@ -22112,7 +24474,9 @@ export interface $MenuItemObjectUnion {
   DevCategory?: DevCategory;
   Page?: Page;
   Portfolio?: Portfolio;
+  PortfolioCategory?: PortfolioCategory;
   Post?: Post;
+  Series?: Series;
   ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
@@ -22136,8 +24500,10 @@ export interface $Node {
   Page?: Page;
   Plugin?: Plugin;
   Portfolio?: Portfolio;
+  PortfolioCategory?: PortfolioCategory;
   Post?: Post;
   PostFormat?: PostFormat;
+  Series?: Series;
   ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
@@ -22232,7 +24598,9 @@ export interface $TermNode {
   BlogCategory?: BlogCategory;
   Category?: Category;
   DevCategory?: DevCategory;
+  PortfolioCategory?: PortfolioCategory;
   PostFormat?: PostFormat;
+  Series?: Series;
   Tag?: Tag;
 }
 
@@ -22247,8 +24615,10 @@ export interface $UniformResourceIdentifiable {
   MediaItem?: MediaItem;
   Page?: Page;
   Portfolio?: Portfolio;
+  PortfolioCategory?: PortfolioCategory;
   Post?: Post;
   PostFormat?: PostFormat;
+  Series?: Series;
   ShortcutPost?: ShortcutPost;
   Stackoverflow?: Stackoverflow;
   Tag?: Tag;
@@ -22278,7 +24648,11 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   ContentTypesOfBlogCategoryEnum: ContentTypesOfBlogCategoryEnum | undefined;
   ContentTypesOfCategoryEnum: ContentTypesOfCategoryEnum | undefined;
   ContentTypesOfDevCategoryEnum: ContentTypesOfDevCategoryEnum | undefined;
+  ContentTypesOfPortfolioCategoryEnum:
+    | ContentTypesOfPortfolioCategoryEnum
+    | undefined;
   ContentTypesOfPostFormatEnum: ContentTypesOfPostFormatEnum | undefined;
+  ContentTypesOfSeriesEnum: ContentTypesOfSeriesEnum | undefined;
   ContentTypesOfTagEnum: ContentTypesOfTagEnum | undefined;
   DevCategoryIdType: DevCategoryIdType | undefined;
   DevIdType: DevIdType | undefined;
@@ -22292,6 +24666,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   OrderEnum: OrderEnum | undefined;
   PageIdType: PageIdType | undefined;
   PluginStatusEnum: PluginStatusEnum | undefined;
+  PortfolioCategoryIdType: PortfolioCategoryIdType | undefined;
   PortfolioIdType: PortfolioIdType | undefined;
   PostFormatIdType: PostFormatIdType | undefined;
   PostIdType: PostIdType | undefined;
@@ -22304,6 +24679,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | undefined;
   PostStatusEnum: PostStatusEnum | undefined;
   RelationEnum: RelationEnum | undefined;
+  SeriesIdType: SeriesIdType | undefined;
   ShortcutPostIdType: ShortcutPostIdType | undefined;
   StackoverflowIdType: StackoverflowIdType | undefined;
   TagIdType: TagIdType | undefined;
