@@ -1,31 +1,31 @@
 import React from "react";
-import { client } from "~web/client";
-import { Header, Hero, Footer } from "../components";
 
 export default function Page(): JSX.Element {
-  const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
-
   return (
-    <>
-      <Header
-        title={generalSettings?.title}
-        description={generalSettings?.description}
-      />
-      <main className="content content-page">
-        <Hero title={`Oops! That page can’t be found.`} />
-        <div className="wrap">
-          <div>
-            <div>
-              <p>
-                The page you were looking for does not exist or is no longer
-                available.
-              </p>
-            </div>
+    <div className="container lg:max-w-screen-lg">
+      <div className="relative">
+        <img src="/images/not-found.png" alt="not found" />
+        <div
+          className="
+          #sm:w-full mx-auto max-w-[90%] -translate-y-1/2 rounded-[6px] border-[#d0d7de] bg-white bg-opacity-95
+          px-[24px] py-[20px] shadow-sm dark:border-[#444c56] dark:bg-[#2d333b] md:absolute md:left-1/2
+          md:top-1/2 md:-translate-x-1/2
+          md:translate-y-[-100%]
+        "
+        >
+          <h1 className="mb-[24px] text-[24px] font-semibold lg:whitespace-nowrap lg:text-[32px]">
+            요청하신 페이지를
+            <br className="block lg:hidden" /> 찾을 수 없습니다.
+          </h1>
+          <div className="prose lg:text-[20px]">
+            이용에 불편을 드려 죄송합니다.
+            <br />
+            페이지가 존재하지 않거나, 사용할 수 없는 페이지입니다.
+            <br />
+            입력하신 주소가 정확한지 다시 한 번 확인해 주세요.
           </div>
         </div>
-      </main>
-      <Footer copyrightHolder={generalSettings?.title} />
-    </>
+      </div>
+    </div>
   );
 }
