@@ -10,6 +10,5 @@ acp-settings
 key/
 wp-content/**/*
 !wp-content/.gitkeep
-app/wp/wp-content/**/*
-!app/wp/wp-content/.gitkeep
+.db
 .mysql
