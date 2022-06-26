@@ -5,6 +5,9 @@ services:
   wordpress:
     image: ghcr.io/hansanghyeon/wordpress-redis:5.8.2-php8.0-apache-redis
     restart: always
+    networks:
+      - traefik
+      - default
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
@@ -40,9 +43,9 @@ services:
 
 ########################### NETWORKS
 networks:
-  default:
+  traefik:
     external:
-      name: TOY
+      name: traefik_proxy
 volumes:
   redis:
   wordpress:
