@@ -48,30 +48,27 @@ export default function Page() {
           <ul className="flex">
             {menuItems.nodes.map((menuItem) => {
               const { uri, thumbnail, label } = menuItem;
-              console.log(uri);
               return (
                 <li className="p-2">
-                  <Link href={uri}>
-                    <a href={uri}>
-                      <div className="grid max-w-[125px] gap-y-[8px]">
-                        <img
-                          className="icon-card"
-                          src={thumbnail()?.menu_icon}
-                          alt={label}
-                        />
-                        <div className="justify-self-center">
-                          <span
-                            style={{
-                              backgroundColor: thumbnail()?.label_color,
-                            }}
-                            className="rounded-[4px] border-[2px] border-[color:rgba(var(--RGB-gl4),0.125)] p-[0.075rem_0.5rem_0.125rem] text-black"
-                          >
-                            {label}
-                          </span>
-                        </div>
+                  <a href={uri}>
+                    <div className="grid max-w-[125px] gap-y-[8px]">
+                      <img
+                        className="icon-card"
+                        src={thumbnail()?.menu_icon}
+                        alt={label}
+                      />
+                      <div className="justify-self-center">
+                        <span
+                          style={{
+                            backgroundColor: thumbnail()?.label_color,
+                          }}
+                          className="rounded-[4px] border-[2px] border-[color:rgba(var(--RGB-gl4),0.125)] p-[0.075rem_0.5rem_0.125rem] text-black"
+                        >
+                          {label}
+                        </span>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </a>
                 </li>
               );
             })}
