@@ -29,6 +29,10 @@ export default function Preview() {
       const post = node as Dev;
       return <DevComponent post={post} />;
     }
+    case "Portfolio": {
+      const post = node as Dev;
+      return <DevComponent post={post} />;
+    }
     // Add custom post types here as needed
     default: {
       throw new Error(`Unknown post type: ${typeName}`);
