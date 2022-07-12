@@ -3,6 +3,7 @@ import { client, Blog, BlogIdType } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
+import { is404c } from "~web/lib";
 
 export interface PostProps {
   post: Blog | Blog["preview"]["node"] | null | undefined;
@@ -56,7 +57,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: null, //await is404(context, { client }),
+    notFound: await is404c(context, { client }, "blog"),
     props: {
       slug,
     },
