@@ -9,5 +9,8 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-  }
+  },
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "develop"
+  ]
 }
