@@ -60,6 +60,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Pretendard"', ...defaultTheme.fontFamily.sans],
+        dokdo: ['"East Sea Dokdo", cursive', ...defaultTheme.fontFamily.sans],
+        code: ["'D2Coding', monospace"],
       },
     },
   },
