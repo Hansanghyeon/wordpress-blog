@@ -17,8 +17,6 @@ export default function Page() {
 
   const menuItems = useQuery().menuItems();
 
-  console.log(menuItems);
-
   return (
     <>
       <Head>
