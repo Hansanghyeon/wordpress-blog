@@ -1,9 +1,8 @@
 import { getNextStaticProps } from "@faustjs/next";
 import { GetStaticPropsContext } from "next";
-import Link from "next/link";
 import Head from "next/head";
 import React from "react";
-import { client, PageIdType, MenuNodeIdTypeEnum } from "~web/client";
+import { client, PageIdType } from "~web/client";
 import { WPGBlocks } from "~web/lib";
 
 export default function Page() {
