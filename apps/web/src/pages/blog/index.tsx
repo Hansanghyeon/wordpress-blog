@@ -11,10 +11,10 @@ const POSTS_PER_PAGE = 6;
 
 export default function Page() {
   const { query = {} } = useRouter();
-  const { id, cursor } = query;
+  const { slug, cursor } = query;
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
-  const isBefore = id === "before";
+  const isBefore = slug === "before";
   const posts = useQuery().blogs({
     after: !isBefore ? (cursor as string) : undefined,
     before: isBefore ? (cursor as string) : undefined,
