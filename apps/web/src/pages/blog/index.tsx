@@ -7,19 +7,20 @@ import { useRouter } from "next/router";
 import React from "react";
 import styles from "~web/scss/pages/posts.module.scss";
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 10;
 
 export default function Page() {
   const { query = {} } = useRouter();
-  const { slug, cursor } = query;
+  const { pageNumber = 0 } = query;
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
-  const isBefore = slug === "before";
   const posts = useQuery().blogs({
-    after: !isBefore ? (cursor as string) : undefined,
-    before: isBefore ? (cursor as string) : undefined,
-    first: !isBefore ? POSTS_PER_PAGE : undefined,
-    last: isBefore ? POSTS_PER_PAGE : undefined,
+    where: {
+      offsetPagination: {
+        offset: Number(pageNumber) * POSTS_PER_PAGE - POSTS_PER_PAGE,
+        size: POSTS_PER_PAGE,
+      }
+    }
   });
 
   if (useQuery().$state.isLoading) {
@@ -28,11 +29,6 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
-
       <Head>
         <title>
           {generalSettings.title} - {generalSettings.description}
@@ -47,10 +43,15 @@ export default function Page() {
           postTitleLevel="h3"
           id={styles.post_list}
         />
-        <Pagination pageInfo={posts.pageInfo} basePath="/blog" />
+        <Pagination
+          hasPrevious={posts.pageInfo.offsetPagination.hasPrevious}
+          hasMore={posts.pageInfo.offsetPagination.hasMore}
+          total={posts.pageInfo.offsetPagination.total}
+          current={Number(pageNumber)}
+          per={POSTS_PER_PAGE}
+          basePath="/blog"
+        />
       </main>
-
-      <Footer copyrightHolder={generalSettings.title} />
     </>
   );
 }

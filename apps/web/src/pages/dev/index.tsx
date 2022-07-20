@@ -1,6 +1,6 @@
 import { getNextStaticProps } from "@faustjs/next";
-import { client, ContentTypeIdTypeEnum, RootQueryToDevConnection } from "~web/client";
-import { Footer, Header, Pagination, Posts } from "~web/components";
+import { client } from "~web/client";
+import { Pagination, Posts } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
