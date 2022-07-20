@@ -80,6 +80,7 @@ export interface BlogCategoryToBlogConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<BlogCategoryToBlogConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -108,6 +109,53 @@ export interface BlogCategoryToBlogConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface BlogCategoryToBlogConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface BlogCategoryToBlogConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<BlogCategoryToBlogConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the BlogCategoryToContentNodeConnection connection */
 export interface BlogCategoryToContentNodeConnectionWhereArgs {
   /** The Types of content to filter */
@@ -120,6 +168,7 @@ export interface BlogCategoryToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<BlogCategoryToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -146,6 +195,53 @@ export interface BlogCategoryToContentNodeConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface BlogCategoryToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface BlogCategoryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<BlogCategoryToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -458,6 +554,7 @@ export interface CategoryToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<CategoryToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -486,6 +583,53 @@ export interface CategoryToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface CategoryToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<CategoryToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<CategoryToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum CategoryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface CategoryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<CategoryToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum CategoryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the CategoryToPostConnection connection */
 export interface CategoryToPostConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -512,6 +656,7 @@ export interface CategoryToPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<CategoryToPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -550,6 +695,53 @@ export interface CategoryToPostConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface CategoryToPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<CategoryToPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<CategoryToPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum CategoryToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface CategoryToPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<CategoryToPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum CategoryToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the CommentToCommentConnection connection */
@@ -764,6 +956,7 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<ContentTypeToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -790,6 +983,53 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface ContentTypeToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface ContentTypeToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<ContentTypeToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Allowed Content Types of the BlogCategory taxonomy. */
@@ -1474,6 +1714,7 @@ export interface DevCategoryToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<DevCategoryToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -1500,6 +1741,53 @@ export interface DevCategoryToContentNodeConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface DevCategoryToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface DevCategoryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<DevCategoryToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the DevCategoryToDevCategoryConnection connection */
@@ -1564,6 +1852,7 @@ export interface DevCategoryToDevConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<DevCategoryToDevConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -1590,6 +1879,53 @@ export interface DevCategoryToDevConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface DevCategoryToDevConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<DevCategoryToDevConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<DevCategoryToDevConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum DevCategoryToDevConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface DevCategoryToDevConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<DevCategoryToDevConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum DevCategoryToDevConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Set relationships between the Dev to DevCategories */
@@ -1768,6 +2104,7 @@ export interface DevToRevisionConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<DevToRevisionConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -1794,6 +2131,53 @@ export interface DevToRevisionConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface DevToRevisionConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<DevToRevisionConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<DevToRevisionConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum DevToRevisionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface DevToRevisionConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<DevToRevisionConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum DevToRevisionConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the DevToSeriesConnection connection */
@@ -1910,6 +2294,7 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArg
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -1938,6 +2323,55 @@ export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArg
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<
+      InputMaybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray>
+    >
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the HierarchicalContentNodeToContentNodeChildrenConnection connection */
 export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs {
   /** The Types of content to filter */
@@ -1950,6 +2384,7 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -1976,6 +2411,55 @@ export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<
+      InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray>
+    >
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -2116,8 +2600,12 @@ export enum MenuNodeIdTypeEnum {
   DATABASE_ID = "DATABASE_ID",
   /** Identify a menu node by the (hashed) Global ID. */
   ID = "ID",
-  /** Identify a menu node by it's name */
+  /** Identify a menu node by the slug of menu location to which it is assigned */
+  LOCATION = "LOCATION",
+  /** Identify a menu node by its name */
   NAME = "NAME",
+  /** Identify a menu node by its slug */
+  SLUG = "SLUG",
 }
 
 /** Arguments for filtering the MenuToMenuItemConnection connection */
@@ -2326,6 +2814,14 @@ export enum MimeTypeEnum {
   VIDEO_X_MS_WMX = "VIDEO_X_MS_WMX",
 }
 
+/** Offset pagination input type */
+export interface OffsetPagination {
+  /** Number of post to show per page. Passed to posts_per_page of WP_Query. */
+  offset?: InputMaybe<Scalars["Int"]>;
+  /** Number of post to show per page. Passed to posts_per_page of WP_Query. */
+  size?: InputMaybe<Scalars["Int"]>;
+}
+
 /** The cardinality of the connection order */
 export enum OrderEnum {
   /** Sort the query result set in an ascending order */
@@ -2424,6 +2920,7 @@ export interface PageToRevisionConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PageToRevisionConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -2450,6 +2947,53 @@ export interface PageToRevisionConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface PageToRevisionConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PageToRevisionConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PageToRevisionConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PageToRevisionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PageToRevisionConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<PageToRevisionConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PageToRevisionConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The status of the WordPress plugin. */
@@ -2498,6 +3042,7 @@ export interface PortfolioCategoryToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PortfolioCategoryToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -2526,6 +3071,55 @@ export interface PortfolioCategoryToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface PortfolioCategoryToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PortfolioCategoryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<
+      InputMaybe<PortfolioCategoryToContentNodeConnectionWhereArgsMetaArray>
+    >
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the PortfolioCategoryToPortfolioConnection connection */
 export interface PortfolioCategoryToPortfolioConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -2536,6 +3130,7 @@ export interface PortfolioCategoryToPortfolioConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PortfolioCategoryToPortfolioConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -2562,6 +3157,53 @@ export interface PortfolioCategoryToPortfolioConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface PortfolioCategoryToPortfolioConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PortfolioCategoryToPortfolioConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<PortfolioCategoryToPortfolioConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -2732,6 +3374,7 @@ export interface PostFormatToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PostFormatToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -2760,6 +3403,53 @@ export interface PostFormatToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface PostFormatToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PostFormatToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<PostFormatToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the PostFormatToPostConnection connection */
 export interface PostFormatToPostConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -2786,6 +3476,7 @@ export interface PostFormatToPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PostFormatToPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -2824,6 +3515,53 @@ export interface PostFormatToPostConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface PostFormatToPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PostFormatToPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PostFormatToPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PostFormatToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PostFormatToPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<PostFormatToPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PostFormatToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -2914,10 +3652,14 @@ export enum PostStatusEnum {
   AUTO_DRAFT = "AUTO_DRAFT",
   /** Objects with the draft status */
   DRAFT = "DRAFT",
+  /** Objects with the failed status */
+  FAILED = "FAILED",
   /** Objects with the future status */
   FUTURE = "FUTURE",
   /** Objects with the inherit status */
   INHERIT = "INHERIT",
+  /** Objects with the in-progress status */
+  IN_PROGRESS = "IN_PROGRESS",
   /** Objects with the pending status */
   PENDING = "PENDING",
   /** Objects with the private status */
@@ -3132,6 +3874,7 @@ export interface PostToRevisionConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<PostToRevisionConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3170,6 +3913,53 @@ export interface PostToRevisionConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface PostToRevisionConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<PostToRevisionConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<PostToRevisionConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum PostToRevisionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface PostToRevisionConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<PostToRevisionConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum PostToRevisionConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the PostToTagConnection connection */
@@ -3260,6 +4050,134 @@ export interface PostToTermNodeConnectionWhereArgs {
   termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
   /** Whether to prime meta caches for matched terms. Default true. */
   updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** The SEO Article Type */
+export enum RankMathArticleTypeEnum {
+  /** Article. */
+  ARTICLE = "ARTICLE",
+  /** Blog post. */
+  BLOG_POST = "BLOG_POST",
+  /** News article. */
+  NEWS_ARTICLE = "NEWS_ARTICLE",
+}
+
+/** The setting chosen for the RankMath Bulk Editing feature */
+export enum RankMathBulkEditingTypeEnum {
+  /** Disabled. */
+  DISABLED = "DISABLED",
+  /** Enabled. */
+  ENABLED = "ENABLED",
+  /** Read only. */
+  READ_ONLY = "READ_ONLY",
+}
+
+/** Robots meta image preview size. */
+export enum RankMathImagePreviewSize {
+  /** Large */
+  LARGE = "LARGE",
+  /** Prevents search engines from following links on the pages */
+  NONE = "NONE",
+  /** Standard. */
+  STANDARD = "STANDARD",
+}
+
+/** The knowledge graph type */
+export enum RankMathKnowledgeGraphTypeEnum {
+  /** Company. */
+  COMPANY = "COMPANY",
+  /** Person. */
+  PERSON = "PERSON",
+}
+
+/** Robot meta value tag. */
+export enum RankMathRobotsMetaValueEnum {
+  /** IndexInstructs search engines to index and show these pages in the search results. */
+  INDEX = "INDEX",
+  /** No ArchivePrevents search engines from showing Cached links for pages */
+  NOARCHIVE = "NOARCHIVE",
+  /** No FollowPrevents search engines from following links on the pages */
+  NOFOLLOW = "NOFOLLOW",
+  /** No Image IndexPrevents images on a page from being indexed by Google and other search engines */
+  NOIMAGEINDEX = "NOIMAGEINDEX",
+  /** No IndexPrevents pages from being indexed and displayed in search engine result pages */
+  NOINDEX = "NOINDEX",
+  /** No SnippetPrevents a snippet from being shown in the search results */
+  NOSNIPPET = "NOSNIPPET",
+}
+
+/** The SEO rating */
+export enum RankMathSeoRatingEnum {
+  /** Bad ( < 50 ) score */
+  BAD = "BAD",
+  /** Good (50-79) score */
+  GOOD = "GOOD",
+  /** Great ( > 80 ) score */
+  GREAT = "GREAT",
+  /** Unknown score. */
+  UNKNOWN = "UNKNOWN",
+}
+
+/** The frontend SEO Score position */
+export enum RankMathSeoScorePositionEnum {
+  /** Above & below content */
+  BOTH = "BOTH",
+  /** Below content */
+  BOTTOM = "BOTTOM",
+  /** Custom (use shortcode) */
+  CUSTOM = "CUSTOM",
+  /** Above content */
+  TOP = "TOP",
+}
+
+/** The frontend SEO Score template type */
+export enum RankMathSeoScoreTemplateTypeEnum {
+  /** Circle template */
+  CIRCLE = "CIRCLE",
+  /** Square template */
+  SQUARE = "SQUARE",
+}
+
+/** The rich snippet type. */
+export enum RankMathSnippetTypeEnum {
+  /** Article */
+  ARTICLE = "ARTICLE",
+  /** Book */
+  BOOK = "BOOK",
+  /** Course */
+  COURSE = "COURSE",
+  /** Event */
+  EVENT = "EVENT",
+  /** Job Posting */
+  JOBPOSTING = "JOBPOSTING",
+  /** Local Business */
+  LOCAL_BUSINESS = "LOCAL_BUSINESS",
+  /** Music */
+  MUSIC = "MUSIC",
+  /** None. */
+  OFF = "OFF",
+  /** Person */
+  PERSON = "PERSON",
+  /** Product */
+  PRODUCT = "PRODUCT",
+  /** Recipe */
+  RECIPE = "RECIPE",
+  /** Restaurant */
+  RESTAURANT = "RESTAURANT",
+  /** Service */
+  SERVICE = "SERVICE",
+  /** Software Application */
+  SOFTWARE = "SOFTWARE",
+  /** Video */
+  VIDEO = "VIDEO",
+}
+
+/** The frontend SEO Score position */
+export enum RankMathTwitterCardTypeEnum {
+  /** Summary Card. */
+  SUMMARY = "SUMMARY",
+  /** Summary Card with Large Image. */
+  SUMMARY_LARGE_IMAGE = "SUMMARY_LARGE_IMAGE",
 }
 
 /** Input for the registerUser mutation */
@@ -3382,6 +4300,7 @@ export interface RootQueryToBlogConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToBlogConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3390,6 +4309,8 @@ export interface RootQueryToBlogConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Blogs with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3410,6 +4331,53 @@ export interface RootQueryToBlogConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface RootQueryToBlogConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToBlogConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToBlogConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToBlogConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToBlogConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToBlogConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToBlogConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the RootQueryToBookConnection connection */
 export interface RootQueryToBookConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -3420,6 +4388,7 @@ export interface RootQueryToBookConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToBookConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3428,6 +4397,8 @@ export interface RootQueryToBookConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Books with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3446,6 +4417,53 @@ export interface RootQueryToBookConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToBookConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToBookConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToBookConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToBookConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToBookConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToBookConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToBookConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToCategoryConnection connection */
@@ -3566,6 +4584,97 @@ export interface RootQueryToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToContentNodeConnectionWhereArgsMetaQuery>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate content nodes with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
+/** Arguments for filtering the RootQueryToContentRevisionUnionConnection connection */
+export interface RootQueryToContentRevisionUnionConnectionWhereArgs {
+  /** The Types of content to filter */
+  contentTypes?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToContentRevisionUnionConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3594,44 +4703,53 @@ export interface RootQueryToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
-/** Arguments for filtering the RootQueryToContentRevisionUnionConnection connection */
-export interface RootQueryToContentRevisionUnionConnectionWhereArgs {
-  /** The Types of content to filter */
-  contentTypes?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>;
-  /** Filter the connection based on dates */
-  dateQuery?: InputMaybe<DateQueryInput>;
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: InputMaybe<Scalars["Boolean"]>;
-  /** Specific ID of the object */
-  id?: InputMaybe<Scalars["Int"]>;
-  /** Array of IDs for the objects to retrieve */
-  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
-  /** Get objects with a specific mimeType property */
-  mimeType?: InputMaybe<MimeTypeEnum>;
-  /** Slug / post_name of the object */
-  name?: InputMaybe<Scalars["String"]>;
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
-  /** What paramater to use to order the objects by. */
-  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: InputMaybe<Scalars["ID"]>;
-  /** Specify objects whose parent is in an array */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
-  /** Show posts with a specific password. */
-  password?: InputMaybe<Scalars["String"]>;
-  /** Show Posts based on a keyword search */
-  search?: InputMaybe<Scalars["String"]>;
-  /** Retrieve posts where post status is in an array. */
-  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
-  /** Show posts with a specific status. */
-  status?: InputMaybe<PostStatusEnum>;
-  /** Title of the object */
-  title?: InputMaybe<Scalars["String"]>;
+export interface RootQueryToContentRevisionUnionConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToContentRevisionUnionConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<
+      InputMaybe<RootQueryToContentRevisionUnionConnectionWhereArgsMetaArray>
+    >
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToDevCategoryConnection connection */
@@ -3696,6 +4814,7 @@ export interface RootQueryToDevConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToDevConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3704,6 +4823,8 @@ export interface RootQueryToDevConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Devs with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3724,6 +4845,53 @@ export interface RootQueryToDevConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface RootQueryToDevConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToDevConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToDevConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToDevConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToDevConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToDevConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToDevConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the RootQueryToMediaItemConnection connection */
 export interface RootQueryToMediaItemConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3742,6 +4910,7 @@ export interface RootQueryToMediaItemConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToMediaItemConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3750,6 +4919,8 @@ export interface RootQueryToMediaItemConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate MediaItems with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3768,6 +4939,53 @@ export interface RootQueryToMediaItemConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToMediaItemConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToMediaItemConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToMediaItemConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToMenuConnection connection */
@@ -3810,6 +5028,7 @@ export interface RootQueryToPageConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToPageConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3818,6 +5037,8 @@ export interface RootQueryToPageConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Pages with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3836,6 +5057,53 @@ export interface RootQueryToPageConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToPageConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToPageConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToPageConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToPageConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToPageConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToPageConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToPageConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToPluginConnection connection */
@@ -3902,6 +5170,7 @@ export interface RootQueryToPortfolioConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToPortfolioConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3910,6 +5179,8 @@ export interface RootQueryToPortfolioConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Portfolios with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3928,6 +5199,53 @@ export interface RootQueryToPortfolioConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToPortfolioConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToPortfolioConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToPortfolioConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToPostConnection connection */
@@ -3956,6 +5274,7 @@ export interface RootQueryToPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -3964,6 +5283,8 @@ export interface RootQueryToPostConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Posts with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -3994,6 +5315,53 @@ export interface RootQueryToPostConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToPostFormatConnection connection */
@@ -4094,6 +5462,7 @@ export interface RootQueryToShortcutPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToShortcutPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4102,6 +5471,8 @@ export interface RootQueryToShortcutPostConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate ShortcutPosts with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -4122,6 +5493,53 @@ export interface RootQueryToShortcutPostConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface RootQueryToShortcutPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToShortcutPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToShortcutPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the RootQueryToStackoverflowConnection connection */
 export interface RootQueryToStackoverflowConnectionWhereArgs {
   /** Filter the connection based on dates */
@@ -4132,6 +5550,7 @@ export interface RootQueryToStackoverflowConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<RootQueryToStackoverflowConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4140,6 +5559,8 @@ export interface RootQueryToStackoverflowConnectionWhereArgs {
   nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
   notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Paginate Stackoverflows with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
   /** Use ID to return only children. Use 0 to return only top-level items */
@@ -4158,6 +5579,53 @@ export interface RootQueryToStackoverflowConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface RootQueryToStackoverflowConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface RootQueryToStackoverflowConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<RootQueryToStackoverflowConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the RootQueryToTagConnection connection */
@@ -4270,6 +5738,8 @@ export interface RootQueryToUserConnectionWhereArgs {
   nicenameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** An array of nicenames to exclude. Users matching one of these nicenames will not be included in results. */
   nicenameNotIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Paginate users with offsets */
+  offsetPagination?: InputMaybe<OffsetPagination>;
   /** What paramater to use to order the objects by. */
   orderby?: InputMaybe<Array<InputMaybe<UsersConnectionOrderbyInput>>>;
   /** An array of role names that users must match to be included in results. Note that this is an inclusive list: users must match *each* role. */
@@ -4318,6 +5788,7 @@ export interface SeriesToBlogConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<SeriesToBlogConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4346,6 +5817,53 @@ export interface SeriesToBlogConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface SeriesToBlogConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<SeriesToBlogConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<SeriesToBlogConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum SeriesToBlogConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface SeriesToBlogConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<SeriesToBlogConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum SeriesToBlogConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the SeriesToContentNodeConnection connection */
 export interface SeriesToContentNodeConnectionWhereArgs {
   /** The Types of content to filter */
@@ -4358,6 +5876,7 @@ export interface SeriesToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<SeriesToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4384,6 +5903,53 @@ export interface SeriesToContentNodeConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface SeriesToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<SeriesToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<SeriesToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum SeriesToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface SeriesToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<SeriesToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum SeriesToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the SeriesToDevConnection connection */
@@ -4404,6 +5970,7 @@ export interface SeriesToDevConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<SeriesToDevConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4430,6 +5997,53 @@ export interface SeriesToDevConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface SeriesToDevConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<SeriesToDevConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<SeriesToDevConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum SeriesToDevConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface SeriesToDevConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<SeriesToDevConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum SeriesToDevConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -4480,6 +6094,7 @@ export interface TagToContentNodeConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<TagToContentNodeConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4508,6 +6123,53 @@ export interface TagToContentNodeConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface TagToContentNodeConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<TagToContentNodeConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<TagToContentNodeConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum TagToContentNodeConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface TagToContentNodeConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<TagToContentNodeConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum TagToContentNodeConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the TagToPostConnection connection */
 export interface TagToPostConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -4534,6 +6196,7 @@ export interface TagToPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<TagToPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -4572,6 +6235,53 @@ export interface TagToPostConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface TagToPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<TagToPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<TagToPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum TagToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface TagToPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<TagToPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum TagToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Allowed taxonomies */
@@ -4997,9 +6707,9 @@ export interface UpdateSettingsInput {
   /** Site URL. */
   generalSettingsUrl?: InputMaybe<Scalars["String"]>;
   /** The ID of the page that should display the latest posts */
-  readingSettingsPageForPosts?: InputMaybe<Scalars["Float"]>;
+  readingSettingsPageForPosts?: InputMaybe<Scalars["Int"]>;
   /** The ID of the page that should be displayed on the front page */
-  readingSettingsPageOnFront?: InputMaybe<Scalars["Float"]>;
+  readingSettingsPageOnFront?: InputMaybe<Scalars["Int"]>;
   /** Blog pages show at most. */
   readingSettingsPostsPerPage?: InputMaybe<Scalars["Int"]>;
   /** What to show on the front page */
@@ -5218,6 +6928,7 @@ export interface UserToContentRevisionUnionConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<UserToContentRevisionUnionConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -5244,6 +6955,53 @@ export interface UserToContentRevisionUnionConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface UserToContentRevisionUnionConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface UserToContentRevisionUnionConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<UserToContentRevisionUnionConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the UserToDevConnection connection */
@@ -5264,6 +7022,7 @@ export interface UserToDevConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<UserToDevConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -5290,6 +7049,53 @@ export interface UserToDevConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface UserToDevConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<UserToDevConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<UserToDevConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum UserToDevConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface UserToDevConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<UserToDevConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum UserToDevConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the UserToMediaItemConnection connection */
@@ -5310,6 +7116,7 @@ export interface UserToMediaItemConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<UserToMediaItemConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -5338,6 +7145,53 @@ export interface UserToMediaItemConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+export interface UserToMediaItemConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<UserToMediaItemConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<UserToMediaItemConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum UserToMediaItemConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface UserToMediaItemConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<UserToMediaItemConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum UserToMediaItemConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
+}
+
 /** Arguments for filtering the UserToPageConnection connection */
 export interface UserToPageConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -5356,6 +7210,7 @@ export interface UserToPageConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<UserToPageConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -5382,6 +7237,53 @@ export interface UserToPageConnectionWhereArgs {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface UserToPageConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<UserToPageConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<UserToPageConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum UserToPageConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface UserToPageConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<UserToPageConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum UserToPageConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Arguments for filtering the UserToPostConnection connection */
@@ -5410,6 +7312,7 @@ export interface UserToPostConnectionWhereArgs {
   id?: InputMaybe<Scalars["Int"]>;
   /** Array of IDs for the objects to retrieve */
   in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  metaQuery?: InputMaybe<UserToPostConnectionWhereArgsMetaQuery>;
   /** Get objects with a specific mimeType property */
   mimeType?: InputMaybe<MimeTypeEnum>;
   /** Slug / post_name of the object */
@@ -5448,6 +7351,53 @@ export interface UserToPostConnectionWhereArgs {
   tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   /** Title of the object */
   title?: InputMaybe<Scalars["String"]>;
+}
+
+export interface UserToPostConnectionWhereArgsMetaArray {
+  /** Custom field value */
+  compare?: InputMaybe<UserToPostConnectionWhereArgsMetaCompareEnum>;
+  /** Custom field key */
+  key?: InputMaybe<Scalars["String"]>;
+  /** Custom field value */
+  type?: InputMaybe<UserToPostConnectionWhereArgsMetaTypeEnum>;
+  /** Custom field value */
+  value?: InputMaybe<Scalars["String"]>;
+}
+
+export enum UserToPostConnectionWhereArgsMetaCompareEnum {
+  BETWEEN = "BETWEEN",
+  EQUAL_TO = "EQUAL_TO",
+  EXISTS = "EXISTS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  IN = "IN",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  LIKE = "LIKE",
+  NOT_BETWEEN = "NOT_BETWEEN",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NOT_EXISTS = "NOT_EXISTS",
+  NOT_IN = "NOT_IN",
+  NOT_LIKE = "NOT_LIKE",
+}
+
+export interface UserToPostConnectionWhereArgsMetaQuery {
+  metaArray?: InputMaybe<
+    Array<InputMaybe<UserToPostConnectionWhereArgsMetaArray>>
+  >;
+  relation?: InputMaybe<RelationEnum>;
+}
+
+export enum UserToPostConnectionWhereArgsMetaTypeEnum {
+  BINARY = "BINARY",
+  CHAR = "CHAR",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  NUMERIC = "NUMERIC",
+  SIGNED = "SIGNED",
+  TIME = "TIME",
+  UNSIGNED = "UNSIGNED",
 }
 
 /** Field to order the connection by */
@@ -5495,14 +7445,24 @@ export enum UsersConnectionSearchColumnEnum {
 export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   AvatarRatingEnum: true,
   BlogCategoryIdType: true,
+  BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum: true,
+  BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum: true,
+  BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum: true,
   BlogIdType: true,
   BookIdType: true,
   Boolean: true,
   CategoryIdType: true,
+  CategoryToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  CategoryToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  CategoryToPostConnectionWhereArgsMetaCompareEnum: true,
+  CategoryToPostConnectionWhereArgsMetaTypeEnum: true,
   CommentsConnectionOrderbyEnum: true,
   ContentNodeIdTypeEnum: true,
   ContentTypeEnum: true,
   ContentTypeIdTypeEnum: true,
+  ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum: true,
   ContentTypesOfBlogCategoryEnum: true,
   ContentTypesOfCategoryEnum: true,
   ContentTypesOfDevCategoryEnum: true,
@@ -5511,8 +7471,22 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   ContentTypesOfSeriesEnum: true,
   ContentTypesOfTagEnum: true,
   DevCategoryIdType: true,
+  DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  DevCategoryToDevConnectionWhereArgsMetaCompareEnum: true,
+  DevCategoryToDevConnectionWhereArgsMetaTypeEnum: true,
   DevIdType: true,
+  DevToRevisionConnectionWhereArgsMetaCompareEnum: true,
+  DevToRevisionConnectionWhereArgsMetaTypeEnum: true,
   Float: true,
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum:
+    true,
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum:
+    true,
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum:
+    true,
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum:
+    true,
   ID: true,
   Int: true,
   MediaItemIdType: true,
@@ -5524,27 +7498,91 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   MimeTypeEnum: true,
   OrderEnum: true,
   PageIdType: true,
+  PageToRevisionConnectionWhereArgsMetaCompareEnum: true,
+  PageToRevisionConnectionWhereArgsMetaTypeEnum: true,
   PluginStatusEnum: true,
   PortfolioCategoryIdType: true,
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum: true,
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum: true,
   PortfolioIdType: true,
   PostFormatIdType: true,
+  PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  PostFormatToPostConnectionWhereArgsMetaCompareEnum: true,
+  PostFormatToPostConnectionWhereArgsMetaTypeEnum: true,
   PostIdType: true,
   PostObjectFieldFormatEnum: true,
   PostObjectsConnectionDateColumnEnum: true,
   PostObjectsConnectionOrderbyEnum: true,
   PostStatusEnum: true,
+  PostToRevisionConnectionWhereArgsMetaCompareEnum: true,
+  PostToRevisionConnectionWhereArgsMetaTypeEnum: true,
+  RankMathArticleTypeEnum: true,
+  RankMathBulkEditingTypeEnum: true,
+  RankMathImagePreviewSize: true,
+  RankMathKnowledgeGraphTypeEnum: true,
+  RankMathRobotsMetaValueEnum: true,
+  RankMathSeoRatingEnum: true,
+  RankMathSeoScorePositionEnum: true,
+  RankMathSeoScoreTemplateTypeEnum: true,
+  RankMathSnippetTypeEnum: true,
+  RankMathTwitterCardTypeEnum: true,
   RelationEnum: true,
+  RootQueryToBlogConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToBlogConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToBookConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToBookConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToDevConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToDevConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToPageConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToPageConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToPostConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToPostConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum: true,
+  RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum: true,
+  RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum: true,
   SeriesIdType: true,
+  SeriesToBlogConnectionWhereArgsMetaCompareEnum: true,
+  SeriesToBlogConnectionWhereArgsMetaTypeEnum: true,
+  SeriesToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  SeriesToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  SeriesToDevConnectionWhereArgsMetaCompareEnum: true,
+  SeriesToDevConnectionWhereArgsMetaTypeEnum: true,
   ShortcutPostIdType: true,
   StackoverflowIdType: true,
   String: true,
   TagIdType: true,
+  TagToContentNodeConnectionWhereArgsMetaCompareEnum: true,
+  TagToContentNodeConnectionWhereArgsMetaTypeEnum: true,
+  TagToPostConnectionWhereArgsMetaCompareEnum: true,
+  TagToPostConnectionWhereArgsMetaTypeEnum: true,
   TaxonomyEnum: true,
   TaxonomyIdTypeEnum: true,
   TermNodeIdTypeEnum: true,
   TermObjectsConnectionOrderbyEnum: true,
   UserNodeIdTypeEnum: true,
   UserRoleEnum: true,
+  UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum: true,
+  UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum: true,
+  UserToDevConnectionWhereArgsMetaCompareEnum: true,
+  UserToDevConnectionWhereArgsMetaTypeEnum: true,
+  UserToMediaItemConnectionWhereArgsMetaCompareEnum: true,
+  UserToMediaItemConnectionWhereArgsMetaTypeEnum: true,
+  UserToPageConnectionWhereArgsMetaCompareEnum: true,
+  UserToPageConnectionWhereArgsMetaTypeEnum: true,
+  UserToPostConnectionWhereArgsMetaCompareEnum: true,
+  UserToPostConnectionWhereArgsMetaTypeEnum: true,
   UsersConnectionOrderbyEnum: true,
   UsersConnectionSearchColumnEnum: true,
 };
@@ -5630,6 +7668,7 @@ export const generatedSchema = {
     preview: { __type: "BlogToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     seriess: {
       __type: "BlogToSeriesConnection",
       __args: {
@@ -5711,6 +7750,7 @@ export const generatedSchema = {
     isTermNode: { __type: "Boolean!" },
     link: { __type: "String" },
     name: { __type: "String" },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomy: { __type: "BlogCategoryToTaxonomyConnectionEdge" },
     taxonomyName: { __type: "String" },
@@ -5718,6 +7758,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  BlogCategoryMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   BlogCategoryToBlogConnection: {
     __typename: { __type: "String!" },
@@ -5735,6 +7786,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "BlogCategoryToBlogConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -5748,6 +7800,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  BlogCategoryToBlogConnectionWhereArgsMetaArray: {
+    compare: { __type: "BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  BlogCategoryToBlogConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[BlogCategoryToBlogConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   BlogCategoryToContentNodeConnection: {
     __typename: { __type: "String!" },
@@ -5766,6 +7828,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "BlogCategoryToContentNodeConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -5780,9 +7845,45 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
+  BlogCategoryToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type: "BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  BlogCategoryToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[BlogCategoryToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
+  },
   BlogCategoryToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
     node: { __type: "Taxonomy" },
+  },
+  BlogMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    title: { __type: "String" },
   },
   BlogSeriessInput: {
     append: { __type: "Boolean" },
@@ -5981,6 +8082,7 @@ export const generatedSchema = {
     preview: { __type: "BookToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -5990,6 +8092,25 @@ export const generatedSchema = {
       __args: { format: "PostObjectFieldFormatEnum" },
     },
     uri: { __type: "String" },
+  },
+  BookMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    socialImage: { __type: "MediaItem" },
+    title: { __type: "String" },
   },
   BookToPreviewConnectionEdge: {
     __typename: { __type: "String!" },
@@ -6053,6 +8174,7 @@ export const generatedSchema = {
         where: "CategoryToPostConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomy: { __type: "CategoryToTaxonomyConnectionEdge" },
     taxonomyName: { __type: "String" },
@@ -6060,6 +8182,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  CategoryMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   CategoryToAncestorsCategoryConnection: {
     __typename: { __type: "String!" },
@@ -6122,6 +8255,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "CategoryToContentNodeConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -6135,6 +8269,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  CategoryToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "CategoryToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "CategoryToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  CategoryToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[CategoryToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   CategoryToParentCategoryConnectionEdge: {
     __typename: { __type: "String!" },
@@ -6164,6 +8312,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "CategoryToPostConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -6183,6 +8332,16 @@ export const generatedSchema = {
     tagSlugAnd: { __type: "[String]" },
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
+  },
+  CategoryToPostConnectionWhereArgsMetaArray: {
+    compare: { __type: "CategoryToPostConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "CategoryToPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  CategoryToPostConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[CategoryToPostConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   CategoryToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
@@ -6394,6 +8553,7 @@ export const generatedSchema = {
     modifiedGmt: { __type: "String" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -6485,6 +8645,7 @@ export const generatedSchema = {
     publiclyQueryable: { __type: "Boolean" },
     restBase: { __type: "String" },
     restControllerClass: { __type: "String" },
+    seo: { __type: "RankMathNodeSeo" },
     showInAdminBar: { __type: "Boolean" },
     showInGraphql: { __type: "Boolean" },
     showInMenu: { __type: "Boolean" },
@@ -6511,6 +8672,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "ContentTypeToContentNodeConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -6524,6 +8688,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  ContentTypeToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  ContentTypeToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[ContentTypeToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   ContentTypeToTaxonomyConnection: {
     __typename: { __type: "String!" },
@@ -7132,6 +9310,7 @@ export const generatedSchema = {
         where: "DevToRevisionConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathContentNodeSeo" },
     seriess: {
       __type: "DevToSeriesConnection",
       __args: {
@@ -7220,6 +9399,7 @@ export const generatedSchema = {
     parent: { __type: "DevCategoryToParentDevCategoryConnectionEdge" },
     parentDatabaseId: { __type: "Int" },
     parentId: { __type: "ID" },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomy: { __type: "DevCategoryToTaxonomyConnectionEdge" },
     taxonomyName: { __type: "String" },
@@ -7227,6 +9407,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  DevCategoryMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   DevCategoryToAncestorsDevCategoryConnection: {
     __typename: { __type: "String!" },
@@ -7256,6 +9447,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "DevCategoryToContentNodeConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -7269,6 +9463,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  DevCategoryToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  DevCategoryToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[DevCategoryToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   DevCategoryToDevCategoryConnection: {
     __typename: { __type: "String!" },
@@ -7323,6 +9531,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "DevCategoryToDevConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -7336,6 +9545,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  DevCategoryToDevConnectionWhereArgsMetaArray: {
+    compare: { __type: "DevCategoryToDevConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "DevCategoryToDevConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  DevCategoryToDevConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[DevCategoryToDevConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   DevCategoryToParentDevCategoryConnectionEdge: {
     __typename: { __type: "String!" },
@@ -7354,6 +9573,26 @@ export const generatedSchema = {
     id: { __type: "ID" },
     name: { __type: "String" },
     slug: { __type: "String" },
+  },
+  DevMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    title: { __type: "String" },
   },
   DevSeriessInput: {
     append: { __type: "Boolean" },
@@ -7464,6 +9703,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "DevToRevisionConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -7477,6 +9717,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  DevToRevisionConnectionWhereArgsMetaArray: {
+    compare: { __type: "DevToRevisionConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "DevToRevisionConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  DevToRevisionConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[DevToRevisionConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   DevToSeriesConnection: {
     __typename: { __type: "String!" },
@@ -7655,6 +9905,10 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type:
+        "HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -7668,6 +9922,25 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray: {
+    compare: {
+      __type:
+        "HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type:
+        "HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type:
+        "[HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   HierarchicalContentNodeToContentNodeChildrenConnection: {
     __typename: { __type: "String!" },
@@ -7688,6 +9961,10 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type:
+        "HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -7701,6 +9978,25 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray: {
+    compare: {
+      __type:
+        "HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type:
+        "HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type:
+        "[HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   HierarchicalContentNodeToParentContentNodeConnectionEdge: {
     __typename: { __type: "String!" },
@@ -7809,6 +10105,7 @@ export const generatedSchema = {
     parentId: { __type: "ID" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     sizes: { __type: "String", __args: { size: "MediaItemSizeEnum" } },
     slug: { __type: "String" },
     sourceUrl: { __type: "String", __args: { size: "MediaItemSizeEnum" } },
@@ -8075,6 +10372,7 @@ export const generatedSchema = {
     modifiedGmt: { __type: "String" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -8120,6 +10418,13 @@ export const generatedSchema = {
     pinged: { __type: "[String]" },
     toPing: { __type: "[String]" },
     $on: { __type: "$NodeWithTrackbacks!" },
+  },
+  OffsetPagination: { offset: { __type: "Int" }, size: { __type: "Int" } },
+  OffsetPaginationPageInfo: {
+    __typename: { __type: "String!" },
+    hasMore: { __type: "Boolean" },
+    hasPrevious: { __type: "Boolean" },
+    total: { __type: "Int" },
   },
   Page: {
     __typename: { __type: "String!" },
@@ -8220,6 +10525,7 @@ export const generatedSchema = {
         where: "PageToRevisionConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -8229,6 +10535,25 @@ export const generatedSchema = {
       __args: { format: "PostObjectFieldFormatEnum" },
     },
     uri: { __type: "String" },
+  },
+  PageMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    socialImage: { __type: "MediaItem" },
+    title: { __type: "String" },
   },
   PageToCommentConnection: {
     __typename: { __type: "String!" },
@@ -8296,6 +10621,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "PageToRevisionConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -8309,6 +10635,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  PageToRevisionConnectionWhereArgsMetaArray: {
+    compare: { __type: "PageToRevisionConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "PageToRevisionConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  PageToRevisionConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[PageToRevisionConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   Plugin: {
     __typename: { __type: "String!" },
@@ -8373,6 +10709,7 @@ export const generatedSchema = {
     preview: { __type: "PortfolioToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -8434,6 +10771,7 @@ export const generatedSchema = {
         where: "PortfolioCategoryToPortfolioConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomy: { __type: "PortfolioCategoryToTaxonomyConnectionEdge" },
     taxonomyName: { __type: "String" },
@@ -8441,6 +10779,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  PortfolioCategoryMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   PortfolioCategoryToContentNodeConnection: {
     __typename: { __type: "String!" },
@@ -8459,6 +10808,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "PortfolioCategoryToContentNodeConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -8472,6 +10824,23 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type:
+        "PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type: "PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[PortfolioCategoryToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   PortfolioCategoryToPortfolioConnection: {
     __typename: { __type: "String!" },
@@ -8489,6 +10858,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "PortfolioCategoryToPortfolioConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -8503,9 +10875,44 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type: "PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[PortfolioCategoryToPortfolioConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
+  },
   PortfolioCategoryToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
     node: { __type: "Taxonomy" },
+  },
+  PortfolioMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    socialImage: { __type: "MediaItem" },
+    title: { __type: "String" },
   },
   PortfolioPortfolioCategoriesInput: {
     append: { __type: "Boolean" },
@@ -8683,6 +11090,7 @@ export const generatedSchema = {
         where: "PostToRevisionConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     status: { __type: "String" },
     tags: {
@@ -8765,6 +11173,7 @@ export const generatedSchema = {
         where: "PostFormatToPostConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomy: { __type: "PostFormatToTaxonomyConnectionEdge" },
     taxonomyName: { __type: "String" },
@@ -8772,6 +11181,15 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  PostFormatMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   PostFormatToContentNodeConnection: {
     __typename: { __type: "String!" },
@@ -8790,6 +11208,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "PostFormatToContentNodeConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -8803,6 +11224,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  PostFormatToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  PostFormatToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[PostFormatToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   PostFormatToPostConnection: {
     __typename: { __type: "String!" },
@@ -8828,6 +11263,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "PostFormatToPostConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -8848,9 +11284,38 @@ export const generatedSchema = {
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
   },
+  PostFormatToPostConnectionWhereArgsMetaArray: {
+    compare: { __type: "PostFormatToPostConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "PostFormatToPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  PostFormatToPostConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[PostFormatToPostConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
+  },
   PostFormatToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
     node: { __type: "Taxonomy" },
+  },
+  PostMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    socialImage: { __type: "MediaItem" },
+    title: { __type: "String" },
   },
   PostObjectsConnectionOrderbyInput: {
     field: { __type: "PostObjectsConnectionOrderbyEnum!" },
@@ -9012,6 +11477,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "PostToRevisionConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -9031,6 +11497,16 @@ export const generatedSchema = {
     tagSlugAnd: { __type: "[String]" },
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
+  },
+  PostToRevisionConnectionWhereArgsMetaArray: {
+    compare: { __type: "PostToRevisionConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "PostToRevisionConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  PostToRevisionConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[PostToRevisionConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   PostToTagConnection: {
     __typename: { __type: "String!" },
@@ -9127,10 +11603,229 @@ export const generatedSchema = {
     viewItem: { __type: "String" },
     viewItems: { __type: "String" },
   },
+  RankMathAdvancedRobotsMeta: {
+    __typename: { __type: "String!" },
+    hasImagePreview: { __type: "Boolean" },
+    hasSnippet: { __type: "Boolean" },
+    hasVideoPreview: { __type: "Boolean" },
+    imagePreviewSize: { __type: "RankMathImagePreviewSize" },
+    snippetLength: { __type: "Int" },
+    videoDuration: { __type: "Int" },
+  },
+  RankMathAuthorArchiveMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    baseSlug: { __type: "String" },
+    hasArchives: { __type: "Boolean" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+  },
+  RankMathBaseSeoFields: {
+    __typename: { __type: "String!" },
+    breadcrumbTitle: { __type: "String" },
+    canonicalUrl: { __type: "String" },
+    description: { __type: "String" },
+    focusKeywords: { __type: "[String]" },
+    fullHead: { __type: "String" },
+    jsonLd: { __type: "RankMathJsonLd" },
+    robots: { __type: "[String]" },
+    title: { __type: "String" },
+    $on: { __type: "$RankMathBaseSeoFields!" },
+  },
+  RankMathBreadcrumbsConfig: {
+    __typename: { __type: "String!" },
+    archiveFormat: { __type: "String" },
+    hasAncestorCategories: { __type: "Boolean" },
+    hasHome: { __type: "Boolean" },
+    hasPostTitle: { __type: "Boolean" },
+    hasTaxonomyName: { __type: "Boolean" },
+    homeLabel: { __type: "String" },
+    homeUrl: { __type: "String" },
+    notFoundLabel: { __type: "String" },
+    prefix: { __type: "String" },
+    searchFormat: { __type: "String" },
+    separator: { __type: "String" },
+  },
+  RankMathContentNodeSeo: {
+    __typename: { __type: "String!" },
+    breadcrumbTitle: { __type: "String" },
+    canonicalUrl: { __type: "String" },
+    description: { __type: "String" },
+    focusKeywords: { __type: "[String]" },
+    fullHead: { __type: "String" },
+    isPillarContent: { __type: "Boolean" },
+    jsonLd: { __type: "RankMathJsonLd" },
+    robots: { __type: "[String]" },
+    seoScore: { __type: "RankMathSeoScore" },
+    title: { __type: "String" },
+  },
+  RankMathContentTypeMetaSettings: {
+    __typename: { __type: "String!" },
+    blog: { __type: "BlogMetaSettings" },
+    book: { __type: "BookMetaSettings" },
+    dev: { __type: "DevMetaSettings" },
+    page: { __type: "PageMetaSettings" },
+    portfolio: { __type: "PortfolioMetaSettings" },
+    post: { __type: "PostMetaSettings" },
+    stackoverflow: { __type: "StackoverflowMetaSettings" },
+  },
+  RankMathDateArchiveMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasArchives: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+  },
+  RankMathFrontendSeoScore: {
+    __typename: { __type: "String!" },
+    enabledPostTypes: { __type: "[ContentTypeEnum]" },
+    hasRankMathBacklink: { __type: "Boolean" },
+    position: { __type: "RankMathSeoScorePositionEnum" },
+    template: { __type: "RankMathSeoScoreTemplateTypeEnum" },
+  },
+  RankMathGeneral: {
+    __typename: { __type: "String!" },
+    breadcrumbs: { __type: "RankMathBreadcrumbsConfig" },
+    frontendSeoScore: { __type: "RankMathFrontendSeoScore" },
+    hasBreadcrumbs: { __type: "Boolean" },
+    hasFrontendSeoScore: { __type: "Boolean" },
+    links: { __type: "RankMathLinks" },
+    rssAfterContent: { __type: "String" },
+    rssBeforeContent: { __type: "String" },
+    webmaster: { __type: "RankMathWebmaster" },
+  },
+  RankMathGlobalMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    openGraphImage: { __type: "MediaItem" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    separator: { __type: "String" },
+    shouldCapitalizeTitles: { __type: "Boolean" },
+    shouldIndexEmptyTaxonomies: { __type: "Boolean" },
+    shouldRewriteTitle: { __type: "Boolean" },
+    twitterCardType: { __type: "RankMathTwitterCardTypeEnum" },
+  },
+  RankMathHomepageMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    description: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    socialDescription: { __type: "String" },
+    socialImage: { __type: "MediaItem" },
+    socialTitle: { __type: "String" },
+    title: { __type: "String" },
+  },
+  RankMathJsonLd: {
+    __typename: { __type: "String!" },
+    raw: { __type: "String" },
+  },
+  RankMathLinks: {
+    __typename: { __type: "String!" },
+    defaultAttachmentRedirectUrl: { __type: "String" },
+    hasCategoryBase: { __type: "Boolean" },
+    nofollowDomains: { __type: "String" },
+    nofollowExcludedDomains: { __type: "String" },
+    shouldNofollowImageLinks: { __type: "Boolean" },
+    shouldNofollowLinks: { __type: "Boolean" },
+    shouldOpenInNewWindow: { __type: "Boolean" },
+    shouldRedirectAttachments: { __type: "Boolean" },
+  },
+  RankMathLocalMetaSettings: {
+    __typename: { __type: "String!" },
+    logo: { __type: "MediaItem" },
+    name: { __type: "String" },
+    type: { __type: "RankMathKnowledgeGraphTypeEnum" },
+    url: { __type: "String" },
+  },
+  RankMathMeta: {
+    __typename: { __type: "String!" },
+    authorArchives: { __type: "RankMathAuthorArchiveMetaSettings" },
+    contentTypes: { __type: "RankMathContentTypeMetaSettings" },
+    dateArchives: { __type: "RankMathDateArchiveMetaSettings" },
+    global: { __type: "RankMathGlobalMetaSettings" },
+    homepage: { __type: "RankMathHomepageMetaSettings" },
+    local: { __type: "RankMathLocalMetaSettings" },
+    notFoundTitle: { __type: "String" },
+    searchTitle: { __type: "String" },
+    shouldIndexArchiveSubpages: { __type: "Boolean" },
+    shouldIndexPaginatedPages: { __type: "Boolean" },
+    shouldIndexPasswordProtected: { __type: "Boolean" },
+    shouldIndexSearch: { __type: "Boolean" },
+    social: { __type: "RankMathSocialMetaSettings" },
+    taxonomies: { __type: "RankMathTaxonomyMetaSettings" },
+  },
+  RankMathMetaSettingWithArchive: {
+    __typename: { __type: "String!" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    $on: { __type: "$RankMathMetaSettingWithArchive!" },
+  },
+  RankMathMetaSettingWithRobots: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    $on: { __type: "$RankMathMetaSettingWithRobots!" },
+  },
+  RankMathNodeSeo: {
+    __typename: { __type: "String!" },
+    breadcrumbTitle: { __type: "String" },
+    canonicalUrl: { __type: "String" },
+    description: { __type: "String" },
+    focusKeywords: { __type: "[String]" },
+    fullHead: { __type: "String" },
+    jsonLd: { __type: "RankMathJsonLd" },
+    robots: { __type: "[String]" },
+    title: { __type: "String" },
+  },
+  RankMathSeoScore: {
+    __typename: { __type: "String!" },
+    badgeHtml: { __type: "String" },
+    hasFrontendScore: { __type: "Boolean" },
+    rating: { __type: "RankMathSeoRatingEnum" },
+    score: { __type: "Int" },
+  },
+  RankMathSettings: {
+    __typename: { __type: "String!" },
+    general: { __type: "RankMathGeneral" },
+    meta: { __type: "RankMathMeta" },
+  },
+  RankMathSocialMetaSettings: {
+    __typename: { __type: "String!" },
+    facebookAdminId: { __type: "[Int]" },
+    facebookAppId: { __type: "Int" },
+    facebookAuthorUrl: { __type: "String" },
+    facebookPageUrl: { __type: "String" },
+    twitterAuthorName: { __type: "String" },
+  },
+  RankMathTaxonomyMetaSettings: {
+    __typename: { __type: "String!" },
+    blogCategory: { __type: "BlogCategoryMetaSettings" },
+    category: { __type: "CategoryMetaSettings" },
+    devCategory: { __type: "DevCategoryMetaSettings" },
+    portfolioCategory: { __type: "PortfolioCategoryMetaSettings" },
+    postFormat: { __type: "PostFormatMetaSettings" },
+    series: { __type: "SeriesMetaSettings" },
+    tag: { __type: "TagMetaSettings" },
+  },
+  RankMathWebmaster: {
+    __typename: { __type: "String!" },
+    baidu: { __type: "String" },
+    bing: { __type: "String" },
+    google: { __type: "String" },
+    norton: { __type: "String" },
+    pinterest: { __type: "String" },
+    yandex: { __type: "String" },
+  },
   ReadingSettings: {
     __typename: { __type: "String!" },
-    pageForPosts: { __type: "Float" },
-    pageOnFront: { __type: "Float" },
+    pageForPosts: { __type: "Int" },
+    pageOnFront: { __type: "Int" },
     postsPerPage: { __type: "Int" },
     showOnFront: { __type: "String" },
   },
@@ -9228,10 +11923,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToBlogConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9241,6 +11938,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToBlogConnectionWhereArgsMetaArray: {
+    compare: { __type: "RootQueryToBlogConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToBlogConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToBlogConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToBlogConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToBookConnection: {
     __typename: { __type: "String!" },
@@ -9258,10 +11965,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToBookConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9271,6 +11980,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToBookConnectionWhereArgsMetaArray: {
+    compare: { __type: "RootQueryToBookConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToBookConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToBookConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToBookConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToCategoryConnection: {
     __typename: { __type: "String!" },
@@ -9364,10 +12083,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToContentNodeConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9377,6 +12098,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[RootQueryToContentNodeConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToContentRevisionUnionConnection: {
     __typename: { __type: "String!" },
@@ -9395,6 +12130,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "RootQueryToContentRevisionUnionConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -9408,6 +12146,23 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaArray: {
+    compare: {
+      __type:
+        "RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type: "RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[RootQueryToContentRevisionUnionConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToContentTypeConnection: {
     __typename: { __type: "String!" },
@@ -9473,10 +12228,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToDevConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9486,6 +12243,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToDevConnectionWhereArgsMetaArray: {
+    compare: { __type: "RootQueryToDevConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToDevConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToDevConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToDevConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToEnqueuedScriptConnection: {
     __typename: { __type: "String!" },
@@ -9529,10 +12296,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToMediaItemConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9542,6 +12311,18 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToMediaItemConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToMediaItemConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToMediaItemConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToMenuConnection: {
     __typename: { __type: "String!" },
@@ -9596,10 +12377,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToPageConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9609,6 +12392,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToPageConnectionWhereArgsMetaArray: {
+    compare: { __type: "RootQueryToPageConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToPageConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToPageConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToPageConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToPluginConnection: {
     __typename: { __type: "String!" },
@@ -9675,10 +12468,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToPortfolioConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9688,6 +12483,18 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToPortfolioConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToPortfolioConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToPortfolioConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToPostConnection: {
     __typename: { __type: "String!" },
@@ -9713,10 +12520,12 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "RootQueryToPostConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9732,6 +12541,16 @@ export const generatedSchema = {
     tagSlugAnd: { __type: "[String]" },
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
+  },
+  RootQueryToPostConnectionWhereArgsMetaArray: {
+    compare: { __type: "RootQueryToPostConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToPostConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[RootQueryToPostConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToPostFormatConnection: {
     __typename: { __type: "String!" },
@@ -9815,10 +12634,14 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "RootQueryToShortcutPostConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9828,6 +12651,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToShortcutPostConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToShortcutPostConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[RootQueryToShortcutPostConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToStackoverflowConnection: {
     __typename: { __type: "String!" },
@@ -9845,10 +12682,14 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "RootQueryToStackoverflowConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
     notIn: { __type: "[ID]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
     parent: { __type: "ID" },
     parentIn: { __type: "[ID]" },
@@ -9858,6 +12699,20 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  RootQueryToStackoverflowConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  RootQueryToStackoverflowConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[RootQueryToStackoverflowConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   RootQueryToTagConnection: {
     __typename: { __type: "String!" },
@@ -9969,6 +12824,7 @@ export const generatedSchema = {
     nicename: { __type: "String" },
     nicenameIn: { __type: "[String]" },
     nicenameNotIn: { __type: "[String]" },
+    offsetPagination: { __type: "OffsetPagination" },
     orderby: { __type: "[UsersConnectionOrderbyInput]" },
     role: { __type: "UserRoleEnum" },
     roleIn: { __type: "[UserRoleEnum]" },
@@ -10046,6 +12902,7 @@ export const generatedSchema = {
     isTermNode: { __type: "Boolean!" },
     link: { __type: "String" },
     name: { __type: "String" },
+    seo: { __type: "RankMathNodeSeo" },
     seriesId: { __type: "Int" },
     slug: { __type: "String" },
     taxonomy: { __type: "SeriesToTaxonomyConnectionEdge" },
@@ -10054,6 +12911,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  SeriesMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   SeriesToBlogConnection: {
     __typename: { __type: "String!" },
@@ -10071,6 +12939,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "SeriesToBlogConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -10084,6 +12953,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  SeriesToBlogConnectionWhereArgsMetaArray: {
+    compare: { __type: "SeriesToBlogConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "SeriesToBlogConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  SeriesToBlogConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[SeriesToBlogConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   SeriesToContentNodeConnection: {
     __typename: { __type: "String!" },
@@ -10102,6 +12981,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "SeriesToContentNodeConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -10115,6 +12995,18 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  SeriesToContentNodeConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "SeriesToContentNodeConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: { __type: "SeriesToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  SeriesToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[SeriesToContentNodeConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   SeriesToDevConnection: {
     __typename: { __type: "String!" },
@@ -10136,6 +13028,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "SeriesToDevConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -10149,6 +13042,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  SeriesToDevConnectionWhereArgsMetaArray: {
+    compare: { __type: "SeriesToDevConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "SeriesToDevConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  SeriesToDevConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[SeriesToDevConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   SeriesToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
@@ -10167,8 +13070,8 @@ export const generatedSchema = {
     generalSettingsTimezone: { __type: "String" },
     generalSettingsTitle: { __type: "String" },
     generalSettingsUrl: { __type: "String" },
-    readingSettingsPageForPosts: { __type: "Float" },
-    readingSettingsPageOnFront: { __type: "Float" },
+    readingSettingsPageForPosts: { __type: "Int" },
+    readingSettingsPageOnFront: { __type: "Int" },
     readingSettingsPostsPerPage: { __type: "Int" },
     readingSettingsShowOnFront: { __type: "String" },
     writingSettingsDefaultCategory: { __type: "Int" },
@@ -10212,6 +13115,7 @@ export const generatedSchema = {
     preview: { __type: "ShortcutPostToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     shortcutPostId: { __type: "Int!" },
     slug: { __type: "String" },
     status: { __type: "String" },
@@ -10295,6 +13199,7 @@ export const generatedSchema = {
     preview: { __type: "StackoverflowToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
+    seo: { __type: "RankMathContentNodeSeo" },
     slug: { __type: "String" },
     stackoverflowId: { __type: "Int!" },
     status: { __type: "String" },
@@ -10305,6 +13210,25 @@ export const generatedSchema = {
       __args: { format: "PostObjectFieldFormatEnum" },
     },
     uri: { __type: "String" },
+  },
+  StackoverflowMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    analyzedFields: { __type: "[String]" },
+    articleType: { __type: "RankMathArticleTypeEnum" },
+    description: { __type: "String" },
+    hasBulkEditing: { __type: "RankMathBulkEditingTypeEnum" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasLinkSuggestions: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
+    shouldUseFocusKeyword: { __type: "Boolean" },
+    snippetDescription: { __type: "String" },
+    snippetHeadline: { __type: "String" },
+    snippetType: { __type: "RankMathSnippetTypeEnum" },
+    socialImage: { __type: "MediaItem" },
+    title: { __type: "String" },
   },
   StackoverflowToPreviewConnectionEdge: {
     __typename: { __type: "String!" },
@@ -10350,6 +13274,7 @@ export const generatedSchema = {
         where: "TagToPostConnectionWhereArgs",
       },
     },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     tagId: { __type: "Int" },
     taxonomy: { __type: "TagToTaxonomyConnectionEdge" },
@@ -10358,6 +13283,17 @@ export const generatedSchema = {
     termGroupId: { __type: "Int" },
     termTaxonomyId: { __type: "Int" },
     uri: { __type: "String" },
+  },
+  TagMetaSettings: {
+    __typename: { __type: "String!" },
+    advancedRobotsMeta: { __type: "RankMathAdvancedRobotsMeta" },
+    archiveDescription: { __type: "String" },
+    archiveTitle: { __type: "String" },
+    hasCustomRobotsMeta: { __type: "Boolean" },
+    hasSeoControls: { __type: "Boolean" },
+    hasSlackEnhancedSharing: { __type: "Boolean" },
+    hasSnippetData: { __type: "Boolean" },
+    robotsMeta: { __type: "[RankMathRobotsMetaValueEnum]" },
   },
   TagToContentNodeConnection: {
     __typename: { __type: "String!" },
@@ -10376,6 +13312,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "TagToContentNodeConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -10389,6 +13326,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  TagToContentNodeConnectionWhereArgsMetaArray: {
+    compare: { __type: "TagToContentNodeConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "TagToContentNodeConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  TagToContentNodeConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[TagToContentNodeConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   TagToPostConnection: {
     __typename: { __type: "String!" },
@@ -10414,6 +13361,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "TagToPostConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -10433,6 +13381,16 @@ export const generatedSchema = {
     tagSlugAnd: { __type: "[String]" },
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
+  },
+  TagToPostConnectionWhereArgsMetaArray: {
+    compare: { __type: "TagToPostConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "TagToPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  TagToPostConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[TagToPostConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   TagToTaxonomyConnectionEdge: {
     __typename: { __type: "String!" },
@@ -10495,6 +13453,7 @@ export const generatedSchema = {
     isTermNode: { __type: "Boolean!" },
     link: { __type: "String" },
     name: { __type: "String" },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     taxonomyName: { __type: "String" },
     templates: { __type: "[String]" },
@@ -10802,8 +13761,8 @@ export const generatedSchema = {
     generalSettingsTimezone: { __type: "String" },
     generalSettingsTitle: { __type: "String" },
     generalSettingsUrl: { __type: "String" },
-    readingSettingsPageForPosts: { __type: "Float" },
-    readingSettingsPageOnFront: { __type: "Float" },
+    readingSettingsPageForPosts: { __type: "Int" },
+    readingSettingsPageOnFront: { __type: "Int" },
     readingSettingsPostsPerPage: { __type: "Int" },
     readingSettingsShowOnFront: { __type: "String" },
     writingSettingsDefaultCategory: { __type: "Int" },
@@ -10990,6 +13949,7 @@ export const generatedSchema = {
       __type: "UserToUserRoleConnection",
       __args: { after: "String", before: "String", first: "Int", last: "Int" },
     },
+    seo: { __type: "RankMathNodeSeo" },
     slug: { __type: "String" },
     templates: { __type: "[String]" },
     uri: { __type: "String" },
@@ -11064,6 +14024,9 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: {
+      __type: "UserToContentRevisionUnionConnectionWhereArgsMetaQuery",
+    },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -11077,6 +14040,22 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  UserToContentRevisionUnionConnectionWhereArgsMetaArray: {
+    compare: {
+      __type: "UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum",
+    },
+    key: { __type: "String" },
+    type: {
+      __type: "UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum",
+    },
+    value: { __type: "String" },
+  },
+  UserToContentRevisionUnionConnectionWhereArgsMetaQuery: {
+    metaArray: {
+      __type: "[UserToContentRevisionUnionConnectionWhereArgsMetaArray]",
+    },
+    relation: { __type: "RelationEnum" },
   },
   UserToDevConnection: {
     __typename: { __type: "String!" },
@@ -11098,6 +14077,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "UserToDevConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -11111,6 +14091,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  UserToDevConnectionWhereArgsMetaArray: {
+    compare: { __type: "UserToDevConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "UserToDevConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  UserToDevConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[UserToDevConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   UserToEnqueuedScriptConnection: {
     __typename: { __type: "String!" },
@@ -11154,6 +14144,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "UserToMediaItemConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -11167,6 +14158,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  UserToMediaItemConnectionWhereArgsMetaArray: {
+    compare: { __type: "UserToMediaItemConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "UserToMediaItemConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  UserToMediaItemConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[UserToMediaItemConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   UserToPageConnection: {
     __typename: { __type: "String!" },
@@ -11188,6 +14189,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "UserToPageConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -11201,6 +14203,16 @@ export const generatedSchema = {
     stati: { __type: "[PostStatusEnum]" },
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
+  },
+  UserToPageConnectionWhereArgsMetaArray: {
+    compare: { __type: "UserToPageConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "UserToPageConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  UserToPageConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[UserToPageConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   UserToPostConnection: {
     __typename: { __type: "String!" },
@@ -11226,6 +14238,7 @@ export const generatedSchema = {
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
     in: { __type: "[ID]" },
+    metaQuery: { __type: "UserToPostConnectionWhereArgsMetaQuery" },
     mimeType: { __type: "MimeTypeEnum" },
     name: { __type: "String" },
     nameIn: { __type: "[String]" },
@@ -11245,6 +14258,16 @@ export const generatedSchema = {
     tagSlugAnd: { __type: "[String]" },
     tagSlugIn: { __type: "[String]" },
     title: { __type: "String" },
+  },
+  UserToPostConnectionWhereArgsMetaArray: {
+    compare: { __type: "UserToPostConnectionWhereArgsMetaCompareEnum" },
+    key: { __type: "String" },
+    type: { __type: "UserToPostConnectionWhereArgsMetaTypeEnum" },
+    value: { __type: "String" },
+  },
+  UserToPostConnectionWhereArgsMetaQuery: {
+    metaArray: { __type: "[UserToPostConnectionWhereArgsMetaArray]" },
+    relation: { __type: "RelationEnum" },
   },
   UserToUserRoleConnection: {
     __typename: { __type: "String!" },
@@ -11266,6 +14289,8 @@ export const generatedSchema = {
     endCursor: { __type: "String" },
     hasNextPage: { __type: "Boolean!" },
     hasPreviousPage: { __type: "Boolean!" },
+    offsetPagination: { __type: "OffsetPaginationPageInfo" },
+    seo: { __type: "Float" },
     startCursor: { __type: "String" },
   },
   WritingSettings: {
@@ -11802,6 +14827,7 @@ export const generatedSchema = {
         where: "RootQueryToPostConnectionWhereArgs",
       },
     },
+    rankMathSettings: { __type: "RankMathSettings" },
     readingSettings: { __type: "ReadingSettings" },
     registeredScripts: {
       __type: "RootQueryToEnqueuedScriptConnection",
@@ -12094,6 +15120,39 @@ export const generatedSchema = {
       "Series",
       "Tag",
     ],
+    RankMathMetaSettingWithArchive: [
+      "BlogCategoryMetaSettings",
+      "BlogMetaSettings",
+      "CategoryMetaSettings",
+      "DevCategoryMetaSettings",
+      "DevMetaSettings",
+      "PortfolioCategoryMetaSettings",
+      "PostFormatMetaSettings",
+      "RankMathAuthorArchiveMetaSettings",
+      "RankMathDateArchiveMetaSettings",
+      "SeriesMetaSettings",
+      "TagMetaSettings",
+    ],
+    RankMathMetaSettingWithRobots: [
+      "BlogCategoryMetaSettings",
+      "BlogMetaSettings",
+      "BookMetaSettings",
+      "CategoryMetaSettings",
+      "DevCategoryMetaSettings",
+      "DevMetaSettings",
+      "PageMetaSettings",
+      "PortfolioCategoryMetaSettings",
+      "PortfolioMetaSettings",
+      "PostFormatMetaSettings",
+      "PostMetaSettings",
+      "RankMathAuthorArchiveMetaSettings",
+      "RankMathDateArchiveMetaSettings",
+      "RankMathGlobalMetaSettings",
+      "RankMathHomepageMetaSettings",
+      "SeriesMetaSettings",
+      "StackoverflowMetaSettings",
+      "TagMetaSettings",
+    ],
     HierarchicalTermNode: ["Category", "DevCategory"],
     Commenter: ["CommentAuthor", "User"],
     ContentRevisionUnion: ["Dev", "Page", "Post"],
@@ -12120,6 +15179,7 @@ export const generatedSchema = {
     ],
     NodeWithPageAttributes: ["Page", "Stackoverflow"],
     NodeWithTrackbacks: ["Post"],
+    RankMathBaseSeoFields: ["RankMathContentNodeSeo", "RankMathNodeSeo"],
   },
 } as const;
 
@@ -12407,6 +15467,10 @@ export interface Blog {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * Connection between the Blog type and the Series type
    */
   seriess: (args?: {
@@ -12627,6 +15691,10 @@ export interface BlogCategory {
    */
   name?: Maybe<ScalarsEnums["String"]>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -12651,6 +15719,45 @@ export interface BlogCategory {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for [블로그] 카테고리.
+ */
+export interface BlogCategoryMetaSettings {
+  __typename?: "BlogCategoryMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -12730,6 +15837,81 @@ export interface BlogCategoryToTaxonomyConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Taxonomy>;
+}
+
+/**
+ * The RankMath SEO meta settings for 블로거의 하루.
+ */
+export interface BlogMetaSettings {
+  __typename?: "BlogMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default article type when creating a new 블로거의 하루.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single 블로거의 하루 pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new 블로거의 하루.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * Default title tag for single 블로거의 하루 pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -13045,6 +16227,10 @@ export interface Book {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -13070,6 +16256,77 @@ export interface Book {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for 모든 독후감.
+ */
+export interface BookMetaSettings {
+  __typename?: "BookMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Default article type when creating a new 모든 독후감.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single 모든 독후감 pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new 모든 독후감.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * The default image to display when sharing this post type on social media
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Default title tag for single 모든 독후감 pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -13284,6 +16541,10 @@ export interface Category {
     where?: Maybe<CategoryToPostConnectionWhereArgs>;
   }) => Maybe<CategoryToPostConnection>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -13308,6 +16569,45 @@ export interface Category {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for Categories.
+ */
+export interface CategoryMetaSettings {
+  __typename?: "CategoryMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -13993,6 +17293,10 @@ export interface ContentNode {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -14284,6 +17588,10 @@ export interface ContentType {
    * The REST Controller class assigned to handling this content type.
    */
   restControllerClass?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
   /**
    * Makes this content type available via the admin bar.
    */
@@ -15320,6 +18628,10 @@ export interface Dev {
     where?: Maybe<DevToRevisionConnectionWhereArgs>;
   }) => Maybe<DevToRevisionConnection>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * Connection between the Dev type and the Series type
    */
   seriess: (args?: {
@@ -15598,6 +18910,10 @@ export interface DevCategory {
    */
   parentId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -15622,6 +18938,45 @@ export interface DevCategory {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for [개발] 카테고리.
+ */
+export interface DevCategoryMetaSettings {
+  __typename?: "DevCategoryMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -15780,6 +19135,81 @@ export interface DevCategoryToTaxonomyConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Taxonomy>;
+}
+
+/**
+ * The RankMath SEO meta settings for 개발자의 하루.
+ */
+export interface DevMetaSettings {
+  __typename?: "DevMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default article type when creating a new 개발자의 하루.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single 개발자의 하루 pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new 개발자의 하루.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * Default title tag for single 개발자의 하루 pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -16637,6 +20067,10 @@ export interface MediaItem {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The sizes attribute value for an image.
    */
   sizes: (args?: {
@@ -17445,6 +20879,10 @@ export interface NodeWithFeaturedImage {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -17579,6 +21017,25 @@ export interface NodeWithTrackbacks {
    */
   toPing?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   $on: $NodeWithTrackbacks;
+}
+
+/**
+ * Get information about the offset pagination state
+ */
+export interface OffsetPaginationPageInfo {
+  __typename?: "OffsetPaginationPageInfo";
+  /**
+   * True if there is one or more nodes available in this connection. Eg. you can increase the offset at least by one.
+   */
+  hasMore?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * True when offset can be decresed eg. offset is 0&lt;
+   */
+  hasPrevious?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Total amount of nodes in this connection
+   */
+  total?: Maybe<ScalarsEnums["Int"]>;
 }
 
 /**
@@ -17903,6 +21360,10 @@ export interface Page {
     where?: Maybe<PageToRevisionConnectionWhereArgs>;
   }) => Maybe<PageToRevisionConnection>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -17928,6 +21389,77 @@ export interface Page {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for Pages.
+ */
+export interface PageMetaSettings {
+  __typename?: "PageMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Default article type when creating a new Pages.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single Pages pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new Pages.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * The default image to display when sharing this post type on social media
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Default title tag for single Pages pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -18243,6 +21775,10 @@ export interface Portfolio {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -18438,6 +21974,10 @@ export interface PortfolioCategory {
     where?: Maybe<PortfolioCategoryToPortfolioConnectionWhereArgs>;
   }) => Maybe<PortfolioCategoryToPortfolioConnection>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -18462,6 +22002,45 @@ export interface PortfolioCategory {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for [포트폴리오] 카테고리.
+ */
+export interface PortfolioCategoryMetaSettings {
+  __typename?: "PortfolioCategoryMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -18541,6 +22120,77 @@ export interface PortfolioCategoryToTaxonomyConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Taxonomy>;
+}
+
+/**
+ * The RankMath SEO meta settings for 포트폴리오.
+ */
+export interface PortfolioMetaSettings {
+  __typename?: "PortfolioMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Default article type when creating a new 포트폴리오.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single 포트폴리오 pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new 포트폴리오.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * The default image to display when sharing this post type on social media
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Default title tag for single 포트폴리오 pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -18937,6 +22587,10 @@ export interface Post {
     where?: Maybe<PostToRevisionConnectionWhereArgs>;
   }) => Maybe<PostToRevisionConnection>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -19161,6 +22815,10 @@ export interface PostFormat {
     where?: Maybe<PostFormatToPostConnectionWhereArgs>;
   }) => Maybe<PostFormatToPostConnection>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -19185,6 +22843,37 @@ export interface PostFormat {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for Formats.
+ */
+export interface PostFormatMetaSettings {
+  __typename?: "PostFormatMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -19264,6 +22953,77 @@ export interface PostFormatToTaxonomyConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Taxonomy>;
+}
+
+/**
+ * The RankMath SEO meta settings for Posts.
+ */
+export interface PostMetaSettings {
+  __typename?: "PostMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Default article type when creating a new Posts.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single Posts pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new Posts.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * The default image to display when sharing this post type on social media
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Default title tag for single Posts pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -19589,6 +23349,787 @@ export interface PostTypeLabelDetails {
 }
 
 /**
+ * The config for an advanced robots meta values.
+ */
+export interface RankMathAdvancedRobotsMeta {
+  __typename?: "RankMathAdvancedRobotsMeta";
+  /**
+   * Whether to specify a maximum size of image preview to be shown for images on the page.
+   */
+  hasImagePreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to specify a maximum text length of a snippet of your page
+   */
+  hasSnippet?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to specify a maximum duration of an animated video preview.
+   */
+  hasVideoPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * The maximum size of image preview to be shown for images.
+   */
+  imagePreviewSize?: Maybe<ScalarsEnums["RankMathImagePreviewSize"]>;
+  /**
+   * The maximum text length (in characters) of the snippet. -1 for no limit.
+   */
+  snippetLength?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The maximum duration (seconds characters) of the snippet. -1 for no limit.
+   */
+  videoDuration?: Maybe<ScalarsEnums["Int"]>;
+}
+
+/**
+ * The RankMath SEO Author Archive meta settings.
+ */
+export interface RankMathAuthorArchiveMetaSettings {
+  __typename?: "RankMathAuthorArchiveMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Change the `/author/` part in author archive URLs.
+   */
+  baseSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether author archives are enabled.
+   */
+  hasArchives?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+}
+
+/**
+ * Base SEO fields shared across WP types.
+ */
+export interface RankMathBaseSeoFields {
+  __typename?: "RankMathContentNodeSeo" | "RankMathNodeSeo";
+  /**
+   * The title to use in the breadcrumbs for this post
+   */
+  breadcrumbTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The canonical url.
+   */
+  canonicalUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The meta description.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The focus keywords you want to rank for
+   */
+  focusKeywords?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The fully-rendered `head` tag for the given item
+   */
+  fullHead?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The JSON+LD data
+   */
+  jsonLd?: Maybe<RankMathJsonLd>;
+  /**
+   * A list of the robots meta properties to output.
+   */
+  robots?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
+  $on: $RankMathBaseSeoFields;
+}
+
+/**
+ * The RankMath SEO breadcrumbs settings.
+ */
+export interface RankMathBreadcrumbsConfig {
+  __typename?: "RankMathBreadcrumbsConfig";
+  /**
+   * Format the label used for archive pages.
+   */
+  archiveFormat?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to show all ancestor categories, if a category is a child category.
+   */
+  hasAncestorCategories?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to display the homepage breadcrumb in trail.
+   */
+  hasHome?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the post title is visible in the breadcrumbs.
+   */
+  hasPostTitle?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the taxonomy name is visible in the breadcrumbs.
+   */
+  hasTaxonomyName?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Label used for homepage link (first item) in breadcrumbs.
+   */
+  homeLabel?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Link to use for homepage (first item) in breadcrumbs.
+   */
+  homeUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Label used for 404 error item in breadcrumbs.
+   */
+  notFoundLabel?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Prefix for the breadcrumb path.
+   */
+  prefix?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Format the label used for search results pages.
+   */
+  searchFormat?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Separator character or string that appears between breadcrumb items.
+   */
+  separator?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The seo data for Post Objects
+ */
+export interface RankMathContentNodeSeo {
+  __typename?: "RankMathContentNodeSeo";
+  /**
+   * The title to use in the breadcrumbs for this post
+   */
+  breadcrumbTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The canonical url.
+   */
+  canonicalUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The meta description.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The focus keywords you want to rank for
+   */
+  focusKeywords?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The fully-rendered `head` tag for the given item
+   */
+  fullHead?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether the item is considered pillar (cornerstone) content
+   */
+  isPillarContent?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * The JSON+LD data
+   */
+  jsonLd?: Maybe<RankMathJsonLd>;
+  /**
+   * A list of the robots meta properties to output.
+   */
+  robots?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The SEO score
+   */
+  seoScore?: Maybe<RankMathSeoScore>;
+  /**
+   * The title.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO Post Type settings.
+ */
+export interface RankMathContentTypeMetaSettings {
+  __typename?: "RankMathContentTypeMetaSettings";
+  /**
+   * The RankMath SEO meta settings for 블로거의 하루.
+   */
+  blog?: Maybe<BlogMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for 모든 독후감.
+   */
+  book?: Maybe<BookMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for 개발자의 하루.
+   */
+  dev?: Maybe<DevMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for Pages.
+   */
+  page?: Maybe<PageMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for 포트폴리오.
+   */
+  portfolio?: Maybe<PortfolioMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for Posts.
+   */
+  post?: Maybe<PostMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for stackoverflow.
+   */
+  stackoverflow?: Maybe<StackoverflowMetaSettings>;
+}
+
+/**
+ * The RankMath SEO DateArchive meta settings.
+ */
+export interface RankMathDateArchiveMetaSettings {
+  __typename?: "RankMathDateArchiveMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether archives are enabled.
+   */
+  hasArchives?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+}
+
+/**
+ * RankMath Frontend SEO Score settings.
+ */
+export interface RankMathFrontendSeoScore {
+  __typename?: "RankMathFrontendSeoScore";
+  /**
+   * The list of post types which should display the calculated SEO score.
+   */
+  enabledPostTypes?: Maybe<Array<Maybe<ScalarsEnums["ContentTypeEnum"]>>>;
+  /**
+   * Whether to insert a backlink to RankMath.com to show your support, if you are showing the SEO scores on the front end.
+   */
+  hasRankMathBacklink?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Where the SEO score badges should be displayed automatically, or if the `[rank_math_seo_score]` shortcode is used instead.
+   */
+  position?: Maybe<ScalarsEnums["RankMathSeoScorePositionEnum"]>;
+  /**
+   * The list of post types which should display the calculated SEO score.
+   */
+  template?: Maybe<ScalarsEnums["RankMathSeoScoreTemplateTypeEnum"]>;
+}
+
+/**
+ * The RankMath SEO general site settings
+ */
+export interface RankMathGeneral {
+  __typename?: "RankMathGeneral";
+  /**
+   * Breadcrumbs settings.
+   */
+  breadcrumbs?: Maybe<RankMathBreadcrumbsConfig>;
+  /**
+   * Frontend SEO score settings.
+   */
+  frontendSeoScore?: Maybe<RankMathFrontendSeoScore>;
+  /**
+   * Whether RankMath breadcrumbs are enabled.
+   */
+  hasBreadcrumbs?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to display the calculated SEO Score as a badge on the frontend. It can be disabled for specific posts in the post editor.
+   */
+  hasFrontendSeoScore?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Link settings.
+   */
+  links?: Maybe<RankMathLinks>;
+  /**
+   * The content to add after each post in your site feeds
+   */
+  rssAfterContent?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The content to add before each post in your site feeds
+   */
+  rssBeforeContent?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Webmaster Tools settings.
+   */
+  webmaster?: Maybe<RankMathWebmaster>;
+}
+
+/**
+ * The RankMath SEO Global settings.
+ */
+export interface RankMathGlobalMetaSettings {
+  __typename?: "RankMathGlobalMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * When a featured image or an OpenGraph Image is not set for individual posts/pages/CPTs, this image will be used as a fallback thumbnail when your post is shared on Facebook.
+   */
+  openGraphImage?: Maybe<MediaItem>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * The separator character used in titles.
+   */
+  separator?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to automatically capitalize the first character of each word in the titles.
+   */
+  shouldCapitalizeTitles?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to index enpty Taxonomy archives
+   */
+  shouldIndexEmptyTaxonomies?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether titles for page, post, category, search, and archive pages can be rewritten. Only visible in themes without title-tag support
+   */
+  shouldRewriteTitle?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Card type selected when creating a new post. This will also be applied for posts without a card type selected.
+   */
+  twitterCardType?: Maybe<ScalarsEnums["RankMathTwitterCardTypeEnum"]>;
+}
+
+/**
+ * The RankMath SEO Homepage settings. Only used when the Settings &gt; Reading &gt; Your homepage displays is set to `Your latest posts`.
+ */
+export interface RankMathHomepageMetaSettings {
+  __typename?: "RankMathHomepageMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Meta description.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Description when shared on Facebook, Twitter and other social networks.
+   */
+  socialDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Image displayed when your homepage is shared on Facebook and other social networks.
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Title when shared on Facebook, Twitter and other social networks.
+   */
+  socialTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Title tag.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The JSON+LD information.
+ */
+export interface RankMathJsonLd {
+  __typename?: "RankMathJsonLd";
+  /**
+   * The raw JSON+LD output
+   */
+  raw?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO links settings.
+ */
+export interface RankMathLinks {
+  __typename?: "RankMathLinks";
+  /**
+   * The default redirection url for attachments without a parent post
+   */
+  defaultAttachmentRedirectUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether  /category/ should be included in category archive URLs.
+   */
+  hasCategoryBase?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Only add `nofollow` attributes to links with the following target domains. If null, `nofollow` will be applied to &lt;em&gt;all&lt;/em&gt; external domains.
+   */
+  nofollowDomains?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * `nofollow` attributes will &lt;em&gt;not&lt;/em&gt; be added to links with the following target domains.
+   */
+  nofollowExcludedDomains?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to automatically add the `rel=&quot;nofollow&quot; attribute to links pointing to external image files.
+   */
+  shouldNofollowImageLinks?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to automatically add the `rel=&quot;nofollow&quot; attribute to external links appearing in your posts, pages, and other post types.
+   */
+  shouldNofollowLinks?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to automatically add `target=&quot;_blank&quot;` attribute for external links appearing in your posts, pages, and other post types to make them open in a new browser tab or window.
+   */
+  shouldOpenInNewWindow?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to redirect all attachment page URLs to the post they appear in.
+   */
+  shouldRedirectAttachments?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * The RankMath SEO Local settings.
+ */
+export interface RankMathLocalMetaSettings {
+  __typename?: "RankMathLocalMetaSettings";
+  /**
+   * The logo to be used in the Google&#039;s Knowledge Graph.
+   */
+  logo?: Maybe<MediaItem>;
+  /**
+   * Your name or company name to be used in Google&#039;s Knowledge Graph
+   */
+  name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether the site represents a person or an organization.
+   */
+  type?: Maybe<ScalarsEnums["RankMathKnowledgeGraphTypeEnum"]>;
+  /**
+   * URL of the item.
+   */
+  url?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO titles and meta site settings
+ */
+export interface RankMathMeta {
+  __typename?: "RankMathMeta";
+  /**
+   * Author Archive settings.
+   */
+  authorArchives?: Maybe<RankMathAuthorArchiveMetaSettings>;
+  /**
+   * Content type settings.
+   */
+  contentTypes?: Maybe<RankMathContentTypeMetaSettings>;
+  /**
+   * Date Archive settings.
+   */
+  dateArchives?: Maybe<RankMathDateArchiveMetaSettings>;
+  /**
+   * Global settings.
+   */
+  global?: Maybe<RankMathGlobalMetaSettings>;
+  /**
+   * Homepage settings. Only used is the Homepage is set to display a list of posts.
+   */
+  homepage?: Maybe<RankMathHomepageMetaSettings>;
+  /**
+   * Local settings.
+   */
+  local?: Maybe<RankMathLocalMetaSettings>;
+  /**
+   * Title tag on 404 Not Found error page.
+   */
+  notFoundTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Title tag on search results page.
+   */
+  searchTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to index paginated archive pages from getting.
+   */
+  shouldIndexArchiveSubpages?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to index /page/2 and further of any archive.
+   */
+  shouldIndexPaginatedPages?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to index password protected pages and posts.
+   */
+  shouldIndexPasswordProtected?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to index search result pages.
+   */
+  shouldIndexSearch?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Social settings.
+   */
+  social?: Maybe<RankMathSocialMetaSettings>;
+  /**
+   * Taxonomy settings.
+   */
+  taxonomies?: Maybe<RankMathTaxonomyMetaSettings>;
+}
+
+/**
+ * Meta Settings with archive fields.
+ */
+export interface RankMathMetaSettingWithArchive {
+  __typename?:
+    | "BlogCategoryMetaSettings"
+    | "BlogMetaSettings"
+    | "CategoryMetaSettings"
+    | "DevCategoryMetaSettings"
+    | "DevMetaSettings"
+    | "PortfolioCategoryMetaSettings"
+    | "PostFormatMetaSettings"
+    | "RankMathAuthorArchiveMetaSettings"
+    | "RankMathDateArchiveMetaSettings"
+    | "SeriesMetaSettings"
+    | "TagMetaSettings";
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  $on: $RankMathMetaSettingWithArchive;
+}
+
+/**
+ * Meta settings with robots fields.
+ */
+export interface RankMathMetaSettingWithRobots {
+  __typename?:
+    | "BlogCategoryMetaSettings"
+    | "BlogMetaSettings"
+    | "BookMetaSettings"
+    | "CategoryMetaSettings"
+    | "DevCategoryMetaSettings"
+    | "DevMetaSettings"
+    | "PageMetaSettings"
+    | "PortfolioCategoryMetaSettings"
+    | "PortfolioMetaSettings"
+    | "PostFormatMetaSettings"
+    | "PostMetaSettings"
+    | "RankMathAuthorArchiveMetaSettings"
+    | "RankMathDateArchiveMetaSettings"
+    | "RankMathGlobalMetaSettings"
+    | "RankMathHomepageMetaSettings"
+    | "SeriesMetaSettings"
+    | "StackoverflowMetaSettings"
+    | "TagMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  $on: $RankMathMetaSettingWithRobots;
+}
+
+/**
+ * The seo data for the node
+ */
+export interface RankMathNodeSeo {
+  __typename?: "RankMathNodeSeo";
+  /**
+   * The title to use in the breadcrumbs for this post
+   */
+  breadcrumbTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The canonical url.
+   */
+  canonicalUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The meta description.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The focus keywords you want to rank for
+   */
+  focusKeywords?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The fully-rendered `head` tag for the given item
+   */
+  fullHead?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The JSON+LD data
+   */
+  jsonLd?: Maybe<RankMathJsonLd>;
+  /**
+   * A list of the robots meta properties to output.
+   */
+  robots?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The Seo score information.
+ */
+export interface RankMathSeoScore {
+  __typename?: "RankMathSeoScore";
+  /**
+   * The html output for the Frontend SEO badge
+   */
+  badgeHtml?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether the SEO score should be displayed on the frontend
+   */
+  hasFrontendScore?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * The SEO score
+   */
+  rating?: Maybe<ScalarsEnums["RankMathSeoRatingEnum"]>;
+  /**
+   * The SEO score
+   */
+  score?: Maybe<ScalarsEnums["Int"]>;
+}
+
+/**
+ * The RankMath SEO site settings
+ */
+export interface RankMathSettings {
+  __typename?: "RankMathSettings";
+  /**
+   * General settings.
+   */
+  general?: Maybe<RankMathGeneral>;
+  /**
+   * Meta settings.
+   */
+  meta?: Maybe<RankMathMeta>;
+}
+
+/**
+ * The RankMath SEO Social settings.
+ */
+export interface RankMathSocialMetaSettings {
+  __typename?: "RankMathSocialMetaSettings";
+  /**
+   * A list of numeric Facebook admin User Ids.
+   */
+  facebookAdminId?: Maybe<Array<Maybe<ScalarsEnums["Int"]>>>;
+  /**
+   * The facebook Facebook app ID.
+   */
+  facebookAppId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The personal Facebook profile URL used to show authorship when articles are shared on Facebook.
+   */
+  facebookAuthorUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The complete Facebook page URL.
+   */
+  facebookPageUrl?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Twitter Username of the auther used in the `twitter:creater` tag.
+   */
+  twitterAuthorName?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO Taxonomy meta settings.
+ */
+export interface RankMathTaxonomyMetaSettings {
+  __typename?: "RankMathTaxonomyMetaSettings";
+  /**
+   * The RankMath SEO meta settings for [블로그] 카테고리.
+   */
+  blogCategory?: Maybe<BlogCategoryMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for Categories.
+   */
+  category?: Maybe<CategoryMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for [개발] 카테고리.
+   */
+  devCategory?: Maybe<DevCategoryMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for [포트폴리오] 카테고리.
+   */
+  portfolioCategory?: Maybe<PortfolioCategoryMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for Formats.
+   */
+  postFormat?: Maybe<PostFormatMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for 시리즈.
+   */
+  series?: Maybe<SeriesMetaSettings>;
+  /**
+   * The RankMath SEO meta settings for Tags.
+   */
+  tag?: Maybe<TagMetaSettings>;
+}
+
+/**
+ * The RankMath SEO Webmaster Tools settings
+ */
+export interface RankMathWebmaster {
+  __typename?: "RankMathWebmaster";
+  /**
+   * The Baidu Webmaster Tools verification HTML code or ID.
+   */
+  baidu?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Bing Webmaster Tools verification HTML code or ID.
+   */
+  bing?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Google Search Console verification HTML code or ID.
+   */
+  google?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Norton Safe Web verification HTML code or ID.
+   */
+  norton?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Pinterest verification HTML code or ID.
+   */
+  pinterest?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Yandex verification HTML code or ID.
+   */
+  yandex?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
  * The reading setting type
  */
 export interface ReadingSettings {
@@ -19596,11 +24137,11 @@ export interface ReadingSettings {
   /**
    * The ID of the page that should display the latest posts
    */
-  pageForPosts?: Maybe<ScalarsEnums["Float"]>;
+  pageForPosts?: Maybe<ScalarsEnums["Int"]>;
   /**
    * The ID of the page that should be displayed on the front page
    */
-  pageOnFront?: Maybe<ScalarsEnums["Float"]>;
+  pageOnFront?: Maybe<ScalarsEnums["Int"]>;
   /**
    * Blog pages show at most.
    */
@@ -20858,6 +25399,10 @@ export interface Series {
    */
   name?: Maybe<ScalarsEnums["String"]>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of databaseId
    */
@@ -20887,6 +25432,45 @@ export interface Series {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for 시리즈.
+ */
+export interface SeriesMetaSettings {
+  __typename?: "SeriesMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -21052,13 +25636,13 @@ export interface Settings {
    */
   generalSettingsUrl?: Maybe<ScalarsEnums["String"]>;
   /**
-   * Settings of the the number Settings Group
+   * Settings of the the integer Settings Group
    */
-  readingSettingsPageForPosts?: Maybe<ScalarsEnums["Float"]>;
+  readingSettingsPageForPosts?: Maybe<ScalarsEnums["Int"]>;
   /**
-   * Settings of the the number Settings Group
+   * Settings of the the integer Settings Group
    */
-  readingSettingsPageOnFront?: Maybe<ScalarsEnums["Float"]>;
+  readingSettingsPageOnFront?: Maybe<ScalarsEnums["Int"]>;
   /**
    * Settings of the the integer Settings Group
    */
@@ -21229,6 +25813,10 @@ export interface ShortcutPost {
    * Whether the object is a node in the preview state
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
   /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
@@ -21500,6 +26088,10 @@ export interface Stackoverflow {
    */
   previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
   /**
+   * The seo data for Post Objects
+   */
+  seo?: Maybe<RankMathContentNodeSeo>;
+  /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -21530,6 +26122,77 @@ export interface Stackoverflow {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for stackoverflow.
+ */
+export interface StackoverflowMetaSettings {
+  __typename?: "StackoverflowMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * List of custom fields name to include in the Page analysis
+   */
+  analyzedFields?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * Default article type when creating a new stackoverflow.
+   */
+  articleType?: Maybe<ScalarsEnums["RankMathArticleTypeEnum"]>;
+  /**
+   * Default description for single stackoverflow pages.
+   */
+  description?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether to list bulk editing columns to the post listing screen.
+   */
+  hasBulkEditing?: Maybe<ScalarsEnums["RankMathBulkEditingTypeEnum"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether Link Suggestions meta box and the Pillar Content featured are enabled for this post type.
+   */
+  hasLinkSuggestions?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
+  /**
+   * Whether to use the Focus Keyword as the default text for the links instead of the post titles.
+   */
+  shouldUseFocusKeyword?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet headline.
+   */
+  snippetHeadline?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default rich snippet select when creating a new stackoverflow.
+   */
+  snippetType?: Maybe<ScalarsEnums["RankMathSnippetTypeEnum"]>;
+  /**
+   * The default image to display when sharing this post type on social media
+   */
+  socialImage?: Maybe<MediaItem>;
+  /**
+   * Default title tag for single stackoverflow pages.
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -21681,6 +26344,10 @@ export interface Tag {
     where?: Maybe<TagToPostConnectionWhereArgs>;
   }) => Maybe<TagToPostConnection>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -21710,6 +26377,45 @@ export interface Tag {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * The RankMath SEO meta settings for Tags.
+ */
+export interface TagMetaSettings {
+  __typename?: "TagMetaSettings";
+  /**
+   * Advanced robots meta tag settings.
+   */
+  advancedRobotsMeta?: Maybe<RankMathAdvancedRobotsMeta>;
+  /**
+   * Description for archive pages.
+   */
+  archiveDescription?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Default title tag for archive page.
+   */
+  archiveTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Whether custom robots meta for author page are set. Otherwise the default meta will be used, as set in the Global Meta tab.
+   */
+  hasCustomRobotsMeta?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the SEO Controls meta box for user profile pages is enabled.
+   */
+  hasSeoControls?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to show additional information (name &amp; total number of posts) when an author archive is shared on Slack.
+   */
+  hasSlackEnhancedSharing?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether to include snippet data for this taxonomy.
+   */
+  hasSnippetData?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Custom values for robots meta tag.
+   */
+  robotsMeta?: Maybe<Array<Maybe<ScalarsEnums["RankMathRobotsMetaValueEnum"]>>>;
 }
 
 /**
@@ -22023,6 +26729,10 @@ export interface TermNode {
    * The human friendly name of the object.
    */
   name?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
   /**
    * An alphanumeric identifier for the object unique to its type.
    */
@@ -22827,6 +27537,10 @@ export interface User {
     last?: Maybe<Scalars["Int"]>;
   }) => Maybe<UserToUserRoleConnection>;
   /**
+   * The seo data for the node
+   */
+  seo?: Maybe<RankMathNodeSeo>;
+  /**
    * The slug for the user. This field is equivalent to WP_User-&gt;user_nicename
    */
   slug?: Maybe<ScalarsEnums["String"]>;
@@ -23200,6 +27914,14 @@ export interface WPPageInfo {
    * When paginating backwards, are there more items?
    */
   hasPreviousPage: ScalarsEnums["Boolean"];
+  /**
+   * Get information about the offset pagination state in the current connection
+   */
+  offsetPagination?: Maybe<OffsetPaginationPageInfo>;
+  /**
+   * 아카이브 페이지의 SEO
+   */
+  seo?: Maybe<ScalarsEnums["Float"]>;
   /**
    * When paginating backwards, the cursor to continue.
    */
@@ -23621,6 +28343,7 @@ export interface Query {
     last?: Maybe<Scalars["Int"]>;
     where?: Maybe<RootQueryToPostConnectionWhereArgs>;
   }) => Maybe<RootQueryToPostConnection>;
+  rankMathSettings?: Maybe<RankMathSettings>;
   readingSettings?: Maybe<ReadingSettings>;
   registeredScripts: (args?: {
     after?: Maybe<Scalars["String"]>;
@@ -23754,11 +28477,13 @@ export interface SchemaObjectTypes {
   Avatar: Avatar;
   Blog: Blog;
   BlogCategory: BlogCategory;
+  BlogCategoryMetaSettings: BlogCategoryMetaSettings;
   BlogCategoryToBlogConnection: BlogCategoryToBlogConnection;
   BlogCategoryToBlogConnectionEdge: BlogCategoryToBlogConnectionEdge;
   BlogCategoryToContentNodeConnection: BlogCategoryToContentNodeConnection;
   BlogCategoryToContentNodeConnectionEdge: BlogCategoryToContentNodeConnectionEdge;
   BlogCategoryToTaxonomyConnectionEdge: BlogCategoryToTaxonomyConnectionEdge;
+  BlogMetaSettings: BlogMetaSettings;
   BlogToBlogCategoryConnection: BlogToBlogCategoryConnection;
   BlogToBlogCategoryConnectionEdge: BlogToBlogCategoryConnectionEdge;
   BlogToCommentConnection: BlogToCommentConnection;
@@ -23769,8 +28494,10 @@ export interface SchemaObjectTypes {
   BlogToTermNodeConnection: BlogToTermNodeConnection;
   BlogToTermNodeConnectionEdge: BlogToTermNodeConnectionEdge;
   Book: Book;
+  BookMetaSettings: BookMetaSettings;
   BookToPreviewConnectionEdge: BookToPreviewConnectionEdge;
   Category: Category;
+  CategoryMetaSettings: CategoryMetaSettings;
   CategoryToAncestorsCategoryConnection: CategoryToAncestorsCategoryConnection;
   CategoryToAncestorsCategoryConnectionEdge: CategoryToAncestorsCategoryConnectionEdge;
   CategoryToCategoryConnection: CategoryToCategoryConnection;
@@ -23840,6 +28567,7 @@ export interface SchemaObjectTypes {
   DeleteUserPayload: DeleteUserPayload;
   Dev: Dev;
   DevCategory: DevCategory;
+  DevCategoryMetaSettings: DevCategoryMetaSettings;
   DevCategoryToAncestorsDevCategoryConnection: DevCategoryToAncestorsDevCategoryConnection;
   DevCategoryToAncestorsDevCategoryConnectionEdge: DevCategoryToAncestorsDevCategoryConnectionEdge;
   DevCategoryToContentNodeConnection: DevCategoryToContentNodeConnection;
@@ -23850,6 +28578,7 @@ export interface SchemaObjectTypes {
   DevCategoryToDevConnectionEdge: DevCategoryToDevConnectionEdge;
   DevCategoryToParentDevCategoryConnectionEdge: DevCategoryToParentDevCategoryConnectionEdge;
   DevCategoryToTaxonomyConnectionEdge: DevCategoryToTaxonomyConnectionEdge;
+  DevMetaSettings: DevMetaSettings;
   DevToCommentConnection: DevToCommentConnection;
   DevToCommentConnectionEdge: DevToCommentConnectionEdge;
   DevToDevCategoryConnection: DevToDevCategoryConnection;
@@ -23890,7 +28619,9 @@ export interface SchemaObjectTypes {
   NodeWithAuthorToUserConnectionEdge: NodeWithAuthorToUserConnectionEdge;
   NodeWithFeaturedImageToMediaItemConnectionEdge: NodeWithFeaturedImageToMediaItemConnectionEdge;
   NodeWithRevisionsToContentNodeConnectionEdge: NodeWithRevisionsToContentNodeConnectionEdge;
+  OffsetPaginationPageInfo: OffsetPaginationPageInfo;
   Page: Page;
+  PageMetaSettings: PageMetaSettings;
   PageToCommentConnection: PageToCommentConnection;
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
@@ -23899,11 +28630,13 @@ export interface SchemaObjectTypes {
   Plugin: Plugin;
   Portfolio: Portfolio;
   PortfolioCategory: PortfolioCategory;
+  PortfolioCategoryMetaSettings: PortfolioCategoryMetaSettings;
   PortfolioCategoryToContentNodeConnection: PortfolioCategoryToContentNodeConnection;
   PortfolioCategoryToContentNodeConnectionEdge: PortfolioCategoryToContentNodeConnectionEdge;
   PortfolioCategoryToPortfolioConnection: PortfolioCategoryToPortfolioConnection;
   PortfolioCategoryToPortfolioConnectionEdge: PortfolioCategoryToPortfolioConnectionEdge;
   PortfolioCategoryToTaxonomyConnectionEdge: PortfolioCategoryToTaxonomyConnectionEdge;
+  PortfolioMetaSettings: PortfolioMetaSettings;
   PortfolioToPortfolioCategoryConnection: PortfolioToPortfolioCategoryConnection;
   PortfolioToPortfolioCategoryConnectionEdge: PortfolioToPortfolioCategoryConnectionEdge;
   PortfolioToPreviewConnectionEdge: PortfolioToPreviewConnectionEdge;
@@ -23911,11 +28644,13 @@ export interface SchemaObjectTypes {
   PortfolioToTermNodeConnectionEdge: PortfolioToTermNodeConnectionEdge;
   Post: Post;
   PostFormat: PostFormat;
+  PostFormatMetaSettings: PostFormatMetaSettings;
   PostFormatToContentNodeConnection: PostFormatToContentNodeConnection;
   PostFormatToContentNodeConnectionEdge: PostFormatToContentNodeConnectionEdge;
   PostFormatToPostConnection: PostFormatToPostConnection;
   PostFormatToPostConnectionEdge: PostFormatToPostConnectionEdge;
   PostFormatToTaxonomyConnectionEdge: PostFormatToTaxonomyConnectionEdge;
+  PostMetaSettings: PostMetaSettings;
   PostToCategoryConnection: PostToCategoryConnection;
   PostToCategoryConnectionEdge: PostToCategoryConnectionEdge;
   PostToCommentConnection: PostToCommentConnection;
@@ -23931,6 +28666,26 @@ export interface SchemaObjectTypes {
   PostToTermNodeConnectionEdge: PostToTermNodeConnectionEdge;
   PostTypeLabelDetails: PostTypeLabelDetails;
   Query: Query;
+  RankMathAdvancedRobotsMeta: RankMathAdvancedRobotsMeta;
+  RankMathAuthorArchiveMetaSettings: RankMathAuthorArchiveMetaSettings;
+  RankMathBreadcrumbsConfig: RankMathBreadcrumbsConfig;
+  RankMathContentNodeSeo: RankMathContentNodeSeo;
+  RankMathContentTypeMetaSettings: RankMathContentTypeMetaSettings;
+  RankMathDateArchiveMetaSettings: RankMathDateArchiveMetaSettings;
+  RankMathFrontendSeoScore: RankMathFrontendSeoScore;
+  RankMathGeneral: RankMathGeneral;
+  RankMathGlobalMetaSettings: RankMathGlobalMetaSettings;
+  RankMathHomepageMetaSettings: RankMathHomepageMetaSettings;
+  RankMathJsonLd: RankMathJsonLd;
+  RankMathLinks: RankMathLinks;
+  RankMathLocalMetaSettings: RankMathLocalMetaSettings;
+  RankMathMeta: RankMathMeta;
+  RankMathNodeSeo: RankMathNodeSeo;
+  RankMathSeoScore: RankMathSeoScore;
+  RankMathSettings: RankMathSettings;
+  RankMathSocialMetaSettings: RankMathSocialMetaSettings;
+  RankMathTaxonomyMetaSettings: RankMathTaxonomyMetaSettings;
+  RankMathWebmaster: RankMathWebmaster;
   ReadingSettings: ReadingSettings;
   RegisterUserPayload: RegisterUserPayload;
   ResetUserPasswordPayload: ResetUserPasswordPayload;
@@ -23997,6 +28752,7 @@ export interface SchemaObjectTypes {
   RootQueryToUserRoleConnectionEdge: RootQueryToUserRoleConnectionEdge;
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   Series: Series;
+  SeriesMetaSettings: SeriesMetaSettings;
   SeriesToBlogConnection: SeriesToBlogConnection;
   SeriesToBlogConnectionEdge: SeriesToBlogConnectionEdge;
   SeriesToContentNodeConnection: SeriesToContentNodeConnection;
@@ -24008,9 +28764,11 @@ export interface SchemaObjectTypes {
   ShortcutPost: ShortcutPost;
   ShortcutPostToPreviewConnectionEdge: ShortcutPostToPreviewConnectionEdge;
   Stackoverflow: Stackoverflow;
+  StackoverflowMetaSettings: StackoverflowMetaSettings;
   StackoverflowToPreviewConnectionEdge: StackoverflowToPreviewConnectionEdge;
   Subscription: Subscription;
   Tag: Tag;
+  TagMetaSettings: TagMetaSettings;
   TagToContentNodeConnection: TagToContentNodeConnection;
   TagToContentNodeConnectionEdge: TagToContentNodeConnectionEdge;
   TagToPostConnection: TagToPostConnection;
@@ -24070,11 +28828,13 @@ export type SchemaObjectTypesNames =
   | "Avatar"
   | "Blog"
   | "BlogCategory"
+  | "BlogCategoryMetaSettings"
   | "BlogCategoryToBlogConnection"
   | "BlogCategoryToBlogConnectionEdge"
   | "BlogCategoryToContentNodeConnection"
   | "BlogCategoryToContentNodeConnectionEdge"
   | "BlogCategoryToTaxonomyConnectionEdge"
+  | "BlogMetaSettings"
   | "BlogToBlogCategoryConnection"
   | "BlogToBlogCategoryConnectionEdge"
   | "BlogToCommentConnection"
@@ -24085,8 +28845,10 @@ export type SchemaObjectTypesNames =
   | "BlogToTermNodeConnection"
   | "BlogToTermNodeConnectionEdge"
   | "Book"
+  | "BookMetaSettings"
   | "BookToPreviewConnectionEdge"
   | "Category"
+  | "CategoryMetaSettings"
   | "CategoryToAncestorsCategoryConnection"
   | "CategoryToAncestorsCategoryConnectionEdge"
   | "CategoryToCategoryConnection"
@@ -24156,6 +28918,7 @@ export type SchemaObjectTypesNames =
   | "DeleteUserPayload"
   | "Dev"
   | "DevCategory"
+  | "DevCategoryMetaSettings"
   | "DevCategoryToAncestorsDevCategoryConnection"
   | "DevCategoryToAncestorsDevCategoryConnectionEdge"
   | "DevCategoryToContentNodeConnection"
@@ -24166,6 +28929,7 @@ export type SchemaObjectTypesNames =
   | "DevCategoryToDevConnectionEdge"
   | "DevCategoryToParentDevCategoryConnectionEdge"
   | "DevCategoryToTaxonomyConnectionEdge"
+  | "DevMetaSettings"
   | "DevToCommentConnection"
   | "DevToCommentConnectionEdge"
   | "DevToDevCategoryConnection"
@@ -24206,7 +28970,9 @@ export type SchemaObjectTypesNames =
   | "NodeWithAuthorToUserConnectionEdge"
   | "NodeWithFeaturedImageToMediaItemConnectionEdge"
   | "NodeWithRevisionsToContentNodeConnectionEdge"
+  | "OffsetPaginationPageInfo"
   | "Page"
+  | "PageMetaSettings"
   | "PageToCommentConnection"
   | "PageToCommentConnectionEdge"
   | "PageToPreviewConnectionEdge"
@@ -24215,11 +28981,13 @@ export type SchemaObjectTypesNames =
   | "Plugin"
   | "Portfolio"
   | "PortfolioCategory"
+  | "PortfolioCategoryMetaSettings"
   | "PortfolioCategoryToContentNodeConnection"
   | "PortfolioCategoryToContentNodeConnectionEdge"
   | "PortfolioCategoryToPortfolioConnection"
   | "PortfolioCategoryToPortfolioConnectionEdge"
   | "PortfolioCategoryToTaxonomyConnectionEdge"
+  | "PortfolioMetaSettings"
   | "PortfolioToPortfolioCategoryConnection"
   | "PortfolioToPortfolioCategoryConnectionEdge"
   | "PortfolioToPreviewConnectionEdge"
@@ -24227,11 +28995,13 @@ export type SchemaObjectTypesNames =
   | "PortfolioToTermNodeConnectionEdge"
   | "Post"
   | "PostFormat"
+  | "PostFormatMetaSettings"
   | "PostFormatToContentNodeConnection"
   | "PostFormatToContentNodeConnectionEdge"
   | "PostFormatToPostConnection"
   | "PostFormatToPostConnectionEdge"
   | "PostFormatToTaxonomyConnectionEdge"
+  | "PostMetaSettings"
   | "PostToCategoryConnection"
   | "PostToCategoryConnectionEdge"
   | "PostToCommentConnection"
@@ -24247,6 +29017,26 @@ export type SchemaObjectTypesNames =
   | "PostToTermNodeConnectionEdge"
   | "PostTypeLabelDetails"
   | "Query"
+  | "RankMathAdvancedRobotsMeta"
+  | "RankMathAuthorArchiveMetaSettings"
+  | "RankMathBreadcrumbsConfig"
+  | "RankMathContentNodeSeo"
+  | "RankMathContentTypeMetaSettings"
+  | "RankMathDateArchiveMetaSettings"
+  | "RankMathFrontendSeoScore"
+  | "RankMathGeneral"
+  | "RankMathGlobalMetaSettings"
+  | "RankMathHomepageMetaSettings"
+  | "RankMathJsonLd"
+  | "RankMathLinks"
+  | "RankMathLocalMetaSettings"
+  | "RankMathMeta"
+  | "RankMathNodeSeo"
+  | "RankMathSeoScore"
+  | "RankMathSettings"
+  | "RankMathSocialMetaSettings"
+  | "RankMathTaxonomyMetaSettings"
+  | "RankMathWebmaster"
   | "ReadingSettings"
   | "RegisterUserPayload"
   | "ResetUserPasswordPayload"
@@ -24313,6 +29103,7 @@ export type SchemaObjectTypesNames =
   | "RootQueryToUserRoleConnectionEdge"
   | "SendPasswordResetEmailPayload"
   | "Series"
+  | "SeriesMetaSettings"
   | "SeriesToBlogConnection"
   | "SeriesToBlogConnectionEdge"
   | "SeriesToContentNodeConnection"
@@ -24324,9 +29115,11 @@ export type SchemaObjectTypesNames =
   | "ShortcutPost"
   | "ShortcutPostToPreviewConnectionEdge"
   | "Stackoverflow"
+  | "StackoverflowMetaSettings"
   | "StackoverflowToPreviewConnectionEdge"
   | "Subscription"
   | "Tag"
+  | "TagMetaSettings"
   | "TagToContentNodeConnection"
   | "TagToContentNodeConnectionEdge"
   | "TagToPostConnection"
@@ -24594,6 +29387,46 @@ export interface $NodeWithTrackbacks {
   Post?: Post;
 }
 
+export interface $RankMathBaseSeoFields {
+  RankMathContentNodeSeo?: RankMathContentNodeSeo;
+  RankMathNodeSeo?: RankMathNodeSeo;
+}
+
+export interface $RankMathMetaSettingWithArchive {
+  BlogCategoryMetaSettings?: BlogCategoryMetaSettings;
+  BlogMetaSettings?: BlogMetaSettings;
+  CategoryMetaSettings?: CategoryMetaSettings;
+  DevCategoryMetaSettings?: DevCategoryMetaSettings;
+  DevMetaSettings?: DevMetaSettings;
+  PortfolioCategoryMetaSettings?: PortfolioCategoryMetaSettings;
+  PostFormatMetaSettings?: PostFormatMetaSettings;
+  RankMathAuthorArchiveMetaSettings?: RankMathAuthorArchiveMetaSettings;
+  RankMathDateArchiveMetaSettings?: RankMathDateArchiveMetaSettings;
+  SeriesMetaSettings?: SeriesMetaSettings;
+  TagMetaSettings?: TagMetaSettings;
+}
+
+export interface $RankMathMetaSettingWithRobots {
+  BlogCategoryMetaSettings?: BlogCategoryMetaSettings;
+  BlogMetaSettings?: BlogMetaSettings;
+  BookMetaSettings?: BookMetaSettings;
+  CategoryMetaSettings?: CategoryMetaSettings;
+  DevCategoryMetaSettings?: DevCategoryMetaSettings;
+  DevMetaSettings?: DevMetaSettings;
+  PageMetaSettings?: PageMetaSettings;
+  PortfolioCategoryMetaSettings?: PortfolioCategoryMetaSettings;
+  PortfolioMetaSettings?: PortfolioMetaSettings;
+  PostFormatMetaSettings?: PostFormatMetaSettings;
+  PostMetaSettings?: PostMetaSettings;
+  RankMathAuthorArchiveMetaSettings?: RankMathAuthorArchiveMetaSettings;
+  RankMathDateArchiveMetaSettings?: RankMathDateArchiveMetaSettings;
+  RankMathGlobalMetaSettings?: RankMathGlobalMetaSettings;
+  RankMathHomepageMetaSettings?: RankMathHomepageMetaSettings;
+  SeriesMetaSettings?: SeriesMetaSettings;
+  StackoverflowMetaSettings?: StackoverflowMetaSettings;
+  TagMetaSettings?: TagMetaSettings;
+}
+
 export interface $TermNode {
   BlogCategory?: BlogCategory;
   Category?: Category;
@@ -24638,13 +29471,43 @@ export type MakeNullable<T> = {
 export interface ScalarsEnums extends MakeNullable<Scalars> {
   AvatarRatingEnum: AvatarRatingEnum | undefined;
   BlogCategoryIdType: BlogCategoryIdType | undefined;
+  BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum:
+    | BlogCategoryToBlogConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum:
+    | BlogCategoryToBlogConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | BlogCategoryToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | BlogCategoryToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
   BlogIdType: BlogIdType | undefined;
   BookIdType: BookIdType | undefined;
   CategoryIdType: CategoryIdType | undefined;
+  CategoryToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | CategoryToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  CategoryToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | CategoryToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  CategoryToPostConnectionWhereArgsMetaCompareEnum:
+    | CategoryToPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  CategoryToPostConnectionWhereArgsMetaTypeEnum:
+    | CategoryToPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
   CommentsConnectionOrderbyEnum: CommentsConnectionOrderbyEnum | undefined;
   ContentNodeIdTypeEnum: ContentNodeIdTypeEnum | undefined;
   ContentTypeEnum: ContentTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
+  ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | ContentTypeToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | ContentTypeToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
   ContentTypesOfBlogCategoryEnum: ContentTypesOfBlogCategoryEnum | undefined;
   ContentTypesOfCategoryEnum: ContentTypesOfCategoryEnum | undefined;
   ContentTypesOfDevCategoryEnum: ContentTypesOfDevCategoryEnum | undefined;
@@ -24655,7 +29518,37 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   ContentTypesOfSeriesEnum: ContentTypesOfSeriesEnum | undefined;
   ContentTypesOfTagEnum: ContentTypesOfTagEnum | undefined;
   DevCategoryIdType: DevCategoryIdType | undefined;
+  DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | DevCategoryToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | DevCategoryToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  DevCategoryToDevConnectionWhereArgsMetaCompareEnum:
+    | DevCategoryToDevConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  DevCategoryToDevConnectionWhereArgsMetaTypeEnum:
+    | DevCategoryToDevConnectionWhereArgsMetaTypeEnum
+    | undefined;
   DevIdType: DevIdType | undefined;
+  DevToRevisionConnectionWhereArgsMetaCompareEnum:
+    | DevToRevisionConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  DevToRevisionConnectionWhereArgsMetaTypeEnum:
+    | DevToRevisionConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum:
+    | HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum:
+    | HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum:
+    | HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum:
+    | HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgsMetaTypeEnum
+    | undefined;
   MediaItemIdType: MediaItemIdType | undefined;
   MediaItemSizeEnum: MediaItemSizeEnum | undefined;
   MediaItemStatusEnum: MediaItemStatusEnum | undefined;
@@ -24665,10 +29558,40 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   MimeTypeEnum: MimeTypeEnum | undefined;
   OrderEnum: OrderEnum | undefined;
   PageIdType: PageIdType | undefined;
+  PageToRevisionConnectionWhereArgsMetaCompareEnum:
+    | PageToRevisionConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PageToRevisionConnectionWhereArgsMetaTypeEnum:
+    | PageToRevisionConnectionWhereArgsMetaTypeEnum
+    | undefined;
   PluginStatusEnum: PluginStatusEnum | undefined;
   PortfolioCategoryIdType: PortfolioCategoryIdType | undefined;
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | PortfolioCategoryToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | PortfolioCategoryToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum:
+    | PortfolioCategoryToPortfolioConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum:
+    | PortfolioCategoryToPortfolioConnectionWhereArgsMetaTypeEnum
+    | undefined;
   PortfolioIdType: PortfolioIdType | undefined;
   PostFormatIdType: PostFormatIdType | undefined;
+  PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | PostFormatToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | PostFormatToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  PostFormatToPostConnectionWhereArgsMetaCompareEnum:
+    | PostFormatToPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PostFormatToPostConnectionWhereArgsMetaTypeEnum:
+    | PostFormatToPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
   PostIdType: PostIdType | undefined;
   PostObjectFieldFormatEnum: PostObjectFieldFormatEnum | undefined;
   PostObjectsConnectionDateColumnEnum:
@@ -24678,11 +29601,125 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | PostObjectsConnectionOrderbyEnum
     | undefined;
   PostStatusEnum: PostStatusEnum | undefined;
+  PostToRevisionConnectionWhereArgsMetaCompareEnum:
+    | PostToRevisionConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  PostToRevisionConnectionWhereArgsMetaTypeEnum:
+    | PostToRevisionConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RankMathArticleTypeEnum: RankMathArticleTypeEnum | undefined;
+  RankMathBulkEditingTypeEnum: RankMathBulkEditingTypeEnum | undefined;
+  RankMathImagePreviewSize: RankMathImagePreviewSize | undefined;
+  RankMathKnowledgeGraphTypeEnum: RankMathKnowledgeGraphTypeEnum | undefined;
+  RankMathRobotsMetaValueEnum: RankMathRobotsMetaValueEnum | undefined;
+  RankMathSeoRatingEnum: RankMathSeoRatingEnum | undefined;
+  RankMathSeoScorePositionEnum: RankMathSeoScorePositionEnum | undefined;
+  RankMathSeoScoreTemplateTypeEnum:
+    | RankMathSeoScoreTemplateTypeEnum
+    | undefined;
+  RankMathSnippetTypeEnum: RankMathSnippetTypeEnum | undefined;
+  RankMathTwitterCardTypeEnum: RankMathTwitterCardTypeEnum | undefined;
   RelationEnum: RelationEnum | undefined;
+  RootQueryToBlogConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToBlogConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToBlogConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToBlogConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToBookConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToBookConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToBookConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToBookConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToContentRevisionUnionConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToContentRevisionUnionConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToDevConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToDevConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToDevConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToDevConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToMediaItemConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToMediaItemConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToPageConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToPageConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToPageConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToPageConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToPortfolioConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToPortfolioConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToPostConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToPostConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToShortcutPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToShortcutPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum:
+    | RootQueryToStackoverflowConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum:
+    | RootQueryToStackoverflowConnectionWhereArgsMetaTypeEnum
+    | undefined;
   SeriesIdType: SeriesIdType | undefined;
+  SeriesToBlogConnectionWhereArgsMetaCompareEnum:
+    | SeriesToBlogConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  SeriesToBlogConnectionWhereArgsMetaTypeEnum:
+    | SeriesToBlogConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  SeriesToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | SeriesToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  SeriesToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | SeriesToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  SeriesToDevConnectionWhereArgsMetaCompareEnum:
+    | SeriesToDevConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  SeriesToDevConnectionWhereArgsMetaTypeEnum:
+    | SeriesToDevConnectionWhereArgsMetaTypeEnum
+    | undefined;
   ShortcutPostIdType: ShortcutPostIdType | undefined;
   StackoverflowIdType: StackoverflowIdType | undefined;
   TagIdType: TagIdType | undefined;
+  TagToContentNodeConnectionWhereArgsMetaCompareEnum:
+    | TagToContentNodeConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  TagToContentNodeConnectionWhereArgsMetaTypeEnum:
+    | TagToContentNodeConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  TagToPostConnectionWhereArgsMetaCompareEnum:
+    | TagToPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  TagToPostConnectionWhereArgsMetaTypeEnum:
+    | TagToPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
   TaxonomyEnum: TaxonomyEnum | undefined;
   TaxonomyIdTypeEnum: TaxonomyIdTypeEnum | undefined;
   TermNodeIdTypeEnum: TermNodeIdTypeEnum | undefined;
@@ -24691,6 +29728,36 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | undefined;
   UserNodeIdTypeEnum: UserNodeIdTypeEnum | undefined;
   UserRoleEnum: UserRoleEnum | undefined;
+  UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum:
+    | UserToContentRevisionUnionConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum:
+    | UserToContentRevisionUnionConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  UserToDevConnectionWhereArgsMetaCompareEnum:
+    | UserToDevConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  UserToDevConnectionWhereArgsMetaTypeEnum:
+    | UserToDevConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  UserToMediaItemConnectionWhereArgsMetaCompareEnum:
+    | UserToMediaItemConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  UserToMediaItemConnectionWhereArgsMetaTypeEnum:
+    | UserToMediaItemConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  UserToPageConnectionWhereArgsMetaCompareEnum:
+    | UserToPageConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  UserToPageConnectionWhereArgsMetaTypeEnum:
+    | UserToPageConnectionWhereArgsMetaTypeEnum
+    | undefined;
+  UserToPostConnectionWhereArgsMetaCompareEnum:
+    | UserToPostConnectionWhereArgsMetaCompareEnum
+    | undefined;
+  UserToPostConnectionWhereArgsMetaTypeEnum:
+    | UserToPostConnectionWhereArgsMetaTypeEnum
+    | undefined;
   UsersConnectionOrderbyEnum: UsersConnectionOrderbyEnum | undefined;
   UsersConnectionSearchColumnEnum: UsersConnectionSearchColumnEnum | undefined;
 }
