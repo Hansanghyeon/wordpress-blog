@@ -7,10 +7,6 @@ const colorReset = {
 };
 
 module.exports = {
-  content: [
-    "../../packages/ui/components/**/*.{tsx,scss}",
-    "../../apps/web/src/**/*.{tsx,scss}",
-  ],
   theme: {
     screens: {
       "#sm": { max: "639px" },
@@ -80,6 +76,9 @@ module.exports = {
           "&:not(:disabled):hover": {
             backgroundColor: theme("colors.gray.50"),
           },
+          "&:disabled": {
+            backgroundColor: theme("colors.gray.200"),
+          },
         },
         ".btn-dark": {
           backgroundColor: theme("colors.tuna.500"),
@@ -88,6 +87,9 @@ module.exports = {
           border: "1px",
           "&:not(:disabled):hover": {
             backgroundColor: theme("colors.tuna.700"),
+          },
+          "&:disabled": {
+            backgroundColor: theme("colors.tuna.600"),
           },
         },
         ".btn-primary-light": {
