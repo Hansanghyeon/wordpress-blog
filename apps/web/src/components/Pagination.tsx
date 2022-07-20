@@ -6,11 +6,11 @@ export interface PaginationProps {
   pageInfo?: WPPageInfo;
   basePath: string;
   per?: number;
-  hasPrevious?: any;
-  hasMore?: any;
-  total?: any;
+  hasPrevious: boolean;
+  hasMore: boolean;
+  total: number;
   current?: number;
-  midSize?: any;
+  midSize?: number;
 }
 
 export default function Pagination({ hasPrevious, hasMore, basePath, per = 5, midSize = 5, current, total }: PaginationProps) {
