@@ -1,5 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("./colors");
+const plugin = require("tailwindcss/plugin");
+const extendColors = require("./colors");
 
 const colorReset = {
   color: null,
@@ -24,8 +25,8 @@ module.exports = {
       xxl: "1536px",
     },
     extend: {
-      colors: colors.base,
-      borderColor: colors.base,
+      colors: extendColors.base,
+      borderColor: extendColors.base,
       container: {
         center: true,
         padding: {
@@ -69,5 +70,42 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/line-clamp"),
+    plugin(({ addComponents, theme }) => {
+      addComponents({
+        ".btn-light": {
+          backgroundColor: theme("colors.white"),
+          borderColor: theme("colors.gray.300"),
+          color: theme("colors.gray.500"),
+          border: "1px",
+          "&:not(:disabled):hover": {
+            backgroundColor: theme("colors.gray.50"),
+          },
+        },
+        ".btn-dark": {
+          backgroundColor: theme("colors.tuna.500"),
+          borderColor: theme("colors.tuna.500"),
+          color: theme("colors.heather.500"),
+          border: "1px",
+          "&:not(:disabled):hover": {
+            backgroundColor: theme("colors.tuna.700"),
+          },
+        },
+        ".btn-primary-light": {
+          backgroundColor: theme("colors.shamrock.700"),
+          borderColor: theme("colors.gray.300"),
+          color: theme("colors.white"),
+          border: "1px",
+          "&:not(:disabled):hover": {
+            backgroundColor: theme("colors.shamrock.700"),
+          },
+        },
+        ".btn-primary-dark": {
+          backgroundColor: theme("colors.shamrock.900"),
+          borderColor: theme("colors.gray.300"),
+          color: theme("colors.white"),
+          border: "1px",
+        },
+      });
+    }),
   ],
 };
