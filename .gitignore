@@ -1,5 +1,6 @@
 .wordpress
 .env
+.env.minio
 backup
 env.php
 plugins
@@ -51,3 +52,6 @@ yarn-error.log*
 
 # storybook
 storybook-static
+
+.docker/minio/**/*
+!.docker/minio/.gitkeep

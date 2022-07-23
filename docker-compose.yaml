@@ -1,7 +1,7 @@
 #####################################
 # swarm에서 작동하는 docker-compose
 #####################################
-version: '3.8'
+version: "3.8"
 
 ########################### SERVICES
 services:
@@ -10,6 +10,9 @@ services:
     networks:
       - traefik_proxy
       - default
+    env_file:
+      - ./.env
+      - ./.env.minio
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
@@ -19,6 +22,13 @@ services:
         /* Redis */
         define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
+        define('AS3CF_SETTINGS', serialize(
+          array( 
+            'provider' => 'aws', 
+            'access-key-id' => getenv_docker('MINIO_ROOT_USER', ''),
+            'secret-access-key' => getenv_docker('MINIO_ROOT_PASSWORD', ''),
+          )
+        ));
     volumes:
       - ./apps/wp/wp-content:/var/www/html/wp-content
       - ./apps/wp/src:/var/www/html/wp-content/themes/headless
@@ -37,6 +47,7 @@ services:
       MARIADB_ROOT_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     volumes:
       - ./apps/wp/.db:/var/lib/mysql
+
   redis:
     image: redis:latest
     volumes:
@@ -56,6 +67,33 @@ services:
       - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.rule=Host(`storybook.${DOMAIN}`)
       - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.tls.certresolver=leresolver
       - traefik.http.services.${TYPE}_storybook_${PROJECT_NAME}.loadbalancer.server.port=80
+
+  minio:
+    image: minio/minio
+    volumes:
+      - ./.docker/minio/data/minio_root:/minio_root:z
+      - ./.docker/minio/data/certs:/root/.minio/certs:z
+    networks:
+      - traefik_proxy
+      - default
+    env_file:
+      - ./.env
+      - ./.env.minio
+    command: minio server /minio_root --console-address ":9001"
+    labels:
+      - traefik.enable=true
+      # console
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}.entrypoints=websecure
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}.rule=Host(`bucket.hyeon.pro`)
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}.tls.certresolver=leresolver
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}.service=${TYPE}_minio_${PROJECT_NAME}-service
+      - traefik.http.services.${TYPE}_minio_${PROJECT_NAME}-service.loadbalancer.server.port=9001
+      # api
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}-api.entrypoints=websecure
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}-api.rule=Host(`bucket.hyeon.pro`) && PathPrefix("/wordpress")
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}-api.tls.certresolver=leresolver
+      - traefik.http.routers.${TYPE}_minio_${PROJECT_NAME}-api.service=${TYPE}_minio_${PROJECT_NAME}-api-service
+      - traefik.http.services.${TYPE}_minio_${PROJECT_NAME}-api-service.loadbalancer.server.port=9000
 
 ########################### NETWORKS
 networks:
