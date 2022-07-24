@@ -1,6 +1,5 @@
 import type { Page, Post, Dev } from "~web/client";
 import { client } from "~web/client";
-import { PostComponent } from "./posts/[postSlug]";
 import { PageComponent } from "./[...pageUri]";
 import { DevComponent } from "./dev/[slug]";
 
@@ -20,10 +19,6 @@ export default function Preview() {
     case "Page": {
       const page = node as Page;
       return <PageComponent page={page} />;
-    }
-    case "Post": {
-      const post = node as Post;
-      return <PostComponent post={post} />;
     }
     case "Dev": {
       const post = node as Dev;

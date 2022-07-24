@@ -1,4 +1,4 @@
 module.exports = {
   content: ["./src/**/*.{tsx,scss}"],
-  ...require("tailwindcss-config/tailwind.config"),
+  ...require("@hansanghyeon/tailwindcss/tailwind.config"),
 };

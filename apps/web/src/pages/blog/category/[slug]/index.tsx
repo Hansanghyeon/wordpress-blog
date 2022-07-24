@@ -10,7 +10,7 @@ const POSTS_PER_PAGE = 10;
 export default function Page() {
   const { useQuery } = client;
   const { query = {} } = useRouter();
-  const { slug, cursor } = query;
+  const { pageNumber } = query;
   const isBefore = cursor === "before";
   const option = {
     after: !isBefore ? (cursor as string) : undefined,
@@ -43,8 +43,13 @@ export default function Page() {
           <Posts posts={posts.nodes} />
 
           <Pagination
-            pageInfo={posts.pageInfo}
-            basePath={`/blog/category/${slug}`}
+            hasPrevious={posts.pageInfo.offsetPagination.hasPrevious}
+            hasMore={posts.pageInfo.offsetPagination.hasMore}
+            total={posts.pageInfo.offsetPagination.total}
+            current={Number(pageNumber)}
+            midSize={5}
+            per={POSTS_PER_PAGE}
+            basePath="/dev"
           />
         </div>
       </main>
