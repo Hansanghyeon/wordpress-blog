@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'standard',
-    'plugin:react/jsx-runtime'
-  ],
+  extends: ['plugin:react/recommended', 'standard'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -19,13 +14,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'quote-props': ['error', 'as-needed'],
     'comma-dangle': 0,
     semi: ['error', 'always'],
-    bracketSpacing: 0,
-    'space-before-function-paren': 0
-  },
-  globals: {
-    JSX: true,
   },
 };
