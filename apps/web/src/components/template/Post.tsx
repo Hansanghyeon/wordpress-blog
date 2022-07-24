@@ -4,7 +4,7 @@ interface PostProps {
     title?: string;
     date: string;
     modified: string;
-  }
+  };
 }
 const Post = ({ children, meta }: PostProps) => {
   return (

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Page(): JSX.Element {
   return (
     <div className="container lg:max-w-screen-lg">

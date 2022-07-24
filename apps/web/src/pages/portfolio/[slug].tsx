@@ -1,17 +1,17 @@
-import { getNextStaticProps } from "@faustjs/next";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
-import { DateTime } from 'luxon'
+import { getNextStaticProps } from '@faustjs/next';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
+import { DateTime } from 'luxon';
 // components
-import { client, Portfolio, PortfolioIdType } from "~web/client";
-import { WPGBlocks, is404c } from "~web/lib";
-import Post from "~web/components/template/Post";
-import "@wordpress/block-library/build-style/common.css";
-import "@wordpress/block-library/build-style/style.css";
-import "@wordpress/block-library/build-style/theme.css";
+import { client, Portfolio, PortfolioIdType } from '~web/client';
+import { WPGBlocks, is404c } from '~web/lib';
+import Post from '~web/components/template/Post';
+import '@wordpress/block-library/build-style/common.css';
+import '@wordpress/block-library/build-style/style.css';
+import '@wordpress/block-library/build-style/theme.css';
 
 export interface PostProps {
-  post: Portfolio | Portfolio["preview"]["node"] | null | undefined;
+  post: Portfolio | Portfolio['preview']['node'] | null | undefined;
 }
 
 export function PortfolioComponent({ post }: PostProps) {
@@ -20,9 +20,9 @@ export function PortfolioComponent({ post }: PostProps) {
 
   const postMeta = {
     title: post.title(),
-    date: DateTime.fromISO(post.date).toFormat("yyyy년 MM월 dd일"),
-    modified: DateTime.fromISO(post.modified).toFormat("yyyy년 MM월 dd일")
-  }
+    date: DateTime.fromISO(post.date).toFormat('yyyy년 MM월 dd일'),
+    modified: DateTime.fromISO(post.modified).toFormat('yyyy년 MM월 dd일'),
+  };
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ export function PortfolioComponent({ post }: PostProps) {
 
       <div className="container md:max-w-[800px]">
         <Post meta={postMeta}>
-          <WPGBlocks blocks={post?.blocks ?? ""} />
+          <WPGBlocks blocks={post?.blocks ?? ''} />
         </Post>
       </div>
 
@@ -51,7 +51,7 @@ export function PortfolioComponent({ post }: PostProps) {
   );
 }
 
-export default function Page({ slug }) {
+export default function Page({ slug }: { slug: string }) {
   const { useQuery } = client;
   const post = useQuery().portfolio({
     id: slug,
@@ -66,7 +66,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: await is404c(context, { client }, "portfolio"),
+    notFound: await is404c(context, { client }, 'portfolio'),
     props: {
       slug,
     },
@@ -76,6 +76,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export function getStaticPaths() {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

@@ -1,17 +1,16 @@
-import { getNextStaticProps } from "@faustjs/next";
-import { v4 as uuid } from "uuid";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
-import React from "react";
-import { client, PageIdType } from "~web/client";
-import { WPGBlocks } from "~web/lib";
+import { getNextStaticProps } from '@faustjs/next';
+import { v4 as uuid } from 'uuid';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
+import { client, PageIdType } from '~web/client';
+import { WPGBlocks } from '~web/lib';
 
 export default function Page() {
   const { useQuery, usePage } = client;
   const generalSettings = useQuery().generalSettings;
 
   const page = usePage({
-    id: "18",
+    id: '18',
     idType: PageIdType.DATABASE_ID,
   });
 
@@ -37,7 +36,7 @@ export default function Page() {
 
       <div className="container pt-12 lg:max-w-screen-lg">
         <div className="font-dokdo mb-[45px] text-[48px] font-normal leading-[1]">
-          <WPGBlocks blocks={page?.blocks ?? ""} />
+          <WPGBlocks blocks={page?.blocks ?? ''} />
         </div>
         <div className="w-full md:w-3/6 lg:w-full">
           <div className="content prose-lg">

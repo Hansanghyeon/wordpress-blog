@@ -1,7 +1,7 @@
-import { getNextStaticProps } from "@faustjs/next";
-import { GetStaticPropsContext } from "next";
-import Page from "..";
-import { client } from "~web/client";
+import { getNextStaticProps } from '@faustjs/next';
+import { GetStaticPropsContext } from 'next';
+import Page from '..';
+import { client } from '~web/client';
 
 export default Page;
 
@@ -15,6 +15,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export function getStaticPaths() {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

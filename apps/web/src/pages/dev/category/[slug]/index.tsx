@@ -1,10 +1,10 @@
-import { getNextStaticProps } from "@faustjs/next";
-import Head from "next/head";
-import { Header, Footer, Posts, Pagination } from "~web/components";
-import { GetStaticPropsContext } from "next";
-import { useRouter } from "next/router";
-import { client, DevCategoryIdType } from "~web/client";
-import { is404c } from "~web/lib";
+import { getNextStaticProps } from '@faustjs/next';
+import Head from 'next/head';
+import { Header, Footer, Posts, Pagination } from '~web/components';
+import { GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
+import { client, DevCategoryIdType } from '~web/client';
+import { is404c } from '~web/lib';
 
 const POSTS_PER_PAGE = 10;
 
@@ -12,7 +12,7 @@ export default function Page() {
   const { useQuery } = client;
   const { query = {} } = useRouter();
   const { slug, cursor } = query;
-  const isBefore = cursor === "before";
+  const isBefore = cursor === 'before';
   const option = {
     after: !isBefore ? (cursor as string) : undefined,
     before: isBefore ? (cursor as string) : undefined,
@@ -59,13 +59,13 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: await is404c(context, { client }, "devCategory"),
+    notFound: await is404c(context, { client }, 'devCategory'),
   });
 }
 
 export function getStaticPaths() {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

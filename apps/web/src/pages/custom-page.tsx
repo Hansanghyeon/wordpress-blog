@@ -1,8 +1,8 @@
-import { getNextStaticProps } from "@faustjs/next";
-import { client } from "~web/client";
-import { Footer, Header, Hero } from "~web/components";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
+import { getNextStaticProps } from '@faustjs/next';
+import { client } from '~web/client';
+import { Footer, Header, Hero } from '~web/components';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 
 export default function Page() {
   const { useQuery } = client;
@@ -24,7 +24,7 @@ export default function Page() {
       <main className="content content-single">
         <div className="wrap">
           <p>
-            You can still create pages just as you would in{" "}
+            You can still create pages just as you would in{' '}
             <a
               href="https://nextjs.org/docs/basic-features/pages"
               target="_blank"

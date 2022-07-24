@@ -1,18 +1,17 @@
-import { getNextStaticProps, is404 } from "@faustjs/next";
-import { client } from "~web/client";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
-import cx from "classnames";
+import { getNextStaticProps } from '@faustjs/next';
+import { client } from '~web/client';
+import { GetStaticPropsContext } from 'next';
+import cx from 'classnames';
 import {
   UilGithubAlt,
   UilMailbox,
   UilMobileAndroidAlt,
-} from "@iconscout/react-unicons";
+} from '@iconscout/react-unicons';
 
 export default function Page() {
   const { useQuery } = client;
   const post = useQuery().shortcutPost({
-    id: "cG9zdDo1Mzg4",
+    id: 'cG9zdDo1Mzg4',
   });
 
   return (
@@ -47,39 +46,39 @@ export default function Page() {
             <div>
               {[
                 {
-                  name: "react",
-                  className: "text-[color:#61DAFB]",
+                  name: 'react',
+                  className: 'text-[color:#61DAFB]',
                 },
                 {
-                  name: "💅 styled-component",
-                  className: "text-[color:#F0B5F2]",
+                  name: '💅 styled-component',
+                  className: 'text-[color:#F0B5F2]',
                 },
                 {
-                  name: "sass",
-                  className: "text-[color:#CD6899]",
+                  name: 'sass',
+                  className: 'text-[color:#CD6899]',
                 },
                 {
-                  name: "tailwind",
-                  className: "text-[color:#38BDF9]",
+                  name: 'tailwind',
+                  className: 'text-[color:#38BDF9]',
                 },
                 {
-                  name: "docker",
-                  className: "text-[color:#38BDF9]",
+                  name: 'docker',
+                  className: 'text-[color:#38BDF9]',
                 },
-                { name: "stroybook" },
-                { name: "WordPress" },
-                { name: "Markup HTML/CSS/JS" },
+                { name: 'stroybook' },
+                { name: 'WordPress' },
+                { name: 'Markup HTML/CSS/JS' },
               ].map(({ name, className }, index) => (
                 <>
                   <code
                     className={cx(
                       className,
-                      "whitespace-pre bg-slate-600 dark:bg-[color:var(--codeBg)]"
+                      'whitespace-pre bg-slate-600 dark:bg-[color:var(--codeBg)]',
                     )}
                     key={`key-${index}-skill1`}
                   >
                     {name}
-                  </code>{" "}
+                  </code>{' '}
                 </>
               ))}
             </div>
@@ -88,19 +87,19 @@ export default function Page() {
             <div>그 외 다뤄본 기술 & 인프라 기타 등등</div>
             <div>
               {[
-                "Cloud AWS/GCP/NCP/Vultr",
-                "Redux",
-                "Bootstrap 4",
-                "Vue 3",
-                "Next.js",
-                "Gatsby",
-                "docker swarm",
-                "k8s",
+                'Cloud AWS/GCP/NCP/Vultr',
+                'Redux',
+                'Bootstrap 4',
+                'Vue 3',
+                'Next.js',
+                'Gatsby',
+                'docker swarm',
+                'k8s',
               ].map((name, index) => (
                 <>
                   <code key={`key-${index}-skill2`} className="whitespace-pre">
                     {name}
-                  </code>{" "}
+                  </code>{' '}
                 </>
               ))}
             </div>
@@ -108,7 +107,7 @@ export default function Page() {
         </section>
         <section>
           <div className="prose">
-            <div dangerouslySetInnerHTML={{ __html: post?.content() ?? "" }} />
+            <div dangerouslySetInnerHTML={{ __html: post?.content() ?? '' }} />
           </div>
         </section>
       </div>

@@ -1,11 +1,10 @@
-import { getNextStaticProps } from "@faustjs/next";
-import { client } from "~web/client";
-import { Footer, Header, Pagination, Posts } from "~web/components";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import React from "react";
-import styles from "~web/scss/pages/posts.module.scss";
+import { getNextStaticProps } from '@faustjs/next';
+import { client } from '~web/client';
+import { Pagination, Posts } from '~web/components';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import styles from '~web/scss/pages/posts.module.scss';
 
 const POSTS_PER_PAGE = 10;
 
@@ -19,8 +18,8 @@ export default function Page() {
       offsetPagination: {
         offset: Number(pageNumber) * POSTS_PER_PAGE - POSTS_PER_PAGE,
         size: POSTS_PER_PAGE,
-      }
-    }
+      },
+    },
   });
 
   if (useQuery().$state.isLoading) {

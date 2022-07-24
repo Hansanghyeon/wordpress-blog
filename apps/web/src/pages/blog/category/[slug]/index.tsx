@@ -1,23 +1,17 @@
-import { getNextStaticProps, is404 } from "@faustjs/next";
-import Head from "next/head";
-import { Header, Footer, Posts, Pagination } from "~web/components";
-import { GetStaticPropsContext } from "next";
-import { useRouter } from "next/router";
-import { client, BlogCategoryIdType } from "~web/client";
+import { getNextStaticProps } from '@faustjs/next';
+import Head from 'next/head';
+import { Header, Footer, Posts, Pagination } from '~web/components';
+import { GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
+import { client, BlogCategoryIdType } from '~web/client';
 
 const POSTS_PER_PAGE = 10;
 
 export default function Page() {
   const { useQuery } = client;
   const { query = {} } = useRouter();
-  const { pageNumber } = query;
-  const isBefore = cursor === "before";
-  const option = {
-    after: !isBefore ? (cursor as string) : undefined,
-    before: isBefore ? (cursor as string) : undefined,
-    first: !isBefore ? POSTS_PER_PAGE : undefined,
-    last: isBefore ? POSTS_PER_PAGE : undefined,
-  };
+  const { pageNumber, slug } = query;
+  const option = {};
   const generalSettings = useQuery().generalSettings;
   const catQuery = {
     id: slug as string,
@@ -70,6 +64,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export function getStaticPaths() {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

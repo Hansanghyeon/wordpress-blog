@@ -1,4 +1,4 @@
-const {withFaust} = require('@faustjs/next');
+const { withFaust } = require('@faustjs/next');
 // const withTM = require("next-transpile-modules")(["ui"]);
 
 /**

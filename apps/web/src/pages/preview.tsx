@@ -1,7 +1,7 @@
-import type { Page, Post, Dev } from "~web/client";
-import { client } from "~web/client";
-import { PageComponent } from "./[...pageUri]";
-import { DevComponent } from "./dev/[slug]";
+import type { Page, Dev } from '~web/client';
+import { client } from '~web/client';
+import { PageComponent } from './[...pageUri]';
+import { DevComponent } from './dev/[slug]';
 
 export default function Preview() {
   const isLoading = client.useIsLoading();
@@ -16,15 +16,15 @@ export default function Preview() {
   }
 
   switch (typeName) {
-    case "Page": {
+    case 'Page': {
       const page = node as Page;
       return <PageComponent page={page} />;
     }
-    case "Dev": {
+    case 'Dev': {
       const post = node as Dev;
       return <DevComponent post={post} />;
     }
-    case "Portfolio": {
+    case 'Portfolio': {
       const post = node as Dev;
       return <DevComponent post={post} />;
     }

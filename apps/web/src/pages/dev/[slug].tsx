@@ -1,12 +1,12 @@
-import { getNextStaticProps, is404 } from "@faustjs/next";
-import { client, Dev, DevIdType } from "~web/client";
-import { Footer, Header, Hero } from "~web/components";
-import { is404c } from "~web/lib";
-import { GetStaticPropsContext } from "next";
-import Head from "next/head";
+import { getNextStaticProps } from '@faustjs/next';
+import { client, Dev, DevIdType } from '~web/client';
+import { Footer, Header, Hero } from '~web/components';
+import { is404c } from '~web/lib';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 
 export interface PostProps {
-  post: Dev | Dev["preview"]["node"] | null | undefined;
+  post: Dev | Dev['preview']['node'] | null | undefined;
 }
 
 export function DevComponent({ post }: PostProps) {
@@ -33,7 +33,7 @@ export function DevComponent({ post }: PostProps) {
 
       <main className="content content-single">
         <div className="wrap">
-          <div dangerouslySetInnerHTML={{ __html: post?.content() ?? "" }} />
+          <div dangerouslySetInnerHTML={{ __html: post?.content() ?? '' }} />
         </div>
       </main>
 
@@ -42,7 +42,7 @@ export function DevComponent({ post }: PostProps) {
   );
 }
 
-export default function Page({ slug }) {
+export default function Page({ slug }: { slug: string }) {
   const { useQuery } = client;
   const post = useQuery().dev({
     id: slug,
@@ -57,7 +57,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return getNextStaticProps(context, {
     Page,
     client,
-    notFound: await is404c(context, { client }, "dev"),
+    notFound: await is404c(context, { client }, 'dev'),
     props: {
       slug,
     },
@@ -67,6 +67,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export function getStaticPaths() {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

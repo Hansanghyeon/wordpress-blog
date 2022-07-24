@@ -1,9 +1,12 @@
-import { default as OriginalWPGBlocks } from "react-gutenberg";
-import { parse } from "@wordpress/block-serialization-default-parser";
+/* eslint-disable import/no-named-default */
+import { default as OriginalWPGBlocks } from 'react-gutenberg';
+import { parse } from '@wordpress/block-serialization-default-parser';
 import loadable from '@loadable/component';
 
-const Paragraph = loadable(() => import('~web/components/prose/Paragraph/Paragraph'))
-const Code = loadable(() => import('~web/components/prose/Code/Code'))
+const Paragraph = loadable(
+  () => import('~web/components/prose/Paragraph/Paragraph'),
+);
+const Code = loadable(() => import('~web/components/prose/Code/Code'));
 
 function GetCustomBlock(name: string) {
   switch (name) {
@@ -16,10 +19,10 @@ function GetCustomBlock(name: string) {
   }
 }
 
-export default function WPGBlocks({ blocks }) {
+export default function WPGBlocks({ blocks }: any) {
   return (
     <OriginalWPGBlocks
-      blocks={parse(blocks ?? "")}
+      blocks={parse(blocks ?? '')}
       mapToBlock={GetCustomBlock}
     />
   );

@@ -1,6 +1,6 @@
-import { selectFields } from "gqty";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
-import { getClient } from "@faustjs/next";
+import { selectFields } from 'gqty';
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import { getClient } from '@faustjs/next';
 
 export interface Is404Config {
   client: ReturnType<typeof getClient>;
@@ -15,7 +15,7 @@ export interface Is404Config {
  * @returns {bool}
  */
 export default async function is404c<
-  Context extends GetStaticPropsContext | GetServerSidePropsContext
+  Context extends GetStaticPropsContext | GetServerSidePropsContext,
 >({ params }: Context, { client }: Is404Config, customPostType) {
   if (!params) {
     return false;
@@ -26,10 +26,10 @@ export default async function is404c<
   const customPostTypePost = await client.client.resolved(() => {
     const node = client.client.query[customPostType]({
       id: slug,
-      idType: "SLUG",
+      idType: 'SLUG',
     });
 
-    return selectFields(node, ["id"]);
+    return selectFields(node, ['id']);
   });
 
   return customPostTypePost === null;
