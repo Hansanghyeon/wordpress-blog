@@ -4,12 +4,14 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "tools/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "storybook": "turbo run storybook",
     "build:storybook": "turbo run build:storybook",
     "format": "prettier --write \"**/*.{ts,tsx,md}\" \"!apps/wp\""
   },

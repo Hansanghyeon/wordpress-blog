@@ -14,16 +14,7 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "~ui/*": [
-        "../../packages/ui/components/*"
-      ],
-      "~web/*": [
-        "../../apps/web/src/*"
-      ]
-    }
+    "strict": true
   },
   "exclude": [
     "node_modules"
