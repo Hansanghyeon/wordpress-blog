@@ -1,4 +1,5 @@
 import { getNextStaticProps } from "@faustjs/next";
+import { v4 as uuid } from "uuid";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import React from "react";
@@ -46,7 +47,7 @@ export default function Page() {
             {menuItems.nodes.map((menuItem) => {
               const { uri, thumbnail, label } = menuItem;
               return (
-                <li className="p-2">
+                <li className="p-2" key={uuid()}>
                   <a href={uri}>
                     <div className="grid max-w-[125px] gap-y-[8px]">
                       <img
