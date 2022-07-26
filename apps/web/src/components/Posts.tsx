@@ -26,14 +26,8 @@ function Posts({
 }: Props): JSX.Element {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <section className={styles['posts-block']} {...(id && { id })}>
+    <section {...(id && { id })}>
       <div className="wrap">
-        {heading && (
-          <Heading level={headingLevel} className={styles.heading}>
-            {heading}
-          </Heading>
-        )}
-        {intro && <p className={styles.intro}>{intro}</p>}
         <div className="posts">
           {posts.map((post) => (
             <div

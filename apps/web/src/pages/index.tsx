@@ -22,16 +22,6 @@ export default function Page() {
         <title>
           {generalSettings.title} - {generalSettings.description}
         </title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="https://fonts.gstatic.com"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap"
-          rel="stylesheet"
-        />
       </Head>
 
       <div className="container pt-12 lg:max-w-screen-lg">

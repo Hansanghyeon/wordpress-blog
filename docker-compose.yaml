@@ -53,20 +53,20 @@ services:
     volumes:
       - redis:/data
 
-  storybook:
-    image: nginx
-    networks:
-      - traefik_proxy
-      - default
-    volumes:
-      - ./packages/ui/storybook-static:/usr/share/nginx/html
-      - ./.docker/storybook/nginx.conf:/etc/nginx/nginx.conf
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.entrypoints=websecure
-      - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.rule=Host(`storybook.${DOMAIN}`)
-      - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.tls.certresolver=leresolver
-      - traefik.http.services.${TYPE}_storybook_${PROJECT_NAME}.loadbalancer.server.port=80
+  # storybook:
+  #   image: nginx
+  #   networks:
+  #     - traefik_proxy
+  #     - default
+  #   volumes:
+  #     - ./packages/ui/storybook-static:/usr/share/nginx/html
+  #     - ./.docker/storybook/nginx.conf:/etc/nginx/nginx.conf
+  #   labels:
+  #     - traefik.enable=true
+  #     - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.entrypoints=websecure
+  #     - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.rule=Host(`storybook.${DOMAIN}`)
+  #     - traefik.http.routers.${TYPE}_storybook_${PROJECT_NAME}.tls.certresolver=leresolver
+  #     - traefik.http.services.${TYPE}_storybook_${PROJECT_NAME}.loadbalancer.server.port=80
 
   minio:
     image: minio/minio

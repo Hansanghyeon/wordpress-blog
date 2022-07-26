@@ -2,7 +2,6 @@ import '~web/faust.config';
 import { FaustProvider } from '@faustjs/next';
 import { client } from '~web/client';
 import type { AppProps } from 'next/app';
-import 'normalize.css/normalize.css';
 import 'pretendard/dist/web/static/pretendard.css';
 import 'd2coding/d2coding-full.css';
 import 'd2coding/d2coding-subset.css';
