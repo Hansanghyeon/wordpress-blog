@@ -1,5 +1,5 @@
 {
-  "name": "@hansanghyeon/design-system",
+  "name": "999ui",
   "version": "1.0.0-pre-alpha.1",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
@@ -23,7 +23,7 @@
   "source": "src/index.ts",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "unpkg": "lib/umd/design-system.min.js",
+  "unpkg": "lib/umd/ui.min.js",
   "types": "lib/types/index.d.ts",
   "sideEffects": false,
   "scripts": {

@@ -26,14 +26,14 @@ const clean = () => fse.existsSync(libRoot) && fse.removeSync(libRoot);
 
 const has = (t) => !targets.length || targets.includes(t);
 
-const buildTypes = step('generating .d.ts', () => shell(`yarn build:types`));
+const buildTypes = step('generating .d.ts', () => shell('yarn build:types'));
 
 const copyTypes = (dest) =>
   fse.copySync(typesRootInit, dest, { overwrite: true });
 
 const babel = (outDir, envName) => {
   shell(
-    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
+    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`,
   );
 };
 
@@ -54,7 +54,7 @@ const buildEsm = step('es modules', async () => {
 });
 
 /**
- * Bundles a minified and unminified version of design-system including
+ * Bundles a minified and unminified version of ui including
  * all it's immediate dependencies (excluding React, ReactDOM, etc)
  */
 const buildUmd = step(
@@ -70,9 +70,9 @@ const buildUmd = step(
           }
 
           resolve();
-        }
+        },
       );
-    })
+    }),
 );
 
 const buildDirectories = step('Linking directories', () =>
@@ -80,12 +80,12 @@ const buildDirectories = step('Linking directories', () =>
     inputDir: '../src/**',
     cjsDir: 'cjs',
     esmDir: 'esm',
-    cwd: libRoot
-  })
+    cwd: libRoot,
+  }),
 );
 
 console.log(
-  green(`Building targets: ${targets.length ? targets.join(', ') : 'all'}\n`)
+  green(`Building targets: ${targets.length ? targets.join(', ') : 'all'}\n`),
 );
 
 clean();
@@ -97,8 +97,8 @@ Promise.resolve(true)
       has('lib') && buildLib(),
       has('es') && buildEsm(),
       has('umd') && buildUmd(),
-      copyTypes(typesRoot)
-    ])
+      copyTypes(typesRoot),
+    ]),
   )
   .then(buildDirectories)
   .catch(error);

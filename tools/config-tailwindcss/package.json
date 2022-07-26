@@ -1,7 +1,7 @@
 {
   "name": "@hansanghyeon/tailwindcss",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "tailwind.config.js",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

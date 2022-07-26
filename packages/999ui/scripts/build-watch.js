@@ -21,13 +21,13 @@ const clean = () => fse.existsSync(libRoot) && fse.removeSync(libRoot);
 
 const has = (t) => !targets.length || targets.includes(t);
 
-const buildTypes = step('generating .d.ts', () => shell(`yarn build:types`));
+const buildTypes = step('generating .d.ts', () => shell('yarn build:types'));
 
 const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
 const babel = (outDir, envName) => {
   shell(
-    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}" --watch`
+    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}" --watch`,
   );
 };
 
@@ -45,12 +45,12 @@ const buildDirectories = step('Linking directories', () =>
     inputDir: '../src/**',
     cjsDir: 'cjs',
     esmDir: 'esm',
-    cwd: libRoot
-  })
+    cwd: libRoot,
+  }),
 );
 
 console.log(
-  green(`Building targets: ${targets.length ? targets.join(', ') : 'all'}\n`)
+  green(`Building targets: ${targets.length ? targets.join(', ') : 'all'}\n`),
 );
 
 clean();

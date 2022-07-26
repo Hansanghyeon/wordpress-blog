@@ -31,29 +31,19 @@ module.exports = (api) => {
             {
               dev,
               modules,
-              removePropTypes: !dev
-            }
+              removePropTypes: !dev,
+            },
           ],
-          '@babel/preset-typescript'
+          '@babel/preset-typescript',
         ]
       : [
           '@babel/preset-env',
           '@babel/react',
           '@babel/preset-typescript',
-          '@emotion/babel-preset-css-prop'
+          '@emotion/babel-preset-css-prop',
         ];
 
-  const plugins = [
-    [
-      'macros',
-      {
-        twin: {
-          preset: 'emotion',
-          config: resolve(__dirname, '../../react', 'tailwind.config.js')
-        }
-      }
-    ]
-  ];
+  const plugins = ['macros'];
 
   return {
     presets,
@@ -63,8 +53,8 @@ module.exports = (api) => {
         ? [
             /@babel[\\|/]runtime/,
             /\.stories\.(js|ts|tsx)$/,
-            /\.test\.(js|ts|tsx)$/
+            /\.test\.(js|ts|tsx)$/,
           ]
-        : []
+        : [],
   };
 };

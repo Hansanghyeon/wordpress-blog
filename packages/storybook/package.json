@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@hansanghyeon/design-system": "1.0.0-pre-alpha.1"
+    "999ui": "1.0.0-pre-alpha.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",

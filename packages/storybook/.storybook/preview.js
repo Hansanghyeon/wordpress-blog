@@ -14,7 +14,10 @@ export const decorators = [
         alignItems: 'center',
         flexWrap: 'wrap',
         width: '100vw',
+        maxWidth: '100%',
         height: '100vh',
+        maxHeight: '100%',
+        backgroundColor: useDarkMode() ? '#333333' : '#F8F8F8',
       }}
     >
       <Story />

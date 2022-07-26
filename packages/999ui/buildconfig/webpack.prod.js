@@ -7,16 +7,16 @@ module.exports = merge(common, {
   mode: 'production',
   entry: {
     index: path.join(sourcePath, 'index.ts'),
-    'index.min': path.join(sourcePath, 'index.ts')
+    'index.min': path.join(sourcePath, 'index.ts'),
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../lib/esm'),
-    library: 'ImwebDesignSystem',
+    library: '999ui',
     libraryTarget: 'umd',
-    globalObject: 'this'
+    globalObject: 'this',
   },
   optimization: {
-    minimize: true
-  }
+    minimize: true,
+  },
 });

@@ -30,7 +30,7 @@ function main() {
   }
   fs.writeFileSync(
     libRoot + '/package.json',
-    Buffer.from(JSON.stringify(sourceObj, null, 2), 'utf-8')
+    Buffer.from(JSON.stringify(sourceObj, null, 2), 'utf-8'),
   );
 }
 

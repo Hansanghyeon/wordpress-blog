@@ -16,7 +16,7 @@ const isFile = (path) =>
 
 const withDefaults = (
   { cwd = '.', ...options } = {},
-  additionalDefaults = {}
+  additionalDefaults = {},
 ) => ({
   inputDir: 'src',
   cwd: path.resolve(process.cwd(), cwd),
@@ -38,7 +38,7 @@ const getFoldersFromDir = async (cwd, dir) => {
 const findFiles = async ({ cwd, inputDir, esmDir }) => {
   const filePaths = await glob(
     path.join(inputDir, '!(index).{js,jsx,ts,tsx}'),
-    { cwd }
+    { cwd },
   );
 
   const componentsFolders = await getFoldersFromDir(cwd, esmDir);
@@ -66,7 +66,7 @@ const getPkgName = async (options) => {
   if (!result) {
     throw new Error(
       'Could not determine package name. No `name` option was passed and no package.json was found relative to: ' +
-        options.cwd
+        options.cwd,
     );
   }
   const pkgName = result.packageJson.name;
@@ -113,9 +113,9 @@ const cherryPick = async (inputOptions) => {
       await mkDir(proxyDir).catch(noop);
       await writeFile(
         `${proxyDir}/package.json`,
-        await fileProxy(options, file)
+        await fileProxy(options, file),
       );
-    })
+    }),
   );
 
   return files;
@@ -125,7 +125,7 @@ const clean = async (inputOptions) => {
   const options = withDefaults(inputOptions);
   const files = await findFiles(options);
   await Promise.all(
-    files.map(async (file) => rimraf(path.join(options.cwd, file)))
+    files.map(async (file) => rimraf(path.join(options.cwd, file))),
   );
   return files;
 };

@@ -7,9 +7,9 @@ const error = require('./utils').error;
 const libRoot = path.join(__dirname, '../lib');
 const rootDir = path.join(__dirname, '../');
 
-const buildPkg = step('build pkg...', () => shell(`yarn build`));
+const buildPkg = step('build pkg...', () => shell('yarn build'));
 
-const minifyPkg = step('minify pkg...', () => shell(`yarn build:minify`));
+const minifyPkg = step('minify pkg...', () => shell('yarn build:minify'));
 
 const printPkg = step('print pkg...', () => {
   const genPkgJson = fse

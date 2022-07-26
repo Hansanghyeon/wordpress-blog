@@ -1,6 +1,6 @@
-var minify = require('terser').minify;
-var fs = require('fs');
-var path = require('path');
+const minify = require('terser').minify;
+const fs = require('fs');
+const path = require('path');
 const { forEach } = require('p-iteration');
 const { cyan } = require('chalk');
 
@@ -11,7 +11,7 @@ const esRoot = path.join(libRoot, 'esm');
 const cjsRoot = path.join(libRoot, 'cjs');
 
 function getAllFiles(dirPath, arrayOfFiles) {
-  let files = fs.readdirSync(dirPath);
+  const files = fs.readdirSync(dirPath);
 
   arrayOfFiles = arrayOfFiles || [];
 
@@ -33,7 +33,7 @@ async function minifyFiles(filePaths) {
       compress: true,
       module: true,
       mangle: true,
-      toplevel: true
+      toplevel: true,
     });
     fs.writeFileSync(filePath, code);
   });
