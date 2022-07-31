@@ -8,10 +8,11 @@ const cherryPick = require('./cherry-pick').default;
 const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, '../src');
-const typesRoot = path.join(__dirname, '../types');
+const typesRootInit = path.join(__dirname, '../types');
 
 const libRoot = path.join(__dirname, '../lib');
 const esRoot = path.join(libRoot, 'esm');
+const typesRoot = path.join(libRoot, 'types');
 
 const step = require('./utils').step;
 const shell = require('./utils').shell;
@@ -23,7 +24,8 @@ const has = (t) => !targets.length || targets.includes(t);
 
 const buildTypes = step('generating .d.ts', () => shell('yarn build:types'));
 
-const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
+const copyTypes = (dest) =>
+  fse.copySync(typesRootInit, dest, { overwrite: true });
 
 const babel = (outDir, envName) => {
   shell(
@@ -57,6 +59,6 @@ clean();
 
 Promise.resolve(true)
   .then(buildTypes)
-  .then(() => Promise.all([has('es') && buildEsm()]))
+  .then(() => Promise.all([has('es') && buildEsm(), copyTypes(typesRoot)]))
   .then(buildDirectories)
   .catch(error);
