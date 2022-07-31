@@ -1,31 +1,45 @@
 {
   "name": "storybook",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.0",
   "license": "MIT",
-  "dependencies": {
-    "999ui": "1.0.0-pre-alpha.1"
+  "scripts": {
+    "lint": "eslint *.ts*",
+    "dev": "start-storybook -p 6006 --no-open",
+    "build": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-rnd": "^10.3.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.18.0",
+    "@emotion/react": "^11.9.3",
     "@storybook/addon-a11y": "^6.5.9",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.6",
+    "@storybook/addon-docs": "^6.5.6",
+    "@storybook/addon-essentials": "^6.5.6",
+    "@storybook/addon-interactions": "^6.5.6",
+    "@storybook/addon-links": "^6.5.6",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-storysource": "^6.5.9",
-    "@storybook/addons": "^6.5.9",
-    "@storybook/builder-webpack5": "^6.5.9",
-    "@storybook/manager-webpack5": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/theming": "^6.5.9",
-    "babel-loader": "^8.2.3",
-    "react-rnd": "^10.3.7",
-    "storybook-dark-mode": "^1.1.0"
-  },
-  "scripts": {
-    "storybook": "start-storybook -p 6006 --no-manager-cache",
-    "build-storybook": "build-storybook",
-    "sb": "yarn storybook",
-    "start": "yarn build-storybook && http-server ./storybook-static"
+    "@storybook/builder-vite": "^0.1.35",
+    "@storybook/react": "^6.5.6",
+    "@storybook/testing-library": "^0.0.11",
+    "@storybook/theming": "^6.5.6",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "clsx": "^1.2.1",
+    "eslint": "^7.32.0",
+    "postcss": "^8.4.14",
+    "react-markdown": "^8.0.3",
+    "sass": "^1.52.1",
+    "storybook-dark-mode": "^1.1.0",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.9",
+    "vite-tsconfig-paths": "^3.4.1"
   }
 }

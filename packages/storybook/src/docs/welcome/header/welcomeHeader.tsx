@@ -5,11 +5,8 @@ export default function WelcomeHeader() {
     <div style={{
       position: "relative",
       width: "100%",
-      height: "180px",
       display: "flex",
       alignItems: "center",
-      minWidth: "650px",
-      paddingLeft: "40px",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundImage: "url('/images/WelcomePageCover.png')",
@@ -27,7 +24,7 @@ export default function WelcomeHeader() {
         textAlign: "left",
         display: "grid",
         borderRadius: "4px",
-        padding: "40px 24px",
+        padding: "24px",
       }}>
         <span style={{
           zIndex: '1',

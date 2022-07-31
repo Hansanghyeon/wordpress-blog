@@ -2,6 +2,7 @@ import React from 'react';
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+import './style.scss';
 
 export const decorators = [
   (Story) => (
