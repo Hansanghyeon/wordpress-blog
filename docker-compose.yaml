@@ -30,7 +30,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - ./.docker/wp/wp-content:/var/www/html/wp-content
-      - ./src:/var/www/html/wp-content/themes/sage
+      - ./apps/web:/var/www/html/wp-content/themes/sage
     labels:
       - traefik.enable=true
       ## HTTP Routers
