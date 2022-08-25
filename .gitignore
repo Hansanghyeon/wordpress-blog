@@ -12,3 +12,4 @@ wp-content/**/*
 !wp-content/.gitkeep
 .db
 .mysql
+.env.minio
