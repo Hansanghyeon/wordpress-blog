@@ -9,5 +9,5 @@ function minio_s3_client_args( $args ) {
 
   add_filter( 'as3cf_aws_s3_url_domain', 'minio_s3_url_domain', 10, 2 );
   function minio_s3_url_domain( $domain, $bucket ) {
-      return 'cdn.hyeon.pro/' . $bucket;
+      return getenv_docker('CDN_DOMAIN', 'cdn.hyeon.pro').'/' . $bucket;
   }
