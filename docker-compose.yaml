@@ -13,9 +13,9 @@ services:
       - ./.env.minio
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_NAME: wp
       WORDPRESS_CONFIG_EXTRA: |
         /* Redis */
         define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
@@ -35,7 +35,7 @@ services:
       - traefik.enable=true
       ## HTTP Routers
       - traefik.http.routers.${TYPE}-201912-hyeon.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-hyeon.rule=Host(`hyeon.pro`)
+      - traefik.http.routers.${TYPE}-201912-hyeon.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.${TYPE}-201912-hyeon.tls.certresolver=leresolver
       - traefik.http.services.${TYPE}-201912-hyeon.loadbalancer.server.port=80
   db:
@@ -66,16 +66,16 @@ services:
       - traefik.enable=true
       # console
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.rule=Host(`hyeon.bucket.hyeon.pro`)
+      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.rule=Host(`${CDN_DOMAIN}`)
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.tls.certresolver=leresolver
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.service=${TYPE}-201912-minio-${PROJECT_NAME}-service
       - traefik.http.services.${TYPE}-201912-minio-${PROJECT_NAME}-service.loadbalancer.server.port=9001
       # api
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.rule=Host(`hyeon.bucket.hyeon.pro`) && PathPrefix("/wordpress")
+      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.rule=Host(`${CDN_DOMAIN}`) && PathPrefix("/wordpress")
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.tls.certresolver=leresolver
       - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.service=${TYPE}-201912-minio-${PROJECT_NAME}-api-service
-      - traefik.http.services.${TYPE}_minio_${PROJECT_NAME}-api-service.loadbalancer.server.port=9000
+      - traefik.http.services.${TYPE}-201912-minio-${PROJECT_NAME}-api-service.loadbalancer.server.port=9000
 
 ########################### NETWORKS
 networks:
