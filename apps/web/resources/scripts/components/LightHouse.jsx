@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import lottie from "lottie-web";
 
 function useMedia(query) {
@@ -19,18 +18,6 @@ function useMedia(query) {
   return matches;
 }
 
-const Box = styled.div`
-  width: 250px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 100px 0 0 0;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  z-index: -1;
-`;
-
 function BaseHouse({path, play}) {
   const anime = useRef(null);
   useEffect(() => {
@@ -43,7 +30,17 @@ function BaseHouse({path, play}) {
     });
     return () => lottie.stop();
   }, []);
-  return <Box ref={anime} className={!play && 'hidden'} />;
+  return <div style={{
+    width: '250px',
+    height: '180px',
+    overflow: 'hidden',
+    borderRadius: '100px 0 0 0',
+    position: 'fixed',
+    bottom: '0',
+    right: '0',
+    opacity: '0.5',
+    zIndex: '-1',
+  }} ref={anime} className={!play && 'hidden'} />;
 }
 function LightHouse({data}) {
   const mode = useMedia("(prefers-color-scheme: dark)");

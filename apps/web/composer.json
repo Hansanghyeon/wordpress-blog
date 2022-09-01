@@ -39,14 +39,13 @@
     }
   },
   "require": {
-    "php": "^7.3|^8.0",
-    "google/apiclient": "^2.0",
-    "nesbot/carbon": "^2.55",
-    "roots/acorn": "2.0.0-alpha.0"
+    "php": "^7.4|^8.0",
+    "google/apiclient": "^2.12",
+    "nesbot/carbon": "^2.62",
+    "roots/acorn": "^2.1"
   },
   "require-dev": {
-    "filp/whoops": "^2.12",
-    "squizlabs/php_codesniffer": "^3.6"
+    "squizlabs/php_codesniffer": "3.7.1"
   },
   "suggest": {
     "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
@@ -61,18 +60,17 @@
   "prefer-stable": true,
   "scripts": {
     "lint": [
-      "phpcs --extensions=php --standard=PSR12 app config"
-    ],
-    "post-autoload-dump": [
-      "Roots\\Acorn\\ComposerScripts::postAutoloadDump",
-      "Google\\Task\\Composer::cleanup"
+      "phpcs --extensions=php --standard=PSR12 app"
     ]
   },
   "extra": {
-    "google/apiclient-services": [
-      "Analytics",
-      "AnalyticsData",
-      "AnalyticsReporting"
-    ]
-  }
+    "acorn": {
+      "providers": [
+        "App\\Providers\\ThemeServiceProvider"
+      ]
+    }
+  },
+  "post-autoload-dump": [
+    "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+  ]
 }
