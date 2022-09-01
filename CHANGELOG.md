@@ -3,6 +3,10 @@
 프로젝트의 변경 사항은 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/) 형식을 바탕으로 구성하였습니다.
 현재 버전은 [#181](https://github.com/Hansanghyeon/4log/issues/181) 과 동일한 내용으로 구성됩니다.
 
+## [v9.0.0] 2022-09-02
+
+Sage 10 (dev) 버전에서 Sage 10.2.0으로 마이그레이션
+
 ## [v8.16.1] 2022-03-17
 
 ### Fixed
