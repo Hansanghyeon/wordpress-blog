@@ -1,6 +1,9 @@
 {
   "name": "hyeon",
-  "version": "9.0.0",
   "repository": "git@github.com:Hansanghyeon/hyeon.pro.git",
-  "author": "Hansanghyeon <999@hyeon.pro>"
+  "author": "Hansanghyeon <999@hyeon.pro>",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ]
 }

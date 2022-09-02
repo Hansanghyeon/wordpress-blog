@@ -3,7 +3,7 @@ version: '3.8'
 ########################### SERVICES
 services:
   wordpress:
-    image: ghcr.io/hansanghyeon/wordpress-redis:5.8.2-php8.0-apache-redis
+    image: wordpress:6.0.2-php8.1-apache
     restart: always
     networks:
       - traefik

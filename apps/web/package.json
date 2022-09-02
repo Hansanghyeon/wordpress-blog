@@ -1,5 +1,7 @@
 {
-  "name": "sage",
+  "name": "hyeon",
+  "version": "9.0.0",
+  "description": "wordpress, roots/sage",
   "private": true,
   "browserslist": [
     "extends @roots/browserslist-config/current"
@@ -8,8 +10,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "bud dev",
-    "build": "bud build",
+    "dev": "ts-bud dev",
+    "build": "ts-bud build",
     "translate": "yarn translate:pot && yarn translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
     "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
