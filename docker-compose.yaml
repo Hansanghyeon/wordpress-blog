@@ -3,7 +3,7 @@ version: '3.8'
 ########################### SERVICES
 services:
   wordpress:
-    image: wordpress:6.0.2-php8.1-apache
+    image: ghcr.io/hansanghyeon/wordpress-xdebug:pre-alpha-v0.0.2
     restart: always
     networks:
       - traefik
@@ -28,9 +28,8 @@ services:
           )
         ));
     volumes:
-      - wordpress:/var/www/html
-      - ./.docker/wp/wp-content:/var/www/html/wp-content
-      - ./apps/web:/var/www/html/wp-content/themes/sage
+      - ./.docker/wp:/var/www/html
+      - ./apps/theme:/var/www/html/wp-content/themes/main
     labels:
       - traefik.enable=true
       ## HTTP Routers
@@ -84,4 +83,3 @@ networks:
       name: traefik_proxy
 volumes:
   redis:
-  wordpress:

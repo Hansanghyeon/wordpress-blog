@@ -11,3 +11,5 @@ release:
 	git push origin main
 	git push origin $v
 	git branch -d release/$v
+p:
+	sudo chown -R 33:33 apps/theme .docker/wp && sudo chmod -R 775 apps/theme .docker/wp
