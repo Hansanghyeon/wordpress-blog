@@ -22,8 +22,6 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('comment-reply');
     }
 
-    wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), false, null);
-    wp_enqueue_style('fontello', asset('fonts/fontello/css/fontello.css')->uri(), false, null);
     wp_enqueue_style('pretendard', asset('fonts/pretendard/dist/web/static/pretendard.css')->uri(), false, null);
     wp_enqueue_style('fonts/독도폰트', 'https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap', false, null);
     wp_enqueue_style('fonts/firacode', 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap', false, null);
@@ -32,6 +30,10 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('d2coding-03', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css', false, null);
     wp_enqueue_style('d2coding-04', '//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-subset.css', false, null);
     wp_enqueue_script('kakao', 'https://developers.kakao.com/sdk/js/kakao.min.js', false, null);
+    wp_enqueue_style('Unicons-line', 'https://unicons.iconscout.com/release/v4.0.0/css/line.css', false, null);
+    wp_enqueue_script('Unicons-monochrome', 'https://unicons.iconscout.com/release-pro/v4.0.0/script/monochrome/bundle.js?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
+    wp_enqueue_style('Unicons-solid', 'https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
+    wp_enqueue_style('Unicons-thinline', 'https://unicons.iconscout.com/release-pro/v4.0.0/css/thinline.css?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
 }, 100);
 
 /**

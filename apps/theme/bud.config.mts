@@ -13,7 +13,10 @@ export default (bud: Bud): void => {
     /**
      * Directory contents to be included in the compilation
      */
-    .assets(["images", "fonts"])
+    .assets(["images", {
+      from: bud.path('@src/fonts'),
+      to: bud.path('@dist/fonts')
+    }])
 
     /**
      * Matched files trigger a page reload when modified
