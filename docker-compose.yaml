@@ -3,14 +3,11 @@ version: '3.8'
 ########################### SERVICES
 services:
   wordpress:
-    image: ghcr.io/hansanghyeon/wordpress-xdebug:pre-alpha-v0.0.2
+    image: wordpress:6.0.2-php8.0-apache
     restart: always
     networks:
       - traefik
       - default
-    env_file:
-      - ./.env
-      - ./.env.minio
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: root
@@ -20,23 +17,17 @@ services:
         /* Redis */
         define('WP_REDIS_HOST', getenv_docker('WORDPRESS_REDIS_HOST', 'redis'));
         define('WP_REDIS_PORT', getenv_docker('WORDPRESS_REDIS_PORT', 6379));
-        define('AS3CF_SETTINGS', serialize(
-          array( 
-            'provider' => 'aws', 
-            'access-key-id' => getenv_docker('MINIO_ROOT_USER', ''),
-            'secret-access-key' => getenv_docker('MINIO_ROOT_PASSWORD', ''),
-          )
-        ));
+        define('WP_MEMORY_LIMIT', '128M');
     volumes:
-      - ./.docker/wp:/var/www/html
+      - ./.docker/wp/wp-content:/var/www/html/wp-content
       - ./apps/theme:/var/www/html/wp-content/themes/main
     labels:
       - traefik.enable=true
       ## HTTP Routers
-      - traefik.http.routers.${TYPE}-201912-${PROJECT_NAME}.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-${PROJECT_NAME}.rule=Host(`${DOMAIN}`)
-      - traefik.http.routers.${TYPE}-201912-${PROJECT_NAME}.tls.certresolver=leresolver
-      - traefik.http.services.${TYPE}-201912-${PROJECT_NAME}.loadbalancer.server.port=80
+      - traefik.http.routers.${SERVICE}.entrypoints=https
+      - traefik.http.routers.${SERVICE}.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)
+      - traefik.http.routers.${SERVICE}.tls.certresolver=leresolver
+      - traefik.http.services.${SERVICE}.loadbalancer.server.port=80
   db:
     image: mariadb
     restart: always
@@ -49,32 +40,6 @@ services:
     image: redis:latest
     volumes:
       - redis:/data
-  minio:
-    image: minio/minio
-    volumes:
-      - ./.docker/minio/data/minio_root:/minio_root:z
-      - ./.docker/minio/data/certs:/root/.minio/certs:z
-    networks:
-      - traefik
-      - default
-    env_file:
-      - ./.env
-      - ./.env.minio
-    command: minio server /minio_root --console-address ":9001"
-    labels:
-      - traefik.enable=true
-      # console
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.rule=Host(`${CDN_DOMAIN}`)
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.tls.certresolver=leresolver
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}.service=${TYPE}-201912-minio-${PROJECT_NAME}-service
-      - traefik.http.services.${TYPE}-201912-minio-${PROJECT_NAME}-service.loadbalancer.server.port=9001
-      # api
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.entrypoints=websecure
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.rule=Host(`${CDN_DOMAIN}`) && PathPrefix("/wordpress")
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.tls.certresolver=leresolver
-      - traefik.http.routers.${TYPE}-201912-minio-${PROJECT_NAME}-api.service=${TYPE}-201912-minio-${PROJECT_NAME}-api-service
-      - traefik.http.services.${TYPE}-201912-minio-${PROJECT_NAME}-api-service.loadbalancer.server.port=9000
 
 ########################### NETWORKS
 networks:
