@@ -4,6 +4,6 @@
   "author": "Hansanghyeon <999@hyeon.pro>",
   "private": true,
   "workspaces": [
-    "apps/web"
+    "apps/theme"
   ]
 }

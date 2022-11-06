@@ -36,7 +36,7 @@ class VisitorCounter extends Component
 
     public function initializeAnalytics()
     {
-        $KEY_FILE_LOCATION = get_theme_file_path('/key/log-278509-7de64d610f0f.json');
+        $KEY_FILE_LOCATION = get_theme_file_path('/key/log-278509-973987697d36.json');
 
         // Create and configure a new client object.
         $client = new Google_Client();
