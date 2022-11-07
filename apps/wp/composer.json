@@ -1,0 +1,15 @@
+{
+    "name": "hyeon/wp",
+    "autoload": {
+        "psr-4": {
+            "Hyeon\\Wp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hansanghyeon",
+            "email": "999@hyeon.pro"
+        }
+    ],
+    "require": {}
+}
