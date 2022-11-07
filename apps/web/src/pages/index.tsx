@@ -7,8 +7,6 @@ import { CTA, Footer, Header, Hero, Posts } from "~web/components";
 import styles from "~web/scss/pages/home.module.scss";
 import { client } from "~web/client";
 
-import { Button } from "ui";
-
 export default function Page() {
   const { usePosts, useQuery } = client;
   const generalSettings = useQuery().generalSettings;
@@ -33,7 +31,6 @@ export default function Page() {
       </Head>
 
       <main className="content bg-blue-500">
-        <Button />
         <Hero
           title="Get Started with Faust.js"
           buttonText="Developer Docs"
