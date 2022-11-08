@@ -23,11 +23,6 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
-
       <Head>
         <title>Posts - {generalSettings?.title}</title>
       </Head>

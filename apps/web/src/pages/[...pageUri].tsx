@@ -14,10 +14,7 @@ export function PageComponent({ page }: PageProps) {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
+
 
       <Head>
         <title>

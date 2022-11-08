@@ -28,11 +28,6 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
-
       <Head>
         <title>
           {generalSettings.title} - {generalSettings.description}

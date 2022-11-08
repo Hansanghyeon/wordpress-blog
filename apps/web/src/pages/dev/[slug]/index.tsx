@@ -3,6 +3,7 @@ import { client, Dev, DevIdType, Query } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
+import { globalCss } from '~web/stitches.config'
 
 export interface PostProps {
   post: Dev | Dev["preview"]["node"] | null | undefined;
@@ -12,14 +13,12 @@ export function DevComponent({ post }: PostProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
+  globalStyle();
+
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
-
       <Head>
+        <link rel="stylesheet" href="https://hansanghyeon.github.io/prism-themes/main.css" />
         <title>
           {post?.title()} - {generalSettings.title}
         </title>
@@ -69,3 +68,21 @@ export function getStaticPaths() {
     fallback: "blocking",
   };
 }
+
+const globalStyle = globalCss({
+  'pre.wp-block-code': {
+    position: 'relative',
+    padding: 0,
+    border: 'none',
+    fontSize: '85%',
+    borderRadius: 0,
+    '+ pre': {
+      marginTop: '1.25em'
+    },
+    '&.whitespace-pre-wrap code': {
+      whiteSpace: 'pre-wrap',
+    },
+  },
+  'pre.wp-block-code code': {
+  }
+});
