@@ -30,12 +30,12 @@ export default function Page() {
     return null;
   }
 
+  const title = `${generalSettings.title} - ${generalSettings.description}`;
+
   return (
     <>
       <Head>
-        <title>
-          {generalSettings.title} - {generalSettings.description}
-        </title>
+        <title key="title">{title}</title>
       </Head>
 
       <main className="content content-index">

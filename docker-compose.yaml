@@ -24,7 +24,7 @@ services:
       ## HTTP Routers
       - traefik.http.routers.${SERVICE}.entrypoints=https
       - traefik.http.routers.${SERVICE}.rule=
-        Host(`${DOMAIN}`) && PathPrefix(`/wp-admin`, `/wp-login`, `/wp-content`, `/wp-includes`, `/graphql`, `/index.php`) ||
+        Host(`${DOMAIN}`) && PathPrefix(`/wp-admin`, `/wp-login`, `/wp-content`, `/wp-includes`, `/wp-json`, `/graphql`, `/index.php`) ||
         Host(`${DOMAIN}`) && PathPrefix(`/feed`, `/dev/feed`)
       - traefik.http.routers.${SERVICE}.tls.certresolver=leresolver
       - traefik.http.services.${SERVICE}.loadbalancer.server.port=80

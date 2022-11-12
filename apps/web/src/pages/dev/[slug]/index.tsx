@@ -4,6 +4,7 @@ import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { globalCss } from '~web/stitches.config'
+import { windowTitle } from '~web/common';
 
 export interface PostProps {
   post: Dev | Dev["preview"]["node"] | null | undefined;
@@ -13,15 +14,15 @@ export function DevComponent({ post }: PostProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
+  const title = windowTitle(post?.title(), generalSettings.title);
+
   globalStyle();
 
   return (
     <>
       <Head>
         <link rel="stylesheet" href="https://hansanghyeon.github.io/prism-themes/main.css" />
-        <title>
-          {post?.title()} - {generalSettings.title}
-        </title>
+        <title key="title">{title}</title>
       </Head>
 
       <Hero

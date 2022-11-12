@@ -3,7 +3,7 @@ import { client } from "~web/client";
 import { Footer, Header, Pagination, Posts } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
 import React from "react";
 import styles from "~web/scss/pages/posts.module.scss";
 
@@ -26,12 +26,12 @@ export default function Page() {
     return null;
   }
 
+  const title = `${generalSettings.title} - ${generalSettings.description}`
+
   return (
     <>
       <Head>
-        <title>
-          {generalSettings.title} - {generalSettings.description}
-        </title>
+        <title key="title">{title}</title>
       </Head>
 
       <main className="content content-index">

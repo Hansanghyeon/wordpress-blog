@@ -3,6 +3,7 @@ import { client, Post } from "~web/client";
 import { Footer, Header, Hero } from "~web/components";
 import { GetStaticPropsContext } from "next";
 import Head from "next/head";
+import { windowTitle } from '~web/common';
 
 export interface PostProps {
   post: Post | Post["preview"]["node"] | null | undefined;
@@ -12,12 +13,12 @@ export function PostComponent({ post }: PostProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
+  const title = windowTitle(post?.title(), generalSettings.title);
+
   return (
     <>
       <Head>
-        <title>
-          {post?.title()} - {generalSettings.title}
-        </title>
+        <title>{title}</title>
       </Head>
 
       <Hero
