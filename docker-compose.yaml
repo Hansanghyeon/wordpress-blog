@@ -3,7 +3,7 @@ version: '3.8'
 ########################### SERVICES
 services:
   wordpress:
-    image: wordpress:6.0.2-php8.0-apache
+    image: wordpress:6.1.1-php8.0-apache
     restart: always
     networks:
       - traefik

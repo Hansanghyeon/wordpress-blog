@@ -44,7 +44,7 @@ export default function History() {
   }, [desc, logs]);
 
   async function fetchChangelog() {
-    const CHANGELOG_URL = `https://raw.githubusercontent.com/Hansanghyeon/hyeon.pro/develop/CHANGELOG.md`;
+    const CHANGELOG_URL = `https://raw.githubusercontent.com/Hansanghyeon/v8/develop/CHANGELOG.md`;
     let logs = await fetch(CHANGELOG_URL).then(res => res.text());
 
     /**
