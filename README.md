@@ -13,22 +13,22 @@
 - 방문자 통계기능
   - GA to [umami-software/umami: Umami is a simple, fast, privacy-focused alternative to Google Analytics.](https://github.com/umami-software/umami)
 
-### v8.0.0 WordPress + roots/sage 10 (dev)
+### [v8.0.0 WordPress + roots/sage 10 (dev)](https://v8.archive.hyeon.pro)
 
 
-### [v7.0.0 WordPress + roots/sage 9](https://github.com/Hansanghyeon/Hansanghyeon/tree/v7.1.0-2w)
+### [v7.0.0 WordPress + roots/sage 9](https://github.com/Hansanghyeon/blog/tree/v7.1.0-2w)
 
 
-### [v6.0.0 Next.js + WordPress(Headless)](https://github.com/Hansanghyeon/Hansanghyeon/tree/v6.0.0)
+### [v6.0.0 Next.js + WordPress(Headless)](https://github.com/Hansanghyeon/blog/tree/v6.0.0)
 
 이전에 Gatsby에서는 미리 데이터를 받아와서 빌드된 홈페이지 파일들로 구성했던것을 api로 실시간 요청을 통해 데이터를 업데이트하는 방식으로 구성하면 어떨까? 고민하면서 여러 방법을 찾다가 Next.js SSR로 구성하면 좋을 것같아서 Next.js로 구성하게되었습니다.
 
 Gatsby에서도 API 콜로 데이터 구성을 해도되지만 Next.js가 핫해서 똑같이 구성해보고싶어서 블로그 구성을 통해 연습겸 시도하였습니다.
 
-[마지막으로 커밋](https://github.com/Hansanghyeon/Hansanghyeon/tree/80b4612e84573b807fb31cb3ef87be9139089eb9)
+[마지막으로 커밋](https://github.com/Hansanghyeon/blog/tree/80b4612e84573b807fb31cb3ef87be9139089eb9)
 
 
-### [v5.0.0 Gatsby + WordPress(Headless)](https://github.com/Hansanghyeon/Hansanghyeon/tree/v5.15.0)
+### [v5.0.0 Gatsby + WordPress(Headless)](https://github.com/Hansanghyeon/blog/tree/v5.15.0)
 
 컨텐츠 관리면에서 `*.md`로 관리하는 것보다 이전에 워드프레스에서 관리하던 것이 너무나 편리하고 좋았기 때문에 고민하였습니다.  
 이대로 워드프레스로 돌아가야 하는 것인가? 🤔  
