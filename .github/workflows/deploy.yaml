@@ -1,0 +1,121 @@
+name: 🚛 프로덕션 배포
+on:
+  # push:
+  #   branches:
+  #     - main
+  # release:
+  #   types: [published]
+  workflow_dispatch:
+
+jobs:
+  monorepo:
+    runs-on: ubuntu-latest
+    name: 🚧 packages 빌드
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🏗 setup-node (v18.x)
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+      
+      - name: node_modules 캐싱 (cache node_modules)
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: node_modules 설치 (node_modules install)
+        run: yarn install --frozen-lockfile --prefer-offline --no-progress
+        if: steps.cache.outputs.cache-hit != 'true'
+        
+      - name: 🔨 (node dependencies) monorepo yarn install
+        run: |
+          yarn install && cd theme && yarn install
+
+      # - name: 🔨 (node dependencies) tailwindcss link
+      #   run: |
+      #     cd packages/tailwindcss && yarn link && cd ../../theme && yarn link "@workspaces/project-tailwindcss-config"
+  
+      - name: 🔨 (node dependencies) monorepo yarn build
+        run: |
+          yarn build
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: theme-buile-result
+          path: ./theme/public
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: 🚛 소스코드 업데이트 & 빌드파일 배포
+    needs: [monorepo]
+    steps:
+      - uses: actions/checkout@v3
+
+      # build의 아티펙트 공유
+      - uses: actions/download-artifact@master
+        with:
+          name: theme-buile-result
+          path: ./theme/public
+      
+      # Caching dependencies for faster builds
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: 🔨 (php dependencies) php composer install
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.2"
+          args: --working-dir=./theme
+          command: install
+
+      - name: 📂 Sync files to Server
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude="node_modules"
+          # ARGS: "-rltgoDzvO --ignore-times"
+          path: theme/
+          remote_path: /root/wordpress-docker/volume/v1/wp/wp-content/themes/v1
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_key_pass: ${{ secrets.DEPLOY_KEY_PASS }}
+
+  noti:
+    name: 🦅 빌드 결과 노티
+    needs: [deploy, monorepo]
+    runs-on: ubuntu-latest
+    # deploy와 monorepo의 작업이 끝나면 실행 jobs가 실패해도 해당 메세지를 보내기위한 job
+    if: always()  # Execute even if previous jobs fail
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
+      - name: 🛎 슬랙알림
+        uses: 8398a7/action-slack@v3
+        with:
+          job_name: 🚛 소스코드 업데이트 & 빌드파일 배포
+          status: ${{ job.status }}
+          fields: repo,message,author,workflow,took,job # selectable (default: repo,message)
+          # fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.PETEROSEA_SLACK_WEBHOOK_URL }} # required
+        if: always()

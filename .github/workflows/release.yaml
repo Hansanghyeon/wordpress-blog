@@ -1,0 +1,176 @@
+name: 📦 릴리즈
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch: # 수동으로 실행할수있도록 설정
+    inputs:
+      version_parameter:
+        description: '릴리즈할 버전을 입력해주세요. (ex. 1.0.0)'
+        required: true
+jobs:
+  is-release:
+    name: 🚀 릴리즈 체크
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract_version_name.outputs.version }}
+      is_release: ${{ steps.is_release.outputs.is_release }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: 버전 정보 추출
+        id: extract_version_name
+        env:
+          VERSION: ${{ inputs.version_parameter }}
+        run: |
+          if [ -n "$VERSION" ]; then
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> "$GITHUB_OUTPUT"
+          fi
+      # extract_version_name에 버전이 없다면 릴리즈가 아님
+      # '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' 이부분은 버전을 추출하는 정규식
+      # 해당정규식에 맞는 값이 나왔다면 다음 job을 실행할수있도록 true를 반환
+      - name: 릴리즈 체크
+        id: is_release
+        run: |
+          if [[ -z "${{ steps.extract_version_name.outputs.version }}" ]]; then
+            echo "is_release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_release=true" >> "$GITHUB_OUTPUT"
+          fi
+  
+  check-env:
+    name: 🔎 액션 커스텀 전역변수 확인
+    runs-on: ubuntu-latest
+    needs: [is-release]
+    steps:
+      - name: Check env
+        run: |
+          echo "version=${{ needs.is-release.outputs.version }}"
+          echo "is_release=${{ needs.is-release.outputs.is_release }}"
+      - name: Check input
+        env:
+          VERSION: ${{ inputs.version_parameter }}
+        run: |
+          echo "VERSION=$VERSION"
+
+  # 사전 검사 끝 진짜 빌드 시작
+  theme-build:
+    name: 🏗 테마 빌드
+    needs: [is-release]
+    if: ${{ needs.is-release.outputs.is_release == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🏗 setup-node (v18.x)
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
+
+      - name: node_modules 캐싱 (cache node_modules)
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: node_modules 설치 (node_modules install)
+        run: yarn install --frozen-lockfile --prefer-offline --no-progress
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: 🔨 (node dependencies) monorepo yarn install
+        run: |
+          yarn install && cd theme && yarn install
+
+      # - name: 🔨 (node dependencies) link
+      #   run: |
+      #     cd packages/tailwindcss && yarn link && cd ../../theme && yarn link "@workspaces/project-tailwindcss-config"
+
+      - name: 📦 install, build
+        run: |
+          yarn build
+
+      # Caching dependencies for faster builds
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: 🔨 (php dependencies) php composer install
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.1"
+          args: --working-dir=./theme
+          command: install
+          
+      # theme파일을 압축하기전에 node_modules제거
+      - name: 📦 theme remove node_modules
+        run: |
+          cd theme
+          rm -rf node_modules
+
+      # theme폴더를 압축하여 artifact로 저장
+      - name: 📦 theme zip
+        run: |
+          zip -r theme.zip theme
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: theme-buile-result
+          path: ./theme.zip
+
+  release:
+    runs-on: ubuntu-latest
+    name: 🚛 릴리즈, 워드프레스 테마 파일업로드
+    needs: [is-release, theme-build]
+    if: ${{ needs.is-release.outputs.is_release == 'true' }}
+    outputs:
+      release_url: ${{ steps.create_release.outputs.html_url }}
+    steps:
+      - uses: actions/checkout@v2
+
+      # build의 아티펙트 공유
+      - uses: actions/download-artifact@v2
+        with:
+          name: theme-buile-result
+          path: ./
+
+      - name: Release 생성
+        id: create_release
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag_name: ${{ needs.is-release.outputs.version }}
+          release_name: ${{ needs.is-release.outputs.version }}
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: theme.zip
+          asset_name: theme.zip
+          asset_content_type: application/zip
+
+  noti:
+    name: 🦅 빌드 결과 노티
+    needs: [theme-build, release, is-release]
+    if: ${{ needs.is-release.outputs.is_release == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            # [${{ needs.is-release.outputs.version }}][${{ github.repository }}] 릴리즈 배포 완료
+            author: ${{ github.actor }}
+            릴리즈: ${{ needs.release.outputs.release_url }}

@@ -1,0 +1,19 @@
+{
+  "name": "wordpress-monorepo",
+  "author": "hansanghyeon <hyeon@beeclover.pro>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "sage": "cd theme && yarn",
+    "build:tw": "cd packages/tailwindcss && yarn build",
+    "build:sage": "cd theme && yarn build",
+    "build": "yarn build:tw && yarn build:sage"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@hyeon/eslint-config": "^5.0.0"
+  }
+}

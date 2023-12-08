@@ -1,16 +1,2 @@
-.wordpress
-.env
-backup
-env.php
-plugins
 node_modules
-ignore-*
-acp-settings
-.DS_Store
-key/
-.db
-.mysql
-.env.minio
-.docker/wp
-.docker/db
-.docker/minio
+*.log

@@ -1,13 +1,21 @@
 {
+  "intelephense.environment.includePaths": [
+      "../../volume/v1/wp"
+  ],
+  "intelephense.environment.phpVersion": "8.1.0",
+  "files.associations": { "*.module": "php" },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw=\"([^\"]*)", // <div tw="..." />
+    "tw={\"([^\"}]*)", // <div tw={"..."} />
+    "tw\\.\\w+`([^`]*)", // tw.xxx`...`
+    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+  ],
   "css.customData": [
     ".vscode/css_custom_data.json"
   ],
-  "editor.formatOnSave": true,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
   }
 }
