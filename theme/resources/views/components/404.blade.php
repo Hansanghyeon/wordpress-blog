@@ -5,7 +5,7 @@
       md:absolute max-w-[90%] md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:translate-y-[-100%] -translate-y-1/2 mx-auto
       shadow-sm rounded-[6px] bg-white bg-opacity-95 px-[24px] py-[20px] border-[#d0d7de]
       dark:border-[#444c56] dark:bg-[#2d333b]
-      #sm:w-full
+      max-sm:w-full
     ">
       <h1 class="text-[24px] lg:text-[32px] mb-[24px] font-semibold lg:whitespace-nowrap">
         자세히 살펴보았지만,<br/>

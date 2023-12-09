@@ -1,51 +1,47 @@
 {
-  "name": "theme",
-  "version": "9.0.0",
-  "description": "wordpress, roots/sage",
+  "name": "sage",
   "private": true,
   "browserslist": [
-    "extends @roots/browserslist-config/current"
+    "extends @roots/browserslist-config"
   ],
   "engines": {
     "node": ">=16.0.0"
   },
+  "type": "module",
   "scripts": {
-    "dev": "ts-bud dev",
-    "build": "ts-bud build",
+    "dev": "bud dev",
+    "build": "bud build",
     "translate": "yarn translate:pot && yarn translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
-    "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
+    "translate:update": "wp i18n update-po ./resources/lang/sage.pot ./resources/lang/*.po",
     "translate:compile": "yarn translate:mo && yarn translate:js",
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@alpinejs/intersect": "^3.7.1",
-    "@roots/bud": "6.3.3",
-    "@roots/bud-sass": "^6.3.5",
-    "@roots/bud-swc": "^6.3.5",
-    "@roots/bud-tailwindcss": "6.3.3",
-    "@roots/bud-typescript": "^6.3.5",
-    "@roots/sage": "6.3.3",
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/line-clamp": "^0.3.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.3.0",
-    "tailwindcss": "^3.0.8"
+    "@roots/bud": "^6.18.0",
+    "@roots/bud-react": "^6.18.0",
+    "@roots/bud-sass": "^6.18.0",
+    "@roots/bud-tailwindcss": "^6.18.0",
+    "@roots/bud-typescript": "^6.18.0",
+    "@roots/sage": "^6.18.0"
   },
   "dependencies": {
-    "alpinejs": "^3.5.1",
-    "dayjs": "^1.10.7",
+    "@alpinejs/intersect": "^3.13.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "alpinejs": "^3.13.3",
     "headroom.js": "^0.12.0",
-    "lottie-web": "^5.8.1",
+    "lottie-web": "^5.12.2",
     "macy": "^2.5.1",
-    "medium-zoom": "^1.0.6",
+    "medium-zoom": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^7.1.1",
-    "remark-gfm": "^3.0.1"
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "scroll-lock": "^2.1.5",
+    "tailwindcss-animated": "^1.0.1"
   }
 }

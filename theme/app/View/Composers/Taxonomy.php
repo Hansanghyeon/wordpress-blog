@@ -34,7 +34,7 @@ class Taxonomy extends Composer
 
     public function icon()
     {
-        $icon = get_field('icon', get_post_type().'_category_'.get_queried_object_id());
+        $icon = get_field('icon', get_post_type() . '_category_' . get_queried_object_id());
         if (!is_array($icon)) {
             $icon = acf_get_attachment($icon);
         }

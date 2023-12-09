@@ -5,6 +5,8 @@ namespace App\View\Composers;
 use Roots\Acorn\View\Composer;
 use Carbon\Carbon;
 
+use function App\debug_api;
+
 class Portfolio extends Composer
 {
 
@@ -15,6 +17,8 @@ class Portfolio extends Composer
      */
     protected static $views = [
         'partials.content-portfolio',
+        'partials.content-single-portfolio',
+        'partials.header-portfolio',
     ];
 
     /**
@@ -28,6 +32,7 @@ class Portfolio extends Composer
             'filterDate' => $this->getDate(),
             'links' => $this->getLink(),
             'f_category' => $this->categories,
+            'status' => $this->getStatus(),
         ];
     }
 
@@ -58,5 +63,10 @@ class Portfolio extends Composer
         });
 
         $this->categories = $terms;
+    }
+
+    public function getStatus()
+    {
+        return get_post_status(get_the_ID());
     }
 }

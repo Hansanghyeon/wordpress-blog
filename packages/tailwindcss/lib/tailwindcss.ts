@@ -1,49 +1,52 @@
 import plugin from 'tailwindcss/plugin'
+import * as colors from './color'
+
+const colorReset = {
+  color: null,
+}
 
 /** @type {import('tailwindcss').Config} config */
 const config = {
   content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}'],
   theme: {
     container: {
-      // 패딩값까지 고려해야함.
-      screens: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1240px',
-        '2xl': '1440px',
-        '3xl': '1600px',
-        '4xl': '1920px',
-      },
       center: true,
-      padding: {
-        DEFAULT: '20px',
-        sm: '32px',
-        lg: '50px',
-        xl: '50px',
-        '2xl': '50px',
-        '3xl': '50px',
-        '4xl': '50px',
-      },
     },
     extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#0056a5',
-          50: '#f0f7ff',
-          100: '#dfeeff',
-          200: '#b9ddfe',
-          300: '#7bc4fe',
-          400: '#34a5fc',
-          500: '#0a8bed',
-          600: '#006ccb',
-          700: '#0056a5',
-          800: '#054a87',
-          900: '#0a3d70',
-          950: '#07274a',
+      colors: colors.base,
+      borderColor: colors.base,
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          md: '2rem',
         },
-        line: '#707070',
-      }, // Extend Tailwind's default colors
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: null,
+            color: null,
+            a: {
+              color: null,
+              '&:hover': colorReset,
+            },
+            strong: colorReset,
+            blockquote: colorReset,
+            h1: colorReset,
+            h2: colorReset,
+            h3: colorReset,
+            h4: colorReset,
+            h5: colorReset,
+            h6: colorReset,
+            pre: null,
+            code: null,
+            'code::after': null,
+            'code::before': null,
+            'pre code': null,
+          },
+        },
+      },
       fontFamily: {
         sans: [
           'Pretendard Variable',
@@ -62,19 +65,20 @@ const config = {
           'Segoe UI Symbol',
           'sans-serif',
         ],
-        mon: ['Montserrat', 'sans-serif'],
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/container-queries'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms'),
-    require('tailwindcss-animated'),
-  ],
 }
 
-const plugins = plugin(() => {}, config)
+const plugins = plugin(({ addComponents }) => {
+  addComponents({
+    '.position-center': {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  })
+}, config)
 
 export default plugins

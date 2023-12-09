@@ -1,0 +1,39 @@
+{
+  "name": "@workspaces/history",
+  "version": "0.0.0",
+  "type": "module",
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion"
+    }
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development vite",
+    "build": "tsc && vite build",
+    "postbuild": "rm -rf ../../theme/public/dist && mkdir -p ../../theme/public/dist && mv ./dist ../../theme/public/dist/history",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "fp-ts": "^2.16.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "vite-plugin-react-markdown": "^0.2.10",
+    "vite-raw-plugin": "^1.0.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.21.0",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0",
+    "@types/react": "^18.0.38",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "tailwindcss": "^3.3.1",
+    "twin.macro": "^3.3.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.1"
+  }
+}

@@ -84,15 +84,9 @@ $dark: (
   preBg: #232326
 );
 
-:root {
+body {
   @include generate_colors($base);
   @include generate_colors($light);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    @include generate_colors($light);
-  }
 }
 
 body.cloudy {
@@ -101,8 +95,6 @@ body.cloudy {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include generate_colors($dark);
-  }
+body.dark {
+  @include generate_colors($dark);
 }

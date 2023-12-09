@@ -11,6 +11,7 @@
 }
 
 html :where(.editor-styles-wrapper) {
+  @apply container box-border;
   pre {
     @apply bg-[#EEEEEE] p-[14px] rounded;
   }

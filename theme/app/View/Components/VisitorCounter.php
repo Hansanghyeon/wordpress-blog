@@ -69,7 +69,7 @@ class VisitorCounter extends Component
         $request->setDimensions(array($dimension));
 
         $body = new GetReportsRequest();
-        $body->setReportRequests(array( $request));
+        $body->setReportRequests(array($request));
         $response = $this->analytics->reports->batchGet($body);
         return $response[0]['data']['totals'][0]['values'][0];
     }

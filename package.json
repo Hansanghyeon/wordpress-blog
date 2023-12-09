@@ -10,10 +10,11 @@
     "sage": "cd theme && yarn",
     "build:tw": "cd packages/tailwindcss && yarn build",
     "build:sage": "cd theme && yarn build",
-    "build": "yarn build:tw && yarn build:sage"
+    "build": "yarn lerna run build && build:sage"
   },
   "dependencies": {},
   "devDependencies": {
-    "@hyeon/eslint-config": "^5.0.0"
+    "@hyeon/eslint-config": "^5.0.0",
+    "lerna": "^7.0.0"
   }
 }

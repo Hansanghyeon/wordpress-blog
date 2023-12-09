@@ -8,43 +8,34 @@
         <h4>한상현</h4>
       </li>
       <li>
-        <i class="icon-mobile"></i> <a href="tel:01053929950">01053929950</a>
+        <a href="melto: 999@hyeon.pro">999@hyeon.pro</a>
       </li>
       <li>
-        <i class="icon-mail-1"></i> <a href="melto: 999@hyeon.pro">999@hyeon.pro</a>
-      </li>
-      <li>
-        <i class="icon-github"></i> <a href="https://github.com/Hansanghyeon">Hansanghyeon (999)</a>
+        <a href="https://github.com/Hansanghyeon">Hansanghyeon (999)</a>
       </li>
     </ul>
   </div>
-  <div class="profile-stackinfo">
-    <ul class="infoList">
-      <li>
-        주요 기술
-      </li>
-      <li>
-        <code class="point bg-slate-600 text-[color:#61DAFB]">ReactJS</code>
-        <code class="point bg-slate-600 text-[color:#F0B5F2]">💅🏾 styled-component</code>
-        <code class="point bg-slate-600 text-[color:#CD6899]">Sass(SCSS)</code>
-        <code class="point bg-slate-600 text-[color:#38BDF9]">tailwindcss</code>
-        <code class="point bg-slate-600 text-[color:#38BDF9]">🐳 Docker</code>
-        <code>Storybook</code>
-        <code>WordPress</code>
-        <code>HTML/CSS/JS</code>
-      </li>
-      <li>그 외 다뤄본 기술 & 인프라 기타 등등</li>
-      <li>
-        <code>Cloud (AWS, GCP, NCP)</code>
-        <code>Vultr</code>
-        <code>Redux</code>
-        <code>Bootstrap 4</code>
-        <code>Vue 3</code>
-        <code>Next.js</code>
-        <code>Gatsby</code>
-        <code>docker swarm</code>
-        <code>k8s</code>
-      </li>
-    </ul>
+  <div class="profile-stackinfo prose max-w-none">
+    <table>
+      <tbody>
+        <tr>
+          <td>😎 미쳐있는 스택</td>
+          <td>
+            <code class="point bg-[#39BCF9] text-white">tailwindcss</code>
+            <code class="point bg-[#77C1D2] text-[#2D3441]">alpinejs</code>
+          </td>
+        </tr>
+        <tr>
+          <td>최근 제일 많이 사용한 것</td>
+          <td>
+            <code>ts</code>
+            <code>React</code>
+            <code>npm-library</code>
+            <code>storybook</code>
+            <code>wordpress</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

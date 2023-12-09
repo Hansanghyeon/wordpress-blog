@@ -60,13 +60,13 @@ class Archive extends Composer
     private function sort_terms_hierarchically(array &$cats, array &$into, $parentId = 0)
     {
         foreach ($cats as $i => $cat) {
-            $cat->link = '/'. get_post_type() . '/category/' . $cat->slug;
+            $cat->link = '/' . get_post_type() . '/category/' . $cat->slug;
             if ($cat->parent == $parentId) {
                 $into[$cat->term_id] = $cat;
                 unset($cats[$i]);
             }
         }
-    
+
         foreach ($into as $topCat) {
             $topCat->children = array();
             $this->sort_terms_hierarchically($cats, $topCat->children, $topCat->term_id);
@@ -76,14 +76,14 @@ class Archive extends Composer
     public function categories()
     {
         $terms = get_terms(array(
-          "taxonomy" => get_post_type() .'_category',
-          "hide_empty" => false,
+            "taxonomy" => get_post_type() . '_category',
+            "hide_empty" => false,
         ));
 
-        if (!empty($terms) && !is_wp_error( $terms )) {
-          $termsHierarchy = array();
-          $this->sort_terms_hierarchically($terms, $termsHierarchy);
-          return $termsHierarchy;
+        if (!empty($terms) && !is_wp_error($terms)) {
+            $termsHierarchy = array();
+            $this->sort_terms_hierarchically($terms, $termsHierarchy);
+            return $termsHierarchy;
         }
     }
 }

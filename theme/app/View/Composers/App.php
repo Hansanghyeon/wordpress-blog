@@ -41,13 +41,13 @@ class App extends Composer
 
     public function history()
     {
-      $dtCreateblog = Carbon::create(2014, 7, 22, 0, 0, 0, 'Asia/Seoul');
-      $dtNow = Carbon::now('Asia/Seoul');
+        $dtCreateblog = Carbon::create(2014, 7, 22, 0, 0, 0, 'Asia/Seoul');
+        $dtNow = Carbon::now('Asia/Seoul');
 
-      $days = $dtNow->diffInDays($dtCreateblog);
-      $month = $dtNow->diffInMonths($dtCreateblog) % 12;
-      $year = $dtNow->diffInYears($dtCreateblog);
+        $days = $dtNow->diffInDays($dtCreateblog);
+        $month = $dtNow->diffInMonths($dtCreateblog) % 12;
+        $year = $dtNow->diffInYears($dtCreateblog);
 
-      return "{$year}년 {$month}개월째 ({$days}일)";
+        return "{$year}년 {$month}개월째 ({$days}일)";
     }
 }
