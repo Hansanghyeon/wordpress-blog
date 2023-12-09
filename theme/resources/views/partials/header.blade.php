@@ -3,6 +3,8 @@
     <a href="{{ home_url('/') }}">
       <img class="siteIcon" src="{{ get_site_icon_url() }}" alt="{{ get_bloginfo('name', 'display') }}">
     </a>
-    @include('partials.sns')
+    <div class="flex gap-x-[4px] items-center">
+      <x-sns-nav />
+    </div>
   </div>
 </header>

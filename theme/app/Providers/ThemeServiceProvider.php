@@ -26,3 +26,5 @@ class ThemeServiceProvider extends SageServiceProvider
         parent::boot();
     }
 }
+
+require_once get_template_directory() . '/app/View/Honey/ComponentNavigation.php';
