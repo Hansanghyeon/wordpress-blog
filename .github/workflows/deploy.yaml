@@ -36,13 +36,13 @@ jobs:
         run: |
           yarn install && cd theme && yarn install
 
-      # - name: 🔨 (node dependencies) tailwindcss link
-      #   run: |
-      #     cd packages/tailwindcss && yarn link && cd ../../theme && yarn link "@workspaces/project-tailwindcss-config"
-  
-      - name: 🔨 (node dependencies) monorepo yarn build
+      - name: 🔨 (node dependencies) bootstrap
         run: |
-          yarn build
+          Make bootstrap
+
+      - name: 📦 install, build
+        run: |
+          Make build
 
       - uses: actions/upload-artifact@master
         with:

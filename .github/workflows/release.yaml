@@ -85,13 +85,13 @@ jobs:
         run: |
           yarn install && cd theme && yarn install
 
-      # - name: 🔨 (node dependencies) link
-      #   run: |
-      #     cd packages/tailwindcss && yarn link && cd ../../theme && yarn link "@workspaces/project-tailwindcss-config"
+      - name: 🔨 (node dependencies) bootstrap
+        run: |
+          Make bootstrap
 
       - name: 📦 install, build
         run: |
-          yarn build
+          Make build
 
       # Caching dependencies for faster builds
       - name: Cache Composer dependencies
