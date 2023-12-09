@@ -128,3 +128,9 @@
     }
   }
 }
+
+// 플러그인에서 만들어낸 scss 무시하기
+.ez-toc-widget-container ul.ez-toc-list li.active {
+  background-color: transparent !important;
+  font-weight: bold !important;
+}

@@ -2,6 +2,7 @@ import Alpine from 'alpinejs'
 import { globalEvent } from './global'
 import menu from './menu'
 import modal from './modal'
+import darkmode from './darkmode'
 
 // suggested in the Alpine docs:
 // make Alpine on window available for better DX
@@ -11,6 +12,7 @@ function store() {
   document.addEventListener('alpine:init', () => {
     menu()
     modal()
+    darkmode()
   })
 }
 

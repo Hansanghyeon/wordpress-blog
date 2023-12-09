@@ -84,17 +84,17 @@ $dark: (
   preBg: #232326
 );
 
-body {
+html {
   @include generate_colors($base);
   @include generate_colors($light);
 }
 
-body.cloudy {
+html.cloudy {
   @media (prefers-color-scheme: light) {
     @include generate_colors($cloudy);
   }
 }
 
-body.dark {
+html.dark {
   @include generate_colors($dark);
 }

@@ -5,6 +5,7 @@
     </a>
     <div class="flex gap-x-[4px] items-center">
       <x-sns-nav />
+      <x-prefers-toggle />
     </div>
   </div>
 </header>

@@ -1,6 +1,9 @@
+import { Alpine as AlpineType } from 'alpinejs'
 export {}
 
 declare global {
+  // eslint-disable-next-line no-var
+  var Alpine: AlpineType
   interface Window {
     enableBodyScroll: () => void
     disableBodyScroll: () => void

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} config */
 module.exports = {
+  darkMode: 'class',
   content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}'],
   plugins: [
     require('@workspaces/project-tailwindcss-config'),
