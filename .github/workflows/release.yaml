@@ -81,17 +81,13 @@ jobs:
         run: yarn install --frozen-lockfile --prefer-offline --no-progress
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: 🔨 (node dependencies) monorepo yarn install
+      - name: 🔨 (node dependencies) bootstrap (yarn install)
         run: |
-          yarn install && cd theme && yarn install
-
-      - name: 🔨 (node dependencies) bootstrap
-        run: |
-          Make bootstrap
+          make bootstrap
 
       - name: 📦 install, build
         run: |
-          Make build
+          make build
 
       # Caching dependencies for faster builds
       - name: Cache Composer dependencies
