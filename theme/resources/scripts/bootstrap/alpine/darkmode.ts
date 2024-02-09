@@ -8,19 +8,16 @@ const darkMode = () => {
   Alpine.store('darkMode', {
     value: storedDarkMode,
     on() {
-      console.log('on')
       this.value = true
       document.documentElement.classList.add('dark')
       localStorage.setItem('darkMode', 'true')
     },
     off() {
-      console.log('off')
       this.value = false
       document.documentElement.classList.remove('dark')
       localStorage.setItem('darkMode', 'false')
     },
     toggle() {
-      console.log('toggle')
       this.value = !this.value
       if (this.value) {
         this.on()
