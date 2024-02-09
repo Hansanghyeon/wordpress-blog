@@ -20,6 +20,7 @@ echo '======================================'
 echo 'tailwindcss config link 시작'
 echo '======================================'
 cd packages/tailwindcss
+yarn build
 yarn link
 cd ../../theme
 yarn link "@workspaces/project-tailwindcss-config"

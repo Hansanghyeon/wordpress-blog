@@ -5,8 +5,5 @@
   "private": true,
   "packages": [
     "packages/*"
-  ],
-  "dependencies": {
-    "@workspaces/project-tailwindcss-config": "^1.0.0"
-  }
+  ]
 }

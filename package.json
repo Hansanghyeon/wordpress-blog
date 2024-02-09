@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "sage": "cd theme && yarn",
+    "dev": "cd theme && yarn dev",
     "build:tw": "cd packages/tailwindcss && yarn build",
     "build:sage": "cd theme && yarn build",
-    "build": "yarn lerna run build && build:sage"
+    "build": "yarn lerna run build && yarn build:sage"
   },
   "dependencies": {},
   "devDependencies": {
