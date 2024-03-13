@@ -5,8 +5,6 @@ namespace App\View\Components;
 use Honey;
 use Roots\Acorn\View\Component;
 
-use function App\debug_api;
-
 class SnsNav extends Component
 {
     public $nav_obj;

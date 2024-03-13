@@ -1,6 +1,6 @@
 function kakao() {
-  const linkBtn = document.querySelector('#share-kakao')
-  if (!(linkBtn instanceof HTMLButtonElement)) {
+  const linkBtn = document.querySelector('#share-kakao') as HTMLButtonElement
+  if (!linkBtn) {
     return
   }
   const content = {
@@ -13,10 +13,31 @@ function kakao() {
     },
   }
   window.Kakao.init('6ac4fba26bc5d9095ff50a75e065b66e')
-  window.Kakao.Link.createDefaultButton({
+  window.Kakao.Share.createDefaultButton({
     container: '#share-kakao', // 공유하기 기능을 부여할 DOM container
     objectType: 'feed', // 피드타입
     content,
+    // social: {
+    //   likeCount: 286,
+    //   commentCount: 45,
+    //   sharedCount: 845,
+    // },
+    // buttons: [
+    //   {
+    //     title: '웹으로 보기',
+    //     link: {
+    //       mobileWebUrl: 'https://developers.kakao.com',
+    //       webUrl: 'https://developers.kakao.com',
+    //     },
+    //   },
+    //   {
+    //     title: '앱으로 보기',
+    //     link: {
+    //       mobileWebUrl: 'https://developers.kakao.com',
+    //       webUrl: 'https://developers.kakao.com',
+    //     },
+    //   },
+    // ],
   })
 }
 

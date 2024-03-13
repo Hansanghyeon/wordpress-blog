@@ -28,3 +28,4 @@ class ThemeServiceProvider extends SageServiceProvider
 }
 
 require_once get_template_directory() . '/app/View/Honey/ComponentNavigation.php';
+require_once get_template_directory() . '/app/View/Honey/WpFn.php';
