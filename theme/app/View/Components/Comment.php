@@ -15,9 +15,9 @@ class Comment extends Component
 
     public function render()
     {
-        if (get_post_type() === 'dev') {
-            return $this->view('components.giscus');
-        }
+        // if (get_post_type() === 'dev') {
+        //     return $this->view('components.giscus');
+        // }
         return $this->view('components.comment');
     }
 }
