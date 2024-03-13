@@ -1,4 +1,4 @@
-import camelCase from './camelCase';
+import camelCase from './camelCase'
 
 /**
  * DOM-based Routing
@@ -9,13 +9,13 @@ import camelCase from './camelCase';
  * Add additional events for more control over timing e.g. a finalize event
  */
 class Router {
-  public routes: string;
+  public routes: string
   /**
    * Create a new Router
    * @param {Object} routes
    */
   constructor(routes) {
-    this.routes = routes;
+    this.routes = routes
   }
 
   /**
@@ -32,15 +32,15 @@ class Router {
           route,
           fn: event,
         },
-      })
-    );
+      }),
+    )
 
     const fire =
       route !== '' &&
       this.routes[route] &&
-      typeof this.routes[route][event] === 'function';
+      typeof this.routes[route][event] === 'function'
     if (fire) {
-      this.routes[route][event](arg);
+      this.routes[route][event](arg)
     }
   }
 
@@ -55,7 +55,7 @@ class Router {
    */
   loadEvents() {
     // Fire common init JS
-    this.fire('common');
+    this.fire('common')
 
     // Fire page-specific init JS, and then finalize JS
     document.body.className
@@ -64,13 +64,13 @@ class Router {
       .split(/\s+/)
       .map(camelCase)
       .forEach((className) => {
-        this.fire(className);
-        this.fire(className, 'finalize');
-      });
+        this.fire(className)
+        this.fire(className, 'finalize')
+      })
 
     // Fire common finalize JS
-    this.fire('common', 'finalize');
+    this.fire('common', 'finalize')
   }
 }
 
-export default Router;
+export default Router

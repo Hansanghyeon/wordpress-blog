@@ -4,7 +4,7 @@ import Router from './libs/router'
 import bootstrapAlpine from './bootstrap/alpine'
 
 /** Populate Router instance with DOM routes */
-const Routes = new Router(routes)
+const Routes = new Router(routes.default)
 
 /**
  * Application entrypoint
