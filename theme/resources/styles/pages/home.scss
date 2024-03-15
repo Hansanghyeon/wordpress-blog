@@ -1,9 +1,7 @@
-.frontPage {
-  #{headings(1,6)} {
-    font-family: 'East Sea Dokdo', cursive;
-  }
-
-  .contentCol {
-    margin-bottom: 45px;
+body.home {
+  .prose-lg {
+    #{headings(1,6)} {
+      font-family: 'East Sea Dokdo', cursive;
+    }
   }
 }
