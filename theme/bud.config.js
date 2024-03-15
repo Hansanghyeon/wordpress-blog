@@ -28,12 +28,10 @@ export default async (bud) => {
       const findPlugin = (plugin) =>
         plugin.constructor.name === 'MiniCssExtractPlugin'
 
-      const filename = ({ chunk }) => {
-        console.log(chunk.name)
-        return chunk.name === 'replybox'
+      const filename = ({ chunk }) =>
+        chunk.name === 'replybox'
           ? 'css/replybox.css'
           : bud.relPath('css/@name.css')
-      }
 
       Object.assign(config.plugins.find(findPlugin).options, {
         filename,
