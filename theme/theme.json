@@ -93,52 +93,52 @@
           "slug": "slate-950"
         },
         {
-          "color": "#f9fafb",
+          "color": "#d0d7de",
           "name": "Gray 50",
           "slug": "gray-50"
         },
         {
-          "color": "#f3f4f6",
+          "color": "#adbac7",
           "name": "Gray 100",
           "slug": "gray-100"
         },
         {
-          "color": "#e5e7eb",
+          "color": "#909dab",
           "name": "Gray 200",
           "slug": "gray-200"
         },
         {
-          "color": "#d1d5db",
+          "color": "#768390",
           "name": "Gray 300",
           "slug": "gray-300"
         },
         {
-          "color": "#9ca3af",
+          "color": "#636e7b",
           "name": "Gray 400",
           "slug": "gray-400"
         },
         {
-          "color": "#6b7280",
+          "color": "#545d68",
           "name": "Gray 500",
           "slug": "gray-500"
         },
         {
-          "color": "#4b5563",
+          "color": "#444c56",
           "name": "Gray 600",
           "slug": "gray-600"
         },
         {
-          "color": "#374151",
+          "color": "#373e47",
           "name": "Gray 700",
           "slug": "gray-700"
         },
         {
-          "color": "#1f2937",
+          "color": "#2d333b",
           "name": "Gray 800",
           "slug": "gray-800"
         },
         {
-          "color": "#111827",
+          "color": "#22272e",
           "name": "Gray 900",
           "slug": "gray-900"
         },
@@ -1496,6 +1496,61 @@
           "color": "#555b62",
           "name": "Heather 900",
           "slug": "heather-900"
+        },
+        {
+          "color": "#adbac7",
+          "name": "Disabled",
+          "slug": "disabled"
+        },
+        {
+          "color": "#0f4c81",
+          "name": "Light Primary",
+          "slug": "light-primary"
+        },
+        {
+          "color": "#e7e7e7",
+          "name": "Light Background",
+          "slug": "light-background"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Light Foreground",
+          "slug": "light-foreground"
+        },
+        {
+          "color": "#333333",
+          "name": "Light Text",
+          "slug": "light-text"
+        },
+        {
+          "color": "#0c0c0c",
+          "name": "Light Base",
+          "slug": "light-base"
+        },
+        {
+          "color": "#fff46a",
+          "name": "Dark Primary",
+          "slug": "dark-primary"
+        },
+        {
+          "color": "#22272e",
+          "name": "Dark Background",
+          "slug": "dark-background"
+        },
+        {
+          "color": "#2d333b",
+          "name": "Dark Foreground",
+          "slug": "dark-foreground"
+        },
+        {
+          "color": "#768390",
+          "name": "Dark Text",
+          "slug": "dark-text"
+        },
+        {
+          "color": "#adbac7",
+          "name": "Dark Base",
+          "slug": "dark-base"
         }
       ]
     },
@@ -1534,6 +1589,11 @@
           "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace",
           "name": "Ui-monospace",
           "slug": "mono"
+        },
+        {
+          "fontFamily": "East Sea Dokdo,cursive",
+          "name": "East Sea Dokdo",
+          "slug": "dokdo"
         }
       ],
       "fontSizes": [

@@ -21,37 +21,8 @@ pre.wp-block-code {
     white-space: pre-wrap;
   }
 
-  .prism-titlename {
-    @apply border-bombay-700 border-b border-opacity-10;
-
-    position: relative;
-    padding-top: 0.2em;
-    padding-left: var(--paddingX);
-    padding-bottom: 0.2em;
-    font-size: 90%;
-
-    &::after {
-      @apply bg-shamrock-500;
-
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 14px;
-
-      --triangle: 0.5em;
-
-      clip-path: polygon(
-        calc(100% - var(--triangle, 1em)) 0,
-        0% 0,
-        0% 100%,
-        calc(100% - var(--triangle, 1em)) 100%,
-        100% 50%
-      );
-      overflow: hidden;
-    }
+  code {
+    font-size: 120%;
   }
 }
 
@@ -79,7 +50,7 @@ pre.wp-block-code code {
   }
 }
 
-:not(pre) > code {
+:not(span) > code {
   @apply bg-bombay-500 dark:bg-shuttle-gray-500;
   @apply bg-opacity-20 dark:bg-opacity-40;
 
@@ -88,7 +59,6 @@ pre.wp-block-code code {
   }
 
   font-family: 'D2Coding', monospace;
-  font-size: 85%;
+  font-size: 80%;
   padding: 0.2em 0.4em;
-  border-radius: 6px;
 }

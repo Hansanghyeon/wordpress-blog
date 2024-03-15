@@ -43,8 +43,8 @@
   }
 
   &-title {
+    @apply text-black;
     padding: 0.25rem 0.5rem;
-    color: var(--text00);
     border-radius: 4px;
 
     @media (min-width: 1540px) {

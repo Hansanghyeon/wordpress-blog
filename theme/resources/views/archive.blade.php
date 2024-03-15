@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="container lg:max-w-screen-lg">
-      <div class="page-pagination-number">
+      <div class="my-[45px]">
         {!! $pagination !!}
       </div>
     </div>

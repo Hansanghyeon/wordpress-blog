@@ -1,8 +1,8 @@
 <div class="container lg:max-w-screen-lg">
-  <div class="page-header prose-lg">
-    <div class="titleWrap">
+  <div class="py-[45px] prose-lg">
+    <div class="flex items-center mb-[12px]">
       @empty(!$icon)
-        <img class="icon" src="{!! $icon['url'] !!}" alt="{!! $icon['description'] !!}" />
+        <img class="max-w-[48px] mr-[12px]" src="{!! $icon['url'] !!}" alt="{!! $icon['description'] !!}" />
       @endempty
       <h1>{!! $title !!}</h1>
     </div>

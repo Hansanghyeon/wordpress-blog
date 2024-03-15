@@ -1447,6 +1447,16 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-3.0.0.tgz#798622546b63847e82389e473fd67f2707d82247"
   integrity sha512-hBI9tfBtuPIi885ZsZ32IMEU/5nlZH/KOVYJCOh7gyMxaVLGmLedYqFN6Ui1LXkI8JlC8IsuC0rF0btcRZKd5g==
 
+"@hyeon/mac-scrollbar@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hyeon/mac-scrollbar/-/mac-scrollbar-1.0.2.tgz#05b84e18be5e33a5ba0ae9df71b4f86c5c2b5655"
+  integrity sha512-wOCF0I+fi6V/WlCjwDBcbewNPrgQ3+uVxdn7fEdnxzDPq/q/nBUrD3BF/VNWYb0l9CWa33fRq/s6yGxMnzxC1g==
+
+"@hyeon/tailwindcss-layer-shadow@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@hyeon/tailwindcss-layer-shadow/-/tailwindcss-layer-shadow-1.0.16.tgz#b7985df78dfc7f712a8a5db8f7a736b6ff236d23"
+  integrity sha512-V4c9onwOzplsV1t4ISf+OKPPtnIW7oEFw56WRp3mX4SCoVbVoAPjXDQfOpucpABVr+LRN+bYr2dWi6qoJyjX4Q==
+
 "@jest/schemas@^29.6.3":
   version "29.6.3"
   resolved "https://registry.yarnpkg.com/@jest/schemas/-/schemas-29.6.3.tgz#430b5ce8a4e0044a7e3819663305a7b3091c8e03"

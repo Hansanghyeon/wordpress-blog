@@ -15,19 +15,14 @@
 @import 'components/modules/share';
 @import 'components/modules/visitor-counter';
 @import 'components/modules/wp';
-@import 'components/list';
 @import 'components/alert/neon';
 
 // layout
-@import 'layouts/nav-side';
-@import 'layouts/page-header';
-@import 'layouts/page-pagination';
 @import 'layouts/post';
 
 // page
 @import 'pages/home';
 @import 'pages/resume';
-@import 'pages/history';
 
 @tailwind components;
 @tailwind utilities;

@@ -42,27 +42,6 @@ $light: (
   preBg: #e2e2e2
 );
 
-$cloudy: (
-  // PointColor
-  primary: #0f4c81,
-  pointColor0: #e8aa8c,
-  pointColor1: #5e616a,
-  // BG
-  bg0: #fff,
-  bg1: #415865,
-  // Text
-  text-primary: #333,
-  text00: #000,
-  text0: #333,
-  text1: #4a4f57,
-  text2: #868e96,
-  text3: #dcdcdc,
-  // Code
-  codeBg: #ffe1b6,
-  codeColor: #5e616a,
-  preBg: #ffe1b6
-);
-
 $dark: (
   // PointColor
   primary: #fff46a,
@@ -87,12 +66,6 @@ $dark: (
 html {
   @include generate_colors($base);
   @include generate_colors($light);
-}
-
-html.cloudy {
-  @media (prefers-color-scheme: light) {
-    @include generate_colors($cloudy);
-  }
 }
 
 html.dark {

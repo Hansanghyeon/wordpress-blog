@@ -1,6 +1,6 @@
 @include('partials.header')
 
-<main>
+<main class="[&_*]:mac-scrollbar">
   @yield('content')
 </main>
 

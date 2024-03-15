@@ -49,8 +49,8 @@
     @mixin textGradient {
       background-image: linear-gradient(
         to right,
-        var(--pointColor0),
-        var(--pointColor1)
+        #ffa500,
+        #eb5757
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
