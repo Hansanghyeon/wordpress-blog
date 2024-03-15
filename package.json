@@ -13,7 +13,6 @@
     "build:sage": "cd theme && yarn build",
     "build": "yarn lerna run build && yarn build:sage"
   },
-  "dependencies": {},
   "devDependencies": {
     "@hyeon/eslint-config": "^5.0.0",
     "lerna": "^7.0.0"

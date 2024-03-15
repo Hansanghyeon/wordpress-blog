@@ -4,18 +4,9 @@
   ],
   "intelephense.environment.phpVersion": "8.1.0",
   "files.associations": { "*.module": "php" },
-  "tailwindCSS.experimental.classRegex": [
-    "tw`([^`]*)", // tw`...`
-    "tw=\"([^\"]*)", // <div tw="..." />
-    "tw={\"([^\"}]*)", // <div tw={"..."} />
-    "tw\\.\\w+`([^`]*)", // tw.xxx`...`
-    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
-  ],
   "css.customData": [
-    ".vscode/css_custom_data.json"
+    ".vscode/tailwind.json"
   ],
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  }
+  "scss.lint.unknownAtRules": "ignore",
+  "tailwindConfigViewer.workspacePath": "theme"
 }
