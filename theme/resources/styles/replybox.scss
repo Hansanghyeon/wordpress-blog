@@ -2,64 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-buttons div:nth-child(1) .btn:nth-child(1) {
-  display: none !important;
+header {
+  @apply border-b border-gray-400 border-opacity-25;
 }
 
-body {
-  header {
-    @apply border-b border-gray-400 border-opacity-25;
+footer {
+  @apply border-t border-gray-400 border-opacity-25;
+}
+
+.login-container {
+  @apply bg-light-background dark:bg-dark-background;
+}
+
+.comment {
+  &-textarea {
+    @apply text-light-text dark:text-dark-text bg-light-foreground dark:bg-dark-foreground border-gray-400 dark:border-gray-600 border-opacity-25;
   }
 
-  footer {
-    @apply border-t border-gray-400 border-opacity-25;
-  }
+  &-form {
+    .btn {
+      @apply bg-light-background dark:bg-dark-background border-gray-400 border-opacity-25;
 
-  .login-container {
-    @apply bg-light-background dark:bg-dark-background;
-  }
-
-  .comment {
-    &-textarea {
-      @apply text-light-text dark:text-dark-text bg-light-foreground dark:bg-dark-foreground border-gray-400 border-opacity-25;
-    }
-
-    &-form {
-      .btn {
-        @apply bg-light-background dark:bg-dark-background border-gray-400 border-opacity-25;
-
-        &:hover {
-          @apply dark:text-white text-black;
-        }
-      }
-    }
-
-    &-header {
-      .username {
-        @apply text-light-base dark:text-dark-base;
+      &:hover {
+        @apply dark:text-white text-black;
       }
     }
   }
 
-  button {
-    outline: none !important;
-  }
-
-  .dropdown {
-    @apply bg-light-foreground border border-light-background dark:bg-dark-foreground dark:border-dark-background;
-
-    a {
-      @apply text-light-text dark:text-dark-text hover:bg-light-foreground dark:hover:bg-dark-foreground;
+  &-header {
+    .username {
+      @apply text-light-base dark:text-dark-base;
     }
   }
 
-  .feedback-error {
-    @apply bg-light-foreground dark:bg-dark-foreground;
-
-    --color: #621b18;
-    @media (prefers-color-scheme: dark) {
-      --color: #ff473f;
-    }
-    color: var(--color);
+  &-body {
+    @apply text-light-base dark:text-dark-base;
   }
+}
+
+button {
+  outline: none !important;
+}
+
+.dropdown {
+  @apply bg-light-foreground border border-light-background dark:bg-dark-foreground dark:border-dark-background;
+
+  a {
+    @apply text-light-text dark:text-dark-text hover:bg-light-foreground dark:hover:bg-dark-foreground;
+  }
+}
+
+.feedback-error {
+  @apply bg-light-foreground dark:bg-dark-foreground;
+
+  --color: #621b18;
+  @media (prefers-color-scheme: dark) {
+    --color: #ff473f;
+  }
+  color: var(--color);
 }

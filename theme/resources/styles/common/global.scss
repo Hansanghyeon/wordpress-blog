@@ -7,14 +7,8 @@ html {
 }
 
 body {
-  @apply font-sans text-light-text;
+  @apply font-sans text-light-base dark:text-dark-base bg-light-background dark:bg-dark-background;
 
-  @media (prefers-color-scheme: light) {
-    @apply text-gray-900;
-  }
-
-  color: var(--text-primary);
-  background: var(--bg1);
   padding-top: 45px;
   min-height: 100vh;
 
