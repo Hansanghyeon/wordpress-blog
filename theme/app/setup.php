@@ -32,6 +32,10 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('Unicons-monochrome', 'https://unicons.iconscout.com/release-pro/v4.0.0/script/monochrome/bundle.js?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
     wp_enqueue_style('Unicons-solid', 'https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
     wp_enqueue_style('Unicons-thinline', 'https://unicons.iconscout.com/release-pro/v4.0.0/css/thinline.css?key=283fbb00-218c-11ec-92db-0242ac140003', false, null);
+
+    if (is_single() && get_post_type() === 'dev') {
+        wp_enqueue_style('syntaxhighlighter', 'https://hansanghyeon.github.io/highlight.js-custom/class.css', false, null);
+    }
 }, 100);
 
 /**

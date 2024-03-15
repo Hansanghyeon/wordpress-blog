@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply font-sans text-light-primary;
+  @apply font-sans text-light-text;
 
   @media (prefers-color-scheme: light) {
     @apply text-gray-900;

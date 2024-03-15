@@ -1,3 +1,4 @@
+/* eslint-disable no-confusing-arrow */
 /**
  * Compiler configuration
  *
@@ -6,24 +7,48 @@
  *
  * @type {import('@roots/bud').Config}
  */
-export default async (app) => {
+export default async (bud) => {
   /**
    * Application assets & entrypoints
    *
    * @see {@link https://bud.js.org/docs/bud.entry}
    * @see {@link https://bud.js.org/docs/bud.assets}
    */
-  app
+  bud
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('replybox', ['@styles/replybox'])
     .assets(['images', 'fonts'])
+
+  if (bud.isProduction) {
+    /**
+     * @see https://discourse.roots.io/t/compile-singular-scss-without-hashing/25397/2
+     */
+    bud.webpackConfig((config) => {
+      const findPlugin = (plugin) =>
+        plugin.constructor.name === 'MiniCssExtractPlugin'
+
+      const filename = ({ chunk }) => {
+        console.log(chunk.name)
+        return chunk.name === 'replybox'
+          ? 'css/replybox.css'
+          : bud.relPath('css/@name.css')
+      }
+
+      Object.assign(config.plugins.find(findPlugin).options, {
+        filename,
+      })
+
+      return config
+    })
+  }
 
   /**
    * Set public path
    *
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
-  app.setPublicPath('/app/themes/sage/public/')
+  bud.setPublicPath('/app/themes/sage/public/')
 
   /**
    * Development server settings
@@ -32,9 +57,9 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.setProxyUrl}
    * @see {@link https://bud.js.org/docs/bud.watch}
    */
-  app
+  bud
     .setUrl('http://localhost:3000')
-    .setProxyUrl('https://v8.archive.hyeon.pro')
+    .setProxyUrl('https://hyeon.pro')
     .watch(['resources/views', 'app'])
 
   /**
@@ -45,7 +70,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/extensions/sage/theme.json}
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
-  app.wpjson
+  bud.wpjson
     .setSettings({
       color: {
         custom: false,
