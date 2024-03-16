@@ -1,15 +1,15 @@
-<ul class="share">
-  <li class="share-label">
-    <i class="icon-share-1"></i>
+<ul class="flex list-none p-0 mb-0">
+  <li class="mr-[12px] flex items-center">
+    <i class="icon-share-1 pt-[0.2rem]"></i>
   </li>
-  <li class="share-item">
+  <li class="flex items-center w-[32px]">
     <a href="javascript:;" id="share-kakao"
       data-title="{!! $title !!}"
       data-description="{!! $description !!}"
       data-imageUrl="{!! $img !!}"
       data-link="{!! $link !!}"
     >
-    <svg height="512" viewBox="0 0 152 152" width="512"
+    <svg class="w-full h-full" height="512" viewBox="0 0 152 152" width="512"
       xmlns="http://www.w3.org/2000/svg">
       <g id="Layer_2" data-name="Layer 2">
         <g id="_56.kakao-talk" data-name="56.kakao-talk">
