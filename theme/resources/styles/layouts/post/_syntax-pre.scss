@@ -24,6 +24,13 @@ pre.wp-block-code {
   code {
     font-size: 120%;
   }
+
+  > .shcb-language {
+    display: none;
+  }
+  .hljs {
+    @apply bg-[#F5F5F5] dark:bg-[#22272e];
+  }
 }
 
 pre.wp-block-code code {
@@ -51,12 +58,7 @@ pre.wp-block-code code {
 }
 
 :not(span) > code {
-  @apply bg-bombay-500 dark:bg-shuttle-gray-500;
-  @apply bg-opacity-20 dark:bg-opacity-40;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--codeBg);
-  }
+  @apply bg-[#F5F5F5] dark:bg-shuttle-gray-800 rounded-md;
 
   font-family: 'D2Coding', monospace;
   font-size: 80%;
