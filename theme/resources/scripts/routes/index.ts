@@ -1,14 +1,15 @@
 import common from './common'
-import singleDev from './single-dev'
-import singleBlog from './single-blog'
+import single from './single'
 import taxonomy from './taxonomy'
 import singlePortfolio from './single-portfolio'
 
 export default {
   // All pages
   common,
-  singleDev,
-  singleBlog,
+  singleDev: single,
+  singleProductivity: single,
+  singleGadget: single,
+  singleGamer: single,
   singlePortfolio,
   taxDevCategory: taxonomy,
   taxDevTag: taxonomy,

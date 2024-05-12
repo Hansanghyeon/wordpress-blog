@@ -16,7 +16,7 @@
           <li>
             <a href="{{$item->url}}" class="grid">
               @empty(!$icon = get_field('menu_icon', $item->ID))
-                <img class="max-w-[125px] mb-[8px]" src="{{$icon}}" />
+                <img class="max-w-[248px] mb-[8px]" src="{{$icon}}" />
               @endempty
               <div class="justify-self-center">
                 <span class="text-black dark:text-white hover:text-light-text dark:hover:text-gray-300 border-gray-400 border-opacity-[0.125] border-[2px] rounded-[4px] py-[0.25rem] px-[0.5rem] transition-colors duration-300 hover:border-opacity-50 " style="
