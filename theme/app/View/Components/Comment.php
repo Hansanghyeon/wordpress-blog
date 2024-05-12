@@ -18,6 +18,6 @@ class Comment extends Component
         if (get_post_type() === 'dev') {
             return $this->view('components.giscus');
         }
-        // return $this->view('components.comment');
+        return $this->view('components.comment');
     }
 }
