@@ -11,11 +11,13 @@ const darkMode = () => {
       this.value = true
       document.documentElement.classList.add('dark')
       localStorage.setItem('darkMode', 'true')
+      window.REMARK42.changeTheme('dark')
     },
     off() {
       this.value = false
       document.documentElement.classList.remove('dark')
       localStorage.setItem('darkMode', 'false')
+      window.REMARK42.changeTheme('light')
     },
     toggle() {
       this.value = !this.value
