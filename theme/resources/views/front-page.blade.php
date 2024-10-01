@@ -11,7 +11,7 @@
       <div class="content prose-lg">
         <h2 class="mb-4">#부캐</h2>
       </div>
-      <ul class="flex items-center gap-x-[8px]">
+      <ul class="flex items-center flex-wrap gap-[16px]">
         @foreach (wp_get_nav_menu_items(wp_get_nav_menu_object('main')) as $item)
           <li>
             <a href="{{$item->url}}" class="grid">

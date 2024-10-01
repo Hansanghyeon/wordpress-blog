@@ -5,7 +5,7 @@ namespace Honey\WpFn;
 /**
  * WordPress의 post excerpt가 없을 경우, post의 본문 내용을 가져와서 출력
  */
-function get_the_custom_excerpt($length = 999)
+function get_the_custom_excerpt($length = 999, $isProps = false)
 {
     global $post;
     $text = $post->post_excerpt;
@@ -14,6 +14,10 @@ function get_the_custom_excerpt($length = 999)
         $text = strip_shortcodes($text);
         $text = apply_filters('the_content', $text);
         $text = str_replace(']]>', ']]&gt;', $text);
+        if ($isProps) {
+            // "를 &quot;로 변경
+            $text = str_replace('"', '&quot;', $text);
+        }
     }
     $text = strip_tags($text);
     $excerpt_length = $length;

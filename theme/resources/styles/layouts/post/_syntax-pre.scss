@@ -10,7 +10,8 @@ pre.wp-block-code {
   padding: 0;
   border: none;
   color: var(--text0);
-  font-size: 85%;
+  // font-size: 85%;
+  line-height: 1.2;
   border-radius: 0;
 
   + pre {

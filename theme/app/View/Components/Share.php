@@ -39,7 +39,7 @@ class Share extends Component
     public function __construct()
     {
         $this->title = get_the_title();
-        $this->description = get_the_custom_excerpt();
+        $this->description = get_the_custom_excerpt(999, true);
         $this->link = get_the_permalink();
 
         $thumbnail_url = get_the_post_thumbnail_url();

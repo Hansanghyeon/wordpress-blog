@@ -36,9 +36,9 @@
       <div class="justify-self-center">
         {!! $title !!}
       </div>
-      <div class="justify-self-end">
+      {{-- <div class="justify-self-end">
         {!! $filterDate !!}
-      </div>
+      </div> --}}
     </div>
   </div>
   {{-- thumbnail --}}

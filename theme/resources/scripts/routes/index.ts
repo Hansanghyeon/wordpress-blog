@@ -10,6 +10,7 @@ export default {
   singleProductivity: single,
   singleGadget: single,
   singleGamer: single,
+  singleSelfhost: single,
   singlePortfolio,
   taxDevCategory: taxonomy,
   taxDevTag: taxonomy,
